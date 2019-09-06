@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" > 
+<suite name="OLB Test Suite" >
+  <test name="TDB2019_VerifyOnetimeMyTdecuAccountTransfer Test Cases" >
+    <classes>
+       <class name="com.TestCases.TDB2019_VerifyOnetimeMyTdecuAccountTransfer"/> 
+    </classes>
+</test>
+ <test name="TDB2020_VerifyDailyMyTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2020_VerifyDailyMyTdecuAccountTransfer"/>
+        </classes>
+</test>
+
+<test name="TDB2021_VerifyWeeklyMyTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2021_VerifyWeeklyMyTdecuAccountTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2022_VerifyEveryTwoWeekMyTdecuTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2022_VerifyEveryTwoWeekMyTdecuTransfer"/> 
+        </classes>
+</test>
+
+<test name="TDB2023_VerifyMonthlyMyTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2023_VerifyMonthlyMyTdecuAccountTransfer"/> 
+        </classes>
+</test>
+
+<test name="TDB2024_VerifyQuarterlyMyTdecuTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2024_VerifyQuarterlyMyTdecuTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2025_VerifyEverySixMonthMyTdecuTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2025_VerifyEverySixMonthMyTdecuTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2026_VerifyYearlyMyTdecuTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2026_VerifyYearlyMyTdecuTransfer"/> 
+        </classes>
+</test>
+
+<test name="TDB1089_VerifyMinimumMaximumAmountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB1089_VerifyMinimumMaximumAmountTransfer"/> 
+        </classes>
+</test>
+<test name="TDB1138_VerifyLogout Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB1138_VerifyLogout"/> 
+        </classes>
+        </test>
+        
+<test name="TDB2603_VerifyOnetimeOtherTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2603_VerifyOnetimeOtherTdecuAccountTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2602_VerifyDailyOtherTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2602_VerifyDailyOtherTdecuAccountTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2604_VerifyWeeklyOtherTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2604_VerifyWeeklyOtherTdecuAccountTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2605_VerifyEveryTwoWeekOtherTdecuTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2605_VerifyEveryTwoWeekOtherTdecuTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2606_VerifyMonthlyOtherTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2606_VerifyMonthlyOtherTdecuAccountTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2607_VerifyQuarterlyOtherTdecuTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2607_VerifyQuarterlyOtherTdecuTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2608_VerifyEverySixMonthOtherTdecuTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2608_VerifyEverySixMonthOtherTdecuTransfer"/> 
+        </classes>
+</test>
+<test name="TDB2609_VerifyYearlyOtherTdecuTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2609_VerifyYearlyOtherTdecuTransfer"/> 
+        </classes>
+</test>
+<test name="TDB1235_VerifyAccountNickname Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB1235_VerifyAccountNickname"/> 
+        </classes>
+</test>
+
+ <test name="TDB2056_Verify45DaysMyTdecuTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB2056_Verify45DaysMyTdecuTransfer"/> 
+        </classes>
+</test>
+
+
+ <test name="TDB1363_VerifyAccountNicknameEdit Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB1363_VerifyAccountNicknameEdit"/> 
+        </classes>
+</test>
+
+ <test name="TDB1953_VerifyEnablingEDocuments Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB1953_VerifyEnablingEDocuments"/> 
+        </classes>
+</test>
+ <test name="TDB1979_VerifyDisablingEDocuments Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.TDB1979_VerifyDisablingEDocuments"/> 
+        </classes>
+</test>
+<test name="TDB6_VerifyloginWithValidUsernameAndPassword" >
+    <classes>
+       <class name="com.TestCases.TDB6_VerifyloginWithValidUsernameAndPassword"/> 
+    </classes>
+</test>
+
+<test name="TDB9_VerifyLoginPageValidationError" >
+    <classes>
+       <class name="com.TestCases.TDB9_VerifyLoginPageValidationError"/> 
+    </classes>
+
+</test>
+
+<test name="TDB1732_VerifyNoAccountsMessage" >
+    <classes>
+       <class name="com.TestCases.TDB1732_VerifyNoAccountsMessage"/> 
+    </classes>
+
+</test>
+<test name="TDB1236_VerifyAccountNumberLastFiveDigit" >
+    <classes>
+       <class name="com.TestCases.TDB1236_VerifyAccountNumberLastFiveDigit"/> 
+    </classes>
+
+</test>
+<test name="TDB359_VerifyNonAccrualAccount" >
+    <classes>
+       <class name="com.TestCases.TDB359_VerifyNonAccrualAccount"/> 
+    </classes>
+
+</test>
+<test name="TDB362_VerifyDormantAccount" >
+    <classes>
+       <class name="com.TestCases.TDB362_VerifyDormantAccount"/> 
+    </classes>
+
+</test>
+<test name="TDB2624_VerifyViewTransferActivity" >
+    <classes>
+       <class name="com.TestCases.TDB2624_VerifyViewTransferActivity"/> 
+    </classes>
+
+</test>
+<test name="TDB1255_VerifyAccountInformation" >
+    <classes>
+       <class name="com.TestCases.TDB1255_VerifyAccountInformation"/> 
+    </classes>
+
+</test>
+<test name="TDB882_VerifyProfileSettings" >
+    <classes>
+       <class name="com.TestCases.TDB882_VerifyProfileSettings"/> 
+    </classes>
+
+</test>
+
+<test name="TDB2642_SearchMessage" >
+    <classes>
+       <class name="com.TestCases.TDB2642_SearchMessage"/> 
+    </classes>
+
+</test>
+<test name="TDB2641_DeleteMessage" >
+    <classes>
+       <class name="com.TestCases.TDB2641_DeleteMessage"/> 
+    </classes>
+
+</test>
+
+<test name="TDB2639_CreateNewMessage" >
+    <classes>
+       <class name="com.TestCases.TDB2639_CreateNewMessage"/> 
+    </classes>
+
+</test>
+
+<test name="TDB1256_VerifyCreditCardInformation" >
+    <classes>
+       <class name="com.TestCases.TDB1256_VerifyCreditCardInformation"/> 
+    </classes>
+
+</test>
+<test name="TDB2053_VerifyFromAccountKeywordSearchs" >
+    <classes>
+       <class name="com.TestCases.TDB2053_VerifyFromAccountKeywordSearch"/> 
+    </classes>
+
+</test>
+
+<test name="TDB2054_VerifyToAccountKeywordSearch" >
+    <classes>
+       <class name="com.TestCases.TDB2054_VerifyToAccountKeywordSearch"/> 
+    </classes>
+
+</test>
+
+</suite>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="110864" started-at="2019-07-08T13:40:31Z" finished-at="2019-07-08T13:42:22Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="110864" started-at="2019-07-08T13:40:31Z" finished-at="2019-07-08T13:42:22Z">
+      <class name="com.TestCases.C23682_VerifyHelpMenuOption">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.TestCases.C23682_VerifyHelpMenuOption@438a68]" name="setUp" is-config="true" duration-ms="78509" started-at="2019-07-08T13:40:31Z" finished-at="2019-07-08T13:41:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="C23682_VerifyHelpMenuOption()[pri:0, instance:com.TestCases.C23682_VerifyHelpMenuOption@438a68]" name="C23682_VerifyHelpMenuOption" duration-ms="30220" started-at="2019-07-08T13:41:49Z" finished-at="2019-07-08T13:42:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- C23682_VerifyHelpMenuOption -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.TestCases.C23682_VerifyHelpMenuOption@438a68]" name="afterMethod" is-config="true" duration-ms="6" started-at="2019-07-08T13:42:20Z" finished-at="2019-07-08T13:42:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=C23682_VerifyHelpMenuOption status=SUCCESS method=C23682_VerifyHelpMenuOption.C23682_VerifyHelpMenuOption()[pri:0, instance:com.TestCases.C23682_VerifyHelpMenuOption@438a68] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.TestCases.C23682_VerifyHelpMenuOption@438a68]" name="tearDown" is-config="true" duration-ms="2073" started-at="2019-07-08T13:42:20Z" finished-at="2019-07-08T13:42:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.TestCases.C23682_VerifyHelpMenuOption -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

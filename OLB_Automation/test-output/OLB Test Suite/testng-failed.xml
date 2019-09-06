@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [OLB Test Suite]">
+  <test thread-count="5" name="TDB1979_VerifyDisablingEDocuments(failed)">
+    <classes>
+      <class name="com.TestCases.TDB1979_VerifyDisablingEDocuments">
+        <methods>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="TDB1979_VerifyDisablingEDocuments"/>
+        </methods>
+      </class> <!-- com.TestCases.TDB1979_VerifyDisablingEDocuments -->
+    </classes>
+  </test> <!-- TDB1979_VerifyDisablingEDocuments(failed) -->
+  <test thread-count="5" name="TDB1953_VerifyEnablingEDocuments(failed)">
+    <classes>
+      <class name="com.TestCases.TDB1953_VerifyEnablingEDocuments">
+        <methods>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="TDB1953_VerifyEnablingEDocuments"/>
+        </methods>
+      </class> <!-- com.TestCases.TDB1953_VerifyEnablingEDocuments -->
+    </classes>
+  </test> <!-- TDB1953_VerifyEnablingEDocuments(failed) -->
+  <test thread-count="5" name="TDB2624_VerifyViewTransferActivity(failed)">
+    <classes>
+      <class name="com.TestCases.TDB2624_VerifyViewTransferActivity">
+        <methods>
+          <include name="tearDown"/>
+          <include name="TDB2624_VerifyViewTransferActivity"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- com.TestCases.TDB2624_VerifyViewTransferActivity -->
+    </classes>
+  </test> <!-- TDB2624_VerifyViewTransferActivity(failed) -->
+</suite> <!-- Failed suite [OLB Test Suite] -->

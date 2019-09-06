@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [OLB Test Suite]">
+  <test thread-count="5" name="C23624_VerifyColumnsSortingOnActivityCenter Test Cases(failed)">
+    <classes>
+      <class name="com.testcases.C23624_VerifyColumnsSortingOnActivityCenter">
+        <methods>
+          <include name="C23624_VerifyColumnsSortingOnActivityCenter"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.testcases.C23624_VerifyColumnsSortingOnActivityCenter -->
+    </classes>
+  </test> <!-- C23624_VerifyColumnsSortingOnActivityCenter Test Cases(failed) -->
+</suite> <!-- Failed suite [OLB Test Suite] -->

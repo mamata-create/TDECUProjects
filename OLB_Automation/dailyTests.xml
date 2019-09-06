@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" > 
+<suite name="OLB Test Suite" >
+
+ <test name="TDB2019_VerifyOnetimeMyTdecuAccountTransfer" >
+    <classes>
+       <class name="com.TestCases.TDB2019_VerifyOnetimeMyTdecuAccountTransfer"/> 
+    </classes>
+    </test>
+    
+   <test name="TDB2424_VerifySourceOptionsAddFundingAccount" >
+    <classes>
+       <class name="com.TestCases.TDB2424_VerifySourceOptionsAddFundingAccount"/> 
+    </classes>
+    </test>  
+    
+     <test name="TDB882_VerifyProfileSettings" >
+    <classes>
+       <class name="com.TestCases.TDB882_VerifyProfileSettings"/> 
+    </classes>
+    </test> 
+    
+    <test name="TDB1249_VerifyAccountDetails" >
+    <classes>
+       <class name="com.TestCases.TDB1249_VerifyAccountDetails"/> 
+    </classes>
+    </test> 
+    
+   
+     
+        <test name="TDB1979_VerifyDisablingEDocuments" >
+    <classes>
+       <class name="com.TestCases.TDB1979_VerifyDisablingEDocuments"/> 
+    </classes>
+    </test>
+    <test name="TDB1953_VerifyEnablingEDocuments" >
+    <classes>
+       <class name="com.TestCases.TDB1953_VerifyEnablingEDocuments"/> 
+    </classes>
+    </test> 
+    
+     <test name="TDB2639_CreateNewMessage" >
+    <classes>
+       <class name="com.TestCases.TDB2639_CreateNewMessage"/> 
+    </classes>
+    </test> 
+    
+     <test name="TDB716_VerifyCurrentLocation" >
+    <classes>
+       <class name="com.TestCases.TDB716_VerifyCurrentLocation"/> 
+    </classes>
+    </test> 
+    
+      
+  <test name="TDB2624_VerifyViewTransferActivity" >
+    <classes>
+       <class name="com.TestCases.TDB2624_VerifyViewTransferActivity"/> 
+    </classes>
+</test>
+
+
+  <test name="TDB1257_VerifyRoutingNumberForAccount" >
+    <classes>
+       <class name="com.TestCases.TDB1257_VerifyRoutingNumberForAccount"/> 
+    </classes>
+</test>
+
+</suite>
