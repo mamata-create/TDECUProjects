@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" > 
+<suite name="Mobile Test Suite" >
+
+ <test name="TDB1054_VerifyNonAccuralAccountStatus" >
+    <classes>
+       <class name="com.TestCases.TDB1054_VerifyNonAccuralAccountStatus"/> 
+    </classes>
+   </test>
+    
+   <test name="TDB2255_VerifyDailyMyTdecuAccountTransfer" >
+    <classes>
+       <class name="com.TestCases.TDB2255_VerifyDailyMyTdecuAccountTransfer"/> 
+    </classes>
+    </test>
+    
+    </suite>   
+ 

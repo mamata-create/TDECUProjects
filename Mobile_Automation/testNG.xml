@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" > 
+<suite name="OLB Test Suite" >
+  <test name="VerifyMinimumAmountTransfer Test Cases" >
+    <classes>
+       <class name="com.TestCases.VerifyMinimumAmountTransfer"/> 
+    </classes>
+</test>
+
+ <test name="VerifyOnetimeMyTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.VerifyOnetimeMyTdecuAccountTransfer"/>
+        </classes>
+</test>
+
+ <test name="VerifyDailyMyTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.VerifyDailyMyTdecuAccountTransfer"/> 
+        </classes>
+</test>
+
+<test name="VerifyWeeklyMyTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.VerifyWeeklyMyTdecuAccountTransfer"/> 
+        </classes>
+</test>
+
+<test name="VerifyMonthlyMyTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.VerifyMonthlyMyTdecuAccountTransfer"/> 
+        </classes>
+</test>
+
+<test name="VerifyNoAccountsMessageOtherTdecuAccount Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.VerifyNoAccountsMessage"/> 
+        </classes>
+</test>
+<test name="VerifyOneTimeOtherTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.VerifyOnetimeOtherTdecuAccountTransfer"/> 
+        </classes>
+</test>
+<test name="VerifyDailyOtherTdecuAccountTransfer Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.VerifyDailyOtherTdecuAccountTransfer"/> 
+        </classes>
+</test>
+<test name="VerifyEnablingEDocuments Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.VerifyEnablingEDocuments"/> 
+        </classes>
+</test>
+<test name="VerifyDisablingEDocuments Test Cases" >
+  <classes>
+       
+       <class name="com.TestCases.VerifyDisablingEDocuments"/> 
+        </classes>
+</test>
+
+
+
+</suite>

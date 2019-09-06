@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Mobile Test Suite]">
+  <test thread-count="5" name="TDB2255_VerifyDailyMyTdecuAccountTransfer(failed)">
+    <classes>
+      <class name="com.TestCases.TDB2255_VerifyDailyMyTdecuAccountTransfer">
+        <methods>
+          <include name="TDB2255_VerifyDailyMyTdecuAccountTransfer"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- com.TestCases.TDB2255_VerifyDailyMyTdecuAccountTransfer -->
+    </classes>
+  </test> <!-- TDB2255_VerifyDailyMyTdecuAccountTransfer(failed) -->
+</suite> <!-- Failed suite [Mobile Test Suite] -->
