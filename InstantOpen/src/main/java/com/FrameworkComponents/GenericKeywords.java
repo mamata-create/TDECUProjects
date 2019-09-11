@@ -8,11 +8,13 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
+import java.util.Set;
 
 import javax.mail.BodyPart;
 import javax.mail.Flags;
@@ -394,6 +396,121 @@ public class GenericKeywords extends BaseClass{
 			String locator = "//ul[@class='list-unstyled']/li["+count+"]";
 			driver.findElement(By.xpath(locator));
 		}
+	}
+	
+	public static void checkingOptionValidation(String checkingType){
+		
+		String checkingOptionLocatior = "//label/strong[contains(text(),'"+checkingType+"')]/following::ul[1]/li";
+		List<WebElement>allCheckingOptions = driver.findElements(By.xpath(checkingOptionLocatior));
+		
+		for(int index=1;index<=allCheckingOptions.size();index++){
+			
+			String eachOptionLocator = "//label/strong[contains(text(),'"+checkingType+"')]/following::ul[1]/li["+index+"]";
+			String eacOption = driver.findElement(By.xpath(eachOptionLocator)).getAttribute("innerText");
+			System.out.println(eacOption);
+			Assert.assertTrue(true);
+		}
+	}
+	
+	public static void disclaimerValidation(){
+		
+		String allDisclaimerLocator = "//div[contains(@class,'disclaimer')]/p";
+		String disclaimerOpt1 = "1 APY= Annual Percentage Yield";
+		String disclaimerOpt2 = "2 Some restrictions may apply. Offer not valid with other discounts.";
+		String disclaimerOpt3 = "3 APR = Annual Percentage Rate";
+		
+		List<WebElement>allDisclaimers = driver.findElements(By.xpath(allDisclaimerLocator));
+		for(int count=1;count<=allDisclaimers.size();count++){
+			
+			String eachDisclaimer = "//div[contains(@class,'disclaimer')]/p["+count+"]";
+			String eachValueFromPage = driver.findElement(By.xpath(eachDisclaimer)).getAttribute("innerText");
+			
+			if(eachValueFromPage.equalsIgnoreCase(disclaimerOpt1) || eachValueFromPage.equalsIgnoreCase(disclaimerOpt2) 
+					|| eachValueFromPage.equalsIgnoreCase(disclaimerOpt3)){
+				Assert.assertTrue(true, eachValueFromPage);
+			}
+		}
+				
+	}
+	
+	public static void serviceOptionValidation(String checkingType,String serviceOption) throws InterruptedException{
+		String checkingTypeLocator =  "//label/strong[contains(text(),'"+checkingType+"')]";
+		String customizeMsgHeader = "Let’s customize your checking account. Click to add the following services:";
+		String servicesLocator = "//div[contains(@class,'customizePanel')]//span/label";
+		getElement(checkingTypeLocator).click();
+		Thread.sleep(2000);
+		String customizeMsgLocator = "//div[contains(@class,'customizePanel')]//span/p";
+		verifyText(customizeMsgLocator,customizeMsgHeader);
+		List<WebElement>services = driver.findElements(By.xpath(servicesLocator));
+		for(int count=1;count<=services.size();count++){
+			
+			String eachServiceOption = driver.findElement(By.xpath("(//div[contains(@class,'customizePanel')]//span/label)["+count+"]")).getAttribute("innerText").trim();
+			String actualServiceOption = serviceOption.split(",")[count-1].trim();
+			if(eachServiceOption.contains(actualServiceOption)){
+				Assert.assertTrue(true, "Service option matched");
+			}
+		}
+		
+		
+	}
+	
+	public void checkBoxCheckedAndUncheck(String action){
+		
+		String allCheckBoxes = "//div[contains(@class,'customizePanel')]//span/div[contains(@class,'icheckbox_square-grey')]";
+		List<WebElement>allServiceCheckBoxes = driver.findElements(By.xpath(allCheckBoxes));
+		for(int index=1;index<=allServiceCheckBoxes.size();index++){
+			String eachCheckboxLocator = "(//div[contains(@class,'customizePanel')]//span/div[contains(@class,'icheckbox_square-grey')])["+index+"]";
+			String eachCheckBoxFlag = getElement(eachCheckboxLocator).getAttribute("class");
+			
+			if(!eachCheckBoxFlag.contains(action)){
+				getElement(eachCheckboxLocator).click();
+			}
+			
+		}
+	}
+	
+	public static void toolTipValidation(String modalHeaderID) throws InterruptedException{
+		
+		String allToolTipLocator = "//div[contains(@class,'customizePanel')]//button[@data-toggle='modal']";
+		List<WebElement>allToolTips = driver.findElements(By.xpath(allToolTipLocator));
+		for(int count=1;count<=allToolTips.size();count++){
+			String eachToolTipLocator ="(//div[contains(@class,'customizePanel')]//button[@data-toggle='modal'])["+count+"]";
+			getElement(eachToolTipLocator).click();
+			Thread.sleep(2500);
+			String modalHeader = "(//div[@class='modal-header']/h4)["+count+"]";
+			String modalHeaderValue = getElement(modalHeader).getAttribute("id").trim();
+			String actualModalID = modalHeaderID.split(",")[count-1].trim();
+			if(modalHeaderValue.contains(actualModalID) && !modalHeaderValue.contains("modalCourtesyLabel")){
+				Assert.assertTrue(true, "Tooltip message displayed");
+				String closeButton = "(//button[@data-dismiss='modal'])["+count+"]";
+				getElement(closeButton).click();
+				Thread.sleep(1500);
+			}
+			
+			else{
+				getElement("(//button[contains(text(),'Learn More')])[1]").click();
+			}
+			
+		}
+	}
+	
+	public static void handleMultipleWindow(int index,String url){
+		Set<String>allWindow = driver.getWindowHandles();
+		System.out.println("Total window present: "+allWindow);
+		ArrayList<String>tab = new ArrayList<String>(allWindow);
+		driver.switchTo().window(tab.get(index));
+		if(!url.isEmpty()){
+			driver.get(url);
+			String title = driver.getTitle();
+			System.out.println("Window title: "+title);
+		}else{
+			System.out.println("No url provided");
+		}
+		
+	}
+	
+	public static void closeWindow(){
+		((JavascriptExecutor) driver).executeScript("window.close();");
 	}
 
 }

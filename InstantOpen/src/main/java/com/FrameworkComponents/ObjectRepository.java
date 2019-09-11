@@ -151,4 +151,12 @@ public class ObjectRepository {
 	public static String stppaymnt_notetxt="//div[@test-id='tbxDesc']/input";
 	public static String stppaymnt_setbtn="//div[@test-id='btnSet']";
 	
+	//My Account information Verification
+	
+	public static String inforMsgHeader = "(//span[@id='pnlNewMemberMessage']//following::div[@class='col-sm'])[1]/h3";
+	public static String inforMsgContent = "(//span[@id='pnlNewMemberMessage']//following::div[@class='col-sm'])[1]/p";
+	public static String checkingAccountOptionHeader = "(//span[@id='pnlNewMemberMessage']//following::div[@class='col-sm'])[2]/h4";
+	public static String dontWantCheckingOption = "//label/strong[contains(text(),'I don’t want to open a checking account today.')]";
+	public static String bottomInfoMsg = "//h4[contains(text(),'looking for loans')]";
+	public static String primaryApplicantInfoPageTitle ="//*/strong[contains(text(),'Primary Applicant Information')]";
 }
