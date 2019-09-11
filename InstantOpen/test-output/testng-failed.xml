@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24086_VerifyPrimaryApplicantPage">
+      <class name="com.testcases.C23836_VerifyCheckingOptionsListedTopOfAccountSelection">
         <methods>
-          <include name="C24086_VerifyPrimaryApplicantPage"/>
-          <include name="tearDown"/>
+          <include name="C23836_VerifyCheckingOptionsListedTopOfAccountSelection"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.testcases.C24086_VerifyPrimaryApplicantPage -->
+      </class> <!-- com.testcases.C23836_VerifyCheckingOptionsListedTopOfAccountSelection -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

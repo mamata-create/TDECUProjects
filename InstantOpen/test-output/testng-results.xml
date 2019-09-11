@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="93331" started-at="2019-09-04T17:21:01Z" finished-at="2019-09-04T17:22:34Z">
+  <suite name="Default suite" duration-ms="20588" started-at="2019-09-10T14:51:28Z" finished-at="2019-09-10T14:51:49Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="93331" started-at="2019-09-04T17:21:01Z" finished-at="2019-09-04T17:22:34Z">
-      <class name="com.testcases.C24086_VerifyPrimaryApplicantPage">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24086_VerifyPrimaryApplicantPage@1686d1f]" name="setUp" is-config="true" duration-ms="11681" started-at="2019-09-04T17:21:01Z" finished-at="2019-09-04T17:21:13Z">
+    <test name="Default test" duration-ms="20588" started-at="2019-09-10T14:51:28Z" finished-at="2019-09-10T14:51:49Z">
+      <class name="com.testcases.C23835_VerifyInformationAboutAccountandProductSelection">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f]" name="setUp" is-config="true" duration-ms="11208" started-at="2019-09-10T14:51:28Z" finished-at="2019-09-10T14:51:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24086_VerifyPrimaryApplicantPage()[pri:0, instance:com.testcases.C24086_VerifyPrimaryApplicantPage@1686d1f]" name="C24086_VerifyPrimaryApplicantPage" duration-ms="80531" started-at="2019-09-04T17:21:13Z" finished-at="2019-09-04T17:22:33Z">
+        <test-method status="PASS" signature="C23835_VerifyInformationAboutAccountandProductSelection()[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f]" name="C23835_VerifyInformationAboutAccountandProductSelection" duration-ms="7694" started-at="2019-09-10T14:51:40Z" finished-at="2019-09-10T14:51:47Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24086_VerifyPrimaryApplicantPage -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24086_VerifyPrimaryApplicantPage@1686d1f]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-09-04T17:22:33Z" finished-at="2019-09-04T17:22:33Z">
+        </test-method> <!-- C23835_VerifyInformationAboutAccountandProductSelection -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-09-10T14:51:47Z" finished-at="2019-09-10T14:51:47Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C24086_VerifyPrimaryApplicantPage status=SUCCESS method=C24086_VerifyPrimaryApplicantPage.C24086_VerifyPrimaryApplicantPage()[pri:0, instance:com.testcases.C24086_VerifyPrimaryApplicantPage@1686d1f] output={null}]]]>
+                <![CDATA[[TestResult name=C23835_VerifyInformationAboutAccountandProductSelection status=SUCCESS method=C23835_VerifyInformationAboutAccountandProductSelection.C23835_VerifyInformationAboutAccountandProductSelection()[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24086_VerifyPrimaryApplicantPage@1686d1f]" name="tearDown" is-config="true" duration-ms="1097" started-at="2019-09-04T17:22:33Z" finished-at="2019-09-04T17:22:34Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f]" name="tearDown" is-config="true" duration-ms="1654" started-at="2019-09-10T14:51:47Z" finished-at="2019-09-10T14:51:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.testcases.C24086_VerifyPrimaryApplicantPage -->
+      </class> <!-- com.testcases.C23835_VerifyInformationAboutAccountandProductSelection -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
