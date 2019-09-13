@@ -420,8 +420,8 @@ public class GenericKeywords extends BaseClass{
 	
 	public static void verifyCheckBoxesOfMemberAccount(){
 		List<WebElement>allCheckBoxes = driver.findElements(By.xpath("//div[@class='list-group']//following::div[@class=' faux-checkbox recessed iconic']"));
-		for(int count=0;count<allCheckBoxes.size();count++){
-			String eachCheckBox ="(//div[@class='list-group']//following::div[@class=' faux-checkbox recessed iconic'])["+count+"])";
+		for(int count=1;count<allCheckBoxes.size();count++){
+			String eachCheckBox ="(//div[@class='list-group']//following::div[@class=' faux-checkbox recessed iconic'])["+count+"]";
 			verifyElementPresent(eachCheckBox);
 		}
 		System.out.println("Total "+allCheckBoxes.size()+"CheckBoxes are present");

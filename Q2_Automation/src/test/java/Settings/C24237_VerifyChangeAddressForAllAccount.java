@@ -110,11 +110,18 @@ public class C24237_VerifyChangeAddressForAllAccount extends GenericKeywords {
 					
 					getElement(ObjectRepository.selectAllButton).click();
 					Thread.sleep(1500);
-					String addressFieldLocator = "//label[contains(text(),'"+fieldName+"')]/following::input[1]";
+					String firstFieldName = fieldName.split(";")[0].trim();
+					String addressFieldLocator = "//input[@placeholder='"+firstFieldName+"']";
 					getElement(addressFieldLocator).click();
 					getElement(addressFieldLocator).clear();
 					getElement(addressFieldLocator).sendKeys(modifiedValue);
-					test.log(Status.INFO, "New Value entered in the filed");
+					test.log(Status.INFO, "New Value entered in First filed");
+					String secondFieldName = fieldName.split(";")[1].trim();
+					addressFieldLocator = "//input[@placeholder='"+secondFieldName+"']";
+					getElement(addressFieldLocator).click();
+					getElement(addressFieldLocator).clear();
+					getElement(addressFieldLocator).sendKeys(modifiedValue);
+					test.log(Status.INFO, "New Value entered in Second filed");
 					
 					if(getElement(ObjectRepository.addressChangeSubmit).isEnabled()){
 					getElement(ObjectRepository.addressChangeSubmit).click();
@@ -126,7 +133,7 @@ public class C24237_VerifyChangeAddressForAllAccount extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.modalTitle);
 					Thread.sleep(1500);
 					getElement(ObjectRepository.closeButton).click();
-					
+					driver.navigate().refresh();
 					//Calling same steps second time
 					
 					getElement(ObjectRepository.stng_menu).click();
@@ -146,11 +153,18 @@ public class C24237_VerifyChangeAddressForAllAccount extends GenericKeywords {
 					
 					getElement(ObjectRepository.selectAllButton).click();
 					Thread.sleep(1500);
-					String addressFieldLocator1 = "//label[contains(text(),'"+fieldName+"')]/following::input[1]";
-					getElement(addressFieldLocator1).click();
-					getElement(addressFieldLocator1).clear();
-					getElement(addressFieldLocator1).sendKeys(modifiedValue);
-					test.log(Status.INFO, "New Vakue entered in the filed");
+					 firstFieldName = fieldName.split(";")[0].trim();
+					 addressFieldLocator = "//input[@placeholder='"+firstFieldName+"']";
+					getElement(addressFieldLocator).click();
+					getElement(addressFieldLocator).clear();
+					getElement(addressFieldLocator).sendKeys(modifiedValue);
+					test.log(Status.INFO, "New Value entered in First filed");
+					secondFieldName = fieldName.split(";")[1].trim();
+					addressFieldLocator = "//input[@placeholder='"+secondFieldName+"']";
+					getElement(addressFieldLocator).click();
+					getElement(addressFieldLocator).clear();
+					getElement(addressFieldLocator).sendKeys(modifiedValue);
+					test.log(Status.INFO, "New Value entered in Second filed");
 					
 					if(getElement(ObjectRepository.addressChangeSubmit).isEnabled()){
 					getElement(ObjectRepository.addressChangeSubmit).click();

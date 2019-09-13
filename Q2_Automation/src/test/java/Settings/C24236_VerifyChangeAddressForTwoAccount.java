@@ -109,8 +109,10 @@ public class C24236_VerifyChangeAddressForTwoAccount extends GenericKeywords {
 					verifyCheckBoxesOfMemberAccount();
 					test.log(Status.INFO, "All checkboxes of Member account is verified");
 					
-					String accountNameSelector = "//div[@class='list-group']//preceding::label[contains(text(),'"+accountName1+"')]//../../div[1]";
-					getElement(accountNameSelector).click();
+					String accountNameSelector1 = "//div[@class='list-group']//preceding::label[contains(text(),'"+accountName1+"')]//../../div[1]";
+					getElement(accountNameSelector1).click();
+					String accountNameSelector2 = "//div[@class='list-group']//preceding::label[contains(text(),'"+accountName2+"')]//../../div[1]";
+					getElement(accountNameSelector2).click();
 					Thread.sleep(2000);
 					
 					String accountNameSelectorAttribute_First = "//label[contains(text(),'"+accountName1+"')]/preceding::div[1]";
@@ -118,8 +120,8 @@ public class C24236_VerifyChangeAddressForTwoAccount extends GenericKeywords {
 					String getaccountNameSelectorAttribute_first = getElement(accountNameSelectorAttribute_First).getAttribute("class");
 					String getaccountNameSelectorAttribute_second = getElement(accountNameSelectorAttribute_Second).getAttribute("class");
 					
-					getElement(accountNameSelectorAttribute_First).click();
-					getElement(accountNameSelectorAttribute_Second).click();
+					//getElement(accountNameSelectorAttribute_First).click();
+				//	getElement(accountNameSelectorAttribute_Second).click();
 					Thread.sleep(2000);
 					
 					if(getaccountNameSelectorAttribute_first.contains("checked") && getaccountNameSelectorAttribute_second.contains("checked")){
@@ -129,7 +131,7 @@ public class C24236_VerifyChangeAddressForTwoAccount extends GenericKeywords {
 						Assert.assertTrue(false);
 					}
 					
-					String addressFieldLocator = "//label[contains(text(),'"+fieldName+"')]/following::input[1]";
+					String addressFieldLocator = "//input[@placeholder='"+fieldName+"']";
 					getElement(addressFieldLocator).click();
 					getElement(addressFieldLocator).clear();
 					getElement(addressFieldLocator).sendKeys(modifiedValue);
@@ -145,7 +147,7 @@ public class C24236_VerifyChangeAddressForTwoAccount extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.modalTitle);
 					Thread.sleep(1500);
 					getElement(ObjectRepository.closeButton).click();
-					
+					driver.navigate().refresh();
 					//Call steps again
 					
 					getElement(ObjectRepository.stng_menu).click();
@@ -163,30 +165,32 @@ public class C24236_VerifyChangeAddressForTwoAccount extends GenericKeywords {
 					verifyCheckBoxesOfMemberAccount();
 					test.log(Status.INFO, "All checkboxes of Member account is verified");
 					
-					String accountNameSelector1 = "//div[@class='list-group']//preceding::label[contains(text(),'"+accountName1+"')]//../../div[1]";
+					accountNameSelector1 = "//div[@class='list-group']//preceding::label[contains(text(),'"+accountName1+"')]//../../div[1]";
 					getElement(accountNameSelector1).click();
+					accountNameSelector2 = "//div[@class='list-group']//preceding::label[contains(text(),'"+accountName2+"')]//../../div[1]";
+					getElement(accountNameSelector2).click();
 					Thread.sleep(2000);
 					
-					String accountNameSelectorAttribute_First1 = "//label[contains(text(),'"+accountName1+"')]/preceding::div[1]";
-					String accountNameSelectorAttribute_Second1 = "//label[contains(text(),'"+accountName2+"')]/preceding::div[1]";
-					String getaccountNameSelectorAttribute_first1 = getElement(accountNameSelectorAttribute_First).getAttribute("class");
-					String getaccountNameSelectorAttribute_second1 = getElement(accountNameSelectorAttribute_Second).getAttribute("class");
+					accountNameSelectorAttribute_First = "//label[contains(text(),'"+accountName1+"')]/preceding::div[1]";
+					accountNameSelectorAttribute_Second = "//label[contains(text(),'"+accountName2+"')]/preceding::div[1]";
+					getaccountNameSelectorAttribute_first = getElement(accountNameSelectorAttribute_First).getAttribute("class");
+					getaccountNameSelectorAttribute_second = getElement(accountNameSelectorAttribute_Second).getAttribute("class");
 					
-					getElement(accountNameSelectorAttribute_First1).click();
-					getElement(accountNameSelectorAttribute_Second1).click();
+					//getElement(accountNameSelectorAttribute_First).click();
+				//	getElement(accountNameSelectorAttribute_Second).click();
 					Thread.sleep(2000);
 					
-					if(getaccountNameSelectorAttribute_first1.contains("checked") && getaccountNameSelectorAttribute_second1.contains("checked")){
+					if(getaccountNameSelectorAttribute_first.contains("checked") && getaccountNameSelectorAttribute_second.contains("checked")){
 						test.log(Status.INFO, "Cehckbox against address is checked");
 						Assert.assertTrue(true);
 					}else{
 						Assert.assertTrue(false);
 					}
 					
-					String addressFieldLocator1 = "//label[contains(text(),'"+fieldName+"')]/following::input[1]";
-					getElement(addressFieldLocator1).click();
-					getElement(addressFieldLocator1).clear();
-					getElement(addressFieldLocator1).sendKeys(modifiedValue);
+					addressFieldLocator = "//input[@placeholder='"+fieldName+"']";
+					getElement(addressFieldLocator).click();
+					getElement(addressFieldLocator).clear();
+					getElement(addressFieldLocator).sendKeys(modifiedValue);
 					test.log(Status.INFO, "New Vakue entered in the filed");
 					
 					if(getElement(ObjectRepository.addressChangeSubmit).isEnabled()){

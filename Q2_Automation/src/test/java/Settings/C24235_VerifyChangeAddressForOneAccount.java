@@ -115,7 +115,7 @@ public class C24235_VerifyChangeAddressForOneAccount extends GenericKeywords {
 					String accountNameSelectorAttribute = "//label[contains(text(),'"+accountName+"')]/preceding::div[1]";
 					String getaccountNameSelectorAttribute = getElement(accountNameSelectorAttribute).getAttribute("class");
 					
-					getElement(accountNameSelectorAttribute).click();
+				
 					Thread.sleep(2000);
 					if(getaccountNameSelectorAttribute.contains("checked")){
 						test.log(Status.INFO, "Cehckbox against address is checked");
@@ -124,7 +124,7 @@ public class C24235_VerifyChangeAddressForOneAccount extends GenericKeywords {
 						Assert.assertTrue(false);
 					}
 					
-					String addressFieldLocator = "//label[contains(text(),'"+fieldName+"')]/following::input[1]";
+					String addressFieldLocator = "//input[@placeholder='"+fieldName+"']";
 					getElement(addressFieldLocator).click();
 					getElement(addressFieldLocator).clear();
 					getElement(addressFieldLocator).sendKeys(modifiedValue);
@@ -142,7 +142,7 @@ public class C24235_VerifyChangeAddressForOneAccount extends GenericKeywords {
 					getElement(ObjectRepository.closeButton).click();
 					
 					//Calling same steps second time
-					
+					driver.navigate().refresh();
 					getElement(ObjectRepository.stng_menu).click();
 					test.log(Status.INFO, "Settings menu clicked");
 					
@@ -154,7 +154,7 @@ public class C24235_VerifyChangeAddressForOneAccount extends GenericKeywords {
 					
 					verifyElementPresent(ObjectRepository.addressChange_header);
 					test.log(Status.INFO, "Äddress Change page is displayed");
-					
+					Thread.sleep(1500);
 					verifyCheckBoxesOfMemberAccount();
 					test.log(Status.INFO, "All checkboxes of Member account is verified");
 					
@@ -165,7 +165,7 @@ public class C24235_VerifyChangeAddressForOneAccount extends GenericKeywords {
 					String accountNameSelectorAttribute1 = "//label[contains(text(),'"+accountName+"')]/preceding::div[1]";
 					String getaccountNameSelectorAttribute1 = getElement(accountNameSelectorAttribute1).getAttribute("class");
 					
-					getElement(accountNameSelectorAttribute).click();
+				
 					Thread.sleep(2000);
 					if(getaccountNameSelectorAttribute1.contains("checked")){
 						test.log(Status.INFO, "Cehckbox against address is checked");
@@ -174,7 +174,7 @@ public class C24235_VerifyChangeAddressForOneAccount extends GenericKeywords {
 						Assert.assertTrue(false);
 					}
 					
-					String addressFieldLocator1 = "//label[contains(text(),'"+fieldName+"')]/following::input[1]";
+					String addressFieldLocator1 = "//input[@placeholder='"+fieldName+"']";
 					getElement(addressFieldLocator1).click();
 					getElement(addressFieldLocator1).clear();
 					getElement(addressFieldLocator1).sendKeys(modifiedValue);
