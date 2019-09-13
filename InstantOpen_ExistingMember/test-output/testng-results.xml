@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="17950" started-at="2019-09-13T16:12:07Z" finished-at="2019-09-13T16:12:25Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="17950" started-at="2019-09-13T16:12:07Z" finished-at="2019-09-13T16:12:25Z">
+      <class name="com.testcases.C24106_VerifyVehicleLoanSelection">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24106_VerifyVehicleLoanSelection@26be92ad]" name="setUp" is-config="true" duration-ms="14426" started-at="2019-09-13T11:12:07Z" finished-at="2019-09-13T11:12:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="C24106_VerifyVehicleLoanSelection()[pri:0, instance:com.testcases.C24106_VerifyVehicleLoanSelection@26be92ad]" name="C24106_VerifyVehicleLoanSelection" duration-ms="3500" started-at="2019-09-13T11:12:21Z" finished-at="2019-09-13T11:12:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- C24106_VerifyVehicleLoanSelection -->
+      </class> <!-- com.testcases.C24106_VerifyVehicleLoanSelection -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
