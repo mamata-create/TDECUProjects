@@ -117,11 +117,18 @@ public class C24247_VerifyPrintOptionForChangedAddresses extends GenericKeywords
 					getElement(SecondaccountNameSelector).click();
 					
 					Thread.sleep(1500);
-					String addressFieldLocator = "//label[contains(text(),'"+fieldName+"')]/following::input[1]";
+					String firstFieldName = fieldName.split(";")[0].trim();
+					String addressFieldLocator = "//input[@placeholder='"+firstFieldName+"']";
 					getElement(addressFieldLocator).click();
 					getElement(addressFieldLocator).clear();
 					getElement(addressFieldLocator).sendKeys(modifiedValue);
-					test.log(Status.INFO, "New Value entered in the filed");
+					test.log(Status.INFO, "New Value entered in First filed");
+					String secondFieldName = fieldName.split(";")[1].trim();
+					addressFieldLocator = "//input[@placeholder='"+secondFieldName+"']";
+					getElement(addressFieldLocator).click();
+					getElement(addressFieldLocator).clear();
+					getElement(addressFieldLocator).sendKeys(modifiedValue);
+					test.log(Status.INFO, "New Value entered in Second filed");
 					
 					if(getElement(ObjectRepository.addressChangeSubmit).isEnabled()){
 					getElement(ObjectRepository.addressChangeSubmit).click();
@@ -140,6 +147,7 @@ public class C24247_VerifyPrintOptionForChangedAddresses extends GenericKeywords
 					if(getElement(ObjectRepository.firstRecordInTable).getAttribute("innerText").equalsIgnoreCase(FirstaccountName)){
 						Assert.assertTrue(true);
 					}
+					
 					selectActions(ObjectRepository.actionsDropdown,ObjectRepository.allOptions,option);
 					
 					

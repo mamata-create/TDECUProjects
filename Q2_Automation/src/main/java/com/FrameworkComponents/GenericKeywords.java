@@ -427,15 +427,16 @@ public class GenericKeywords extends BaseClass{
 		System.out.println("Total "+allCheckBoxes.size()+"CheckBoxes are present");
 	}
 	
-	public static void selectActions(String actionDropdownLocator, String optionsLocator,String expectedAction){
+	public static void selectActions(String actionDropdownLocator, String optionsLocator,String expectedAction) throws InterruptedException{
 		
 		getElement(actionDropdownLocator).click();
+		Thread.sleep(1500);
 		List<WebElement>allOptions = driver.findElements(By.xpath(optionsLocator));
-		for(int index=0;index<=allOptions.size();index++){
+		for(int index=1;index<=allOptions.size();index++){
 			String eachOption = "(//table[@test-id='txtAccountsTable']//div[@test-id='drpTransactionActions']//li)["+index+"]";
 			String optionValue = driver.findElement(By.xpath(eachOption)).getAttribute("innerText").trim();
 			
-			if(optionValue.equalsIgnoreCase(expectedAction)){
+			if(optionValue.contains(expectedAction)){
 				driver.findElement(By.xpath(eachOption)).click();
 				break;
 			}
@@ -444,9 +445,9 @@ public class GenericKeywords extends BaseClass{
 	
 	public static void validateSecureMsgPageComponent(){
 		String pageTitle = getElement(ObjectRepository.secureMasgPageTitle).getAttribute("innerText");
-		String withTag = driver.findElement(By.xpath("//label[contains(text(),'With')]")).getAttribute("innerText");
-		String subjectTag = driver.findElement(By.xpath("//label[contains(text(),'Subject')]")).getAttribute("innerText");
-		String messageTag = driver.findElement(By.xpath("//label[contains(text(),'Message')]")).getAttribute("innerText");
+		String withTag = driver.findElement(By.xpath("//*[contains(text(),'Transaction Inquiry')]/following::label[1]")).getText();
+		String subjectTag = driver.findElement(By.xpath("//*[contains(text(),'Transaction Inquiry')]/following::label[2]")).getText();
+		String messageTag = driver.findElement(By.xpath("//*[contains(text(),'Transaction Inquiry')]/following::label[4]")).getText();
 		
 		Assert.assertEquals(pageTitle, "Conversations");
 		Assert.assertEquals(withTag, "With");

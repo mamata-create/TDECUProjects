@@ -116,7 +116,7 @@ public class C24238_VerifyConfirmationMessageWithAccountUpdateInfo extends Gener
 					String accountNameSelectorAttribute = "//label[contains(text(),'"+accountName+"')]/preceding::div[1]";
 					String getaccountNameSelectorAttribute = getElement(accountNameSelectorAttribute).getAttribute("class");
 					
-					getElement(accountNameSelectorAttribute).click();
+				//	getElement(accountNameSelectorAttribute).click();
 					Thread.sleep(2000);
 					if(getaccountNameSelectorAttribute.contains("checked")){
 						test.log(Status.INFO, "Cehckbox against address is checked");
@@ -125,11 +125,19 @@ public class C24238_VerifyConfirmationMessageWithAccountUpdateInfo extends Gener
 						Assert.assertTrue(false);
 					}
 					
-					String addressFieldLocator = "//label[contains(text(),'"+fieldName+"')]/following::input[1]";
+					String firstFieldName = fieldName.split(";")[0].trim();
+					String addressFieldLocator = "//input[@placeholder='"+firstFieldName+"']";
 					getElement(addressFieldLocator).click();
 					getElement(addressFieldLocator).clear();
 					getElement(addressFieldLocator).sendKeys(modifiedValue);
-					test.log(Status.INFO, "New Value entered in the filed");
+					test.log(Status.INFO, "New Value entered in First filed");
+					String secondFieldName = fieldName.split(";")[1].trim();
+					addressFieldLocator = "//input[@placeholder='"+secondFieldName+"']";
+					getElement(addressFieldLocator).click();
+					getElement(addressFieldLocator).clear();
+					getElement(addressFieldLocator).sendKeys(modifiedValue);
+					test.log(Status.INFO, "New Value entered in Second filed");
+
 					
 					if(getElement(ObjectRepository.addressChangeSubmit).isEnabled()){
 					getElement(ObjectRepository.addressChangeSubmit).click();
