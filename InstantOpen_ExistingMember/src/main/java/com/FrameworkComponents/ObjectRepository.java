@@ -6,13 +6,14 @@ public class ObjectRepository {
 	public static String app_ttl="//h1[contains(text(),'Account, Credit Card and Loan Application')]";
 	//public static String nonmmbrstrt_btn="//input[@id='btnNonMember']";
 	public static String mmbrstrt_btn="//input[@id='btnMember']";
-	
+
 	//Select Product Page
 	public static String msgHeader = "(//span[@id='pnlExistingMemberMessage']//following::div[@class='col-sm'])[1]/h3";
 	public static String msgContent = "(//span[@id='pnlExistingMemberMessage']//following::div[@class='col-sm'])[1]/p";
 	public static String CCandLoanTitle = "//*[@id=\"accordion\"]/h4[1]";
 	public static String ccTitle = "(//div[@id='accordion']//following::div[@class='panel panel-default'])[1]";
 	public static String carLoanTitle = "(//div[@id='accordion']//following::div[@class='panel panel-default'])[2]";
+	public static String carLoanTitle2 = "//*[@id='accordion']/div[2]/div[1]/h4/span";
 	public static String persoalLoanTitle = "(//div[@id='accordion']//following::div[@class='panel panel-default'])[3]";
 	public static String addWaystoSaveTitle = "//*[@id='accordion']/h4[2]";
 	public static String cdTitle = "(//div[@id='accordion']//following::div[@class='panel panel-default'])[4]";
@@ -39,24 +40,151 @@ public class ObjectRepository {
 	public static String OnyxCardMin = "(//div[contains(@id,'MoreInfo_1258')]//ul[@class='fa-ul cardDescr']/li)[2]";
 	//Credit Card Info page
 	public static String crdtcrdinf_ttl="//strong[text()='Credit Card Info']";
-	public static String ccInfoContent = "(//span[@id='CollateralHandler01']/div/text())[1]";
+	public static String ccInfoContent = "(//span[@id='CollateralHandler01']/div)[1]";
 	public static String cardTypeLabel = "//label[@for='ProductDropDownList_DropDownList']";
 	public static String cardLimitLabel = "//label[@for='tbLoanAmount_MoneyTextBox']";
 	public static String ccInfoBackButton = "//input[@id='btnBack_SubmitButton']";
 	public static String ccInfoNextButton = "//input[@id='btnEdit']";
-	public static String cardTypeDropdown = "//select[@name='ProductDropDownList_DropDownList']";
-	public static String cardLimitTextbox = "//input[@id='tbLoanAmount_MoneyTextBox']";
+	//Product Info fields
+	public static String prodTypeDropdown = "//select[@name='ProductDropDownList_DropDownList']";
+	public static String prodLimitTextbox = "//input[@id='tbLoanAmount_MoneyTextBox']";
 	
 	//Vehicle Loans
 	public static String carLoanExpand = "//h4[contains(text(),'Vehicle')]/i";
 	public static String autoLoanTitle = "//label[@for='Vehicle_ProductCheckbox_1004_1']";
-	public static String autoLoanRates = "(//a[text()='here'])[1]";
+	public static String autoLoanCheckBox = "//div[@id='Vehicle_ProductPanel_1004_1']//div[contains(@class,'icheckbox')]";
+	public static String autoLoanCheckedBox = "//div[@id='Vehicle_ProductPanel_1004_1']//div[contains(@class,'checked')]";
+	public static String autoRefinTitle = "//label[@for='Vehicle_ProductCheckbox_1252_1']";
+	public static String autoRefinCheckBox = "//div[@id='Vehicle_ProductPanel_1252_1']//div[contains(@class,'icheckbox')]";
+	public static String autoRefinCheckedBox = "//div[@id='Vehicle_ProductPanel_1252_1']//div[contains(@class,'checked')]";
+	public static String motorcycleTitle = "//label[@for='Vehicle_ProductCheckbox_1014_1']";
+	public static String motorcycleCheckBox = "//div[@id='Vehicle_ProductPanel_1014_1']//div[contains(@class,'icheckbox')]";
+	public static String motorcycleCheckedBox = "//div[@id='Vehicle_ProductPanel_1014_1']//div[contains(@class,'checked')]";
+	public static String motorcycleRatesInfo = "//div[contains(@id,'MoreInfo_1014_1')]//ul[@class='fa-ul']/li";
+	public static String cycleRefinTitle = "//label[@for='Vehicle_ProductCheckbox_1253_1']";
+	public static String cycleRefinCheckBox = "//div[@id='Vehicle_ProductPanel_1253_1']//div[contains(@class,'icheckbox')]";
+	public static String cycleRefinCheckedBox = "//div[@id='Vehicle_ProductPanel_1253_1']//div[contains(@class,'checked')]";
+	public static String cycleRefinRatesInfo = "//div[contains(@id,'MoreInfo_1253_1')]//ul[@class='fa-ul']/li";
+	public static String boatLoanTitle = "//label[@for='Vehicle_ProductCheckbox_1010_1']";
+	public static String boatLoanCheckBox = "//div[@id='Vehicle_ProductPanel_1010_1']//div[contains(@class,'icheckbox')]";
+	public static String boatLoanCheckedBox = "//div[@id='Vehicle_ProductPanel_1010_1']//div[contains(@class,'checked')]";
+	public static String boatLoanRatesInfo = "//div[contains(@id,'MoreInfo_1010_1')]//ul[@class='fa-ul']/li";
+	public static String boatRefinTitle = "//label[@for='Vehicle_ProductCheckbox_1255_1']";
+	public static String boatRefinCheckBox = "//div[@id='Vehicle_ProductPanel_1255_1']//div[contains(@class,'icheckbox')]";
+	public static String boatRefinCheckedBox = "//div[@id='Vehicle_ProductPanel_1255_1']//div[contains(@class,'checked')]";
+	public static String boatRefinRatesInfo = "//div[contains(@id,'MoreInfo_1255_1')]//ul[@class='fa-ul']/li";
+	public static String camperLoanTitle = "//label[@for='Vehicle_ProductCheckbox_1011_1']";
+	public static String camperLoanCheckBox = "//div[@id='Vehicle_ProductPanel_1011_1']//div[contains(@class,'icheckbox')]";
+	public static String camperLoanCheckedBox = "//div[@id='Vehicle_ProductPanel_1011_1']//div[contains(@class,'checked')]";
+	public static String camperRatesInfo = "//div[contains(@id,'MoreInfo_1011_1')]//ul[@class='fa-ul']/li";
+	public static String camperRefinTitle = "//label[@for='Vehicle_ProductCheckbox_1254_1']";
+	public static String camperRefinCheckBox = "//div[@id='Vehicle_ProductPanel_1254_1']//div[contains(@class,'icheckbox')]";
+	public static String camperRefinCheckedBox = "//div[@id='Vehicle_ProductPanel_1254_1']//div[contains(@class,'checked')]";
+	public static String camperRefinRatesInfo = "//div[contains(@id,'MoreInfo_1254_1')]//ul[@class='fa-ul']/li";
+	public static String watercraftTitle = "//label[@for='Vehicle_ProductCheckbox_1013_1']";
+	public static String watercraftCheckBox = "//div[@id='Vehicle_ProductPanel_1013_1']//div[contains(@class,'icheckbox')]";
+	public static String watercraftCheckedBox = "//div[@id='Vehicle_ProductPanel_1013_1']//div[contains(@class,'checked')]";
+	public static String jetSkiInfo = "//div[contains(@id,'MoreInfo_1013_1')]//ul[@class='fa-ul']/li[1]";
+	public static String jetSkiRatesInfo = "//div[contains(@id,'MoreInfo_1013_1')]//ul[@class='fa-ul']/li[2]";
+	public static String atvLoanTitle = "//label[@for='Vehicle_ProductCheckbox_6311_1']";
+	public static String atvLoanCheckBox = "//div[@id='Vehicle_ProductPanel_6311_1']//div[contains(@class,'icheckbox')]";
+	public static String atvLoanCheckedBox = "//div[@id='Vehicle_ProductPanel_6311_1']//div[contains(@class,'checked')]";
+	public static String atvRatesInfo = "//div[contains(@id,'MoreInfo_6311_1')]//ul[@class='fa-ul']/li";
 	
-	
-	//Section Arrows	
+	//Personal Loans
 	public static String personalLoanExpand = "//h4[contains(text(),'Personal')]/i";
+	public static String myWay4000Title = "//label[@for='PersonalLoan_ProductCheckbox_2089_1']";
+	public static String myWay4000CheckBox = "//div[@id='PersonalLoan_ProductPanel_2089_1']//div[contains(@class,'icheckbox')]";
+	public static String myWay4000CheckedBox = "//div[@id='PersonalLoan_ProductPanel_2089_1']//div[contains(@class,'checked')]";
+	public static String myWay48Term = "//div[contains(@id,'MoreInfo_2089_1')]//ul[@class='fa-ul']/li[1]";
+	public static String myWay4000Collat = "//div[contains(@id,'MoreInfo_2089_1')]//ul[@class='fa-ul']/li[2]";
+	public static String myWay4000APR = "//div[contains(@id,'MoreInfo_2089_1')]//ul[@class='fa-ul']/li[3]";
+	public static String myWay6000Title = "//label[@for='PersonalLoan_ProductCheckbox_1261_1']";
+	public static String myWay6000CheckBox = "//div[@id='PersonalLoan_ProductPanel_1261_1']//div[contains(@class,'icheckbox')]";
+	public static String myWay6000CheckedBox = "//div[@id='PersonalLoan_ProductPanel_1261_1']//div[contains(@class,'checked')]";
+	public static String myWay60Term = "//div[contains(@id,'MoreInfo_1261_1')]//ul[@class='fa-ul']/li[1]";
+	public static String myWay6000Collat = "//div[contains(@id,'MoreInfo_1261_1')]//ul[@class='fa-ul']/li[2]";
+	public static String myWay6000APR = "//div[contains(@id,'MoreInfo_1261_1')]//ul[@class='fa-ul']/li[3]";
+	public static String myWay7000Title = "//label[@for='PersonalLoan_ProductCheckbox_2090_1']";
+	public static String myWay7000CheckBox = "//div[@id='PersonalLoan_ProductPanel_2090_1']//div[contains(@class,'icheckbox')]";
+	public static String myWay7000CheckedBox = "//div[@id='PersonalLoan_ProductPanel_2090_1']//div[contains(@class,'checked')]";
+	public static String myWay72Term = "//div[contains(@id,'MoreInfo_2090_1')]//ul[@class='fa-ul']/li[1]";
+	public static String myWay7000Collat = "//div[contains(@id,'MoreInfo_2090_1')]//ul[@class='fa-ul']/li[2]";
+	public static String myWay7000APR = "//div[contains(@id,'MoreInfo_2090_1')]//ul[@class='fa-ul']/li[3]";
+	public static String personalTitle = "//label[@for='PersonalLoan_ProductCheckbox_1262_1']";
+	public static String personalCheckBox = "//div[@id='PersonalLoan_ProductPanel_1262_1']//div[contains(@class,'icheckbox')]";
+	public static String personalCheckedBox = "//div[@id='PersonalLoan_ProductPanel_1262_1']//div[contains(@class,'checked')]";
+	public static String personalDesc1 = "//div[contains(@id,'MoreInfo_1262_1')]//ul[@class='fa-ul']/li[1]";
+	public static String personalDesc2 = "//div[contains(@id,'MoreInfo_1262_1')]//ul[@class='fa-ul']/li[2]";
+	public static String homeAdvTitle = "//label[@for='PersonalLoan_ProductCheckbox_1420_1']";
+	public static String homeAdvCheckBox = "//div[@id='PersonalLoan_ProductPanel_1420_1']//div[contains(@class,'icheckbox')]";
+	public static String homeAdvCheckedBox = "//div[@id='PersonalLoan_ProductPanel_1420_1']//div[contains(@class,'checked')]";
+	public static String cash$tashTitle = "//label[@for='PersonalLoan_ProductCheckbox_1007_1']";
+	public static String cash$tashCheckBox = "//div[@id='PersonalLoan_ProductPanel_1007_1']//div[contains(@class,'icheckbox')]";
+	public static String cash$tashCheckedBox = "//div[@id='PersonalLoan_ProductPanel_1007_1']//div[contains(@class,'checked')]";
+	public static String cdSecuredTitle = "//label[@for='PersonalLoan_ProductCheckbox_1256_1']";
+	public static String cdSecuredCheckBox = "//div[@id='PersonalLoan_ProductPanel_1256_1']//div[contains(@class,'icheckbox')]";
+	public static String cdSecuredCheckedBox = "//div[@id='PersonalLoan_ProductPanel_1256_1']//div[contains(@class,'checked')]";
+	public static String shareSecuredTitle = "//label[@for='PersonalLoan_ProductCheckbox_1012_1']";
+	public static String shareSecuredCheckBox = "//div[@id='PersonalLoan_ProductPanel_1012_1']//div[contains(@class,'icheckbox')]";
+	public static String shareSecuredCheckedBox = "//div[@id='PersonalLoan_ProductPanel_1012_1']//div[contains(@class,'checked')]";
+	public static String shareSecuredDesc1 = "//div[contains(@id,'MoreInfo_1012_1')]//ul[@class='fa-ul']/li[1]";
+	public static String shareSecuredDesc2 = "//div[contains(@id,'MoreInfo_1012_1')]//ul[@class='fa-ul']/li[2]";
+	public static String shareSecuredDesc3 = "//div[contains(@id,'MoreInfo_1012_1')]//ul[@class='fa-ul']/li[3]";
+	
+	//Certificate of Deposits
 	public static String cdExpand = "//h4[contains(text(),'Deposit')]/i";
+	public static String cdDescOne = "//*[@id='collapseFive']/div/ul/li[1]";
+	public static String cdDescTwo = "//*[@id='collapseFive']/div/ul/li[2]";
+	public static String cdSearchTitle = "//*[@id='collapseFive']/div/div[2]/h4";
+	public static String cdSearchInfo = "//*[@id='collapseFive']/div/div[2]/p";
+	public static String enterAmountTxtField = "//label[contains(text(),'Enter an Amount')]/following::input[1]";
+	public static String selectTermDropdown = "//label[contains(text(),'Select a term (in months)')]/following::select";
+	public static String showAllCheckBox = "//*[@id='CDWizard']/div[1]/div";
+	public static String showAllLabel = "//label[contains(text(),'Show All')]";
+	public static String visibleCD3 = "//div[contains(@id,'ProductPanel_775')and contains(@style, 'block')]";
+	public static String visibleCD6 = "//div[contains(@id,'ProductPanel_781')and contains(@style, 'block')]";
+	public static String visibleCD12= "//div[contains(@id,'ProductPanel_723')and contains(@style, 'block')]";
+	public static String visibleCD24= "//div[contains(@id,'ProductPanel_767')and contains(@style, 'block')]";
+	public static String visibleCD36= "//div[contains(@id,'ProductPanel_772')and contains(@style, 'block')]";
+	public static String visibleCD48= "//div[contains(@id,'ProductPanel_777')and contains(@style, 'block')]";
+	public static String visibleCD60= "//div[contains(@id,'ProductPanel_779')and contains(@style, 'block')]";
+	public static String termCheckBox= "//div[conta]ins(@style,'display: block')]//div[contains(@class,'icheckbox')]//following::label[1]";
+	
+	//Checking & Money Market Accounts
 	public static String checkingExpand = "//h4[contains(text(),'Checking')]/i";
+	public static String classicCheckTitle = "//label[@for='Checking_ProductCheckbox_2633_1']";
+	public static String classicCheckCheckBox = "(//div[@id='Checking_ProductPanel_2633_1']//div[contains(@class,'icheckbox')])[1]";
+	public static String ccChecked = "(//div[@id='Checking_ProductPanel_2633_1']//div[contains(@class,'checked')])[1]";
+	public static String classicCheckDesc1 = "//div[contains(@id,'MoreInfo_2633_1')]//ul[@class='fa-ul']/li[1]";
+	public static String classicCheckDesc2 = "//div[contains(@id,'MoreInfo_2633_1')]//ul[@class='fa-ul']/li[2]";
+	public static String ccDebitCardChecked= "//div[@id='Checking_Panel26335205_1']//div[contains(@class,'checked')]";
+	public static String ccDebitCardCheckBox= "//div[@id='Checking_Panel26335205_1']//div[@class='icheckbox_square-grey']";
+	public static String ccOverdraftChecked= "//div[@id='Checking_Panel26335427_1']//div[contains(@class,'checked')]";
+	public static String ccOverdraftCheckBox= "//div[@id='Checking_Panel26335427_1']//div[@class='icheckbox_square-grey']";
+	public static String ccCourtesyPayCheckBox= "//div[@id='Checking_Panel26335206_1']//div[@class='icheckbox_square-grey']";
+	public static String ccCourtesyPayChecked= "//div[@id='Checking_Panel26335206_1']//div[contains(@class,'checked')]";
+	public static String mnyMrktTitle = "//label[@for='Checking_ProductCheckbox_716_1']";
+	public static String mnyMrktCheckBox = "//div[@id='Checking_ProductPanel_716_1']//div[contains(@class,'icheckbox')]";
+	public static String mnyMrktChecked = "//div[@id='Checking_ProductPanel_716_1']//div[contains(@class,'checked')]";
+	public static String mnyMrktDesc1 = "//div[contains(@id,'MoreInfo_716_1')]//ul[@class='fa-ul']/li[1]";
+	public static String mnyMrktDesc2 = "//div[contains(@id,'MoreInfo_716_1')]//ul[@class='fa-ul']/li[2]";
+	public static String mnyMrktDesc3 = "//div[contains(@id,'MoreInfo_716_1')]//ul[@class='fa-ul']/li[3]";
+	public static String highYieldTitle = "//label[@for='Checking_ProductCheckbox_6223_1']";
+	public static String highYielCheckBox = "(//div[@id='Checking_ProductPanel_6223_1']//div[contains(@class,'icheckbox')])[1]";
+	public static String overdraftQstion= "//div[contains(@id,'MoreInfo_26335427')]//button";
+	public static String overdraftTitle= "//h4[@id='modalOverdraftMemberLabel']";
+	public static String overdraftDesc= "//*[@id='modalOverdraftMember']/div/div/div[2]";
+	public static String overdraftClose= "//*[@id='modalOverdraftMember']/div/div/div[3]/button";
+	public static String courtesyPayQstion= "//div[contains(@id,'MoreInfo_26335206')]//button";
+	public static String courtesyPayTitle= "//h4[@id='26335206']";
+	public static String courtesyPayDesc= "//*[@id='modalCourtesyMember']/div/div/div[2]";
+	public static String courtesyPayClose= "//*[@id='modalCourtesyMember']/div/div/div[3]/button";
+	
+	//Member Verification
+	public static String mmbrVerifyTile = "//strong[text()='Member Verification']";
+	
+	//Section Arrows			
 	public static String savingsExpand = "//h4[contains(text(),'Savings')]/i";
 	public static String addtionalExpand = "//h4[contains(text(),'Additional')]/i";
 
@@ -155,13 +283,6 @@ public class ObjectRepository {
 	//Savings Account	
 	public static String savingsAccountLocator = "//h4[contains(text(),'Savings Account')]/i";
 	public static String clubCheckBox = "//input[contains(@id,'RequiredSavings_ProductCheckbox')]/..";
-	
-	//Certificates of Deposits
-	public static String certificateOfDeposit = "//h4[contains(text(),'Certificates of Deposit')]/i";
-	public static String enterAmountTxtField = "//label[contains(text(),'Enter an Amount')]/following::input[1]";
-	public static String selectTermDropdown = "//label[contains(text(),'Select a term')]/following::select";
-	public static String termCheckBox = "//div[contains(@style,'display: block')]//div[contains(@class,'icheckbox')]//following::label[1]";
-	
 	
 	public static String Highyieldchking_opt="//label[contains(text(),'High Yield Checking')]/preceding::div[1]"; 
 	public static String debitCardUnderHyield ="//label[contains(text(),'High Yield Checking')]/following::label[1]";

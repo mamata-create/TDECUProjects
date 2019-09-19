@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24105_VerifyCreditCardSelection">
+      <class name="com.testcases.C24109_VerifyCheckingMMSelection">
         <methods>
-          <include name="C24105_VerifyCreditCardSelection"/>
+          <include name="C24109_VerifyCheckingMMSelection"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.testcases.C24105_VerifyCreditCardSelection -->
+      </class> <!-- com.testcases.C24109_VerifyCheckingMMSelection -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

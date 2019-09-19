@@ -36,11 +36,11 @@ public class C24104_VerifyProductExpandSections extends GenericKeywords {
 	  public void C24104_VerifyProductExpandSections() {
 		  if(continuetestcase==true)
 		  {
-				sheetName = "ProdSelection";
+				sheetName = "ProdData";
 				int totalRowCount = excl.getRowCount(sheetName);
 				for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
 				 {	
-					if(this.getClass().getSimpleName().equals(excl.getCellData("ProdSelection", 0, startIter)))
+					if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 					{
 						verifyElementPresent(ObjectRepository.app_ttl);
 						test.log(Status.INFO, "Instant Open Title appearing");

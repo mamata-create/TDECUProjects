@@ -2,7 +2,6 @@ package com.FrameworkComponents;
 
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +26,6 @@ import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
@@ -67,17 +65,13 @@ public class GenericKeywords extends BaseClass{
 			if(elementpresent){
 				System.out.println(locator +"- element present");
 				Assert.assertFalse(false);
-
-
 			}else{
 				System.out.println(locator +"- element not present");
 				Assert.assertTrue(true);
-
 			}
 		}catch(Exception e){
 			System.out.println(locator +"- element not present with exception");
 			Assert.assertTrue(true);
-
 		}
 	}
 
@@ -96,7 +90,6 @@ public class GenericKeywords extends BaseClass{
 		WebElement element=getElement(locator);
 		Select sel=new Select(element);
 		sel.selectByVisibleText(option);
-
 	}
 
 	public static void selectDropdownOptContain(String locator, String opt){
@@ -108,7 +101,6 @@ public class GenericKeywords extends BaseClass{
 			System.out.println(options.get(i).getText());
 			if(options.get(i).getText().contains(opt)){
 				options.get(i).click();
-
 			}
 		}
 	}
@@ -127,21 +119,8 @@ public class GenericKeywords extends BaseClass{
 		js.executeScript("arguments[0].scrollIntoView(true);",element);
 
 	}
-	//Select Credit Card based on Excel input
-	public static void selectCreditCard(String cardType){
-		List<WebElement>cards = driver.findElements(By.xpath(ObjectRepository.cardCheckBox));
-		for(int count=1;count<=cards.size();count++){	
-			String cardLabel = "(//div[contains(@id,'CreditCard')]//div[contains(@class,'icheckbox')]//following::label[1])["+count+"]";
-			String cardValue = getElement(cardLabel).getAttribute("innerText");
-			
-			if(cardValue.contains(cardType)){		
-				String specificCreditCard = "(//div[contains(@id,'CreditCard')]//div[contains(@class,'icheckbox')])["+count+"]";
-				getElement(specificCreditCard).click();
-			}
-		}
-	}
-	public static void disclaimerValidation(){
-		
+	
+	public static void disclaimerValidation(){	
 		String allDisclaimerLocator = "//div[contains(@class,'disclaimer')]/p";
 		String disclaimerOpt1 = "1 APY= Annual Percentage Yield";
 		String disclaimerOpt2 = "2 Some restrictions may apply. Offer not valid with other discounts.";
@@ -157,21 +136,35 @@ public class GenericKeywords extends BaseClass{
 					|| eachValueFromPage.equalsIgnoreCase(disclaimerOpt3)){
 				Assert.assertTrue(true, eachValueFromPage);
 			}
+			else{
+				Assert.assertTrue(false);
+			}
 		}
 				
 	}
+	
 	public static void verifyPlaceholder(String locator, String text){
 		WebElement element=getElement(locator);
 		String actText=element.getAttribute("placeholder");
-		if(actText.contains(text)){
+		if(actText.equals(text)){
 			Assert.assertTrue(true);
 		}else{
 			Assert.assertTrue(false);
 		}
 	}
+	public static void verifyTxtFieldValue(String locator, String text){
+		WebElement element=getElement(locator);
+		String actText=element.getAttribute("value");
+		if(actText.equals(text)){
+			Assert.assertTrue(true);
+		}else{
+			Assert.assertTrue(false);
+		}
+	}
+	
 	public static void autoLoanInfoValidation(){
 		
-		String allLoanDescLocator = "(//div[contains(@id,'MoreInfo_1004_1')]//following::ul[@class='fa-ul'])[1]/li";
+		String allLoanDescLocator = "//div[contains(@id,'MoreInfo_1004_1')]//ul[@class='fa-ul']/li";
 		String loanDescOne = "No money down options available";
 		String loanDescTwo = "Discounts for recurring direct deposits of $250 or more";
 		String loanDescThree = "Terms as long as 72 months";
@@ -181,12 +174,286 @@ public class GenericKeywords extends BaseClass{
 		List<WebElement>allLoanDescriptions = driver.findElements(By.xpath(allLoanDescLocator));
 		for(int count=1;count<=allLoanDescriptions.size();count++){
 			
-			String eachDescription = "(//div[contains(@id,'MoreInfo_1004_1')]//following::ul[@class='fa-ul'])[1]/li["+count+"]";
-			String eachValueFromPage = driver.findElement(By.xpath(eachDescription)).getAttribute("innerText");
+			String eachDescription = "//div[contains(@id,'MoreInfo_1004_1')]//ul[@class='fa-ul']/li["+count+"]";
+			String eachValueFromPage = driver.findElement(By.xpath(eachDescription)).getText();
 			
-			if(eachValueFromPage.equalsIgnoreCase(loanDescOne) || eachValueFromPage.equalsIgnoreCase(loanDescTwo) 
-					|| eachValueFromPage.equalsIgnoreCase(loanDescThree)|| eachValueFromPage.equalsIgnoreCase(loanDescFour)|| eachValueFromPage.equalsIgnoreCase(loanDescFive)){
+			if(eachValueFromPage.equals(loanDescOne) || eachValueFromPage.equals(loanDescTwo) 
+					|| eachValueFromPage.equals(loanDescThree)|| eachValueFromPage.equals(loanDescFour)|| eachValueFromPage.equals(loanDescFive)){
 				Assert.assertTrue(true, eachValueFromPage);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}
+	}
+	
+	public static void autoRefinInfoValidation(){	
+		String allLoanDescLocator = "//div[contains(@id,'MoreInfo_1252_1')]//ul[@class='fa-ul']/li";
+		String loanDescOne = "Discounts for recurring direct deposits of $250 or more";
+		String loanDescTwo = "No hidden fees, costs or early payoff penalties";
+		String loanDescThree = "Check out the latest rates here";
+		
+		List<WebElement>allLoanDescriptions = driver.findElements(By.xpath(allLoanDescLocator));
+		for(int count=1;count<=allLoanDescriptions.size();count++){
+			
+			String eachDescription = "//div[contains(@id,'MoreInfo_1252_1')]//ul[@class='fa-ul']/li["+count+"]";
+			String eachValueFromPage = driver.findElement(By.xpath(eachDescription)).getText();
+			
+			if(eachValueFromPage.equals(loanDescOne) || eachValueFromPage.equals(loanDescTwo) 
+					|| eachValueFromPage.equals(loanDescThree)){
+				Assert.assertTrue(true, eachValueFromPage);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}
+	}
+	
+	public static void verifyRatesLink(int x){
+		String parentWindow = driver.getWindowHandle();
+		driver.findElement(By.xpath("(//a[text()='here'])["+x+"]")).click();
+		int count = driver.getWindowHandles().size();
+		if(count == 2){
+			for(String winHandle : driver.getWindowHandles()){
+			    driver.switchTo().window(winHandle);
+			}
+			String title = driver.getTitle();
+			driver.close();
+			driver.switchTo().window(parentWindow);
+			if(x <12)
+				if(title.equals("Rates and Fees | TDECU"))
+				{
+					Assert.assertTrue(true);
+					System.out.println("Rates link verified");
+				}
+				else{
+					Assert.assertTrue(false);
+				}
+			if(x==12)
+				if(title.equals("Home Advantage Loan | TDECU"))
+				{
+					Assert.assertTrue(true);
+					System.out.println("Home Advantage Personal Loan Terms & Conditions link verified");
+				}
+				else{
+					Assert.assertTrue(false);
+				}
+		}else{
+			Assert.assertTrue(false);
+		}		
+	}
+	
+	public static void homeAdvLoanInfoValidation(){		
+		String allLoanDescLocator = "//div[contains(@id,'MoreInfo_1420_1')]//ul[@class='fa-ul']/li";
+		String loanDescOne = "Loan amounts between $1,000 - $35,000";
+		String loanDescTwo = "No collateral required";
+		String loanDescThree = "9.24% APR3";
+		String loanDescFour = "Terms and conditions apply. Please click here for details.";
+		
+		List<WebElement>allLoanDescriptions = driver.findElements(By.xpath(allLoanDescLocator));
+		for(int count=1;count<=allLoanDescriptions.size();count++){
+			
+			String eachDescription = "//div[contains(@id,'MoreInfo_1420_1')]//ul[@class='fa-ul']/li["+count+"]";
+			String eachValueFromPage = driver.findElement(By.xpath(eachDescription)).getText();
+			
+			if(eachValueFromPage.equals(loanDescOne) || eachValueFromPage.equals(loanDescTwo) 
+					|| eachValueFromPage.equals(loanDescThree)|| eachValueFromPage.equals(loanDescFour)){
+				Assert.assertTrue(true, eachValueFromPage);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}
+	}
+	
+	public static void cash$tashLOCInfoValidation(){		
+		String allLoanDescLocator = "//div[contains(@id,'MoreInfo_1007_1')]//ul[@class='fa-ul']/li";
+		String loanDescOne = "Ideal for Members who prefer an alternative to a credit card";
+		String loanDescTwo = "Minimum credit limit of $1,000";
+		String loanDescThree = "May be leveraged as overdraft protection on your TDECU checking account";
+		String loanDescFour = "Check out the latest rates here";
+		
+		List<WebElement>allLoanDescriptions = driver.findElements(By.xpath(allLoanDescLocator));
+		for(int count=1;count<=allLoanDescriptions.size();count++){
+			
+			String eachDescription = "//div[contains(@id,'MoreInfo_1007_1')]//ul[@class='fa-ul']/li["+count+"]";
+			String eachValueFromPage = driver.findElement(By.xpath(eachDescription)).getText();
+			
+			if(eachValueFromPage.equals(loanDescOne) || eachValueFromPage.equals(loanDescTwo) 
+					|| eachValueFromPage.equals(loanDescThree)|| eachValueFromPage.equals(loanDescFour)){
+				Assert.assertTrue(true, eachValueFromPage);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}
+	}
+	
+	public static void CDsecuredLoanInfoValidation(){		
+		String allLoanDescLocator = "//div[contains(@id,'MoreInfo_1256_1')]//ul[@class='fa-ul']/li";
+		String loanDescOne = "Borrow 100% of your certificate’s principal balance for a variety of terms";
+		String loanDescTwo = "Minimum loan amount of $1,000";
+		String loanDescThree = "Term is equal to your Certificate of Deposit maturity";
+		String loanDescFour = "Check out the latest rates here";
+		
+		List<WebElement>allLoanDescriptions = driver.findElements(By.xpath(allLoanDescLocator));
+		for(int count=1;count<=allLoanDescriptions.size();count++){
+			
+			String eachDescription = "//div[contains(@id,'MoreInfo_1256_1')]//ul[@class='fa-ul']/li["+count+"]";
+			String eachValueFromPage = driver.findElement(By.xpath(eachDescription)).getText();
+			
+			if(eachValueFromPage.equals(loanDescOne) || eachValueFromPage.equals(loanDescTwo) 
+					|| eachValueFromPage.equals(loanDescThree)|| eachValueFromPage.equals(loanDescFour)){
+				Assert.assertTrue(true, eachValueFromPage);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}
+	}
+	
+	public static void verifyFeeScheduleLink(){
+		String feeLinkText = "See fee schedule for details on early withdrawal penalties.";
+		String parentWindow = driver.getWindowHandle();
+		WebElement feeLink = driver.findElement(By.xpath("//div[contains(@class,'CDfeeSchedule')]//p"));
+		String feeLinkPageText = feeLink.getText();
+		driver.findElement(By.xpath("//a[text()='fee schedule']")).click();	
+		int count = driver.getWindowHandles().size();
+		if(feeLinkPageText.equals(feeLinkText))
+		{
+			if(count == 2){
+				for(String winHandle : driver.getWindowHandles()){
+					driver.switchTo().window(winHandle);
+				}
+				String title = driver.getTitle();
+				driver.close();
+				driver.switchTo().window(parentWindow);
+				if(title.equals("Rates and Fees | TDECU"))
+				{
+					Assert.assertTrue(true);
+					System.out.println("fee schedule link and text verified");
+				}
+				else{
+					Assert.assertTrue(false);
+				}		
+			}else{
+				Assert.assertTrue(false);
+			}
+		}
+		else{
+			Assert.assertTrue(false);
+		}
+	}
+	
+	public static void verifyAllCdsDisplayed(){		
+		String allCDsLocator = "//div[contains(@id,'CDWizard_ProductPanel') and contains(@style, 'block')]";
+		
+		List<WebElement>allCDsList = driver.findElements(By.xpath(allCDsLocator));
+		int count=allCDsList.size();			
+			if(count == 7){
+				Assert.assertTrue(true);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+	}
+	public static void verifyAllCdsNotDisplayed(){		
+		String allCDsLocator = "//div[contains(@id,'CDWizard_ProductPanel') and contains(@style, 'none')]";
+		
+		List<WebElement>allCDsList = driver.findElements(By.xpath(allCDsLocator));
+		int count=allCDsList.size();			
+			if(count == 7){
+				Assert.assertTrue(true);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+	}
+	public static void verifyOtherRatesLink(int x){
+		String parentWindow = driver.getWindowHandle();
+		driver.findElement(By.xpath("(//a[contains(text(),'rate')])["+x+"]")).click();
+		int count = driver.getWindowHandles().size();
+		if(count == 2){
+			for(String winHandle : driver.getWindowHandles()){
+			    driver.switchTo().window(winHandle);
+			}
+			String title = driver.getTitle();
+			driver.close();
+			driver.switchTo().window(parentWindow);
+			if(title.equals("Rates and Fees | TDECU"))
+			{
+				Assert.assertTrue(true);
+				System.out.println("Rates link verified");
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}else{
+			Assert.assertTrue(false);
+		}		
+	}
+	
+	public static void highYieldInfoValidation(){		
+		String allProdDescLocator = "//div[contains(@id,'MoreInfo_6223_1')]//ul[@class='fa-ul']/li";
+		String prodDescOne = "Higher APY1 on your TDECU Savings account";
+		String prodDescTwo = "ATM rebates";
+		String prodDescThree = "Free ID Theft Recovery services";
+		String prodDescFour = "Free monthly FICO® credit score monitoring services";
+		String prodDescFive = "Increased Courtesy Pay Limit";
+		String prodDescSix = "Terms and conditions apply. Contact TDECU for complete details";
+		
+		List<WebElement>allProdDescriptions = driver.findElements(By.xpath(allProdDescLocator));
+		for(int count=1;count<=allProdDescriptions.size();count++){
+			
+			String eachDescription = "//div[contains(@id,'MoreInfo_6223_1')]//ul[@class='fa-ul']/li["+count+"]";
+			String eachValueFromPage = driver.findElement(By.xpath(eachDescription)).getText();
+			
+			if(eachValueFromPage.equals(prodDescOne) || eachValueFromPage.equals(prodDescTwo) 
+					|| eachValueFromPage.equals(prodDescThree)|| eachValueFromPage.equals(prodDescFour)
+					|| eachValueFromPage.equals(prodDescFive)|| eachValueFromPage.equals(prodDescSix)){
+				Assert.assertTrue(true, eachValueFromPage);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}
+	}
+	
+	public static void verifyOverdraftPDF(){
+		String pdfText = "Courtesy-Pay-Opt-In-Form-English.pdf";
+		String parentWindow = driver.getWindowHandle();
+		driver.findElement(By.xpath("//*[@id='modalCourtesyMember']/div/div/div[3]/a/button")).click();		
+		int count = driver.getWindowHandles().size();
+		if(count == 2){
+			for(String winHandle : driver.getWindowHandles()){
+				driver.switchTo().window(winHandle);
+			}
+			String actualPDF = driver.getCurrentUrl();
+			driver.close();
+			driver.switchTo().window(parentWindow);
+			if(actualPDF.contains(pdfText))
+			{
+				Assert.assertTrue(true);
+				System.out.println("Learn More button verified");
+			}
+			else{
+				Assert.assertTrue(false);
+			}		
+		}else{
+			Assert.assertTrue(false);
+		}
+	}
+	
+	//Select Credit Card based on Excel input
+	public static void selectCreditCard(String cardType){
+		List<WebElement>cards = driver.findElements(By.xpath(ObjectRepository.cardCheckBox));
+		for(int count=1;count<=cards.size();count++){	
+			String cardLabel = "(//div[contains(@id,'CreditCard')]//div[contains(@class,'icheckbox')]//following::label[1])["+count+"]";
+			String cardValue = getElement(cardLabel).getAttribute("innerText");
+			
+			if(cardValue.contains(cardType)){		
+				String specificCreditCard = "(//div[contains(@id,'CreditCard')]//div[contains(@class,'icheckbox')])["+count+"]";
+				getElement(specificCreditCard).click();
 			}
 		}
 	}
@@ -263,7 +530,6 @@ public class GenericKeywords extends BaseClass{
 				// e.click();
 				break;
 			}
-
 		}
 
 	}

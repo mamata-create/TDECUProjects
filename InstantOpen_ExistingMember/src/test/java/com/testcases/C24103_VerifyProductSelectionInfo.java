@@ -40,23 +40,24 @@ public class C24103_VerifyProductSelectionInfo extends GenericKeywords{
   public void C23835_VerifyProductSelectionInfo() {
 	  if(continuetestcase==true)
 	  {
-			sheetName = "ProdSelection";
+			sheetName = "ProdData";
 			int totalRowCount = excl.getRowCount(sheetName);
 			for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
 			 {	
-				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdSelection", 0, startIter)))
+				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
-					String informationHeader=excl.getCellData(sheetName, 1, startIter);
-					String informationContent = excl.getCellData(sheetName, 2, startIter);
-					String groupOneTitle = excl.getCellData(sheetName, 3, startIter);
-					String ccTitle = excl.getCellData(sheetName, 4, startIter);
-					String carLoanTitle = excl.getCellData(sheetName, 5, startIter);
-					String personalLoanTitle = excl.getCellData(sheetName, 6, startIter);
-					String groupTwoTitle = excl.getCellData(sheetName, 7, startIter);
-					String cdTitle = excl.getCellData(sheetName, 8, startIter);
-					String checkingAndMMTitle = excl.getCellData(sheetName, 9, startIter);
-					String savingsTitle = excl.getCellData(sheetName, 10, startIter);
-					String addServiceTitle = excl.getCellData(sheetName, 11, startIter);					
+					String informationHeader=excl.getCellData(sheetName, 23, startIter);
+					String informationContent = excl.getCellData(sheetName, 24, startIter);
+					String groupOneTitle = excl.getCellData(sheetName, 1, startIter);
+					String ccTitle = excl.getCellData(sheetName, 2, startIter);
+					String carLoanTitle = excl.getCellData(sheetName, 3, startIter);
+					String carLoanTitle2 = excl.getCellData(sheetName, 4, startIter);
+					String personalLoanTitle = excl.getCellData(sheetName, 5, startIter);
+					String groupTwoTitle = excl.getCellData(sheetName, 6, startIter);
+					String cdTitle = excl.getCellData(sheetName, 7, startIter);
+					String checkingAndMMTitle = excl.getCellData(sheetName, 8, startIter);
+					String savingsTitle = excl.getCellData(sheetName, 9, startIter);
+					String addServiceTitle = excl.getCellData(sheetName, 10, startIter);					
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -69,15 +70,14 @@ public class C24103_VerifyProductSelectionInfo extends GenericKeywords{
 					verifyText(ObjectRepository.msgContent,informationContent);
 					verifyText(ObjectRepository.CCandLoanTitle,groupOneTitle);
 					verifyText(ObjectRepository.ccTitle,ccTitle);
-					//verifyText(ObjectRepository.carLoanTitle,carLoanTitle);
+					verifyText(ObjectRepository.carLoanTitle,carLoanTitle);
+					verifyText(ObjectRepository.carLoanTitle2,carLoanTitle2);
 					verifyText(ObjectRepository.persoalLoanTitle,personalLoanTitle);
 					verifyText(ObjectRepository.addWaystoSaveTitle,groupTwoTitle);
 					verifyText(ObjectRepository.cdTitle,cdTitle);
 					verifyText(ObjectRepository.checkingTitle,checkingAndMMTitle);
 					verifyText(ObjectRepository.savingsTitle,savingsTitle);
 					verifyText(ObjectRepository.additionalTitle,addServiceTitle);
-					
-					//System.out.println(getElement(ObjectRepository.carLoanTitle).getText());
 					
 					disclaimerValidation();	
 					

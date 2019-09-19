@@ -38,23 +38,23 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
   public void C24105_VerifyCreditCardSelection() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
-			sheetName = "CCData";
+			sheetName = "ProdData";
 			int totalRowCount = excl.getRowCount(sheetName);
 			for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
 			{	
-				if(this.getClass().getSimpleName().equals(excl.getCellData("CCData", 0, startIter)))
+				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				 {
 					String classicCardName=excl.getCellData(sheetName, 1, startIter);
 					String buceesCardName=excl.getCellData(sheetName, 2, startIter);
 					String platinumCardName=excl.getCellData(sheetName, 3, startIter);
 					String OnyxCardName=excl.getCellData(sheetName, 4, startIter);				
-					String classicCardMinText=excl.getCellData(sheetName, 5, startIter);
-					String otherCardsMinText=excl.getCellData(sheetName, 6, startIter);
-					String ccInfoPageMessage=excl.getCellData(sheetName, 7, startIter);
-					String ccInfoTypeLabel=excl.getCellData(sheetName, 8, startIter);
-					String ccInfoLimitLabel=excl.getCellData(sheetName, 9, startIter);
-					String ccInfoClassicLim=excl.getCellData(sheetName, 10, startIter);
-					String ccInfoOtherLim=excl.getCellData(sheetName, 11, startIter);
+					String classicCardMinText=excl.getCellData(sheetName, 16, startIter);
+					String otherCardsMinText=excl.getCellData(sheetName, 17, startIter);
+					String ccInfoPageMessage=excl.getCellData(sheetName, 23, startIter);
+					String ccInfoTypeLabel=excl.getCellData(sheetName, 24, startIter);
+					String ccInfoLimitLabel=excl.getCellData(sheetName, 25, startIter);
+					String ccInfoClassicLim=excl.getCellData(sheetName, 11, startIter);
+					String ccInfoOtherLim=excl.getCellData(sheetName, 12, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -76,22 +76,23 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 					scrollToElement(ObjectRepository.continue_btn);
 					getElement(ObjectRepository.continue_btn).click();
 					test.log(Status.INFO, "Continue button clicked");
-					
-					verifyDropdownSelection(ObjectRepository.cardTypeDropdown,classicCardName);
-					verifyPlaceholder(ObjectRepository.cardLimitTextbox,ccInfoClassicLim);
+					//Credit Card Info page
+					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,classicCardName);
+					verifyPlaceholder(ObjectRepository.prodLimitTextbox,ccInfoClassicLim);
 					
 					//Credit Card Info Display Elements
 					verifyElementPresent(ObjectRepository.crdtcrdinf_ttl);
-					test.log(Status.INFO, "Classic Credit Card Title appearing");				
-					//verifyText(ObjectRepository.ccInfoContent,ccInfoPageMessage);
+					test.log(Status.INFO, "Classic Credit Card Title appearing");	
+					verifyText(ObjectRepository.ccInfoContent,ccInfoPageMessage);
 					verifyText(ObjectRepository.cardTypeLabel,ccInfoTypeLabel);
 					verifyText(ObjectRepository.cardLimitLabel,ccInfoLimitLabel);
 					verifyElementPresent(ObjectRepository.ccInfoBackButton);
 					verifyElementPresent(ObjectRepository.ccInfoNextButton);
 					
-					//Buc-ee's MasterCard Validation
 					getElement(ObjectRepository.ccInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
+					
+					//Buc-ee's MasterCard Validation
 					getElement(ObjectRepository.buceesCheckBox).click();
 					test.log(Status.INFO, "Buc-ee's MasterCard Selected");
 					verifyElementPresent(ObjectRepository.buceesTitle);
@@ -100,13 +101,13 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 					scrollToElement(ObjectRepository.continue_btn);
 					getElement(ObjectRepository.continue_btn).click();
 					test.log(Status.INFO, "Continue button clicked");
-					
-					verifyDropdownSelection(ObjectRepository.cardTypeDropdown,buceesCardName);
-					verifyPlaceholder(ObjectRepository.cardLimitTextbox,ccInfoOtherLim);
-					
-					//Platinum MasterCard Validation
+					//Credit Card Info page
+					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,buceesCardName);
+					verifyPlaceholder(ObjectRepository.prodLimitTextbox,ccInfoOtherLim);
 					getElement(ObjectRepository.ccInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
+					
+					//Platinum MasterCard Validation
 					getElement(ObjectRepository.platinumCheckBox).click();
 					test.log(Status.INFO, "Platinum MasterCard Selected");					
 					verifyElementPresent(ObjectRepository.platinumTitle);
@@ -115,13 +116,14 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 					scrollToElement(ObjectRepository.continue_btn);
 					getElement(ObjectRepository.continue_btn).click();
 					test.log(Status.INFO, "Continue button clicked");
+					//Credit Card Info page
+					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,platinumCardName);
+					verifyPlaceholder(ObjectRepository.prodLimitTextbox,ccInfoOtherLim);
 					
-					verifyDropdownSelection(ObjectRepository.cardTypeDropdown,platinumCardName);
-					verifyPlaceholder(ObjectRepository.cardLimitTextbox,ccInfoOtherLim);
-					
-					//Onyx MasterCard Validation
 					getElement(ObjectRepository.ccInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
+					
+					//Onyx MasterCard Validation
 					getElement(ObjectRepository.OnyxCheckBox).click();	
 					test.log(Status.INFO, "Onyx MasterCard Selected");
 					verifyElementPresent(ObjectRepository.OnyxTitle);
@@ -130,9 +132,9 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 					scrollToElement(ObjectRepository.continue_btn);
 					getElement(ObjectRepository.continue_btn).click();
 					test.log(Status.INFO, "Continue button clicked");
-					
-					verifyDropdownSelection(ObjectRepository.cardTypeDropdown,OnyxCardName);
-					verifyPlaceholder(ObjectRepository.cardLimitTextbox,ccInfoOtherLim);				
+					//Credit Card Info page
+					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,OnyxCardName);
+					verifyPlaceholder(ObjectRepository.prodLimitTextbox,ccInfoOtherLim);				
 				 
 				 }
 			 }
