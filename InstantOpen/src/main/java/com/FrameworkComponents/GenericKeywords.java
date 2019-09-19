@@ -512,5 +512,102 @@ public class GenericKeywords extends BaseClass{
 	public static void closeWindow(){
 		((JavascriptExecutor) driver).executeScript("window.close();");
 	}
+	public static void openWindow(){
+		((JavascriptExecutor) driver).executeScript("window.open();");
+	}
+	
+	public static void productOptions(String productOptions){
+		String productOptionLocator ="//*[contains(text(),'Credit Cards & Loans')]//following::*[contains(@class,'panel-title')]";
+		List<WebElement>allProductOptions = driver.findElements(By.xpath(productOptionLocator));
+		for(int count=1;count<=allProductOptions.size();count++){
+			String actualProductOption = productOptions.split(";")[count-1].trim();
+			
+			String eachProductOptionFromPage = getElement("(//*[contains(text(),'Credit Cards & Loans')]//following::*[contains(@class,'panel-title')])["+count+"]").getAttribute("innerText").trim();
+			
+			if(eachProductOptionFromPage.contains(actualProductOption)){
+				Assert.assertTrue(true, "Product option macthed");
+			}
+		}
+	}
+	
+	public static void expandProductDetailsValidateandCollapse(){
+		
+		String expandArrowLocator = "//*[contains(text(),'Credit Cards & Loans')]//following::*[contains(@class,'panel-title')]/i";
+		List<WebElement>allArrows = driver.findElements(By.xpath(expandArrowLocator));
+		for(int count=1;count<=allArrows.size();count++){
+			
+			String eachArrowLocator = "(//*[contains(text(),'Credit Cards & Loans')]//following::*[contains(@class,'panel-title')]/i)["+count+"]";
+			getElement(eachArrowLocator).click();
+			
+			String expandedDetailsLocator = "//div[contains(@class,'collapse in')]";
+			scrollToElement(expandedDetailsLocator);
+			String expandFlag = getElement(expandedDetailsLocator).getAttribute("class").trim();
+			if(expandFlag.equalsIgnoreCase("collapse in")){
+				Assert.assertTrue(true, "Product arrow is clicked and expanded");
+			}
+			getElement(eachArrowLocator).click();
+			if(expandFlag.contains("collapse")){
+				Assert.assertTrue(true, "Product arrow is clicked and colapsed");
+			}
+		
+		}
+	}
+	
+	public static void expandProductsAndValidateEachOptions(String productName,String subProductName){
+		String locator = "//*[contains(text(),'"+productName+"')]/i";
+		getElement(locator).click();
+		scrollToElement(locator);
+		String allSubProductsLocator = "//span[@id='"+subProductName+"']/div";
+		List<WebElement>allSubProducts = driver.findElements(By.xpath(allSubProductsLocator));
+		System.out.println("Total Sub products: "+allSubProducts.size());
+		for(int index=1;index<=allSubProducts.size();index++){
+			
+			String eachSubProductName = driver.findElement(By.xpath("(//span[@id='"+subProductName+"']//label)["+index+"]")).getAttribute("innerText");
+			if(eachSubProductName!=null && index<=allSubProducts.size()){
+				Assert.assertTrue(true, ""+subProductName+" ïs listed");
+			}
+			if(productName.equalsIgnoreCase("Credit Cards")){
+				String checkBoxLocator = "(//span[@id='CreditCard']//label)["+index+"]/../div[1]";
+				String checkBoxProp = driver.findElement(By.xpath(checkBoxLocator)).getAttribute("class");
+				Assert.assertEquals(checkBoxProp, "icheckbox_square-grey");
+				getElement(checkBoxLocator).click();
+				driver.findElement(By.xpath("(//span[@id='CreditCard']//label/following::ul[contains(@class,' cardDescr')])["+index+"]")).isDisplayed();
+				Assert.assertTrue(true);
+			}
+			if(productName.equalsIgnoreCase("Personal Loans")){
+				String checkBoxLocator = "(//span[@id='"+subProductName+"']//label)["+index+"]/../div[1]";
+				String checkBoxProp = driver.findElement(By.xpath(checkBoxLocator)).getAttribute("class");
+				Assert.assertEquals(checkBoxProp, "icheckbox_square-grey");
+				getElement(checkBoxLocator).click();
+				//driver.findElement(By.xpath("(//span[@id='CreditCard']//label/following::ul[contains(@class,' cardDescr')])["+index+"]")).isDisplayed();
+				//Assert.assertTrue(true);
+			}
+			
+			if(productName.equalsIgnoreCase("Vehicle Loans and Refinance Options ")){
+				
+				String checkBoxLocator = "(//span[@id='"+subProductName+"']//label)[1]/../div[1]";
+				
+				String bulletPointLocator = "(//*[contains(text(),'Vehicle Loans')]/following::div[contains(@id,'Vehicle_pnlProductMoreInfo')]//li)["+index+"]";
+				String Text = getElement(bulletPointLocator).getAttribute("innerText");
+					if(Text != null &&Text.equalsIgnoreCase("Check out the latest rates here")){
+						getElement(checkBoxLocator).click();
+						String linkLocator = "(//*[contains(text(),'Vehicle Loans')]/following::div[contains(@id,'Vehicle_pnlProductMoreInfo')]//li)["+index+"]//a";
+						getElement(linkLocator).getTagName();
+						Assert.assertTrue(true);
+						getElement(linkLocator).click();
+						handleMultipleWindow(1,"");
+						String currentUrl = driver.getCurrentUrl();
+						System.out.println("New Tab launched with: "+currentUrl);
+						String url = "https://www.tdecu.org/rates";
+						Assert.assertTrue(true, url+" launched");
+						closeWindow();
+						handleMultipleWindow(0,"");
+						break;
+					
+					}
+					
+			}
+		}
+	}
 
 }

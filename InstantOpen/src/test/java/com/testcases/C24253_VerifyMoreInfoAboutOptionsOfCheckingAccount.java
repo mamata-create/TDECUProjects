@@ -24,12 +24,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericKeywords {
+public class C24253_VerifyMoreInfoAboutOptionsOfCheckingAccount extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify customize options for User checking account
+	 * Verify More information about customize options for User checking account
 	 */
 
 	@BeforeTest
@@ -45,7 +45,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 	}	
 	
 	@Test
-	public void C23901_VerifyCustomizeOptionForUserCheckingAccount() throws InterruptedException, MessagingException, IOException
+	public void C24253_VerifyMoreInfoAboutOptionsOfCheckingAccount() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -98,8 +98,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 					checkBoxCheckedAndUncheck("checked");
 					test.log(Status.INFO, "All options are checked");
 					Thread.sleep(2000);
-					checkBoxCheckedAndUncheck("Unchecked");
-					test.log(Status.INFO, "All options are Unchecked");
+
 					toolTipValidation(toolTipHeaderID);
 					test.log(Status.INFO, "All Tooltip values are checked");
 					closeWindow();
@@ -121,7 +120,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Customize options for user checking account ");
+			test.log(Status.PASS, "Verify more information about Customize options for user checking account ");
 		}
 	}
 

@@ -24,12 +24,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericKeywords {
+public class C24287_VerifyCertainServiceOptionsSelected extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify customize options for User checking account
+	 * Verify Certain service options are selected
 	 */
 
 	@BeforeTest
@@ -45,7 +45,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 	}	
 	
 	@Test
-	public void C23901_VerifyCustomizeOptionForUserCheckingAccount() throws InterruptedException, MessagingException, IOException
+	public void C24287_VerifyCertainServiceOptionsSelected() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -83,13 +83,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 					Thread.sleep(2000);
 					checkBoxCheckedAndUncheck("Unchecked");
 					test.log(Status.INFO, "All options are Unchecked");
-					toolTipValidation(toolTipHeaderID);
-					test.log(Status.INFO, "All Tooltip values are checked");
-					closeWindow();
-					handleMultipleWindow(0,"");
-					String closeButton = "(//button[@data-dismiss='modal'])[3]";
-					getElement(closeButton).click();
-					Thread.sleep(2500);
+				
 					getElement(ObjectRepository.dontWantCheckingOption).click();
 					Thread.sleep(4000);
 					//Steps for Classic Checking
@@ -100,12 +94,6 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 					Thread.sleep(2000);
 					checkBoxCheckedAndUncheck("Unchecked");
 					test.log(Status.INFO, "All options are Unchecked");
-					toolTipValidation(toolTipHeaderID);
-					test.log(Status.INFO, "All Tooltip values are checked");
-					closeWindow();
-					handleMultipleWindow(0,"");	
-					
-					getElement(closeButton).click();
 					
 				
 				 }
@@ -121,7 +109,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Customize options for user checking account ");
+			test.log(Status.PASS, "Verify Certain service options are selected ");
 		}
 	}
 

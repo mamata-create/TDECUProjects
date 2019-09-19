@@ -24,12 +24,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericKeywords {
+public class C24255_VerifyChangeAbilityOfCustomizeOption extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify customize options for User checking account
+	 * Verify Change ability of customize options
 	 */
 
 	@BeforeTest
@@ -45,7 +45,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 	}	
 	
 	@Test
-	public void C23901_VerifyCustomizeOptionForUserCheckingAccount() throws InterruptedException, MessagingException, IOException
+	public void C24255_VerifyChangeAbilityOfCustomizeOption() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -83,29 +83,23 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 					Thread.sleep(2000);
 					checkBoxCheckedAndUncheck("Unchecked");
 					test.log(Status.INFO, "All options are Unchecked");
-					toolTipValidation(toolTipHeaderID);
-					test.log(Status.INFO, "All Tooltip values are checked");
-					closeWindow();
-					handleMultipleWindow(0,"");
-					String closeButton = "(//button[@data-dismiss='modal'])[3]";
-					getElement(closeButton).click();
-					Thread.sleep(2500);
-					getElement(ObjectRepository.dontWantCheckingOption).click();
-					Thread.sleep(4000);
+					getElement(ObjectRepository.selectRadioOption("No")).click();
+					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.backButton);
+					getElement(ObjectRepository.backButton).click();
+					getElement(ObjectRepository.dontWantCheckingOption).click();	
+					
 					//Steps for Classic Checking
 					
 					serviceOptionValidation("Classic Checking",serviceOption);
 					checkBoxCheckedAndUncheck("checked");
 					test.log(Status.INFO, "All options are checked");
 					Thread.sleep(2000);
-					checkBoxCheckedAndUncheck("Unchecked");
-					test.log(Status.INFO, "All options are Unchecked");
-					toolTipValidation(toolTipHeaderID);
-					test.log(Status.INFO, "All Tooltip values are checked");
-					closeWindow();
-					handleMultipleWindow(0,"");	
+					getElement(ObjectRepository.selectRadioOption("No")).click();
+					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.backButton);
+					getElement(ObjectRepository.backButton).click();
 					
-					getElement(closeButton).click();
 					
 				
 				 }
@@ -121,7 +115,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Customize options for user checking account ");
+			test.log(Status.PASS, "Verify Change ability of customize options");
 		}
 	}
 

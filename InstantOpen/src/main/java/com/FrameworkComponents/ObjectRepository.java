@@ -159,4 +159,12 @@ public class ObjectRepository {
 	public static String dontWantCheckingOption = "//label/strong[contains(text(),'I don’t want to open a checking account today.')]";
 	public static String bottomInfoMsg = "//h4[contains(text(),'looking for loans')]";
 	public static String primaryApplicantInfoPageTitle ="//*/strong[contains(text(),'Primary Applicant Information')]";
+	public static String selectRadioOption(String radioOption){
+		String Option = "//*[contains(text(),'looking for loans')]/following::label[contains(@for,'"+radioOption+"_RadioButton')]";
+		return Option;
+	}
+ 
+	public static String backButton = "//input[@id='BackButton_SubmitButton']";
+	public static String productPageBackBtn = "//input[contains(@id,'Back_SubmitButton')]";
+	public static String vehicleLoanPage = "//strong[contains(text(),'Vehicle Loan Info')]";
 }

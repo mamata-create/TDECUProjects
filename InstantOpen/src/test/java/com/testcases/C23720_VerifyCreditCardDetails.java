@@ -24,12 +24,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericKeywords {
+public class C23720_VerifyCreditCardDetails extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify customize options for User checking account
+	 * Verify User is able to view Credit Card details
 	 */
 
 	@BeforeTest
@@ -45,7 +45,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 	}	
 	
 	@Test
-	public void C23901_VerifyCustomizeOptionForUserCheckingAccount() throws InterruptedException, MessagingException, IOException
+	public void C23720_VerifyCreditCardDetails() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -60,7 +60,8 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 					String informationHeader=excl.getCellData(sheetName, 23, startIter);
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
-					String bottomInfoMsg =  excl.getCellData(sheetName, 26, startIter);
+					String productOptionsForAllOptions =  "Credit Cards; Vehicle Loans and Refinance Options (Auto, Boat, Motorcycle, RV/Camper); Personal Loans;Certificates of Deposit (CDs);Money Market Accounts;Savings Account;Additional Services and Features";
+					
 					String serviceOption = " Debit Card, Mobile Check Deposit, Overdraft Protection Plan, Opt into Courtesy Pay";
 					String toolTipHeaderID = "modalDepositLabel,modalOverdraftLabel,modalCourtesyLabel";
 					verifyElementPresent(ObjectRepository.app_ttl);
@@ -81,31 +82,16 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 					checkBoxCheckedAndUncheck("checked");
 					test.log(Status.INFO, "All options are checked");
 					Thread.sleep(2000);
-					checkBoxCheckedAndUncheck("Unchecked");
-					test.log(Status.INFO, "All options are Unchecked");
-					toolTipValidation(toolTipHeaderID);
-					test.log(Status.INFO, "All Tooltip values are checked");
-					closeWindow();
-					handleMultipleWindow(0,"");
-					String closeButton = "(//button[@data-dismiss='modal'])[3]";
-					getElement(closeButton).click();
-					Thread.sleep(2500);
-					getElement(ObjectRepository.dontWantCheckingOption).click();
-					Thread.sleep(4000);
-					//Steps for Classic Checking
 					
-					serviceOptionValidation("Classic Checking",serviceOption);
-					checkBoxCheckedAndUncheck("checked");
-					test.log(Status.INFO, "All options are checked");
-					Thread.sleep(2000);
-					checkBoxCheckedAndUncheck("Unchecked");
-					test.log(Status.INFO, "All options are Unchecked");
-					toolTipValidation(toolTipHeaderID);
-					test.log(Status.INFO, "All Tooltip values are checked");
-					closeWindow();
-					handleMultipleWindow(0,"");	
 					
-					getElement(closeButton).click();
+					getElement(ObjectRepository.selectRadioOption("Yes")).click();
+					productOptions(productOptionsForAllOptions);
+					expandProductsAndValidateEachOptions("Credit Cards","CreditCard");
+					getElement(ObjectRepository.continue_btn).click();
+					getElement(ObjectRepository.productPageBackBtn).click();
+					expandProductsAndValidateEachOptions("Personal Loans","PersonalLoan");
+					getElement(ObjectRepository.continue_btn).click();
+					
 					
 				
 				 }
@@ -121,7 +107,7 @@ public class C23901_VerifyCustomizeOptionForUserCheckingAccount extends GenericK
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Customize options for user checking account ");
+			test.log(Status.PASS, "Verify User is able to view other products");
 		}
 	}
 
