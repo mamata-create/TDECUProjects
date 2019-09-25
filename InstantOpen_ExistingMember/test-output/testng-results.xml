@@ -2,20 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="35474" started-at="2019-09-19T16:30:02Z" finished-at="2019-09-19T16:30:38Z">
+  <suite name="Default suite" duration-ms="59690" started-at="2019-09-25T15:25:43Z" finished-at="2019-09-25T15:26:42Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="35474" started-at="2019-09-19T16:30:02Z" finished-at="2019-09-19T16:30:38Z">
-      <class name="com.testcases.C24109_VerifyCheckingMMSelection">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24109_VerifyCheckingMMSelection@26be92ad]" name="setUp" is-config="true" duration-ms="15076" started-at="2019-09-19T11:30:02Z" finished-at="2019-09-19T11:30:17Z">
+    <test name="Default test" duration-ms="59690" started-at="2019-09-25T15:25:43Z" finished-at="2019-09-25T15:26:42Z">
+      <class name="com.testcases.C24108_VerifyCDSelection">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2]" name="setUp" is-config="true" duration-ms="14318" started-at="2019-09-25T10:25:43Z" finished-at="2019-09-25T10:25:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24109_VerifyCheckingMMSelection()[pri:0, instance:com.testcases.C24109_VerifyCheckingMMSelection@26be92ad]" name="C24109_VerifyCheckingMMSelection" duration-ms="20387" started-at="2019-09-19T11:30:17Z" finished-at="2019-09-19T11:30:38Z">
+        <test-method status="PASS" signature="C24108_VerifyCDSelection()[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2]" name="C24108_VerifyCDSelection" duration-ms="44309" started-at="2019-09-25T10:25:57Z" finished-at="2019-09-25T10:26:41Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24109_VerifyCheckingMMSelection -->
-      </class> <!-- com.testcases.C24109_VerifyCheckingMMSelection -->
+        </test-method> <!-- C24108_VerifyCDSelection -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-09-25T10:26:41Z" finished-at="2019-09-25T10:26:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=C24108_VerifyCDSelection status=SUCCESS method=C24108_VerifyCDSelection.C24108_VerifyCDSelection()[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2]" name="tearDown" is-config="true" duration-ms="1038" started-at="2019-09-25T10:26:41Z" finished-at="2019-09-25T10:26:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.testcases.C24108_VerifyCDSelection -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

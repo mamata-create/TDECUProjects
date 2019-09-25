@@ -57,6 +57,23 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					String atvSectionTitle = excl.getCellData(sheetName, 10, startIter);
 					String loanMinTwo= excl.getCellData(sheetName, 12, startIter);
 					String jetSkiInfo= excl.getCellData(sheetName, 17, startIter);
+					String loanAmount= excl.getCellData(sheetName, 13, startIter);
+					String prodAmount= excl.getCellData(sheetName, 14, startIter);
+					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					String SSN= excl.getCellData(sheetName, 28, startIter);
+					String DOB= excl.getCellData(sheetName, 29, startIter);
+					String idTypeDD= excl.getCellData(sheetName, 18, startIter);
+					String idNumber= excl.getCellData(sheetName, 19, startIter);
+					String issueDt= excl.getCellData(sheetName, 20, startIter);
+					String expireDt= excl.getCellData(sheetName, 21, startIter);
+					String housePymt= excl.getCellData(sheetName, 22, startIter);
+					String addrYears= excl.getCellData(sheetName, 23, startIter);
+					String addrMonths= excl.getCellData(sheetName, 24, startIter);
+					String currentEmp= excl.getCellData(sheetName, 25, startIter);
+					String curIncome= excl.getCellData(sheetName, 26, startIter);
+					String empYears= excl.getCellData(sheetName, 30, startIter);
+					String empMonths= excl.getCellData(sheetName, 31, startIter);
+					String confirmProd= excl.getCellData(sheetName, 32, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -74,14 +91,14 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(1);
 					getElement(ObjectRepository.autoLoanCheckBox).click();
 					test.log(Status.INFO, "Auto Loan(New or Used) selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Vehicle Loan Info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,autoTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinOne);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.autoLoanCheckedBox);
 					
@@ -91,14 +108,14 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(2);
 					getElement(ObjectRepository.autoRefinCheckBox).click();
 					test.log(Status.INFO, "Refinance your Auto Loan selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Vehicle Loan info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,autoRefinTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinOne);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.autoRefinCheckedBox);
 					
@@ -108,14 +125,14 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(3);
 					getElement(ObjectRepository.motorcycleCheckBox).click();
 					test.log(Status.INFO, "Motorcycle Loans(New or Used) selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");					
 					//Vehicle Loan info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,cycleTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinOne);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.motorcycleCheckedBox);
 					
@@ -125,14 +142,14 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(4);
 					getElement(ObjectRepository.cycleRefinCheckBox).click();
 					test.log(Status.INFO, "Refinance your Motorcycle Loan selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");					
 					//Vehicle Loan info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,refinCycleTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinOne);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.cycleRefinCheckedBox);
 					
@@ -143,14 +160,14 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(5);
 					getElement(ObjectRepository.boatLoanCheckBox).click();
 					test.log(Status.INFO, "Boat Loans(New or Used) selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");					
 					//Vehicle Loan info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,boatSectionTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinOne);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.boatLoanCheckedBox);
 					
@@ -161,14 +178,14 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(6);
 					getElement(ObjectRepository.boatRefinCheckBox).click();
 					test.log(Status.INFO, "Refinance your Boat Loan selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");					
 					//Vehicle Loan info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,boatRefinTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinOne);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.boatRefinCheckedBox);
 					
@@ -179,14 +196,14 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(7);
 					getElement(ObjectRepository.camperLoanCheckBox).click();
 					test.log(Status.INFO, "R/V Camper Loan selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");					
 					//Vehicle Loan info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,camperSectionTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinTwo);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.camperLoanCheckedBox);
 					
@@ -197,14 +214,14 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(8);
 					getElement(ObjectRepository.camperRefinCheckBox).click();
 					test.log(Status.INFO, "Refinance R/V Camper Loan selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");					
 					//Vehicle Loan info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,camperRefinTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinTwo);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.camperRefinCheckedBox);
 					
@@ -216,14 +233,14 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(9);
 					getElement(ObjectRepository.watercraftCheckBox).click();
 					test.log(Status.INFO, "Personal Watercraft(New or Used) selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");					
 					//Vehicle Loan info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,watercraftTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinTwo);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.watercraftCheckedBox);
 					
@@ -234,18 +251,52 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyRatesLink(10);
 					getElement(ObjectRepository.atvLoanCheckBox).click();
 					test.log(Status.INFO, "ATV/UTV Loan(New or Used) selected");
-					scrollToElement(ObjectRepository.continue_btn);
-					getElement(ObjectRepository.continue_btn).click();
+					scrollToElement(ObjectRepository.productPageNext);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");					
 					//Vehicle Loan info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,atvSectionTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,loanMinTwo);
 					//Back to product selection page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.atvLoanCheckedBox);
+					getElement(ObjectRepository.atvLoanCheckedBox).click();
+					verifyElementPresent(ObjectRepository.atvLoanCheckBox);
 					getElement(ObjectRepository.atvLoanCheckBox).click();
-					test.log(Status.INFO, "ATV/UTV Loan(New or Used) unselected");
+					getElement(ObjectRepository.savingsExpand).click();
+					getElement(ObjectRepository.clubCheckBox).click();
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Loan and club account selected");
+					//Prod Info
+					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmount);
+					getElement(ObjectRepository.carPurchPrice).sendKeys(prodAmount);
+					getElement(ObjectRepository.prodInfoNextButton).click();
+					test.log(Status.INFO, "Loan info entered");
+					//Member Verification
+					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
+					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
+					getElement(ObjectRepository.mmbrVerifyNext).click();
+					test.log(Status.INFO, "Member Verified");
+					//Your Information
+					selectDropdownOpt(ObjectRepository.idType,idTypeDD);
+					getElement(ObjectRepository.idNum).sendKeys(idNumber);
+					getElement(ObjectRepository.issueDate).sendKeys(issueDt);
+					getElement(ObjectRepository.expDate).sendKeys(expireDt);
+					getElement(ObjectRepository.housePymt).sendKeys(housePymt);
+					getElement(ObjectRepository.addrYears).sendKeys(addrYears);
+					getElement(ObjectRepository.addrMonths).sendKeys(addrMonths);
+					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
+					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
+					getElement(ObjectRepository.empYears).sendKeys(empYears);
+					getElement(ObjectRepository.empMonths).sendKeys(empMonths);
+					test.log(Status.INFO, "Applicant information entered");
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Continue button clicked");
+					//Confirm Accounts
+					verifyText(ObjectRepository.prodOne,atvSectionTitle);
+					verifyText(ObjectRepository.prodTwo,confirmProd);
 				 }
 			 }
 		}
@@ -257,7 +308,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify credit card selection for existing member");
+			test.log(Status.PASS, "Verify Vehicle Loan product section for existing member");
 		}
 	}
 

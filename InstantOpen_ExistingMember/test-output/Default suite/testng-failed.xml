@@ -3,12 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24109_VerifyCheckingMMSelection">
+      <class name="com.testcases.C24108_VerifyCDSelection">
         <methods>
-          <include name="C24109_VerifyCheckingMMSelection"/>
+          <include name="C24108_VerifyCDSelection"/>
           <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.testcases.C24109_VerifyCheckingMMSelection -->
+      </class> <!-- com.testcases.C24108_VerifyCDSelection -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

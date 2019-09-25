@@ -98,7 +98,7 @@ public class C24104_VerifyProductExpandSections extends GenericKeywords {
 
 			  takescreenshot(this.getClass().getSimpleName(), test);
 		  } else {
-		  	test.log(Status.PASS, "Verify existing member product selection information");
+		  	test.log(Status.PASS, "Verify existing member product sections");
 		  }
 	  }
 

@@ -48,14 +48,33 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						String cdSearchForInfo= excl.getCellData(sheetName, 24, startIter);
 						String cdEnterAmount1= excl.getCellData(sheetName, 11, startIter);
 						String cdEnterAmount2= excl.getCellData(sheetName, 12, startIter);
-						String cdAmountValue= "$500.00";
-						String cdDropdown1= "3";
-						String cdDropdown2= "6";
-						String cdDropdown3= "12";
-						String cdDropdown4= "24";
-						String cdDropdown5= "36";
-						String cdDropdown6= "48";
-						String cdDropdown7= "60";
+						String cdAmountValue= excl.getCellData(sheetName, 13, startIter);
+						String cdDropdown1= excl.getCellData(sheetName, 1, startIter);
+						String cdDropdown2= excl.getCellData(sheetName, 2, startIter);
+						String cdDropdown3= excl.getCellData(sheetName, 3, startIter);
+						String cdDropdown4= excl.getCellData(sheetName, 4, startIter);
+						String cdDropdown5= excl.getCellData(sheetName, 5, startIter);
+						String cdDropdown6= excl.getCellData(sheetName, 6, startIter);
+						String cdDropdown7= excl.getCellData(sheetName, 7, startIter);
+						String loanAmount= excl.getCellData(sheetName, 14, startIter);
+						String prodAmount= excl.getCellData(sheetName, 15, startIter);
+						String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+						String SSN= excl.getCellData(sheetName, 28, startIter);
+						String DOB= excl.getCellData(sheetName, 29, startIter);
+						String idTypeDD= excl.getCellData(sheetName, 18, startIter);
+						String idNumber= excl.getCellData(sheetName, 19, startIter);
+						String issueDt= excl.getCellData(sheetName, 20, startIter);
+						String expireDt= excl.getCellData(sheetName, 21, startIter);
+						String housePymt= excl.getCellData(sheetName, 22, startIter);
+						String addrYears= excl.getCellData(sheetName, 30, startIter);
+						String addrMonths= excl.getCellData(sheetName, 31, startIter);
+						String currentEmp= excl.getCellData(sheetName, 32, startIter);
+						String curIncome= excl.getCellData(sheetName, 33, startIter);
+						String empYears= excl.getCellData(sheetName, 34, startIter);
+						String empMonths= excl.getCellData(sheetName, 35, startIter);
+						String confirmProd= excl.getCellData(sheetName, 9, startIter);
+						String confirmProd2= excl.getCellData(sheetName, 10, startIter);
+						String errorMsg= excl.getCellData(sheetName, 36, startIter);
 						
 						verifyElementPresent(ObjectRepository.app_ttl);
 						test.log(Status.INFO, "Instant Open Title appearing");
@@ -77,11 +96,13 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						//Enter 1000
 						getElement(ObjectRepository.enterAmountTxtField).sendKeys(cdEnterAmount2);
 						verifyAllCdsDisplayed();
+						test.log(Status.INFO, "All CDs displayed");
 						//Enter 500
 						getElement(ObjectRepository.enterAmountTxtField).clear();
 						getElement(ObjectRepository.enterAmountTxtField).sendKeys(cdEnterAmount1);
 						getElement(ObjectRepository.enterAmountTxtField).sendKeys(Keys.TAB);
 						verifyTxtFieldValue(ObjectRepository.enterAmountTxtField,cdAmountValue);
+						test.log(Status.INFO, "Amount in correct format");
 						verifyAllCdsNotDisplayed();
 						getElement(ObjectRepository.enterAmountTxtField).clear();
 
@@ -100,6 +121,7 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						verifyElementPresent(ObjectRepository.visibleCD48);
 						selectDropdownOpt(ObjectRepository.selectTermDropdown,cdDropdown7);
 						verifyElementPresent(ObjectRepository.visibleCD60);
+						test.log(Status.INFO, "Dropdown values correct");
 						//Show All
 						getElement(ObjectRepository.showAllCheckBox).click();
 						verifyAllCdsDisplayed();
@@ -107,16 +129,71 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						verifyTxtFieldValue(ObjectRepository.selectTermDropdown,"");
 						getElement(ObjectRepository.showAllCheckBox).click();
 						verifyAllCdsNotDisplayed();
+						test.log(Status.INFO, "Show All functionality working");
 						//Select a CD
 						selectDropdownOpt(ObjectRepository.selectTermDropdown,cdDropdown3);
 						getElement(ObjectRepository.visibleCD12).click();
+						test.log(Status.INFO, "12 Month CD selected");
 						
-						getElement(ObjectRepository.productPageNext).click();
-						System.out.println(driver.getTitle());
+						/*getElement(ObjectRepository.productPageNext).click();
+						test.log(Status.INFO, "Continue button clicked");
 						verifyElementPresent(ObjectRepository.mmbrVerifyTile);
 						getElement(ObjectRepository.productPageBack).click();
+						test.log(Status.INFO, "Back button clicked");*/
 						//verify CD is still selected, currently back button goes to wrong page
 						//verifyElementPresent(ObjectRepository.visibleCD12);
+						getElement(ObjectRepository.carLoanExpand).click();
+						getElement(ObjectRepository.autoLoanCheckBox).click();
+						getElement(ObjectRepository.productPageNext).click();
+						test.log(Status.INFO, "Loan and CD account selected");
+						//Prod Info
+						getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmount);
+						getElement(ObjectRepository.carPurchPrice).sendKeys(prodAmount);
+						getElement(ObjectRepository.prodInfoNextButton).click();
+						test.log(Status.INFO, "Loan info entered");
+						//Member Verification
+						getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+						getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
+						getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
+						getElement(ObjectRepository.mmbrVerifyNext).click();
+						test.log(Status.INFO, "Member Verified");
+						//Your Information
+						selectDropdownOpt(ObjectRepository.idType,idTypeDD);
+						getElement(ObjectRepository.idNum).sendKeys(idNumber);
+						getElement(ObjectRepository.issueDate).sendKeys(issueDt);
+						getElement(ObjectRepository.expDate).sendKeys(expireDt);
+						getElement(ObjectRepository.housePymt).sendKeys(housePymt);
+						getElement(ObjectRepository.addrYears).sendKeys(addrYears);
+						getElement(ObjectRepository.addrMonths).sendKeys(addrMonths);
+						getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
+						getElement(ObjectRepository.monIncome).sendKeys(curIncome);
+						getElement(ObjectRepository.empYears).sendKeys(empYears);
+						getElement(ObjectRepository.empMonths).sendKeys(empMonths);
+						test.log(Status.INFO, "Applicant information entered");
+						getElement(ObjectRepository.productPageNext).click();
+						test.log(Status.INFO, "Continue button clicked");
+						//Confirm Accounts
+						verifyText(ObjectRepository.prodOne,confirmProd);
+						verifyText(ObjectRepository.prodTwo,confirmProd2);
+						getElement(ObjectRepository.confirmBtn).click();
+						test.log(Status.INFO, "Account selections confirmed");
+						//Agreements and Disclosures
+						getElement(ObjectRepository.termsAndCondCheckBox).click();
+						getElement(ObjectRepository.agreeAndSignCheckBox).click();
+						getElement(ObjectRepository.confirmBtn).click();
+						test.log(Status.INFO, "Terms and conditions accepted");
+						//Identity Verification
+						getElement(ObjectRepository.questionOne).click();
+						getElement(ObjectRepository.questionTwo).click();
+						getElement(ObjectRepository.questionThree).click();
+						getElement(ObjectRepository.questionFour).click();
+						getElement(ObjectRepository.confirmBtn).click();
+						test.log(Status.INFO, "Identity Verification questions answered");
+						//Account Funding
+						verifyElementPresent(ObjectRepository.acctFundTile);
+						getElement(ObjectRepository.submitBtn).click();
+						verifyText(ObjectRepository.errorMsg1,errorMsg);
+						test.log(Status.INFO, "Enter amount message displayed");
 					}
 				}
 		  }
@@ -128,7 +205,7 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 
 				takescreenshot(this.getClass().getSimpleName(), test);
 			} else {
-				test.log(Status.PASS, "Verify credit card selection for existing member");
+				test.log(Status.PASS, "Verify CD product section for existing member");
 			}
 		}
 

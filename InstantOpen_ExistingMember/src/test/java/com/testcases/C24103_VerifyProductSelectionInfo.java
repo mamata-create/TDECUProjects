@@ -26,14 +26,14 @@ public class C24103_VerifyProductSelectionInfo extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
-	  @BeforeTest
-	  public void setUp() throws InterruptedException, MessagingException, IOException {
-		  extent = ExtentManager.GetExtent();
-		  test = extent.createTest(this.getClass().getSimpleName());
-	      BaseClass iDriver = new BaseClass();
-	      iDriver.myTestCaseName = this.getClass().getSimpleName();
-		  executeDriverScript();
-		  test.log(Status.INFO, "Application url navigated");
+  @BeforeTest
+  public void setUp() throws InterruptedException, MessagingException, IOException {
+	  extent = ExtentManager.GetExtent();
+	  test = extent.createTest(this.getClass().getSimpleName());
+	  BaseClass iDriver = new BaseClass();
+	  iDriver.myTestCaseName = this.getClass().getSimpleName();
+	  executeDriverScript();
+	  test.log(Status.INFO, "Application url navigated");
 	  }
 	
   @Test
@@ -57,7 +57,9 @@ public class C24103_VerifyProductSelectionInfo extends GenericKeywords{
 					String cdTitle = excl.getCellData(sheetName, 7, startIter);
 					String checkingAndMMTitle = excl.getCellData(sheetName, 8, startIter);
 					String savingsTitle = excl.getCellData(sheetName, 9, startIter);
-					String addServiceTitle = excl.getCellData(sheetName, 10, startIter);					
+					String addServiceTitle = excl.getCellData(sheetName, 10, startIter);
+					String backButton = excl.getCellData(sheetName, 16, startIter);
+					String continueBtn = excl.getCellData(sheetName, 17, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -83,7 +85,6 @@ public class C24103_VerifyProductSelectionInfo extends GenericKeywords{
 					
 					verifyElementPresent(ObjectRepository.productPageBack);
 					verifyElementPresent(ObjectRepository.productPageNext);
-					
 				}
 			 }
 	  }

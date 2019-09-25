@@ -220,20 +220,18 @@ public class GenericKeywords extends BaseClass{
 			String title = driver.getTitle();
 			driver.close();
 			driver.switchTo().window(parentWindow);
-			if(x <12)
+			if(x <13)
 				if(title.equals("Rates and Fees | TDECU"))
 				{
 					Assert.assertTrue(true);
-					System.out.println("Rates link verified");
 				}
 				else{
 					Assert.assertTrue(false);
 				}
-			if(x==12)
+			if(x==13)
 				if(title.equals("Home Advantage Loan | TDECU"))
 				{
 					Assert.assertTrue(true);
-					System.out.println("Home Advantage Personal Loan Terms & Conditions link verified");
 				}
 				else{
 					Assert.assertTrue(false);
@@ -331,7 +329,6 @@ public class GenericKeywords extends BaseClass{
 				if(title.equals("Rates and Fees | TDECU"))
 				{
 					Assert.assertTrue(true);
-					System.out.println("fee schedule link and text verified");
 				}
 				else{
 					Assert.assertTrue(false);
@@ -350,7 +347,7 @@ public class GenericKeywords extends BaseClass{
 		
 		List<WebElement>allCDsList = driver.findElements(By.xpath(allCDsLocator));
 		int count=allCDsList.size();			
-			if(count == 7){
+			if(count == 9){
 				Assert.assertTrue(true);
 			}
 			else{
@@ -362,7 +359,7 @@ public class GenericKeywords extends BaseClass{
 		
 		List<WebElement>allCDsList = driver.findElements(By.xpath(allCDsLocator));
 		int count=allCDsList.size();			
-			if(count == 7){
+			if(count == 9){
 				Assert.assertTrue(true);
 			}
 			else{
@@ -383,7 +380,6 @@ public class GenericKeywords extends BaseClass{
 			if(title.equals("Rates and Fees | TDECU"))
 			{
 				Assert.assertTrue(true);
-				System.out.println("Rates link verified");
 			}
 			else{
 				Assert.assertTrue(false);
@@ -434,7 +430,6 @@ public class GenericKeywords extends BaseClass{
 			if(actualPDF.contains(pdfText))
 			{
 				Assert.assertTrue(true);
-				System.out.println("Learn More button verified");
 			}
 			else{
 				Assert.assertTrue(false);

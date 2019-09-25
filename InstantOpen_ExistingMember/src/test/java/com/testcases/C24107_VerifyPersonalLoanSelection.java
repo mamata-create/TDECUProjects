@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
-import org.openqa.selenium.By;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -65,6 +64,23 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					String ssLoanDesc1= excl.getCellData(sheetName, 21, startIter);
 					String ssLoanDesc2= excl.getCellData(sheetName, 22, startIter);
 					String min500= excl.getCellData(sheetName, 15, startIter);
+					String ccAmount= excl.getCellData(sheetName, 23, startIter);
+					String loanAmount= excl.getCellData(sheetName, 24, startIter);
+					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					String SSN= excl.getCellData(sheetName, 28, startIter);
+					String DOB= excl.getCellData(sheetName, 29, startIter);
+					String idTypeDD= excl.getCellData(sheetName, 25, startIter);
+					String idNumber= excl.getCellData(sheetName, 26, startIter);
+					String issueDt= excl.getCellData(sheetName, 30, startIter);
+					String expireDt= excl.getCellData(sheetName, 31, startIter);
+					String housePymt= excl.getCellData(sheetName, 32, startIter);
+					String addrYears= excl.getCellData(sheetName, 33, startIter);
+					String addrMonths= excl.getCellData(sheetName, 34, startIter);
+					String currentEmp= excl.getCellData(sheetName, 35, startIter);
+					String curIncome= excl.getCellData(sheetName, 36, startIter);
+					String empYears= excl.getCellData(sheetName, 37, startIter);
+					String empMonths= excl.getCellData(sheetName, 38, startIter);
+					String confirmProd= excl.getCellData(sheetName, 10, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -84,13 +100,13 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					verifyText(ObjectRepository.myWay48Term,(termNum+" "+monthTerm));
 					verifyText(ObjectRepository.myWay4000Collat,noCollatReq);
 					verifyText(ObjectRepository.myWay4000APR,myWayAPR);
-					getElement(ObjectRepository.continue_btn).click();
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,my4000Title);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min4000);
 					//Back to Product Selection Page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.myWay4000CheckedBox);
 					
@@ -102,13 +118,13 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					verifyText(ObjectRepository.myWay60Term,(termNum+" "+monthTerm));
 					verifyText(ObjectRepository.myWay6000Collat,noCollatReq);
 					verifyText(ObjectRepository.myWay6000APR,myWayAPR);
-					getElement(ObjectRepository.continue_btn).click();
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,my6000Title);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min6000);
 					//Back to Product Selection Page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.myWay6000CheckedBox);
 					
@@ -120,13 +136,13 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					verifyText(ObjectRepository.myWay72Term,(termNum+" "+monthTerm));
 					verifyText(ObjectRepository.myWay7000Collat,noCollatReq);
 					verifyText(ObjectRepository.myWay7000APR,myWayAPR);
-					getElement(ObjectRepository.continue_btn).click();
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,my7000Title);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min7000);
 					//Back to Product Selection Page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.myWay7000CheckedBox);
 					
@@ -136,14 +152,14 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					test.log(Status.INFO, "Personal Loan selected");
 					verifyText(ObjectRepository.personalDesc1,personalDesc1);
 					verifyText(ObjectRepository.personalDesc2,ratesDesc);
-					verifyRatesLink(11);
-					getElement(ObjectRepository.continue_btn).click();
+					verifyRatesLink(12);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,personalTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min1000);
 					//Back to Product Selection Page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.personalCheckedBox);
 					
@@ -153,14 +169,14 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					getElement(ObjectRepository.homeAdvCheckBox).click();
 					test.log(Status.INFO, "Home Advantage Personal Loan selected");
 					homeAdvLoanInfoValidation();
-					verifyRatesLink(12);
-					getElement(ObjectRepository.continue_btn).click();
+					verifyRatesLink(13);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,homeAdvTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min1000);
 					//Back to Product Selection Page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.homeAdvCheckedBox);
 					
@@ -170,14 +186,14 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					getElement(ObjectRepository.cash$tashCheckBox).click();
 					test.log(Status.INFO, "Cash $tash Line of Credit selected");
 					cash$tashLOCInfoValidation();
-					verifyRatesLink(13);
-					getElement(ObjectRepository.continue_btn).click();
+					verifyRatesLink(14);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,cash$tashWrongTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min1000);
 					//Back to Product Selection Page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.cash$tashCheckedBox);
 					
@@ -187,14 +203,14 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					getElement(ObjectRepository.cdSecuredCheckBox).click();
 					test.log(Status.INFO, "Certificate of Deposit Secured Loan selected");
 					CDsecuredLoanInfoValidation();
-					verifyRatesLink(14);
-					getElement(ObjectRepository.continue_btn).click();
+					verifyRatesLink(15);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,cdLoanTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min1000);
 					//Back to Product Selection Page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.cdSecuredCheckedBox);
 					
@@ -206,18 +222,56 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					verifyText(ObjectRepository.shareSecuredDesc1,ssLoanDesc1);
 					verifyText(ObjectRepository.shareSecuredDesc2,ssLoanDesc2);
 					verifyText(ObjectRepository.shareSecuredDesc3,ratesDesc);
-					verifyRatesLink(15);
-					getElement(ObjectRepository.continue_btn).click();
+					verifyRatesLink(16);
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,ssLoanTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min500);
 					//Back to Product Selection Page
-					getElement(ObjectRepository.ccInfoBackButton).click();
+					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.shareSecuredCheckedBox);
-					getElement(ObjectRepository.shareSecuredCheckBox).click();
+					getElement(ObjectRepository.shareSecuredCheckedBox).click();
+					verifyElementPresent(ObjectRepository.shareSecuredCheckBox);
 					test.log(Status.INFO, "Share Secured Loan deselected");
+					getElement(ObjectRepository.myWay6000CheckBox).click();
+					getElement(ObjectRepository.creditCardExpand).click();
+					getElement(ObjectRepository.buceesCheckBox).click();
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Credit card and loan selected");
+					//Prod Info
+					getElement(ObjectRepository.prodLimitTextbox).sendKeys(ccAmount);
+					getElement(ObjectRepository.prodInfoNextButton).click();
+					test.log(Status.INFO, "Credit card amount entered");
+					//Prod Info
+					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmount);
+					getElement(ObjectRepository.prodInfoNextButton).click();
+					test.log(Status.INFO, "Loan amount entered");
+					//Member Verification
+					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
+					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
+					getElement(ObjectRepository.mmbrVerifyNext).click();
+					test.log(Status.INFO, "Member Verified");
+					//Your Information
+					selectDropdownOpt(ObjectRepository.idType,idTypeDD);
+					getElement(ObjectRepository.idNum).sendKeys(idNumber);
+					getElement(ObjectRepository.issueDate).sendKeys(issueDt);
+					getElement(ObjectRepository.expDate).sendKeys(expireDt);
+					getElement(ObjectRepository.housePymt).sendKeys(housePymt);
+					getElement(ObjectRepository.addrYears).sendKeys(addrYears);
+					getElement(ObjectRepository.addrMonths).sendKeys(addrMonths);
+					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
+					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
+					getElement(ObjectRepository.empYears).sendKeys(empYears);
+					getElement(ObjectRepository.empMonths).sendKeys(empMonths);
+					test.log(Status.INFO, "Applicant information entered");
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Continue button clicked");
+					//Confirm Accounts
+					verifyText(ObjectRepository.prodOne,confirmProd);
+					verifyText(ObjectRepository.prodTwo,my6000Title);
 				}
 			}
 	  }
@@ -230,7 +284,7 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify credit card selection for existing member");
+			test.log(Status.PASS, "Verify Personal Loan product section for existing member");
 		}
 	}
 
