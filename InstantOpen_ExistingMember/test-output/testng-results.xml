@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="59690" started-at="2019-09-25T15:25:43Z" finished-at="2019-09-25T15:26:42Z">
+  <suite name="Default suite" duration-ms="64440" started-at="2019-09-25T15:36:13Z" finished-at="2019-09-25T15:37:17Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="59690" started-at="2019-09-25T15:25:43Z" finished-at="2019-09-25T15:26:42Z">
-      <class name="com.testcases.C24108_VerifyCDSelection">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2]" name="setUp" is-config="true" duration-ms="14318" started-at="2019-09-25T10:25:43Z" finished-at="2019-09-25T10:25:57Z">
+    <test name="Default test" duration-ms="64440" started-at="2019-09-25T15:36:13Z" finished-at="2019-09-25T15:37:17Z">
+      <class name="com.testcases.C24314_VerifyCheckingAccountSelection1">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2]" name="setUp" is-config="true" duration-ms="14354" started-at="2019-09-25T10:36:13Z" finished-at="2019-09-25T10:36:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24108_VerifyCDSelection()[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2]" name="C24108_VerifyCDSelection" duration-ms="44309" started-at="2019-09-25T10:25:57Z" finished-at="2019-09-25T10:26:41Z">
+        <test-method status="PASS" signature="C24314_VerifyCheckingAccountSelection1()[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2]" name="C24314_VerifyCheckingAccountSelection1" duration-ms="49021" started-at="2019-09-25T10:36:27Z" finished-at="2019-09-25T10:37:16Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24108_VerifyCDSelection -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-09-25T10:26:41Z" finished-at="2019-09-25T10:26:41Z">
+        </test-method> <!-- C24314_VerifyCheckingAccountSelection1 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2]" name="tearDown" is-config="true" duration-ms="1054" started-at="2019-09-25T10:37:16Z" finished-at="2019-09-25T10:37:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-09-25T10:37:16Z" finished-at="2019-09-25T10:37:16Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C24108_VerifyCDSelection status=SUCCESS method=C24108_VerifyCDSelection.C24108_VerifyCDSelection()[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2] output={null}]]]>
+                <![CDATA[[TestResult name=C24314_VerifyCheckingAccountSelection1 status=SUCCESS method=C24314_VerifyCheckingAccountSelection1.C24314_VerifyCheckingAccountSelection1()[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24108_VerifyCDSelection@523884b2]" name="tearDown" is-config="true" duration-ms="1038" started-at="2019-09-25T10:26:41Z" finished-at="2019-09-25T10:26:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.testcases.C24108_VerifyCDSelection -->
+      </class> <!-- com.testcases.C24314_VerifyCheckingAccountSelection1 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
