@@ -167,4 +167,51 @@ public class ObjectRepository {
 	public static String backButton = "//input[@id='BackButton_SubmitButton']";
 	public static String productPageBackBtn = "//input[contains(@id,'Back_SubmitButton')]";
 	public static String vehicleLoanPage = "//strong[contains(text(),'Vehicle Loan Info')]";
-}
+	public static String personalLoanPage = "//strong[contains(text(),'Personal Loan Info')]";
+	public static String errorSummary = "//span[contains(@id,'ErrorSummary')]//li";
+	
+	public static String subproductName(String productName){
+		String locator = "//*[contains(text(),'"+productName+"')]/i";
+		return locator;
+	}
+	
+	public static String locatorInfo(String option){
+		String locator = "//label[contains(text(),'"+option+"')]/../div";
+		String prop = GenericKeywords.getElement(locator).getAttribute("class");
+		return prop;
+	}
+	
+	public static String locatorAdditionalOption(String option){
+		String locator = "//label[contains(text(),'"+option+"')]/../div";
+		return locator;
+	}
+	
+	public static String modalHelpIcon = "//label[contains(text(),'E-Documents')]/following::div[@class='Service_MoreInfo']//button";
+	public static String eDocumentHeader = "//*[@id='modalEdocumentsLabel']";
+	public static String eDocumentModalBody = "//*[@id='modalEdocumentsLabel']/following::p";
+	public static String eDocumentModalCloseButton = "//*[@id='modalEdocumentsLabel']/following::button[1]";
+	
+	public static String loanAmountTxt = "//input[contains(@id,'LoanAmount')]";
+	public static String loanTerm = "//select[contains(@id,'Term')]";
+	
+	public static String getTermCertificateLocator(String term){
+		String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+" Month Share Certificate')]";
+		return termLocator;
+	}
+	public static String creditCardProduct ="(//label[contains(@for,'CreditCard_ProductCheckbox')])[1]";
+	public static String creditcardLimitTxt ="//input[contains(@id,'MoneyTextBox')]";
+	public static String housingPayment ="//input[@id='HousePayment_MoneyTextBox']";
+	public static String addressYearBox = "//input[@id='AddresstDuration_YearTextBox']";
+	public static String addressMonthBox ="//input[@id='AddresstDuration_MonthTextBox']";
+	public static String monthlySal = "//input[@id='MonthlySalary_MoneyTextBox']";
+	public static String employeeDurationYear ="//input[@id='EmploymentDuration_YearTextBox']";
+	public static String employeeDurationMonth ="//input[@id='EmploymentDuration_MonthTextBox']";
+	
+	public static String getLocatorBasedOnOption(String option){
+		String locator = "//*[contains(text(),'"+option+"')]";
+		return locator;
+	}
+	
+	public static String accountFundingPage = "//*[contains(text(),'Account Funding')]";
+	public static String savingsAccountText = "//*[contains(text(),'Savings Account')]/following::div[1]//li";
+	}

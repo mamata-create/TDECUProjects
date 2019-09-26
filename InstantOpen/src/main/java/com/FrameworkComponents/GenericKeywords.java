@@ -609,5 +609,138 @@ public class GenericKeywords extends BaseClass{
 			}
 		}
 	}
+	
+	public static void validatProductOptionsDetails(String subProduct,String subProductTag){
+		
+		String subProductHeaderLocator = "//span[@id='"+subProduct+"']//following::label[contains(@for,'"+subProduct+"_ProductCheckbox_')]";
+		String bulletPointLocator = "(//label[contains(text(),'"+subProductTag+"')]/following::div[contains(@id,'"+subProduct+"_pnlPro')])[1]//li";
+		String bulletOptionValue = null;
+		
+		List<WebElement>headerElements = driver.findElements(By.xpath(subProductHeaderLocator));
+		List<WebElement>bulletElements = driver.findElements(By.xpath(bulletPointLocator));
+		
+			String eachHeaderValueLocator = "(//span[@id='"+subProduct+"']//following::label[contains(@for,'"+subProduct+"_ProductCheckbox_')])[1]";
+			String headerValue = getElement(eachHeaderValueLocator).getAttribute("innerText");
+			if(headerValue.contains(subProductTag)){
+				Assert.assertTrue(true, "Bullet options are matched");
+			}
+			for(int count=1;count<=bulletElements.size();count++){
+				String eachBulletLocator = "(//label[contains(text(),'"+subProductTag+"')]/following::div[contains(@id,'"+subProduct+"_pnlPro')])[1]//li["+count+"]"; 
+				bulletOptionValue = getElement(eachBulletLocator).getAttribute("innerText");
+					System.out.println(bulletOptionValue);
+					Assert.assertTrue(true, "Bullet options are matched");
+					if(bulletOptionValue.contains("latest rates here")){
+						String linkLocator = "(//label[contains(text(),'"+subProductTag+"')]/following::div[contains(@id,'"+subProduct+"_pnlPro')])[1]//li["+count+"]//a";
+						getElement(linkLocator).getTagName();
+						Assert.assertTrue(true);
+						getElement(linkLocator).click();
+						handleMultipleWindow(1,"");
+						String currentUrl = driver.getCurrentUrl();
+						System.out.println("New Tab launched with: "+currentUrl);
+						String url = "https://www.tdecu.org/rates";
+						Assert.assertTrue(true, url+" launched");
+						closeWindow();
+						handleMultipleWindow(0,"");
+						
+					}
+				
+			}
+		
+			
+		}
+	
+	public static void checkMultipleLoanOptionAndContinueOtherOption(String subProduct, String option){
+		String subProductHeaderLocator = "//span[@id='"+subProduct+"']//following::label[contains(@for,'"+subProduct+"_ProductCheckbox_')]";
+		List<WebElement>allSubProducts = driver.findElements(By.xpath(subProductHeaderLocator));
+		for(int index=1;index<=allSubProducts.size();index++){
+			String subProductNameLocator = "(//span[@id='"+subProduct+"']//following::label[contains(@for,'"+subProduct+"_ProductCheckbox_')])["+index+"]";
+			String subProductName = getElement(subProductNameLocator).getAttribute("innerText");
+			if(subProductName.contains(option)){
+				getElement(subProductNameLocator).click();
+				scrollToElement(subProductNameLocator);
+				getElement(ObjectRepository.continue_btn).click();
+				break;
+				
+			}
+			
+		}
+	}
+		
+	public static void validateVariousOptionFromPage(String action,String Option){
+		
+		String link=null;
+		
+		if(action.equalsIgnoreCase("PanelBody")){
+			String locatorPanelBody = "//*[contains(text(),'Certificates of Deposit')]/following::div[1]//li";
+			List<WebElement>allOptions = driver.findElements(By.xpath(locatorPanelBody));
+			for(int index=1;index<=allOptions.size();index++){
+				String option_1 = Option.split(";")[0].trim();
+				String option_2 =Option.split(";")[1].trim();
+				String option_3 =Option.split(";")[2].trim();
+				String eachOptionLocator = "//*[contains(text(),'Certificates of Deposit')]/following::div[1]//li["+index+"]";
+				String rateLinkLocator ="//*[contains(text(),'Certificates of Deposit')]/following::div[1]//li//a";
+				String eachOption = getElement(eachOptionLocator).getAttribute("innerText");
+				link = getElement(rateLinkLocator).getAttribute("href");
+				if(eachOption.contains(option_1)||eachOption.contains(option_2)||link.contains(option_3)){
+					Assert.assertTrue(true, "All body panel options are displayed correctly");
+					
+				}
+				openWindow();
+				handleMultipleWindow(1,link);
+				closeWindow();
+				handleMultipleWindow(0,"");
+			}
+		}else if(action.equalsIgnoreCase("Wizard")){
+			String wizOption_header = Option.split(";")[0].trim();
+			String wizOption_panel = Option.split(";")[1].trim();	
+			verifyText("//*[contains(text(),'Search for')]",wizOption_header);
+			verifyText("//*[contains(text(),'Search for')]/../p",wizOption_panel);
+		}
+		else if(action.equalsIgnoreCase("feeSchedule")){
+			String feeScheduleText = Option.split(";")[0].trim();
+			link =  Option.split(";")[1].trim();
+			verifyText("//div[@class='CDfeeSchedule']//p",feeScheduleText);
+			
+			if(getElement("//div[@class='CDfeeSchedule']//a").getAttribute("href").contains(link)){
+				Assert.assertTrue(true, "Link matched");
+				openWindow();
+				handleMultipleWindow(1,link);
+				closeWindow();
+				handleMultipleWindow(0,"");
+			}
+			
+			
+		}else if(action.equalsIgnoreCase("MoneyMarket")){
+			String locatorPanelBody = "//*[contains(text(),'Money Market Accounts')]/following::div[1]//li";
+			List<WebElement>allOptions = driver.findElements(By.xpath(locatorPanelBody));
+			for(int index=1;index<=allOptions.size();index++){
+				String option_1 = Option.split(";")[0].trim();
+				String option_2 =Option.split(";")[1].trim();
+				String option_3 =Option.split(";")[2].trim();
+				
+				String eachOptionLocator = "//*[contains(text(),'Money Market Accounts')]/following::div[1]//li["+index+"]";
+				String rateLinkLocator ="//*[contains(text(),'Money Market Accounts')]/following::div[1]//li//a";
+				String eachOption = getElement(eachOptionLocator).getAttribute("innerText");
+				link = getElement(rateLinkLocator).getAttribute("href");
+				if(eachOption.contains(option_1)){
+					Assert.assertTrue(true, "All body panel options are displayed correctly");
+					
+				}else if(eachOption.contains(option_2)){
+					Assert.assertTrue(true, "All body panel options are displayed correctly");
+				}else if(eachOption.contains(option_3)){
+					Assert.assertTrue(true, "All body panel options are displayed correctly");
+				}
+				
+			}
+			openWindow();
+			handleMultipleWindow(1,link);
+			Assert.assertEquals(link, "https://www.tdecu.org/rates/");
+			closeWindow();
+			handleMultipleWindow(0,"");
+		}
+		
+		
+		
+	}
 
 }
