@@ -38,6 +38,7 @@ import org.sikuli.script.Screen;*/
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 public class GenericKeywords extends BaseClass{
 
@@ -64,7 +65,7 @@ public class GenericKeywords extends BaseClass{
 			boolean elementpresent=element.isDisplayed();
 			if(elementpresent){
 				System.out.println(locator +"- element present");
-				Assert.assertFalse(false);
+				Assert.assertTrue(false);
 			}else{
 				System.out.println(locator +"- element not present");
 				Assert.assertTrue(true);
@@ -96,13 +97,28 @@ public class GenericKeywords extends BaseClass{
 		Select s=new Select(getElement(locator));
 
 		List<WebElement> options = s.getOptions();
-
+		boolean match = false;
 		for(int i=0;i<options.size();i++){
-			System.out.println(options.get(i).getText());
-			if(options.get(i).getText().contains(opt)){
-				options.get(i).click();
+			//System.out.println(options.get(i).getText());
+			if(options.get(i).getText().equals(opt)){
+				match = true;
+				//options.get(i).click();
 			}
 		}
+		Assert.assertTrue(match);
+	}
+	
+	public static void dDownOptNotPresent(String locator, String opt){
+		Select s=new Select(getElement(locator));
+
+		List<WebElement> options = s.getOptions();
+		boolean noMatch = true;
+		for(int i=0;i<options.size();i++){
+			if(options.get(i).getText().contains(opt)){
+				noMatch = false;
+			}
+		}
+		Assert.assertTrue(noMatch);
 	}
 
 	public static void verifyDropdownSelection(String locator,String option){
@@ -152,6 +168,7 @@ public class GenericKeywords extends BaseClass{
 			Assert.assertTrue(false);
 		}
 	}
+	
 	public static void verifyTxtFieldValue(String locator, String text){
 		WebElement element=getElement(locator);
 		String actText=element.getAttribute("value");
@@ -434,6 +451,16 @@ public class GenericKeywords extends BaseClass{
 			else{
 				Assert.assertTrue(false);
 			}		
+		}else{
+			Assert.assertTrue(false);
+		}
+	}
+	
+	public static void verifyTxtValue(String locator, String text){
+		WebElement element=getElement(locator);
+		String actText=element.getAttribute("value");
+		if(actText.equals(text)){
+			Assert.assertTrue(true);
 		}else{
 			Assert.assertTrue(false);
 		}
