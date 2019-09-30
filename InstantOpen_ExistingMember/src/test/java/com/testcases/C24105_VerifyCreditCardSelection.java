@@ -111,9 +111,8 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.crdtcrdinf_ttl);
 					test.log(Status.INFO, "Credit Card Info Title appearing");	
 					verifyText(ObjectRepository.ccInfoContent,ccInfoPageMessage);
-					verifyText(ObjectRepository.cardTypeLabel,ccInfoTypeLabel);
-					verifyText(ObjectRepository.cardLimitLabel,ccInfoLimitLabel);
-					verifyElementPresent(ObjectRepository.prodInfoNextButton);
+					verifyText(ObjectRepository.prodTypeLabel,ccInfoTypeLabel);
+					verifyText(ObjectRepository.prodLimitLabel,ccInfoLimitLabel);
 					//Back to Product Page
 					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back Button clicked");
@@ -227,7 +226,7 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Credit Card prodcut section for existing member");
+			test.log(Status.PASS, "Verify Credit Card product section for existing member");
 		}
 	}
 

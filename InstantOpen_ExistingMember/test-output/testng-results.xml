@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="64440" started-at="2019-09-25T15:36:13Z" finished-at="2019-09-25T15:37:17Z">
+  <suite name="Default suite" duration-ms="38061" started-at="2019-09-27T20:14:28Z" finished-at="2019-09-27T20:15:06Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="64440" started-at="2019-09-25T15:36:13Z" finished-at="2019-09-25T15:37:17Z">
-      <class name="com.testcases.C24314_VerifyCheckingAccountSelection1">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2]" name="setUp" is-config="true" duration-ms="14354" started-at="2019-09-25T10:36:13Z" finished-at="2019-09-25T10:36:27Z">
+    <test name="Default test" duration-ms="38061" started-at="2019-09-27T20:14:28Z" finished-at="2019-09-27T20:15:06Z">
+      <class name="com.testcases.C24158_VerifyVehicleLoanReqFields2">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24158_VerifyVehicleLoanReqFields2@523884b2]" name="setUp" is-config="true" duration-ms="14863" started-at="2019-09-27T15:14:28Z" finished-at="2019-09-27T15:14:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24314_VerifyCheckingAccountSelection1()[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2]" name="C24314_VerifyCheckingAccountSelection1" duration-ms="49021" started-at="2019-09-25T10:36:27Z" finished-at="2019-09-25T10:37:16Z">
+        <test-method status="PASS" signature="C24158_VerifyVehicleLoanReqFields2()[pri:0, instance:com.testcases.C24158_VerifyVehicleLoanReqFields2@523884b2]" name="C24158_VerifyVehicleLoanReqFields2" duration-ms="22036" started-at="2019-09-27T15:14:43Z" finished-at="2019-09-27T15:15:05Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24314_VerifyCheckingAccountSelection1 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2]" name="tearDown" is-config="true" duration-ms="1054" started-at="2019-09-25T10:37:16Z" finished-at="2019-09-25T10:37:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-09-25T10:37:16Z" finished-at="2019-09-25T10:37:16Z">
+        </test-method> <!-- C24158_VerifyVehicleLoanReqFields2 -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24158_VerifyVehicleLoanReqFields2@523884b2]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-09-27T15:15:05Z" finished-at="2019-09-27T15:15:05Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C24314_VerifyCheckingAccountSelection1 status=SUCCESS method=C24314_VerifyCheckingAccountSelection1.C24314_VerifyCheckingAccountSelection1()[pri:0, instance:com.testcases.C24314_VerifyCheckingAccountSelection1@523884b2] output={null}]]]>
+                <![CDATA[[TestResult name=C24158_VerifyVehicleLoanReqFields2 status=SUCCESS method=C24158_VerifyVehicleLoanReqFields2.C24158_VerifyVehicleLoanReqFields2()[pri:0, instance:com.testcases.C24158_VerifyVehicleLoanReqFields2@523884b2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-      </class> <!-- com.testcases.C24314_VerifyCheckingAccountSelection1 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24158_VerifyVehicleLoanReqFields2@523884b2]" name="tearDown" is-config="true" duration-ms="1140" started-at="2019-09-27T15:15:05Z" finished-at="2019-09-27T15:15:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.testcases.C24158_VerifyVehicleLoanReqFields2 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -83,8 +83,8 @@ public class C24103_VerifyProductSelectionInfo extends GenericKeywords{
 					
 					disclaimerValidation();	
 					
-					verifyElementPresent(ObjectRepository.productPageBack);
-					verifyElementPresent(ObjectRepository.productPageNext);
+					verifyTxtValue(ObjectRepository.productPageBack,backButton);
+					verifyTxtValue(ObjectRepository.productPageNext,continueBtn);
 				}
 			 }
 	  }

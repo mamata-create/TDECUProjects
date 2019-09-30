@@ -66,13 +66,17 @@ public class ObjectRepository {
 	//Credit Card Info page
 	public static String crdtcrdinf_ttl="//strong[text()='Credit Card Info']";
 	public static String ccInfoContent = "(//span[@id='CollateralHandler01']/div)[1]";
-	public static String cardTypeLabel = "//label[@for='ProductDropDownList_DropDownList']";
-	public static String cardLimitLabel = "//label[@for='tbLoanAmount_MoneyTextBox']";
+	
 	//Product Info fields
 	public static String prodInfoBackButton = "//input[@id='btnBack_SubmitButton']";
 	public static String prodInfoNextButton = "//input[@id='btnEdit']";
+	public static String prodTypeLabel = "//label[@for='ProductDropDownList_DropDownList']";
 	public static String prodTypeDropdown = "//select[@name='ProductDropDownList_DropDownList']";
+	public static String prodLimitLabel = "//label[@for='tbLoanAmount_MoneyTextBox']";
 	public static String prodLimitTextbox = "//input[@id='tbLoanAmount_MoneyTextBox']";
+	public static String prodLimIncorrect= "//input[contains(@style,'border-color: rgb(255, 0, 0)')and contains(@style,'background-color: rgb(255, 255, 224)')]";
+	public static String prodLimCorrect= "//input[contains(@style,'border-color: rgb(211, 211, 211)')and contains(@style,'background-color: rgb(255, 255, 255)')]";
+	public static String prodLimPopup= "//div[@class='popover fade bottom in']";
 	
 	//Vehicle Loans
 	public static String carLoanExpand = "//h4[contains(text(),'Vehicle')]/i";
@@ -117,7 +121,27 @@ public class ObjectRepository {
 	public static String atvRatesInfo = "//div[contains(@id,'MoreInfo_6311_1')]//ul[@class='fa-ul']/li";
 	//Vehicle Loan Info
 	public static String carLoanInfoTtl="//strong[text()='Vehicle Loan Info']";
+	public static String carPriceLbl= "//label[@for='tbPurchasePrice_MoneyTextBox']";
 	public static String carPurchPrice = "//input[@id='tbPurchasePrice_MoneyTextBox']";
+	public static String carLoanInfoMsg= "//span[@id='CollateralHandler01']/div";
+	public static String carMakeLbl= "//label[@for='tbMake_TextBox']";
+	public static String carMake= "//input[@id='tbMake_TextBox']";
+	public static String carModelLbl= "//label[@for='tbModel_TextBox']";
+	public static String carModel= "//input[@id='tbModel_TextBox']";
+	public static String carYearLbl= "//label[@for='tbYear_TextBox']";
+	public static String carYear= "//input[@id='tbYear_TextBox']";
+	public static String carMilesLbl= "//label[@for='tbMileage_TextBox']";
+	public static String carMiles= "//input[@id='tbMileage_TextBox']";
+	public static String carVINLbl= "//label[@for='tbVIN_TextBox']";
+	public static String carVIN= "//input[@id='tbVIN_TextBox']";
+	public static String errorType = "//select[contains(@name,'DropDown')and contains(@style,'LightYellow')]";
+	public static String typeAsterisk= "//span[contains(@id,'DropDown')and @style='color:Red;']";
+	public static String errorAmount = "//input[contains(@name,'LoanAmount')and contains(@style,'LightYellow')]";
+	public static String amountAsterisk= "//span[@id='ctl33' and @style='color:Red;']";
+	public static String errorPrice = "//input[contains(@name,'Purchase')and contains(@style,'LightYellow')]";
+	public static String priceAsterisk= "//span[@id='ctl36' and @style='color:Red;']";
+	public static String errorVIN = "//input[contains(@name,'VIN')and contains(@style,'LightYellow')]";
+	public static String VINasterisk= "//span[contains(@id,'VIN')and @style='color:Red;']";
 	
 	//Personal Loans
 	public static String personalLoanExpand = "//h4[contains(text(),'Personal')]/i";
@@ -159,6 +183,7 @@ public class ObjectRepository {
 	public static String shareSecuredDesc1 = "//div[contains(@id,'MoreInfo_1012_1')]//ul[@class='fa-ul']/li[1]";
 	public static String shareSecuredDesc2 = "//div[contains(@id,'MoreInfo_1012_1')]//ul[@class='fa-ul']/li[2]";
 	public static String shareSecuredDesc3 = "//div[contains(@id,'MoreInfo_1012_1')]//ul[@class='fa-ul']/li[3]";
+	public static String freedomLoan = "//label[contains(text(),'Freedom')]";
 	//Personal Loan Info
 	public static String psnlLoanInfTtl="//strong[text()='Personal Loan Info']";
 	
@@ -219,6 +244,13 @@ public class ObjectRepository {
 	public static String courtesyPayTitle= "//h4[@id='modalCourtesyMemberLabel']";
 	public static String courtesyPayDesc= "//*[@id='modalCourtesyMember']/div/div/div[2]";
 	public static String courtesyPayClose= "//*[@id='modalCourtesyMember']/div/div/div[3]/button";
+	//Checking Options Order
+	public static String checkingOpt1 = "(//span[@class='ProductServiceTitle'])[1]";
+	public static String checkingOpt2 = "(//span[@class='ProductServiceTitle'])[2]";
+	public static String checkingOpt3 = "(//span[@class='ProductServiceTitle'])[3]";
+	public static String checkingOpt4 = "(//span[@class='ProductServiceTitle'])[4]";
+	public static String checkingOpt5 = "(//span[@class='ProductServiceTitle'])[5]";
+	public static String checkingOpt6 = "(//span[@class='ProductServiceTitle'])[6]";
 	
 	//Savings Account
 	public static String savingsExpand = "//h4[contains(text(),'Savings')]/i";
@@ -284,8 +316,10 @@ public class ObjectRepository {
 	//Account Funding
 	public static String acctFundTile = "//strong[text()='Account Funding']";
 	public static String submitBtn="//input[@id='NextButton2_SubmitButton']";
-	public static String errorMsg1 ="//span[@id='ErrorSummary1']//li[1]";
-	public static String errorMsg2 ="//span[@id='ErrorSummary1']//li[2]";
+	
+	//Error Messages
+	public static String errorMsg1 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[1]";
+	public static String errorMsg2 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[2]";
 
 	//Don't use below elements for IO Existing Member*******************************************************************
 	//New Member fields
