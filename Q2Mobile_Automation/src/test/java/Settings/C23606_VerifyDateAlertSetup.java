@@ -21,7 +21,6 @@ import com.aventstack.extentreports.Status;
 import junit.framework.Assert;
 
 public class C23606_VerifyDateAlertSetup  extends GenericKeywords {
-
 	ExtentReports extent;
 	ExtentTest test;
 	
