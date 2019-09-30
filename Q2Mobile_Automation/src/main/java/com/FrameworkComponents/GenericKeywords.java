@@ -52,12 +52,12 @@ public class GenericKeywords extends BaseClass {
 		}
 	}
 	
-	public static void selectFutureDateAfter45Days() throws InterruptedException{
+	public static void selectFutureDate(int days,int index) throws InterruptedException{
 		
 		DateFormat dateFormat = new SimpleDateFormat("MMMM/d/yyyy");
 	    Calendar cal = Calendar.getInstance();
 	    cal.setTime(new Date());
-	    cal.add(Calendar.DATE, 46);
+	    cal.add(Calendar.DATE, days);
 	    String newDate = dateFormat.format(cal.getTime());
 
 	    
@@ -72,15 +72,16 @@ public class GenericKeywords extends BaseClass {
 		year=dateArray[2];
 		System.out.println(date+month+year);
 		
-		String calYear=getElement("//android.widget.ScrollView[@resource-id='com.kone.tdecu:id/SCROLL_LAYOUT']/android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index='1']/android.view.ViewGroup[@index='1']//android.widget.TextView[@index='1']").getText();
-		System.out.println("Calender title is -"+calYear);
+		String calMonth=getElement("//android.webkit.WebView[@content-desc='TDECU']/android.view.View[@index='"+index+"']/android.view.View[@index='1']").getAttribute("name");
+		String calYear=getElement("//android.webkit.WebView[@content-desc='TDECU']/android.view.View[@index='"+index+"']/android.view.View[@index='4']").getAttribute("name");
+		System.out.println("Calender title is -"+calMonth);
 		//&& !calYear.contains(year)
-		while(!calYear.contains(month)){
-			getElement("//android.widget.ScrollView[@resource-id='com.kone.tdecu:id/SCROLL_LAYOUT']/android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index='1']/android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']/android.widget.ImageView").click();
+		while(!calMonth.contains(month)){
+			getElement("//android.webkit.WebView[@content-desc='TDECU']/android.view.View[@index='"+index+"']/android.view.View[@index='2']/android.view.View[@content-desc='']").click();
 			Thread.sleep(2000);
-			calYear=getElement("//android.widget.ScrollView[@resource-id='com.kone.tdecu:id/SCROLL_LAYOUT']/android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index='1']/android.view.ViewGroup[@index='1']//android.widget.TextView[@index='1']").getText();
+			 calYear=getElement("//android.webkit.WebView[@content-desc='TDECU']/android.view.View[@index='"+index+"']/android.view.View[@index='4']").getAttribute("name");
 		}
-		getElement("//android.widget.TextView[@text='"+date+"']").click();
+		getElement("//android.view.View[@content-desc='"+date+"']").click();
 		
 		
 	}
@@ -132,8 +133,35 @@ public class GenericKeywords extends BaseClass {
 			getElement("//android.widget.Button[@text='0']").click();
 			getElement("//android.widget.Button[@text='0']").click();
 		}
+		
 	}
 	
+	public static void Submitamount(String amnt,String locator){
+		char[] varArr = amnt.trim().toCharArray();
+		for(int i=varArr.length-1;i>=0;i--){
+			String str=Character.toString(varArr[i]);
+			getElement(locator).sendKeys(str);
+		}
+		
+	}
+	
+	public static void clickElement(String locator) throws InterruptedException{
+		for(int i=1;i<10;i++){
+		try{	
+		
+		int x=getElement(locator).getLocation().getX();
+		x=x+10;
+   		int y=getElement(locator).getLocation().getY();
+   		TouchAction act1=new TouchAction(driver);
+   		act1.tap(x,y).perform();
+   	
+		Thread.sleep(2000);
+		break;
+		}catch(Exception e){
+			scrollToElement(1);
+		}
+		}
+	}
 	public static void enterDate(String amnt){
 		if(amnt.contains(".")){
 			String nwAmt=amnt.replace(".", "");
@@ -161,29 +189,23 @@ public class GenericKeywords extends BaseClass {
 	test.addScreenCaptureFromPath(dest); 
 	}
 	
-	public static void scrollToElement(String locator,int loopCount){
+	public static void scrollToElement(int loopCount){
 		
-		for(int i=1;i<loopCount;i++)
+		for(int i=1;i<=loopCount;i++)
 		{
 			
-			try{
-				WebElement ele=getElement(locator);
-				if(ele.isDisplayed())
-				{
-					break;
-				}
-			}catch(Exception e){
 				Dimension dim = driver.manage().window().getSize();
 				int height = dim.getHeight();
 				int width = dim.getWidth();
 				int x = width/2;
-				int top_y = (int)(height*0.80);
-				int bottom_y = (int)(height*0.20);
+				int top_y = (int)(height*0.65);
+				int bottom_y = (int)(height*0.35);
 				System.out.println("coordinates :" + x + "  "+ top_y + " "+ bottom_y);
 				TouchAction ts = new TouchAction(driver);
 				ts.press(x, top_y).moveTo(x, bottom_y).release().perform();
+				
 			}
-		}
+		
 		
 	}
 

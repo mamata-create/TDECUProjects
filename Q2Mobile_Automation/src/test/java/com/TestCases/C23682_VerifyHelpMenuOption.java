@@ -40,30 +40,30 @@ public class C23682_VerifyHelpMenuOption extends GenericKeywords {
 		getElement(ObjectRepository.login_btn).click();
 		test.log(Status.INFO, "Login button clicked after entering username and password");
 		
-		try{
-			if(getElement(ObjectRepository.emailotp_btn).isDisplayed()){
-				getElement(ObjectRepository.emailotp_btn).click();
-				test.log(Status.INFO, "Send otp to email button clicked");
-				Thread.sleep(17000);
-				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-				test.log(Status.INFO, "Secure Access code entered");
-
-				getElement(ObjectRepository.submit_btn).click();
-				test.log(Status.INFO, "Submit button clicked");
-				Thread.sleep(3000);
-				try{
-					if(getElement(ObjectRepository.rgstrdvc_btn).isDisplayed()){
-						getElement(ObjectRepository.rgstrdvc_btn).click();
-						test.log(Status.INFO, "Register device button available to be clicked");
-					}
-				}catch(Exception e1){
-					test.log(Status.INFO, "Register device button not available to be clicked");
-				}
-			}
-			}catch(Exception e){
-				test.log(Status.INFO, "Device already registered");
-			}
-		
+//		try{
+//			if(getElement(ObjectRepository.emailotp_btn).isDisplayed()){
+//				getElement(ObjectRepository.emailotp_btn).click();
+//				test.log(Status.INFO, "Send otp to email button clicked");
+//				Thread.sleep(17000);
+//				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
+//				test.log(Status.INFO, "Secure Access code entered");
+//
+//				getElement(ObjectRepository.submit_btn).click();
+//				test.log(Status.INFO, "Submit button clicked");
+//				Thread.sleep(3000);
+//				try{
+//					if(getElement(ObjectRepository.rgstrdvc_btn).isDisplayed()){
+//						getElement(ObjectRepository.rgstrdvc_btn).click();
+//						test.log(Status.INFO, "Register device button available to be clicked");
+//					}
+//				}catch(Exception e1){
+//					test.log(Status.INFO, "Register device button not available to be clicked");
+//				}
+//			}
+//			}catch(Exception e){
+//				test.log(Status.INFO, "Device already registered");
+//			}
+//		
 		
 	}
 	
@@ -71,7 +71,7 @@ public class C23682_VerifyHelpMenuOption extends GenericKeywords {
 	@Test
 	public void C23682_VerifyHelpMenuOption() throws InterruptedException
 	{
-		Thread.sleep(3000);	
+		Thread.sleep(8000);	
 		
 		verifyElementPresent(ObjectRepository.home_ttl);
 		test.log(Status.INFO, "Home link appearing");
@@ -83,8 +83,9 @@ public class C23682_VerifyHelpMenuOption extends GenericKeywords {
 		test.log(Status.INFO, "Menu link clicked");
 		Thread.sleep(4000);	
 	
-		TouchAction actn=new TouchAction(driver);
-		actn.tap(100,850).perform();
+//		TouchAction actn=new TouchAction(driver);
+//		actn.tap(100,850).perform();
+		getElement(ObjectRepository.help_menu).click();
 		test.log(Status.INFO, "Help Menu link clicked");
 		
 		Thread.sleep(3000);	
