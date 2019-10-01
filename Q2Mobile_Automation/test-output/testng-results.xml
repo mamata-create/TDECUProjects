@@ -2,27 +2,26 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="306773" started-at="2019-10-01T09:06:25Z" finished-at="2019-10-01T09:11:31Z">
+  <suite name="Default suite" duration-ms="188111" started-at="2019-10-01T15:54:52Z" finished-at="2019-10-01T15:58:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="306773" started-at="2019-10-01T09:06:25Z" finished-at="2019-10-01T09:11:31Z">
-      <class name="Settings.C24232_VerifySingleAccountAddressChange">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:Settings.C24232_VerifySingleAccountAddressChange@438a68]" name="setUp" is-config="true" duration-ms="57300" started-at="2019-10-01T09:06:25Z" finished-at="2019-10-01T09:07:22Z">
+    <test name="Default test" duration-ms="188111" started-at="2019-10-01T15:54:52Z" finished-at="2019-10-01T15:58:00Z">
+      <class name="Services.C23629_VerifyStopPaymentViaServices">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:Services.C23629_VerifyStopPaymentViaServices@438a68]" name="setUp" is-config="true" duration-ms="65883" started-at="2019-10-01T15:54:52Z" finished-at="2019-10-01T15:55:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="C24232_VerifySingleAccountAddressChange()[pri:0, instance:Settings.C24232_VerifySingleAccountAddressChange@438a68]" name="C24232_VerifySingleAccountAddressChange" duration-ms="233787" started-at="2019-10-01T09:07:22Z" finished-at="2019-10-01T09:11:16Z">
+        <test-method status="FAIL" signature="C23629_VerifyStopPaymentViaServices()[pri:0, instance:Services.C23629_VerifyStopPaymentViaServices@438a68]" name="C23629_VerifyStopPaymentViaServices" duration-ms="101069" started-at="2019-10-01T15:55:58Z" finished-at="2019-10-01T15:57:39Z">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.Button[@content-desc='View In Activity Center'] (tried for 30 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //android.view.View[@content-desc=''] (tried for 30 second(s) with 500 milliseconds interval)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.widget.Button[@content-desc='View In Activity Center'] (tried for 30 second(s) with 500 milliseconds interval)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //android.view.View[@content-desc=''] (tried for 30 second(s) with 500 milliseconds interval)
 at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
 at com.FrameworkComponents.GenericKeywords.getElement(GenericKeywords.java:41)
-at com.FrameworkComponents.GenericKeywords.verifyElementPresent(GenericKeywords.java:46)
-at Settings.C24232_VerifySingleAccountAddressChange.C24232_VerifySingleAccountAddressChange(C24232_VerifySingleAccountAddressChange.java:91)
+at Services.C23629_VerifyStopPaymentViaServices.C23629_VerifyStopPaymentViaServices(C23629_VerifyStopPaymentViaServices.java:83)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -48,7 +47,7 @@ at org.testng.TestNG.run(TestNG.java:1017)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: //android.widget.Button[@content-desc='View In Activity Center']
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: //android.view.View[@content-desc='']
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
 System info: host: 'SRAVYAKARTHIK', ip: '192.168.0.5', os.name: 'Windows 8', os.arch: 'x86', os.version: '6.2', java.version: '1.8.0_191'
@@ -60,29 +59,29 @@ at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditio
 at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:206)
 at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:202)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
-... 28 more
+... 27 more
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24232_VerifySingleAccountAddressChange -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Settings.C24232_VerifySingleAccountAddressChange@438a68]" name="afterMethod" is-config="true" duration-ms="6787" started-at="2019-10-01T09:11:16Z" finished-at="2019-10-01T09:11:23Z">
+        </test-method> <!-- C23629_VerifyStopPaymentViaServices -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Services.C23629_VerifyStopPaymentViaServices@438a68]" name="afterMethod" is-config="true" duration-ms="10261" started-at="2019-10-01T15:57:39Z" finished-at="2019-10-01T15:57:49Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C24232_VerifySingleAccountAddressChange status=FAILURE method=C24232_VerifySingleAccountAddressChange.C24232_VerifySingleAccountAddressChange()[pri:0, instance:Settings.C24232_VerifySingleAccountAddressChange@438a68] output={null}]]]>
+                <![CDATA[[TestResult name=C23629_VerifyStopPaymentViaServices status=FAILURE method=C23629_VerifyStopPaymentViaServices.C23629_VerifyStopPaymentViaServices()[pri:0, instance:Services.C23629_VerifyStopPaymentViaServices@438a68] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Settings.C24232_VerifySingleAccountAddressChange@438a68]" name="tearDown" is-config="true" duration-ms="8816" started-at="2019-10-01T09:11:23Z" finished-at="2019-10-01T09:11:31Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Services.C23629_VerifyStopPaymentViaServices@438a68]" name="tearDown" is-config="true" duration-ms="10767" started-at="2019-10-01T15:57:49Z" finished-at="2019-10-01T15:58:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- Settings.C24232_VerifySingleAccountAddressChange -->
+      </class> <!-- Services.C23629_VerifyStopPaymentViaServices -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

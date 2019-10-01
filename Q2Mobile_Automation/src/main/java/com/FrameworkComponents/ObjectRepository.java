@@ -34,6 +34,21 @@ public class ObjectRepository {
 	public static String wlcm_msg="//android.view.View[contains(@content-desc,'Welcome back')]";
 	public static String invalid_msg="//android.view.View[contains(@content-desc,'Secure Access code you entered is invalid')]";
 
+	//Stop Payment
+	
+	public static String stppymnt_menu="//android.view.View[@content-desc='Stop Payment']";	
+	public static String stppymnt_ttl="//android.view.View[@content-desc='Place a stop payment on a single check or multiple checks that have not cleared your account.']";
+	public static String stppymnt_tnc="//android.view.View[contains(@content-desc,'Complete the fields below to make a stop payment request')]";
+	public static String stppymnt_rqsttyp="//android.view.View[contains(@content-desc,'REQUEST TYPE')]";
+	public static String stppymnt_acnt="//android.view.View[contains(@content-desc,'ACCOUNT')]";		
+	public static String stppymnt_note="//android.view.View[contains(@content-desc,'NOTE')]";	
+	public static String sndrqst_btn="//android.widget.Button[contains(@content-desc,'Send Request')]";
+
+	//Rates
+	public static String rates_menu="//android.view.View[@content-desc='Rates']";
+	public static String rates_url="//android.widget.TextView[@resource-id='com.texasdowcreditunion5004.mobile.preproduction:id/browsernav_text']";
+
+	
 //Alerts section
 	public static String alrt_menu="//android.view.View[@content-desc='Alerts']";
 	public static String dtalrt_sctn="//android.view.View[contains(@content-desc,'Date Alerts')]";
