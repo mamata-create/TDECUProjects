@@ -46,7 +46,7 @@ public class BaseClass {
 				DesiredCapabilities cap=new DesiredCapabilities();
 				cap.setCapability(MobileCapabilityType.DEVICE_NAME, "android");
 				cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "android");
-				cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "9");
+				cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.0");
 //				cap.setCapability("unicodeKeyboard", true);
 //				cap.setCapability("resetKeyboard", true);
 				//cap.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");

@@ -94,6 +94,10 @@ public class ObjectRepository {
 //Settings section
 	public static String settings_menu="//android.view.View[@content-desc='Settings']";
 	public static String addrschange_menu="//android.view.View[@content-desc='Address Change']";
+	public static String homephone_txt="//android.widget.EditText[@content-desc='Home Phone']";
+	public static String clrall_btn="//android.widget.Button[@content-desc='Clear All']";
+	public static String chngaddrs_sccs="//android.view.View[@content-desc='Change of Address Successful']";
+	public static String actvtycntr_ttl="//android.view.View[contains(@content-desc,'Activity Center')]";
 	
 //Accounts 
 	public static String acnt_lbl="//android.view.View[contains(@content-desc,'Accounts')]";
