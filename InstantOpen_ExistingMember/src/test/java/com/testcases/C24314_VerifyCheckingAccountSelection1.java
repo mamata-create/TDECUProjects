@@ -70,7 +70,7 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					test.log(Status.INFO, "Member Verified");
 					//Your Information
-					verifyElementPresent(ObjectRepository.yourInfoTile);
+					verifyElementPresent(ObjectRepository.yourInfoTtl);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Confirm Accounts

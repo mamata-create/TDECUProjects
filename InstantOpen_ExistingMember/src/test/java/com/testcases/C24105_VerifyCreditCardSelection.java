@@ -110,7 +110,7 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 					//Credit Card Info Display Elements
 					verifyElementPresent(ObjectRepository.crdtcrdinf_ttl);
 					test.log(Status.INFO, "Credit Card Info Title appearing");	
-					verifyText(ObjectRepository.ccInfoContent,ccInfoPageMessage);
+					verifyText(ObjectRepository.prodInfoMsg,ccInfoPageMessage);
 					verifyText(ObjectRepository.prodTypeLabel,ccInfoTypeLabel);
 					verifyText(ObjectRepository.prodLimitLabel,ccInfoLimitLabel);
 					//Back to Product Page

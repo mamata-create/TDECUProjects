@@ -89,7 +89,7 @@ public class C24155_VerifyVehicleLoanInfo extends GenericKeywords{
 					test.log(Status.INFO, "Vehicle loan selected");
 					//verify elements
 					verifyElementPresent(ObjectRepository.carLoanInfoTtl);
-					verifyText(ObjectRepository.carLoanInfoMsg,loanInfoMsg);
+					verifyText(ObjectRepository.prodInfoMsg,loanInfoMsg);
 					verifyText(ObjectRepository.prodTypeLabel,typeLbl);
 					verifyText(ObjectRepository.prodLimitLabel,amountLbl);
 					verifyText(ObjectRepository.carPriceLbl,prchPriceLbl);

@@ -3,12 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24158_VerifyVehicleLoanReqFields">
+      <class name="com.testcases.C24208_VerifyPreviousIncomeField">
         <methods>
           <include name="setUp"/>
-          <include name="C24158_VerifyVehicleLoanReqFields"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="C24208_VerifyPreviousIncomeField"/>
         </methods>
-      </class> <!-- com.testcases.C24158_VerifyVehicleLoanReqFields -->
+      </class> <!-- com.testcases.C24208_VerifyPreviousIncomeField -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

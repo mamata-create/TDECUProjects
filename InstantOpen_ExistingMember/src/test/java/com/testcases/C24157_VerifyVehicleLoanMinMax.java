@@ -60,8 +60,8 @@ public class C24157_VerifyVehicleLoanMinMax extends GenericKeywords{
 					String popupMsg2=excl.getCellData(sheetName, 24, startIter);
 					String popupMsg3=excl.getCellData(sheetName, 25, startIter);
 					String popupMsg4=excl.getCellData(sheetName, 26, startIter);
-					String popupMsg5=excl.getCellData(sheetName, 27, startIter);
-					String popupMsg6=excl.getCellData(sheetName, 28, startIter);
+					String popupMsg5=excl.getCellData(sheetName, 30, startIter);
+					String popupMsg6=excl.getCellData(sheetName, 31, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");

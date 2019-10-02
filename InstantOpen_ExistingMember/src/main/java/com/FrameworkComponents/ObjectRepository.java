@@ -65,11 +65,11 @@ public class ObjectRepository {
 	public static String OnyxDesc5 = "(//div[contains(@id,'MoreInfo_1258')]//ul[@class='fa-ul cardDescr']/li)[5]";
 	//Credit Card Info page
 	public static String crdtcrdinf_ttl="//strong[text()='Credit Card Info']";
-	public static String ccInfoContent = "(//span[@id='CollateralHandler01']/div)[1]";
 	
 	//Product Info fields
 	public static String prodInfoBackButton = "//input[@id='btnBack_SubmitButton']";
 	public static String prodInfoNextButton = "//input[@id='btnEdit']";
+	public static String prodInfoMsg= "//span[@id='CollateralHandler01']/div";
 	public static String prodTypeLabel = "//label[@for='ProductDropDownList_DropDownList']";
 	public static String prodTypeDropdown = "//select[@name='ProductDropDownList_DropDownList']";
 	public static String prodLimitLabel = "//label[@for='tbLoanAmount_MoneyTextBox']";
@@ -123,7 +123,6 @@ public class ObjectRepository {
 	public static String carLoanInfoTtl="//strong[text()='Vehicle Loan Info']";
 	public static String carPriceLbl= "//label[@for='tbPurchasePrice_MoneyTextBox']";
 	public static String carPurchPrice = "//input[@id='tbPurchasePrice_MoneyTextBox']";
-	public static String carLoanInfoMsg= "//span[@id='CollateralHandler01']/div";
 	public static String carMakeLbl= "//label[@for='tbMake_TextBox']";
 	public static String carMake= "//input[@id='tbMake_TextBox']";
 	public static String carModelLbl= "//label[@for='tbModel_TextBox']";
@@ -142,9 +141,14 @@ public class ObjectRepository {
 	public static String priceAsterisk= "//span[@id='ctl36' and @style='color:Red;']";
 	public static String errorVIN = "//input[contains(@name,'VIN')and contains(@style,'LightYellow')]";
 	public static String VINasterisk= "//span[contains(@id,'VIN')and @style='color:Red;']";
+	public static String errorYear = "//input[contains(@name,'Year')and contains(@style,'LightYellow')]";
+	public static String yearAsterisk= "//span[contains(@id,'Year')and @style='color:Red;']";
+	public static String errorMiles = "//input[contains(@name,'Mileage')and contains(@style,'LightYellow')]";
+	public static String milesAsterisk= "//span[contains(@id,'Mileage')and @style='color:Red;']";
 	
 	//Personal Loans
 	public static String personalLoanExpand = "//h4[contains(text(),'Personal')]/i";
+	public static String stormCheckBox= "//div[@id='PersonalLoan_ProductPanel_6449_1']//div[@class='icheckbox_square-grey']";
 	public static String myWay4000Title = "//label[@for='PersonalLoan_ProductCheckbox_2089_1']";
 	public static String myWay4000CheckBox = "//div[@id='PersonalLoan_ProductPanel_2089_1']//div[@class='icheckbox_square-grey']";
 	public static String myWay4000CheckedBox = "//div[@id='PersonalLoan_ProductPanel_2089_1']//div[contains(@class,'checked')]";
@@ -186,6 +190,7 @@ public class ObjectRepository {
 	public static String freedomLoan = "//label[contains(text(),'Freedom')]";
 	//Personal Loan Info
 	public static String psnlLoanInfTtl="//strong[text()='Personal Loan Info']";
+	public static String psnlAmtAsterisk= "//span[@style='color:Red;']//following::input[contains(@name,'LoanAmount')]";
 	
 	//Certificate of Deposits
 	public static String cdExpand = "//h4[contains(text(),'Deposit')]/i";
@@ -283,20 +288,31 @@ public class ObjectRepository {
 	public static String mmbrVerifyDOB="//input[@id='tbBirthDate_RadDatePicker']";
 	
 	//Your Information
-	public static String yourInfoTile = "//strong[text()='Your Information']";
+	public static String yourInfoTtl = "//strong[text()='Your Information']";
+	public static String applicantHdr= " (//div[@class='SectionHeaders'])[1]";
+	public static String identityHdr= " (//div[@class='SectionHeaders'])[2]";
+	public static String loanHdr= " (//div[@class='SectionHeaders'])[3]";
 	public static String idType="//select[@id='IDType_IDType']";
 	public static String idNum="//input[@id='IDType_IDNumber']";
 	public static String issueDate="//input[@id='IDType_IssueDate']";
 	public static String expDate="//input[@id='IDType_ExpirationDate']";
+	public static String houseType= "//select[@id='HousingType_DropDownList']";
 	public static String housePymt="//input[@id='HousePayment_MoneyTextBox']";
 	public static String addrYears="//input[@id='AddresstDuration_YearTextBox']";
 	public static String addrMonths="//input[@id='AddresstDuration_MonthTextBox']";
+	public static String empStatus= "//select[@id='EmploymentStatus_DropDownList']";
 	public static String currentEmp="//input[@id='CurrentEmployer_TextBox']";
 	public static String monIncome="//input[@id='MonthlySalary_MoneyTextBox']";
 	public static String empYears="//input[@id='EmploymentDuration_YearTextBox']";
 	public static String empMonths="//input[@id='EmploymentDuration_MonthTextBox']";
+	public static String prevEmp="//input[@id='PrevEmployer_TextBox']";
+	public static String prevIncome="//input[@id='PrevMonthlySalary_MoneyTextBox']";
+	public static String prevYears="//input[@id='PreviousEmploymentDuration_YearTextBox']";
+	public static String prevMonths="//input[@id='PreviousEmploymentDuration_MonthTextBox']";
+	public static String appInfoPopup= "//div[@class='popover-content']";
 	
 	//Confirm Accounts
+	public static String confirmTtl = "//strong[text()='Confirm Account Selections']";
 	public static String prodOne = "(//span[@id='ProductsAndServices']//li[1])[1]";
 	public static String prodTwo = "//span[@id='ProductsAndServices']//li[2]";
 	public static String prodWOptionsTwo = "(//span[@id='ProductsAndServices']//li[2])[2]";
