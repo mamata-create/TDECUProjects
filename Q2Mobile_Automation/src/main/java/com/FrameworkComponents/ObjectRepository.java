@@ -43,6 +43,8 @@ public class ObjectRepository {
 	public static String stppymnt_acnt="//android.view.View[contains(@content-desc,'ACCOUNT')]";		
 	public static String stppymnt_note="//android.view.View[contains(@content-desc,'NOTE')]";	
 	public static String sndrqst_btn="//android.widget.Button[contains(@content-desc,'Send Request')]";
+	public static String slctall_btn="//android.widget.Button[@content-desc='Select All']";
+	
 
 	//Rates
 	public static String rates_menu="//android.view.View[@content-desc='Rates']";
@@ -113,6 +115,7 @@ public class ObjectRepository {
 	public static String clrall_btn="//android.widget.Button[@content-desc='Clear All']";
 	public static String chngaddrs_sccs="//android.view.View[@content-desc='Change of Address Successful']";
 	public static String actvtycntr_ttl="//android.view.View[contains(@content-desc,'Activity Center')]";
+	public static String addrschange_sccsmsg="//android.view.View[contains(@content-desc,'Your request was successful')]";
 	
 //Accounts 
 	public static String acnt_lbl="//android.view.View[contains(@content-desc,'Accounts')]";
