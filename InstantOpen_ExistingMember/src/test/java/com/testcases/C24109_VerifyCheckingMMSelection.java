@@ -97,7 +97,7 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						verifyText(ObjectRepository.mnyMrktDesc1,mmDesc1);
 						verifyText(ObjectRepository.mnyMrktDesc2,mmDesc2);
 						verifyText(ObjectRepository.mnyMrktDesc3,mmDesc3);
-						verifyOtherRatesLink(2);
+						verifyRatesLink(2);
 						
 						//High Yield Checking section					
 						verifyText(ObjectRepository.highYieldTitle,hyTitle);

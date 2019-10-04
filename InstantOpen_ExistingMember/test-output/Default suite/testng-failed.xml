@@ -3,14 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24208_VerifyPreviousIncomeField">
+      <class name="com.testcases.C24261_VerifyEDocsConsentLink">
         <methods>
           <include name="setUp"/>
-          <include name="afterMethod"/>
-          <include name="tearDown"/>
-          <include name="C24208_VerifyPreviousIncomeField"/>
+          <include name="C24261_VerifyEDocsConsentLink"/>
         </methods>
-      </class> <!-- com.testcases.C24208_VerifyPreviousIncomeField -->
+      </class> <!-- com.testcases.C24261_VerifyEDocsConsentLink -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

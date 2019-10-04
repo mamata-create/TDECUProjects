@@ -283,19 +283,58 @@ public class ObjectRepository {
 	public static String mmbrVerifyTile = "//strong[text()='Member Verification']";
 	public static String mmbrVerifyNext = "//span[@id='NextButton']";
 	public static String mmbrVerifyBack = "//span[@id='BackButton']";
+	public static String mmbrNumLabel= "//label[text()='*Member Number:']";
 	public static String mmbrVerifyNum="//input[@id='tbEMAMMemberNumber_TextBox']";
+	public static String mmbrNumRO="//input[@id='tbEMAMMemberNumber_TextBox' and @disabled='disabled']";
+	public static String mmbrSSNlabel= "//label[text()='*Social Security Number:']";
 	public static String mmbrVerifySSN="//input[@id='tbEMAMSSNTextBox_TextBox']";
+	public static String mmbrSSNRO="//input[@id='tbEMAMSSNTextBox_TextBox'and @disabled='disabled']";
+	public static String mmbrDOBlabel= "//label[text()='*Date of Birth:']";
 	public static String mmbrVerifyDOB="//input[@id='tbBirthDate_RadDatePicker']";
+	public static String mmbrDOBRO="//input[@id='tbBirthDate_RadDatePicker'and @disabled='disabled']";
 	
 	//Your Information
 	public static String yourInfoTtl = "//strong[text()='Your Information']";
 	public static String applicantHdr= " (//div[@class='SectionHeaders'])[1]";
 	public static String identityHdr= " (//div[@class='SectionHeaders'])[2]";
 	public static String loanHdr= " (//div[@class='SectionHeaders'])[3]";
+	//Applicant Information
+	public static String fnameLabel= "//label[text()='*First Name:']";
+	public static String fname= "//input[@id='tbFirstName_TextBox'and @disabled='disabled']";
+	public static String mnameLabel= "//label[text()='Middle Name:']";
+	public static String mname= "//input[@id='tbMiddleName_TextBox'and @disabled='disabled']";
+	public static String lnameLabel= "//label[text()='*Last Name:']";
+	public static String lname= "//input[@id='tbLastName_TextBox'and @disabled='disabled']";
+	public static String nameSffxLabel= "//label[text()='Name Suffix:']";
+	public static String nameSuffix= "//input[@id='tbNameSuffix_TextBox'and @disabled='disabled']";
+	public static String stAddrLabel= "//label[text()='*Street Address:']";
+	public static String stAddr= "//input[contains(@id,'AddressLine1')and @disabled='disabled']";
+	public static String cityLabel= "//label[text()='*City, State, ZIP']";
+	public static String cityStZip= "//input[contains(@id,'CityStateZip')and @disabled='disabled']";
+	public static String commLabel= "//label[text()='Preferred Method of Communication:']";
+	public static String commDdown= "//select[contains(@id,'ContactMethod')]";
+	//Identification Information
 	public static String idType="//select[@id='IDType_IDType']";
+	public static String errorIdType = "//select[contains(@name,'IDType')and contains(@style,'LightYellow')]";
+	public static String IdTypeAsterisk= "//span[@id='ctl40' and @style='color:Red;']";
+	public static String stateLabel= "//label[@for='IDType_StateComboBox']";
+	public static String stateDropdown= "//select[@id='IDType_StateComboBox']";
+	public static String errorState = "//select[contains(@name,'State')and contains(@style,'LightYellow')]";
+	public static String stateAsterisk= "//span[@id='ctl42' and @style='color:Red;']";
+	public static String countryLbl= "//label[@for='IDType_CountryComboBox']";
+	public static String countryDdown= "//select[@id='IDType_CountryComboBox']";
+	public static String errorCountry = "//select[contains(@name,'Country')and contains(@style,'LightYellow')]";
+	public static String countryAsterisk= "//span[@id='ctl44' and @style='color:Red;']";
 	public static String idNum="//input[@id='IDType_IDNumber']";
+	public static String errorIdNum = "//input[contains(@name,'IDNumber')and contains(@style,'LightYellow')]";
+	public static String idNumAsterisk= "//span[@id='ctl46' and @style='color:Red;']";
 	public static String issueDate="//input[@id='IDType_IssueDate']";
+	public static String errorIssDt = "//input[contains(@name,'IssueDate')and contains(@style,'LightYellow')]";
+	public static String issDtAsterisk= "//span[@id='ctl48' and @style='color:Red;']";
 	public static String expDate="//input[@id='IDType_ExpirationDate']";
+	public static String errorExpDt = "//input[contains(@name,'Expiration')and contains(@style,'LightYellow')]";
+	public static String expDtAsterisk= "//span[@id='ctl50' and @style='color:Red;']";
+	//Loan Information
 	public static String houseType= "//select[@id='HousingType_DropDownList']";
 	public static String housePymt="//input[@id='HousePayment_MoneyTextBox']";
 	public static String addrYears="//input[@id='AddresstDuration_YearTextBox']";
@@ -310,6 +349,11 @@ public class ObjectRepository {
 	public static String prevYears="//input[@id='PreviousEmploymentDuration_YearTextBox']";
 	public static String prevMonths="//input[@id='PreviousEmploymentDuration_MonthTextBox']";
 	public static String appInfoPopup= "//div[@class='popover-content']";
+	//Bottom of page
+	public static String jtOwnerCheckBox= "//span[@id='cbAddJoint']/div";
+	public static String jtOwnerLbl= "//label[@for='cbAddJoint_CheckBox']";
+	public static String addBeneCheckBox= "//span[@id='cbAddBene']/div";
+	public static String addBeneLbl= "//label[@for='cbAddBene_CheckBox']";
 	
 	//Confirm Accounts
 	public static String confirmTtl = "//strong[text()='Confirm Account Selections']";
@@ -320,8 +364,10 @@ public class ObjectRepository {
 	public static String changeBtn="//input[@id='btnChange_SubmitButton']";
 	
 	//Agreements and Disclosures
+	public static String agreementTtl = "//h2[text()='Account Agreements and Disclosures']";
 	public static String termsAndCondCheckBox = "//span[@id='cbDisclosures']//div[@class='icheckbox_square-grey']";
 	public static String agreeAndSignCheckBox = "//span[@id='Authroization']//div[@class='icheckbox_square-grey']";
+	public static String eDocsLink= "//a[text()='eDocument Consent']";
 	
 	//ID Verification
 	public static String questionOne = "(//span[@id='IDAuthenticationQuestions']//table//tr[4])[1]";
@@ -336,6 +382,8 @@ public class ObjectRepository {
 	//Error Messages
 	public static String errorMsg1 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[1]";
 	public static String errorMsg2 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[2]";
+	public static String errorMsg3 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[3]";
+	public static String errorMsg4 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[4]";
 
 	//Don't use below elements for IO Existing Member*******************************************************************
 	//New Member fields

@@ -98,8 +98,8 @@ public class C24155_VerifyVehicleLoanInfo extends GenericKeywords{
 					verifyText(ObjectRepository.carYearLbl,yearLbl);
 					verifyText(ObjectRepository.carMilesLbl,milesLbl);
 					verifyText(ObjectRepository.carVINLbl,VINlbl);
-					verifyTxtValue(ObjectRepository.prodInfoBackButton,backBtn);
-					verifyTxtValue(ObjectRepository.prodInfoNextButton,continueBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoBackButton,backBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoNextButton,continueBtn);
 					test.log(Status.INFO, "Labels verified");
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,carDdown);
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,boatDdown);

@@ -71,8 +71,8 @@ public class C24150_VerifyCreditCardInfo extends GenericKeywords{
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,onyxDropdown);
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,plantinumDropdown);
 					
-					verifyTxtValue(ObjectRepository.prodInfoBackButton,backButton);
-					verifyTxtValue(ObjectRepository.prodInfoNextButton,continueBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoBackButton,backButton);
+					verifyTxtFieldValue(ObjectRepository.prodInfoNextButton,continueBtn);
 					
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(ccAmount);
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(Keys.TAB);

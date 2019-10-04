@@ -152,7 +152,7 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					test.log(Status.INFO, "Personal Loan selected");
 					verifyText(ObjectRepository.personalDesc1,personalDesc1);
 					verifyText(ObjectRepository.personalDesc2,ratesDesc);
-					verifyRatesLink(12);
+					verifyHereLink(12);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
@@ -169,7 +169,7 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					getElement(ObjectRepository.homeAdvCheckBox).click();
 					test.log(Status.INFO, "Home Advantage Personal Loan selected");
 					homeAdvLoanInfoValidation();
-					verifyRatesLink(13);
+					verifyHereLink(13);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
@@ -186,7 +186,7 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					getElement(ObjectRepository.cash$tashCheckBox).click();
 					test.log(Status.INFO, "Cash $tash Line of Credit selected");
 					cash$tashLOCInfoValidation();
-					verifyRatesLink(14);
+					verifyHereLink(14);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
@@ -203,7 +203,7 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					getElement(ObjectRepository.cdSecuredCheckBox).click();
 					test.log(Status.INFO, "Certificate of Deposit Secured Loan selected");
 					CDsecuredLoanInfoValidation();
-					verifyRatesLink(15);
+					verifyHereLink(15);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
@@ -222,7 +222,7 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					verifyText(ObjectRepository.shareSecuredDesc1,ssLoanDesc1);
 					verifyText(ObjectRepository.shareSecuredDesc2,ssLoanDesc2);
 					verifyText(ObjectRepository.shareSecuredDesc3,ratesDesc);
-					verifyRatesLink(16);
+					verifyHereLink(16);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page

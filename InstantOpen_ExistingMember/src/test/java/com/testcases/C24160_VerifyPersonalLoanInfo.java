@@ -75,8 +75,8 @@ public class C24160_VerifyPersonalLoanInfo extends GenericKeywords{
 					verifyText(ObjectRepository.prodInfoMsg,loanDesc);
 					verifyText(ObjectRepository.prodTypeLabel,typeLbl);
 					verifyText(ObjectRepository.prodLimitLabel,amountLbl);
-					verifyTxtValue(ObjectRepository.prodInfoBackButton,backBtn);
-					verifyTxtValue(ObjectRepository.prodInfoNextButton,continueBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoBackButton,backBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoNextButton,continueBtn);
 					test.log(Status.INFO, "Labels verified");
 					//verify dropdowns
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,myway4Ddown);

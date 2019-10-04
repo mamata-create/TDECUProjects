@@ -2,20 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="33353" started-at="2019-10-02T20:09:39Z" finished-at="2019-10-02T20:10:13Z">
+  <suite name="Default suite" duration-ms="45380" started-at="2019-10-04T20:51:07Z" finished-at="2019-10-04T20:51:53Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="33353" started-at="2019-10-02T20:09:39Z" finished-at="2019-10-02T20:10:13Z">
-      <class name="com.testcases.C24209_VerifyLengthofPrevEmpFields">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24209_VerifyLengthofPrevEmpFields@26be92ad]" name="setUp" is-config="true" duration-ms="15194" started-at="2019-10-02T15:09:39Z" finished-at="2019-10-02T15:09:55Z">
+    <test name="Default test" duration-ms="45380" started-at="2019-10-04T20:51:07Z" finished-at="2019-10-04T20:51:53Z">
+      <class name="com.testcases.C24026_VerifyRemoveAccountSelection">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24026_VerifyRemoveAccountSelection@523884b2]" name="setUp" is-config="true" duration-ms="15753" started-at="2019-10-04T15:51:07Z" finished-at="2019-10-04T15:51:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24209_VerifyLengthofPrevEmpFields()[pri:0, instance:com.testcases.C24209_VerifyLengthofPrevEmpFields@26be92ad]" name="C24209_VerifyLengthofPrevEmpFields" duration-ms="18137" started-at="2019-10-02T15:09:55Z" finished-at="2019-10-02T15:10:13Z">
+        <test-method status="PASS" signature="C24026_VerifyRemoveAccountSelection()[pri:0, instance:com.testcases.C24026_VerifyRemoveAccountSelection@523884b2]" name="C24026_VerifyRemoveAccountSelection" duration-ms="28341" started-at="2019-10-04T15:51:23Z" finished-at="2019-10-04T15:51:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24209_VerifyLengthofPrevEmpFields -->
-      </class> <!-- com.testcases.C24209_VerifyLengthofPrevEmpFields -->
+        </test-method> <!-- C24026_VerifyRemoveAccountSelection -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24026_VerifyRemoveAccountSelection@523884b2]" name="afterMethod" is-config="true" duration-ms="1" started-at="2019-10-04T15:51:51Z" finished-at="2019-10-04T15:51:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=C24026_VerifyRemoveAccountSelection status=SUCCESS method=C24026_VerifyRemoveAccountSelection.C24026_VerifyRemoveAccountSelection()[pri:0, instance:com.testcases.C24026_VerifyRemoveAccountSelection@523884b2] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24026_VerifyRemoveAccountSelection@523884b2]" name="tearDown" is-config="true" duration-ms="1261" started-at="2019-10-04T15:51:51Z" finished-at="2019-10-04T15:51:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.testcases.C24026_VerifyRemoveAccountSelection -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

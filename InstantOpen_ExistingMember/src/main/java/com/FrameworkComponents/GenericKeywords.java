@@ -226,7 +226,7 @@ public class GenericKeywords extends BaseClass{
 		}
 	}
 	
-	public static void verifyRatesLink(int x){
+	public static void verifyHereLink(int x){
 		String parentWindow = driver.getWindowHandle();
 		driver.findElement(By.xpath("(//a[text()='here'])["+x+"]")).click();
 		int count = driver.getWindowHandles().size();
@@ -383,7 +383,8 @@ public class GenericKeywords extends BaseClass{
 				Assert.assertTrue(false);
 			}
 	}
-	public static void verifyOtherRatesLink(int x){
+	
+	public static void verifyRatesLink(int x){
 		String parentWindow = driver.getWindowHandle();
 		driver.findElement(By.xpath("(//a[contains(text(),'rate')])["+x+"]")).click();
 		int count = driver.getWindowHandles().size();
@@ -456,14 +457,27 @@ public class GenericKeywords extends BaseClass{
 		}
 	}
 	
-	public static void verifyTxtValue(String locator, String text){
-		WebElement element=getElement(locator);
-		String actText=element.getAttribute("value");
-		if(actText.equals(text)){
-			Assert.assertTrue(true);
+	public static void verifyeDocsLink(){
+		String parentWindow = driver.getWindowHandle();
+		driver.findElement(By.xpath("//a[text()='eDocument Consent']")).click();
+		int count = driver.getWindowHandles().size();
+		if(count == 2){
+			for(String winHandle : driver.getWindowHandles()){
+			    driver.switchTo().window(winHandle);
+			}
+			String title = driver.getTitle();
+			driver.close();
+			driver.switchTo().window(parentWindow);
+			if(title.equals("TDECU eDocument Consent"))
+			{
+				Assert.assertTrue(true);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
 		}else{
 			Assert.assertTrue(false);
-		}
+		}		
 	}
 	
 	//Select Credit Card based on Excel input

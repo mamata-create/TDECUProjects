@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24189_VerifyAdditionalLoanInfo extends GenericKeywords{
+public class C24261_VerifyEDocsConsentLink extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +33,7 @@ public class C24189_VerifyAdditionalLoanInfo extends GenericKeywords{
   }
 	
   @Test
-  public void C24189_VerifyAdditionalLoanInfo() throws InterruptedException, MessagingException, IOException {
+  public void C24261_VerifyEDocsConsentLink() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -41,15 +41,10 @@ public class C24189_VerifyAdditionalLoanInfo extends GenericKeywords{
 			for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
 			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
-				 {
-					String errorMsg1=excl.getCellData(sheetName, 23, startIter);
-					String loanAmt=excl.getCellData(sheetName, 6, startIter);
-					String mmbrNum=excl.getCellData(sheetName, 27, startIter);
-					String SSN=excl.getCellData(sheetName, 28, startIter);
-					String DOB=excl.getCellData(sheetName, 29, startIter);
-					String appSection=excl.getCellData(sheetName, 1, startIter);
-					String idSection=excl.getCellData(sheetName, 2, startIter);
-					String loanSection=excl.getCellData(sheetName, 3, startIter);
+				{
+					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					String SSN= excl.getCellData(sheetName, 28, startIter);
+					String DOB= excl.getCellData(sheetName, 29, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -57,41 +52,25 @@ public class C24189_VerifyAdditionalLoanInfo extends GenericKeywords{
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
-					
+					//Select Products
+					getElement(ObjectRepository.checkingExpand).click();
+					getElement(ObjectRepository.highYieldCheckBox).click();
+					getElement(ObjectRepository.addtionalExpand).click();
+					verifyElementPresent(ObjectRepository.eDocsChecked);
+					test.log(Status.INFO, "High Yield checking selected and e-Docs checked");
 					getElement(ObjectRepository.productPageNext).click();
-					verifyText(ObjectRepository.errorMsg1,errorMsg1);
-					test.log(Status.INFO, "Select account error message displayed");
-					//Select loan
-					getElement(ObjectRepository.personalLoanExpand).click();
-					getElement(ObjectRepository.homeAdvCheckBox).click();
-					test.log(Status.INFO, "Personal loan selected");
-					getElement(ObjectRepository.productPageNext).click();
-					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmt);
-					test.log(Status.INFO, "Loan amount entered");
-					getElement(ObjectRepository.prodInfoNextButton).click();
+					//Member Verification
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
-					test.log(Status.INFO, "Member verified");
-					verifyText(ObjectRepository.applicantHdr,appSection);
-					verifyText(ObjectRepository.identityHdr,idSection);
-					scrollToElement(ObjectRepository.loanHdr);
-					verifyText(ObjectRepository.loanHdr,loanSection);
-					test.log(Status.INFO, "Loan Information section displayed");
-					verifyTxtFieldValue(ObjectRepository.housePymt,"");
-					verifyTxtFieldValue(ObjectRepository.addrYears,"");
-					verifyTxtFieldValue(ObjectRepository.addrMonths,"");
-					verifyTxtFieldValue(ObjectRepository.currentEmp,"");
-					verifyTxtFieldValue(ObjectRepository.monIncome,"");
-					verifyTxtFieldValue(ObjectRepository.empYears,"");
-					verifyTxtFieldValue(ObjectRepository.empMonths,"");
-					verifyTxtFieldValue(ObjectRepository.prevEmp,"");
-					verifyTxtFieldValue(ObjectRepository.prevIncome,"");
-					verifyTxtFieldValue(ObjectRepository.prevYears,"");
-					verifyTxtFieldValue(ObjectRepository.prevMonths,"");
-					test.log(Status.INFO, "Loan Information fields blank");
-				 }
+					test.log(Status.INFO, "Member Verified");
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Continue button clicked");
+					getElement(ObjectRepository.confirmBtn).click();
+					test.log(Status.INFO, "Account selections confirmed");
+					verifyeDocsLink();
+				}
 			}
 	  }
   }
@@ -102,7 +81,7 @@ public class C24189_VerifyAdditionalLoanInfo extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify loan information section for existing member");
+			test.log(Status.PASS, "Verify eDocuments consent link for existing member");
 		}
 	}
 

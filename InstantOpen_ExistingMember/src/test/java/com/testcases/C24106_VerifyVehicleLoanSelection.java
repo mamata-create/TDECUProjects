@@ -88,7 +88,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					//Verify Auto Loan section
 					verifyText(ObjectRepository.autoLoanTitle,autoTitle);
 					autoLoanInfoValidation();
-					verifyRatesLink(1);
+					verifyHereLink(1);
 					getElement(ObjectRepository.autoLoanCheckBox).click();
 					test.log(Status.INFO, "Auto Loan(New or Used) selected");
 					scrollToElement(ObjectRepository.productPageNext);
@@ -105,7 +105,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					//Verify Refinance Auto Loan section
 					verifyText(ObjectRepository.autoRefinTitle,autoRefinTitle);
 					autoRefinInfoValidation();
-					verifyRatesLink(2);
+					verifyHereLink(2);
 					getElement(ObjectRepository.autoRefinCheckBox).click();
 					test.log(Status.INFO, "Refinance your Auto Loan selected");
 					scrollToElement(ObjectRepository.productPageNext);
@@ -122,7 +122,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					//Verify Motorcycle Loan section
 					verifyText(ObjectRepository.motorcycleTitle,cycleTitle);
 					verifyText(ObjectRepository.motorcycleRatesInfo,loanRatesDesc);
-					verifyRatesLink(3);
+					verifyHereLink(3);
 					getElement(ObjectRepository.motorcycleCheckBox).click();
 					test.log(Status.INFO, "Motorcycle Loans(New or Used) selected");
 					scrollToElement(ObjectRepository.productPageNext);
@@ -139,7 +139,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					//Verify Refinance Motorcycle Loan section
 					verifyText(ObjectRepository.cycleRefinTitle,refinCycleTitle);
 					verifyText(ObjectRepository.cycleRefinRatesInfo,loanRatesDesc);
-					verifyRatesLink(4);
+					verifyHereLink(4);
 					getElement(ObjectRepository.cycleRefinCheckBox).click();
 					test.log(Status.INFO, "Refinance your Motorcycle Loan selected");
 					scrollToElement(ObjectRepository.productPageNext);
@@ -157,7 +157,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					scrollToElement(ObjectRepository.boatLoanTitle);
 					verifyText(ObjectRepository.boatLoanTitle,boatSectionTitle);
 					verifyText(ObjectRepository.boatLoanRatesInfo,loanRatesDesc);
-					verifyRatesLink(5);
+					verifyHereLink(5);
 					getElement(ObjectRepository.boatLoanCheckBox).click();
 					test.log(Status.INFO, "Boat Loans(New or Used) selected");
 					scrollToElement(ObjectRepository.productPageNext);
@@ -175,7 +175,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					scrollToElement(ObjectRepository.boatRefinTitle);
 					verifyText(ObjectRepository.boatRefinTitle,boatRefinTitle);
 					verifyText(ObjectRepository.boatRefinRatesInfo,loanRatesDesc);
-					verifyRatesLink(6);
+					verifyHereLink(6);
 					getElement(ObjectRepository.boatRefinCheckBox).click();
 					test.log(Status.INFO, "Refinance your Boat Loan selected");
 					scrollToElement(ObjectRepository.productPageNext);
@@ -193,7 +193,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					scrollToElement(ObjectRepository.camperLoanTitle);
 					verifyText(ObjectRepository.camperLoanTitle,camperSectionTitle);
 					verifyText(ObjectRepository.camperRatesInfo,loanRatesDesc);
-					verifyRatesLink(7);
+					verifyHereLink(7);
 					getElement(ObjectRepository.camperLoanCheckBox).click();
 					test.log(Status.INFO, "R/V Camper Loan selected");
 					scrollToElement(ObjectRepository.productPageNext);
@@ -211,7 +211,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					scrollToElement(ObjectRepository.camperRefinTitle);
 					verifyText(ObjectRepository.camperRefinTitle,camperRefinTitle);
 					verifyText(ObjectRepository.camperRefinRatesInfo,loanRatesDesc);
-					verifyRatesLink(8);
+					verifyHereLink(8);
 					getElement(ObjectRepository.camperRefinCheckBox).click();
 					test.log(Status.INFO, "Refinance R/V Camper Loan selected");
 					scrollToElement(ObjectRepository.productPageNext);
@@ -230,7 +230,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					verifyText(ObjectRepository.watercraftTitle,watercraftTitle);
 					verifyText(ObjectRepository.jetSkiInfo,jetSkiInfo);
 					verifyText(ObjectRepository.jetSkiRatesInfo,loanRatesDesc);
-					verifyRatesLink(9);
+					verifyHereLink(9);
 					getElement(ObjectRepository.watercraftCheckBox).click();
 					test.log(Status.INFO, "Personal Watercraft(New or Used) selected");
 					scrollToElement(ObjectRepository.productPageNext);
@@ -248,7 +248,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					scrollToElement(ObjectRepository.atvLoanTitle);
 					verifyText(ObjectRepository.atvLoanTitle,atvSectionTitle);
 					verifyText(ObjectRepository.atvRatesInfo,loanRatesDesc);
-					verifyRatesLink(10);
+					verifyHereLink(10);
 					getElement(ObjectRepository.atvLoanCheckBox).click();
 					test.log(Status.INFO, "ATV/UTV Loan(New or Used) selected");
 					scrollToElement(ObjectRepository.productPageNext);

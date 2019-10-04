@@ -86,7 +86,7 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						getElement(ObjectRepository.cdExpand).click();
 						test.log(Status.INFO, "Certificate of Deposit section expanded");						
 						verifyText(ObjectRepository.cdDescOne,cdDesc1);
-						verifyOtherRatesLink(1);
+						verifyRatesLink(1);
 						verifyText(ObjectRepository.cdDescTwo,cdDesc2);
 						verifyText(ObjectRepository.cdSearchTitle,cdSearchForTitle);
 						verifyText(ObjectRepository.cdSearchInfo,cdSearchForInfo);
