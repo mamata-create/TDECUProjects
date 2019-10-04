@@ -57,6 +57,7 @@ public class C23631_VerifyMultipleCheckStopPaymentCreation  extends GenericKeywo
 					String payee=excl.getCellData(sheetName, 2, startIter);
 					String amnt=excl.getCellData(sheetName, 3, startIter);
 					String chknmbr=excl.getCellData(sheetName, 5, startIter);
+					String endchknmbr=excl.getCellData(sheetName, 6, startIter);
 					
 					
 		Thread.sleep(20000);	
@@ -106,15 +107,16 @@ public class C23631_VerifyMultipleCheckStopPaymentCreation  extends GenericKeywo
 		test.log(Status.INFO, "Request Type option clicked");
 		Thread.sleep(2000);	
 		
-		getElement(ObjectRepository.snglchk_optn).click();
-		test.log(Status.INFO, "Single Check option selected");
+		getElement(ObjectRepository.mltplchk_optn).click();
+		test.log(Status.INFO, "Multiple Check option selected");
 		Thread.sleep(4000);	
 		
-		verifyElementPresent(ObjectRepository.stppymnt_chknmbr);
+		verifyElementPresent(ObjectRepository.stppymnt_strtchknmbr);
+		verifyElementPresent(ObjectRepository.stppymnt_endchknmbr);
 		verifyElementPresent(ObjectRepository.stppymnt_acnt);
-		verifyElementPresent(ObjectRepository.stppymnt_payee);
-		verifyElementPresent(ObjectRepository.stppymnt_date);
-		test.log(Status.INFO, "Account, Check Number, Payee and date fields appearing on Stop Payment page");
+		verifyElementPresent(ObjectRepository.stppymnt_strtdate);
+		verifyElementPresent(ObjectRepository.stppymnt_enddate);
+		test.log(Status.INFO, "Account,Start Check Number,Ending Check Number and date fields appearing on Stop Payment page");
 		
 		
 //Account		
@@ -144,8 +146,8 @@ public class C23631_VerifyMultipleCheckStopPaymentCreation  extends GenericKeywo
 		test.log(Status.INFO, "Request Type option clicked");
 		Thread.sleep(2000);	
 		
-		getElement(ObjectRepository.snglchk_optn).click();
-		test.log(Status.INFO, "Single Check option selected");
+		getElement(ObjectRepository.mltplchk_optn).click();
+		test.log(Status.INFO, "Multiple Check option selected");
 		Thread.sleep(4000);	
 		
 		getElement(ObjectRepository.stppymnt_acnt).click();
@@ -156,27 +158,27 @@ public class C23631_VerifyMultipleCheckStopPaymentCreation  extends GenericKeywo
 		test.log(Status.INFO, "Account selected");
 		Thread.sleep(4000);	
 		
-//Check Number
+//Starting Check Number
 		
 		scrollToElement(1);
 		Thread.sleep(2000);	
 		
-		getElement(ObjectRepository.stppymnt_chknmbr).click();
-		test.log(Status.INFO, "Check Number option clicked");
+		getElement(ObjectRepository.stppymnt_strtchknmbr).click();
+		test.log(Status.INFO, "Starting Check Number option clicked");
 		Thread.sleep(2000);
 		
 		getElement(ObjectRepository.otp_txt).sendKeys("9876543210123456");
 		test.log(Status.INFO, "Check Number entered more than 15 characters");
 		Thread.sleep(2000);
 		int chkno=getElement(ObjectRepository.otp_txt).getAttribute("name").length();
-		Assert.assertTrue(chkno==15);
+		Assert.assertTrue(chkno==9);
 		
 		getElement(ObjectRepository.alrt_amntdlt).click();
 		test.log(Status.INFO, "Check Number-Delete button clicked");
 		Thread.sleep(2000);
 		
 		chkno=getElement(ObjectRepository.otp_txt).getAttribute("name").length();
-		Assert.assertTrue(chkno==14);
+		Assert.assertTrue(chkno==8);
 		
 		getElement(ObjectRepository.alrt_amntcross).click();
 		test.log(Status.INFO, "Check Number-Clear button clicked");
@@ -201,137 +203,93 @@ public class C23631_VerifyMultipleCheckStopPaymentCreation  extends GenericKeywo
 		test.log(Status.INFO, "Request Type option clicked");
 		Thread.sleep(2000);	
 		
-		getElement(ObjectRepository.snglchk_optn).click();
-		test.log(Status.INFO, "Single Check option selected");
+		getElement(ObjectRepository.mltplchk_optn).click();
+		test.log(Status.INFO, "Multiple Check option selected");
 		Thread.sleep(4000);	
 		
 		
-		scrollToElement(1);
+		
 		Thread.sleep(2000);	
 		
-		getElement(ObjectRepository.stppymnt_chknmbr).click();
-		test.log(Status.INFO, "Check Number option clicked");
+		clickElement(ObjectRepository.stppymnt_strtchknmbr);
+		test.log(Status.INFO, "Starting Check Number option clicked");
 		Thread.sleep(2000);
 		
 		getElement(ObjectRepository.otp_txt).sendKeys(chknmbr);
-		test.log(Status.INFO, "Check Number entered ");
+		test.log(Status.INFO, "Starting Check Number entered ");
 		Thread.sleep(2000);
 		
 		getElement(ObjectRepository.alrt_amntsv).click();
 		test.log(Status.INFO, "Save button clicked");
 		Thread.sleep(2000);
 		
-		
-//	Payee
-		clickElement(ObjectRepository.stppymnt_payee);
-		test.log(Status.INFO, "Payee option clicked");
-		Thread.sleep(2000);
-		
-		verifyElementPresent(ObjectRepository.stppymnt_payeename);
-		test.log(Status.INFO, "Payee name field appearing");
-		
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(2000);
-		getElement(ObjectRepository.menu_btn).click();
-		test.log(Status.INFO, "Menu link clicked");
-		Thread.sleep(4000);		
-		getElement(ObjectRepository.service_menu).click();
-		test.log(Status.INFO, "Services menu clicked");
-		Thread.sleep(4000);
-		getElement(ObjectRepository.stppymnt_menu).click();
-		test.log(Status.INFO, "Stop Payment Menu link clicked");
-		Thread.sleep(4000);
-		getElement(ObjectRepository.stppymnt_rqsttyp).click();
-		test.log(Status.INFO, "Request Type option clicked");
-		Thread.sleep(2000);	
-		getElement(ObjectRepository.snglchk_optn).click();
-		test.log(Status.INFO, "Single Check option selected");
-		Thread.sleep(4000);
-		
-		clickElement(ObjectRepository.stppymnt_payee);
-		test.log(Status.INFO, "Payee option clicked");
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.stppymnt_payeename).sendKeys(payee+"abc");
-		test.log(Status.INFO, "Payee Name entered");
-		Thread.sleep(4000);
-		
-		int name=getElement(ObjectRepository.alrt_msgtxt).getAttribute("name").length();
-		Assert.assertTrue(name==40);
-		
-		getElement(ObjectRepository.stppymnt_set).click();
-		test.log(Status.INFO, "Set button clicked");
-		Thread.sleep(2000);
-		
-//Amount
-		clickElement(ObjectRepository.stppymnt_amnt);
-		test.log(Status.INFO, "Amount option clicked");
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.amnt_txt).sendKeys("99999999.99");
-		test.log(Status.INFO, "Alert Amount entered");
-		Thread.sleep(2000);
-		
-		String amount=getElement(ObjectRepository.amnt_txt).getAttribute("name");
-		Assert.assertTrue(amount.contains("9,999,999.99"));
-		test.log(Status.INFO, "Maximum amount allowed is 9999999.99");
-		
-		getElement(ObjectRepository.alrt_amntdlt).click();
-		test.log(Status.INFO, "Delete button clicked");
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.alrt_amntclr).click();
-		test.log(Status.INFO, "Clear button clicked");
-		Thread.sleep(2000);
-		amount=getElement(ObjectRepository.amnt_txt).getAttribute("name");
-		Assert.assertTrue(amount.contains("0.00"));
-		test.log(Status.INFO, "Amount gets cleared after clicking Clear button");
 
-//Amount back clicked and valid amount entered	
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(2000);
-		getElement(ObjectRepository.menu_btn).click();
-		test.log(Status.INFO, "Menu link clicked");
-		Thread.sleep(4000);		
-		getElement(ObjectRepository.service_menu).click();
-		test.log(Status.INFO, "Services menu clicked");
-		Thread.sleep(4000);
-		getElement(ObjectRepository.stppymnt_menu).click();
-		test.log(Status.INFO, "Stop Payment Menu link clicked");
-		Thread.sleep(4000);
-		getElement(ObjectRepository.stppymnt_rqsttyp).click();
-		test.log(Status.INFO, "Request Type option clicked");
-		Thread.sleep(2000);	
-		getElement(ObjectRepository.snglchk_optn).click();
-		test.log(Status.INFO, "Single Check option selected");
-		Thread.sleep(4000);
-		
-		clickElement(ObjectRepository.stppymnt_amnt);
-		test.log(Status.INFO, "Amount option clicked");
-		Thread.sleep(2000);
-		
-		if(!amnt.contains(".")){
-			getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
-			test.log(Status.INFO, "Stop Payment Amount entered");
-			Thread.sleep(2000);
-			}else{
-				getElement(ObjectRepository.amnt_txt).sendKeys(amnt+"00");
-				test.log(Status.INFO, "Stop Payment Amount entered");
+//Ending Check Number
+				
+				
+				Thread.sleep(4000);	
+				
+				clickElement(ObjectRepository.stppymnt_endchknmbr);
+				test.log(Status.INFO, "Ending Check Number option clicked");
 				Thread.sleep(2000);
-			}
-		
-		getElement(ObjectRepository.alrt_amntsv).click();
-		test.log(Status.INFO, "Stop Payment Amount save button clicked");
+				
+				getElement(ObjectRepository.otp_txt).sendKeys("987654321");
+				test.log(Status.INFO, "Check Number entered more than 15 characters");
+				Thread.sleep(2000);
+				int endchkno=getElement(ObjectRepository.otp_txt).getAttribute("name").length();
+				Assert.assertTrue(endchkno==9);
+				
+				getElement(ObjectRepository.alrt_amntdlt).click();
+				test.log(Status.INFO, "Check Number-Delete button clicked");
+				Thread.sleep(2000);
+				
+				endchkno=getElement(ObjectRepository.otp_txt).getAttribute("name").length();
+				Assert.assertTrue(endchkno==8);
+				
+				getElement(ObjectRepository.alrt_amntcross).click();
+				test.log(Status.INFO, "Check Number-Clear button clicked");
+				Thread.sleep(2000);
+				
+				endchkno=getElement(ObjectRepository.otp_txt).getAttribute("name").length();
+				Assert.assertTrue(endchkno==0);
+				
+				getElement(ObjectRepository.alrt_acntback).click();
+				test.log(Status.INFO, "Back button clicked");
+				Thread.sleep(2000);
+				getElement(ObjectRepository.menu_btn).click();
+				test.log(Status.INFO, "Menu link clicked");
+				Thread.sleep(4000);		
+				getElement(ObjectRepository.service_menu).click();
+				test.log(Status.INFO, "Services menu clicked");
+				Thread.sleep(4000);
+				getElement(ObjectRepository.stppymnt_menu).click();
+				test.log(Status.INFO, "Stop Payment Menu link clicked");
+				Thread.sleep(4000);
+				getElement(ObjectRepository.stppymnt_rqsttyp).click();
+				test.log(Status.INFO, "Request Type option clicked");
+				Thread.sleep(2000);	
+				
+				getElement(ObjectRepository.mltplchk_optn).click();
+				test.log(Status.INFO, "Multiple Check option selected");
+				Thread.sleep(4000);	
+				
+				
+				clickElement(ObjectRepository.stppymnt_endchknmbr);
+				test.log(Status.INFO, "Ending Check Number option clicked");
+				Thread.sleep(2000);
+				
+				getElement(ObjectRepository.otp_txt).sendKeys(endchknmbr);
+				test.log(Status.INFO, "Check Number entered ");
+				Thread.sleep(2000);
+				
+				getElement(ObjectRepository.alrt_amntsv).click();
+				test.log(Status.INFO, "Save button clicked");
+				Thread.sleep(2000);
+//Start Date		
+		clickElement(ObjectRepository.stppymnt_strtdate);
+		test.log(Status.INFO, "Start Date option clicked");
 		Thread.sleep(2000);
-//Date		
-		clickElement(ObjectRepository.stppymnt_date);
-		test.log(Status.INFO, "Date option clicked");
-		Thread.sleep(2000);
 		
-		verifyElementPresent(ObjectRepository.stppymnt_dtttl);
-		test.log(Status.INFO, "Calender appearing");
 		
 		getElement(ObjectRepository.alrt_acntback).click();
 		test.log(Status.INFO, "Back button clicked");
@@ -348,17 +306,50 @@ public class C23631_VerifyMultipleCheckStopPaymentCreation  extends GenericKeywo
 		getElement(ObjectRepository.stppymnt_rqsttyp).click();
 		test.log(Status.INFO, "Request Type option clicked");
 		Thread.sleep(2000);	
-		getElement(ObjectRepository.snglchk_optn).click();
-		test.log(Status.INFO, "Single Check option selected");
+		getElement(ObjectRepository.mltplchk_optn).click();
+		test.log(Status.INFO, "Multiple Check option selected");
 		Thread.sleep(4000);
 		
-		clickElement(ObjectRepository.stppymnt_date);
-		test.log(Status.INFO, "Date option clicked");
+		clickElement(ObjectRepository.stppymnt_strtdate);
+		test.log(Status.INFO, "Start Date option clicked");
 		Thread.sleep(2000);
 		
 		selectStopPaymentFutureDate(0,5);
-		test.log(Status.INFO, "Date selected");
+		test.log(Status.INFO, "Start Date selected");
 		Thread.sleep(4000);
+		
+//End Date		
+				clickElement(ObjectRepository.stppymnt_enddate);
+				test.log(Status.INFO, "End Date option clicked");
+				Thread.sleep(2000);
+				
+				
+				getElement(ObjectRepository.alrt_acntback).click();
+				test.log(Status.INFO, "Back button clicked");
+				Thread.sleep(2000);
+				getElement(ObjectRepository.menu_btn).click();
+				test.log(Status.INFO, "Menu link clicked");
+				Thread.sleep(4000);		
+				getElement(ObjectRepository.service_menu).click();
+				test.log(Status.INFO, "Services menu clicked");
+				Thread.sleep(4000);
+				getElement(ObjectRepository.stppymnt_menu).click();
+				test.log(Status.INFO, "Stop Payment Menu link clicked");
+				Thread.sleep(4000);
+				getElement(ObjectRepository.stppymnt_rqsttyp).click();
+				test.log(Status.INFO, "Request Type option clicked");
+				Thread.sleep(2000);	
+				getElement(ObjectRepository.mltplchk_optn).click();
+				test.log(Status.INFO, "Multiple Check option selected");
+				Thread.sleep(4000);
+				
+				clickElement(ObjectRepository.stppymnt_enddate);
+				test.log(Status.INFO, "End Date option clicked");
+				Thread.sleep(2000);
+				
+				selectStopPaymentFutureDate(7,5);
+				test.log(Status.INFO, "End Date selected");
+				Thread.sleep(4000);
 		
 //Note
 		clickElement(ObjectRepository.stppymnt_note);

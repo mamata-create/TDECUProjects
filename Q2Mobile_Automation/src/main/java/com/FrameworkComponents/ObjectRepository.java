@@ -41,9 +41,13 @@ public class ObjectRepository {
 	public static String stppymnt_rqsttyp="//android.view.View[contains(@content-desc,'REQUEST TYPE')]";
 	public static String stppymnt_acnt="//android.view.View[contains(@content-desc,'ACCOUNT')]";
 	public static String stppymnt_chknmbr="//android.view.View[contains(@content-desc,'CHECK NUMBER*')]";
+	public static String stppymnt_strtchknmbr="//android.view.View[contains(@content-desc,'STARTING CHECK NUMBER*')]";
+	public static String stppymnt_endchknmbr="//android.view.View[contains(@content-desc,'ENDING CHECK NUMBER*')]";
 	public static String stppymnt_payee="//android.view.View[contains(@content-desc,'PAYEE')]";
 	public static String stppymnt_amnt="//android.view.View[contains(@content-desc,'AMOUNT')]";
 	public static String stppymnt_date="//android.view.View[contains(@content-desc,'DATE')]";
+	public static String stppymnt_strtdate="//android.view.View[contains(@content-desc,'START DATE')]";
+	public static String stppymnt_enddate="//android.view.View[contains(@content-desc,'END DATE')]";
 	public static String stppymnt_note="//android.view.View[contains(@content-desc,'NOTE')]";
 	public static String sndrqst_btn="//android.widget.Button[contains(@content-desc,'Send Request')]";
 	public static String slctall_btn="//android.widget.Button[@content-desc='Select All']";

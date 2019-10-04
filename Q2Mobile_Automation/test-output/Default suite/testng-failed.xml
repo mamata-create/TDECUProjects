@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Services.C23634_VerifyCreditCardInformationViaServices">
+      <class name="Services.C23631_VerifyMultipleCheckStopPaymentCreation">
         <methods>
-          <include name="C23634_VerifyCreditCardInformationViaServices"/>
+          <include name="C23631_VerifyMultipleCheckStopPaymentCreation"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- Services.C23634_VerifyCreditCardInformationViaServices -->
+      </class> <!-- Services.C23631_VerifyMultipleCheckStopPaymentCreation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
