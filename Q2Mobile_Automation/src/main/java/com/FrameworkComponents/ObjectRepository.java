@@ -11,8 +11,7 @@ public class ObjectRepository {
 	public static String rgstrdvc_btn="//android.view.View[@content-desc='Register Device']";
 	public static String dontrgstrdvc_btn="//android.view.View[@content-desc='Do Not Register Device']";
 	public static String lctns_lnk="//android.view.View[@content-desc='Locations']";
-	public static String rmbrme_chk="//android.widget.CheckBox[@content-desc='Remember me']";
-	
+	public static String rmbrme_chk="//android.widget.CheckBox[@content-desc='Remember me']";	
 	
 //Menu items	
 	public static String logoff_menu="//android.view.View[contains(@content-desc,'Log Off')]";
@@ -40,12 +39,23 @@ public class ObjectRepository {
 	public static String stppymnt_ttl="//android.view.View[@content-desc='Place a stop payment on a single check or multiple checks that have not cleared your account.']";
 	public static String stppymnt_tnc="//android.view.View[contains(@content-desc,'Complete the fields below to make a stop payment request')]";
 	public static String stppymnt_rqsttyp="//android.view.View[contains(@content-desc,'REQUEST TYPE')]";
-	public static String stppymnt_acnt="//android.view.View[contains(@content-desc,'ACCOUNT')]";		
-	public static String stppymnt_note="//android.view.View[contains(@content-desc,'NOTE')]";	
+	public static String stppymnt_acnt="//android.view.View[contains(@content-desc,'ACCOUNT')]";
+	public static String stppymnt_chknmbr="//android.view.View[contains(@content-desc,'CHECK NUMBER*')]";
+	public static String stppymnt_payee="//android.view.View[contains(@content-desc,'PAYEE')]";
+	public static String stppymnt_amnt="//android.view.View[contains(@content-desc,'AMOUNT')]";
+	public static String stppymnt_date="//android.view.View[contains(@content-desc,'DATE')]";
+	public static String stppymnt_note="//android.view.View[contains(@content-desc,'NOTE')]";
 	public static String sndrqst_btn="//android.widget.Button[contains(@content-desc,'Send Request')]";
 	public static String slctall_btn="//android.widget.Button[@content-desc='Select All']";
+	public static String rqsttyp_msg="//android.view.View[contains(@content-desc,'Are you requesting to stop payment on one or multiple checks')]";
+	public static String snglchk_optn="//android.view.View[@content-desc='Single Check']";
+	public static String mltplchk_optn="//android.view.View[@content-desc='Multiple Checks']";
+	public static String stppymnt_payeename="//android.widget.EditText[@content-desc='Payee Name']";
+	public static String stppymnt_set="//android.view.View[@content-desc='Set']";
+	public static String stppymnt_dtttl="//android.view.View[@content-desc='Enter the date of the check']";
+	public static String stppymnt_notemsg="//android.view.View[@content-desc='Enter a brief note to include with this request']";
+	public static String stppymnt_notetxt="//android.widget.EditText[@content-desc='Description']";
 	
-
 	//Rates
 	public static String rates_menu="//android.view.View[@content-desc='Rates']";
 	public static String rates_url="//android.widget.TextView[@resource-id='com.texasdowcreditunion5004.mobile.preproduction:id/browsernav_text']";
@@ -81,6 +91,7 @@ public class ObjectRepository {
 	public static String alrt_callimdt="//android.widget.CheckBox[@content-desc='Call Immediately']";
 	public static String alrt_amntdlt="//android.view.View[contains(@content-desc,'Delete')]";
 	public static String alrt_amntsv="//android.view.View[contains(@content-desc,'Save')]";
+	public static String alrt_amntcross="//android.widget.EditText[@index='0']/following-sibling::android.view.View[contains(@content-desc,'')]";
 	public static String alrt_amntclr="//android.view.View[@content-desc='' and @index='2']";
 	public static String alrt_dlvrymthd_ttl="//android.view.View[@content-desc='Select a delivery method']";
 	public static String alrt_dlvrymthdtyp="//android.widget.Spinner[@index='0']";
@@ -116,6 +127,12 @@ public class ObjectRepository {
 	public static String chngaddrs_sccs="//android.view.View[@content-desc='Change of Address Successful']";
 	public static String actvtycntr_ttl="//android.view.View[contains(@content-desc,'Activity Center')]";
 	public static String addrschange_sccsmsg="//android.view.View[contains(@content-desc,'Your request was successful')]";
+	public static String actvtycntr_addrschng="//android.widget.GridView[@index='7']/android.view.View[@index='0']/android.view.View[contains(@content-desc,'Change of Address')]";
+	public static String actns_lnk="//android.view.View[@content-desc='Actions']";
+	public static String cncl_lnk="//android.view.View[@content-desc='Cancel']";
+	public static String inqr_lnk="//android.view.View[@content-desc='Inquire']";
+	public static String snd_btn="//android.widget.Button[contains(@content-desc,'Send')]";
+	public static String inqr_msg="//android.view.View[@content-desc='Your message was successfully sent.']";
 	
 //Accounts 
 	public static String acnt_lbl="//android.view.View[contains(@content-desc,'Accounts')]";

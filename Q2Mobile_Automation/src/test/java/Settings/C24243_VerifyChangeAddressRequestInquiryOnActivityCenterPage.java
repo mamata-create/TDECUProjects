@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24240_VerifyAddressChangeSuccessMessage extends GenericKeywords {
+public class C24243_VerifyChangeAddressRequestInquiryOnActivityCenterPage extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
@@ -42,7 +42,7 @@ public class C24240_VerifyAddressChangeSuccessMessage extends GenericKeywords {
 	
 
 	@Test
-	public void C24240_VerifyAddressChangeSuccessMessage() throws InterruptedException
+	public void C24243_VerifyChangeAddressRequestInquiryOnActivityCenterPage() throws InterruptedException
 	{
 		if(continuetestcase==true)
 		{
@@ -93,13 +93,39 @@ public class C24240_VerifyAddressChangeSuccessMessage extends GenericKeywords {
 		
 		verifyElementPresent(ObjectRepository.mtm_clsbtn);
 		test.log(Status.INFO, "Close button appearing");
-		verifyElementPresent(ObjectRepository.addrschange_sccsmsg);
-		test.log(Status.INFO, "Address change success message appearing");
-		
 		
 		getElement(ObjectRepository.vwactvty_btn).click();
 		test.log(Status.INFO, "View Activity button clicked");
+		Thread.sleep(6000);	
+		
+		verifyElementPresent(ObjectRepository.actvtycntr_ttl);
+		test.log(Status.INFO, "View Activity page opened");
+		
+		verifyElementPresent(ObjectRepository.actvtycntr_addrschng);
+		test.log(Status.INFO, "Address change request appearing on the activity center page");
+		
+		getElement(ObjectRepository.actvtycntr_addrschng).click();
+		test.log(Status.INFO, "Address Change Request selected");
 		Thread.sleep(4000);	
+		
+		getElement(ObjectRepository.actns_lnk).click();
+		test.log(Status.INFO, "Actions link clicked");
+		Thread.sleep(4000);	
+		
+		getElement(ObjectRepository.inqr_lnk).click();
+		test.log(Status.INFO, "Inquire link clicked");
+		Thread.sleep(4000);	
+		
+		getElement(ObjectRepository.otp_txt).sendKeys("Inquiry message");
+		test.log(Status.INFO, "Inquire message entered");
+		Thread.sleep(4000);	
+		
+		getElement(ObjectRepository.snd_btn).click();
+		test.log(Status.INFO, "Send button clicked");
+		Thread.sleep(4000);
+		
+		verifyElementPresent(ObjectRepository.inqr_msg);
+		test.log(Status.INFO, "Inquiry success message appearing");
 		
 		
 				 }
@@ -115,7 +141,7 @@ public class C24240_VerifyAddressChangeSuccessMessage extends GenericKeywords {
 			GenericKeywords.takescreenshot(myTestCaseName,test);
 		}else
 		{
-			test.log(Status.PASS, "Verify Address Change Success Message scenario working fine");
+			test.log(Status.PASS, "Verify change address request inquiry on Activity Center page scenario working fine");
 		}
 	}
 	

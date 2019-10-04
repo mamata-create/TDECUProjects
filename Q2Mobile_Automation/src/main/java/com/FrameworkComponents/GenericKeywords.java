@@ -86,6 +86,39 @@ public class GenericKeywords extends BaseClass {
 		
 	}
 	
+public static void selectStopPaymentFutureDate(int days,int index) throws InterruptedException{
+		
+		DateFormat dateFormat = new SimpleDateFormat("MMMM/d/yyyy");
+	    Calendar cal = Calendar.getInstance();
+	    cal.setTime(new Date());
+	    cal.add(Calendar.DATE, days);
+	    String newDate = dateFormat.format(cal.getTime());
+
+	    
+		String date,month,year;
+		String caldt,calmonth,calyear;		
+		/*
+		 * Split the String into String Array
+		 */
+		String dateArray[]= newDate.split("/");
+		date=dateArray[1];
+		month=dateArray[0];
+		year=dateArray[2];
+		System.out.println(date+month+year);
+		
+		String calMonth=getElement("//android.webkit.WebView[@content-desc='TDECU']/android.view.View[@index='"+index+"']/android.view.View[@index='1']/android.view.View[@index='1']").getAttribute("name");
+		String calYear=getElement("//android.webkit.WebView[@content-desc='TDECU']/android.view.View[@index='"+index+"']/android.view.View[@index='1']/android.view.View[@index='4']").getAttribute("name");
+		System.out.println("Calender title is -"+calMonth);
+		//&& !calYear.contains(year)
+		while(!calMonth.contains(month)){
+			getElement("//android.webkit.WebView[@content-desc='TDECU']/android.view.View[@index='"+index+"']/android.view.View[@index='1']/android.view.View[@index='2']/android.view.View[@content-desc='']").click();
+			Thread.sleep(2000);
+			 calYear=getElement("//android.webkit.WebView[@content-desc='TDECU']/android.view.View[@index='"+index+"']/android.view.View[@index='1']/android.view.View[@index='4']").getAttribute("name");
+		}
+		getElement("//android.view.View[@content-desc='"+date+"']").click();
+		
+		
+	}
 	public static void selectFutureDate45Days() throws InterruptedException{
 		DateFormat dateFormat = new SimpleDateFormat("MMMM/d/yyyy");
 	    Calendar cal = Calendar.getInstance();
@@ -162,6 +195,8 @@ public class GenericKeywords extends BaseClass {
 		}
 		}
 	}
+	
+	
 	public static void enterDate(String amnt){
 		if(amnt.contains(".")){
 			String nwAmt=amnt.replace(".", "");
