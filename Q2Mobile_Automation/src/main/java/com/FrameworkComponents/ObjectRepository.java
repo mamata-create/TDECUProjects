@@ -133,6 +133,8 @@ public class ObjectRepository {
 	public static String inqr_lnk="//android.view.View[@content-desc='Inquire']";
 	public static String snd_btn="//android.widget.Button[contains(@content-desc,'Send')]";
 	public static String inqr_msg="//android.view.View[@content-desc='Your message was successfully sent.']";
+	public static String cncl_wrngmsg="//android.view.View[@content-desc='Are you sure you want to cancel this transaction?']";
+	public static String cncl_sccsmsg="//android.view.View[@content-desc='Transaction Cancelled']";
 	
 //Accounts 
 	public static String acnt_lbl="//android.view.View[contains(@content-desc,'Accounts')]";
