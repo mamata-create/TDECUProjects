@@ -52,6 +52,11 @@ public class GenericKeywords extends BaseClass {
 		}
 	}
 	
+	public static String getRandom(){
+		int num=(int)(Math.random()*100);
+		return Integer.toString(num);
+	}
+	
 	public static void selectFutureDate(int days,int index) throws InterruptedException{
 		
 		DateFormat dateFormat = new SimpleDateFormat("MMMM/d/yyyy");

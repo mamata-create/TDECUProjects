@@ -59,6 +59,34 @@ public class ObjectRepository {
 	public static String stppymnt_dtttl="//android.view.View[@content-desc='Enter the date of the check']";
 	public static String stppymnt_notemsg="//android.view.View[@content-desc='Enter a brief note to include with this request']";
 	public static String stppymnt_notetxt="//android.widget.EditText[@content-desc='Description']";
+
+//Mobile deposit
+	public static String mbldpst_menu="//android.view.View[@content-desc='Mobile Deposit Enrollment']";
+
+//Wire Transfer
+	public static String wiretrnsfr_menu="//android.view.View[@content-desc='Wire Transfer']";
+	public static String wiretrnsfr_ttl="//android.view.View[@content-desc='Recipient & Amount']";
+	public static String newrcpnt_btn="//android.widget.Button[@content-desc='New Recipient']";
+	public static String dsplyname_txt="//android.view.View[@content-desc='Display Name*']/parent::*/following-sibling::android.widget.EditText";
+	public static String wirename_txt="//android.view.View[@content-desc='Wire Name']/parent::*/following-sibling::android.widget.EditText";
+	public static String emailadrs_txt="//android.view.View[@content-desc='Email Address']/parent::*/following-sibling::android.widget.EditText";
+	public static String emailntfctn_chk="//android.view.View[@content-desc='Send email notifications']";
+	public static String cntry_dropdown="//android.view.View[@content-desc='Country']/parent::*/following-sibling::android.widget.Spinner";
+	public static String adrs1_txt="//android.view.View[@content-desc='Address 1']/parent::*/following-sibling::android.widget.EditText";
+	public static String adrs2_txt="//android.view.View[@content-desc='Address 2']/parent::*/following-sibling::android.widget.EditText";
+	public static String city_txt="//android.view.View[@content-desc='City']/parent::*/following-sibling::android.widget.EditText";
+	public static String state_dropdown="//android.view.View[@content-desc='State']/parent::*/following-sibling::android.widget.Spinner";
+	public static String zip_txt="//android.view.View[@content-desc='ZIP']/parent::*/following-sibling::android.widget.EditText";
+	public static String ok_btn="//android.widget.Button[@content-desc='OK']";
+	public static String acntnew_tab="//android.view.View[@content-desc='Account - New']";
+	public static String acnt_txt="//android.view.View[@content-desc='Account*']/parent::*/following-sibling::android.widget.EditText";
+	public static String bankname_txt="//android.view.View[@content-desc='Name*']/parent::*/following-sibling::android.widget.EditText";
+	public static String rtngnmbr_txt="//android.view.View[@content-desc='Wire Routing Number*']/parent::*/following-sibling::android.widget.EditText";
+	public static String bankaddress1_txt="//android.view.View[@content-desc='Address 1*']/parent::*/following-sibling::android.widget.EditText";
+	public static String bankcity_txt="//android.view.View[@content-desc='Wire Routing Number*']/parent::*/following-sibling::android.widget.EditText";
+	public static String bankstate_dropdown="//android.view.View[@content-desc='State*']/parent::*/following-sibling::android.widget.Spinner";
+	public static String bankzip_txt="//android.view.View[@content-desc='Postal Code*']/parent::*/following-sibling::android.widget.EditText";
+	
 	
 	//Rates
 	public static String rates_menu="//android.view.View[@content-desc='Rates']";
