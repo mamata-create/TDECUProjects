@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24261_VerifyEDocsConsentLink">
+      <class name="com.testcases.C24029_VerifyIdentityQuestions">
         <methods>
           <include name="setUp"/>
-          <include name="C24261_VerifyEDocsConsentLink"/>
+          <include name="C24029_VerifyIdentityQuestions"/>
         </methods>
-      </class> <!-- com.testcases.C24261_VerifyEDocsConsentLink -->
+      </class> <!-- com.testcases.C24029_VerifyIdentityQuestions -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

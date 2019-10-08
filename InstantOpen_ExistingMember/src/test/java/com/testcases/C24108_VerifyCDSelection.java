@@ -190,7 +190,7 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						getElement(ObjectRepository.confirmBtn).click();
 						test.log(Status.INFO, "Identity Verification questions answered");
 						//Account Funding
-						verifyElementPresent(ObjectRepository.acctFundTile);
+						verifyElementPresent(ObjectRepository.acctFundTitle);
 						getElement(ObjectRepository.submitBtn).click();
 						verifyText(ObjectRepository.errorMsg1,errorMsg);
 						test.log(Status.INFO, "Enter amount message displayed");

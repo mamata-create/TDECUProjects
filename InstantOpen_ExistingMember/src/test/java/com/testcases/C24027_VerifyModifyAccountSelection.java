@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
+public class C24027_VerifyModifyAccountSelection extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +33,7 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
   }
 	
   @Test
-  public void C24314_VerifyCheckingAccountSelection1() throws InterruptedException, MessagingException, IOException {
+  public void C24027_VerifyModifyAccountSelection() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -42,13 +42,19 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
 			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
-					String prodName1= excl.getCellData(sheetName, 1, startIter);
-					String prodName2= excl.getCellData(sheetName, 2, startIter);
+					String selectCD1= excl.getCellData(sheetName, 1, startIter);
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
-					String errorMsg1= excl.getCellData(sheetName, 30, startIter);
-					String errorMsg2= excl.getCellData(sheetName, 31, startIter);
+					String selectCD2= excl.getCellData(sheetName, 2, startIter);
+					String confirmProd1= excl.getCellData(sheetName, 3, startIter);
+					String confirmProd2= excl.getCellData(sheetName, 4, startIter);
+					String confirmProd3= excl.getCellData(sheetName, 5, startIter);
+					String confirmProd4= excl.getCellData(sheetName, 6, startIter);
+					String confirmProd5= excl.getCellData(sheetName, 7, startIter);
+					String confirmProd6= excl.getCellData(sheetName, 8, startIter);
+					String SSNformat= excl.getCellData(sheetName, 30, startIter);
+					String DOBformat= excl.getCellData(sheetName, 31, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -59,44 +65,48 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
 					//Select Products
 					getElement(ObjectRepository.checkingExpand).click();
 					getElement(ObjectRepository.classicCheckCheckBox).click();
-					getElement(ObjectRepository.highYieldCheckBox).click();
-					test.log(Status.INFO, "Checking accounts selected");
+					getElement(ObjectRepository.cdExpand).click();
+					selectDropdownOpt(ObjectRepository.selectTermDropdown,selectCD1);
+					getElement(ObjectRepository.visibleCD60).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Continue button clicked");
+					test.log(Status.INFO, "Checking account and CD selected");
 					//Member Verification
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
-					getElement(ObjectRepository.mmbrVerifyNext).click();
+					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
-					//Your Information
-					verifyElementPresent(ObjectRepository.yourInfoTtl);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Confirm Accounts
-					verifyText(ObjectRepository.prodOne,prodName1);
-					verifyText(ObjectRepository.prodWOptionsTwo,prodName2);
-					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Account selections confirmed");
-					//Agreements and Disclosures
-					getElement(ObjectRepository.termsAndCondCheckBox).click();
-					getElement(ObjectRepository.agreeAndSignCheckBox).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Terms and conditions accepted");
-					//Identity Verification
-					getElement(ObjectRepository.questionOne).click();
-					getElement(ObjectRepository.questionTwo).click();
-					getElement(ObjectRepository.questionThree).click();
-					getElement(ObjectRepository.questionFour).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Identity Verification questions answered");
-					//Account Funding
-					verifyElementPresent(ObjectRepository.acctFundTitle);
-					getElement(ObjectRepository.submitBtn).click();
-					verifyText(ObjectRepository.errorMsg1,errorMsg1);
-					verifyText(ObjectRepository.errorMsg2,errorMsg2);
-					test.log(Status.INFO, "Enter amount message displayed");
-					
+					verifyText(ObjectRepository.prodOne,confirmProd1);
+					verifyText(ObjectRepository.prodWOptions,confirmProd2);
+					verifyText(ObjectRepository.prodWOptionsOne,confirmProd3);
+					verifyText(ObjectRepository.prodWOptionsTwo,confirmProd4);
+					getElement(ObjectRepository.changeBtn).click();
+					test.log(Status.INFO, "Change button clicked");
+					//Modify accounts
+					getElement(ObjectRepository.visibleCD60).click();
+					selectDropdownOpt(ObjectRepository.selectTermDropdown,selectCD2);
+					getElement(ObjectRepository.visibleCD6).click();
+					getElement(ObjectRepository.checkingExpand).click();
+					getElement(ObjectRepository.ccDebitCardChecked).click();
+					getElement(ObjectRepository.ccCourtesyPayCheckBox).click();										
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Checking account and CD modified");
+					//Member verification
+					verifyTxtFieldValue(ObjectRepository.mmbrVerifyNum,mmbrNum);
+					verifyTxtFieldValue(ObjectRepository.mmbrVerifySSN,SSNformat);
+					verifyTxtFieldValue(ObjectRepository.mmbrVerifyDOB,DOBformat);
+					getElement(ObjectRepository.mmbrVerifyNext).click();					
+					test.log(Status.INFO, "Member information retained");
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Continue button clicked");
+					//Confirm Accounts
+					verifyText(ObjectRepository.prodOne,confirmProd2);
+					verifyText(ObjectRepository.prodWOptionsTwo,confirmProd5);
+					verifyText(ObjectRepository.prodWOptionsOne,confirmProd6);
+					verifyText(ObjectRepository.prodWOptions,confirmProd4);
 				}
 			}
 	  }
@@ -108,7 +118,7 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify checking account selection for existing member");
+			test.log(Status.PASS, "Verify product selection modified for existing member");
 		}
 	}
 
@@ -119,4 +129,3 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
   }
 
 }
-

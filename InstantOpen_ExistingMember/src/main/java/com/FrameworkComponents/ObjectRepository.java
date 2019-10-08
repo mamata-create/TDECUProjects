@@ -359,6 +359,8 @@ public class ObjectRepository {
 	public static String confirmTtl = "//strong[text()='Confirm Account Selections']";
 	public static String prodOne = "(//span[@id='ProductsAndServices']//li[1])[1]";
 	public static String prodTwo = "//span[@id='ProductsAndServices']//li[2]";
+	public static String prodWOptions = "(//span[@id='ProductsAndServices']//li[2])[1]";
+	public static String prodWOptionsOne = "(//span[@id='ProductsAndServices']//li[1])[2]";
 	public static String prodWOptionsTwo = "(//span[@id='ProductsAndServices']//li[2])[2]";
 	public static String confirmBtn="//input[@id='btnNext_SubmitButton']";
 	public static String changeBtn="//input[@id='btnChange_SubmitButton']";
@@ -368,15 +370,51 @@ public class ObjectRepository {
 	public static String termsAndCondCheckBox = "//span[@id='cbDisclosures']//div[@class='icheckbox_square-grey']";
 	public static String agreeAndSignCheckBox = "//span[@id='Authroization']//div[@class='icheckbox_square-grey']";
 	public static String eDocsLink= "//a[text()='eDocument Consent']";
+	public static String discCheckBox= "//span[@id='cbDisclosures']//div[@class='icheckbox_square-grey']";
+	public static String discChecked= "//span[@id='cbDisclosures']//div[contains(@class,'checked')]";	
+	public static String disclosuresText= "//div[@class='col-sm-11']";
+	public static String courtesyPayTtl= "//h3[text()='Courtesy Pay']";
+	public static String crtsyPayDescOne= "//span[@id='pnlCourtesyPay']/p[1]";
+	public static String crtsyPayDescTwo= "//span[@id='pnlCourtesyPay']/p[2]";
+	public static String crtsyPayInfoOne= "//span[@id='pnlCourtesyPay']/ol/li[1]";
+	public static String crtsyPayInfoTwo= "//span[@id='pnlCourtesyPay']/ol/li[2]";
+	public static String crtsyPayInfoThree= "//span[@id='pnlCourtesyPay']/ol/li[3]";
+	public static String FAQtitle= "//h4[text()='Frequently Asked Questions']";
+	public static String belowFAQ= "//p[text()='Below are frequently asked questions about Courtesy Pay. ']";
+	public static String FAQone= "(//div[@id='accordion']//div[contains(@class,'panel-heading')])[1]";
+	public static String FAQoneClose= "(//div[@id='accordion']//div[contains(@class,'collapsed')])[1]";
+	public static String FAQtwo= "(//div[@id='accordion']//div[contains(@class,'panel-heading')])[2]";
+	public static String FAQtwoClose= "(//div[@id='accordion']//div[contains(@class,'collapsed')])[2]";
+	public static String FAQtwoInfo= "//div[@id='accordion']//div[@id='collapseQ2']//li";
+	public static String crtsyPayNote= "(//div[@class='col-sm']//p)[3]";
+	public static String agreeAndSignTtl= "//h3[text()='Agreement and Signature(s)']";
+	public static String agreeandSignInfo= "//div[@class='col-sm checkCopy']";
+	public static String agreeCheckBox= "//span[@id='Authroization']//div[@class='icheckbox_square-grey']";
+	public static String agreeChecked= "//span[@id='Authroization']//div[contains(@class,'checked')]";
+	public static String agreementNote= "//div[@class='row disclaimer']//div[@class='col-sm']";
+	public static String declineBtn= "//input[@id='btnDecline_SubmitButton']";
+	public static String saveBtn= "//input[@id='SaveButton_SubmitButton']";
+	//Cannot Process Application
+	public static String declineTtl= "//strong[text()='We Cannot Process Your Application']";
 	
 	//ID Verification
+	public static String IdentityTtl= "//h3[text()='Identity Verification']";
 	public static String questionOne = "(//span[@id='IDAuthenticationQuestions']//table//tr[4])[1]";
+	public static String qstnOneOptnOne= "(//table[contains(@id,'23573')]//div[@class='iradio_square-grey'])[1]";
 	public static String questionTwo = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[1]";
+	public static String qstnTwoOptnTwo= "(//table[contains(@id,'23583')]//div[@class='iradio_square-grey'])[2]";
 	public static String questionThree = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[2]";
+	public static String qstnThreeOptnThree= "(//table[contains(@id,'23593')]//div[@class='iradio_square-grey'])[3]";
 	public static String questionFour = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[3]";
+	public static String qstnFourOptnFour= "(//table[contains(@id,'23603')]//div[@class='iradio_square-grey'])[4]";
+	public static String errorMsg ="//span[@id='ErrorSummary1']//div[@style='color: red;']//li[1]";
+	
+	//Save Your Progress
+	public static String saveTitle= "//strong[text()='Save Your Progress']";
+	public static String cancelBtn= "//input[@id='btnCancel_SubmitButton']";
 	
 	//Account Funding
-	public static String acctFundTile = "//strong[text()='Account Funding']";
+	public static String acctFundTitle = "//strong[text()='Account Funding']";
 	public static String submitBtn="//input[@id='NextButton2_SubmitButton']";
 	
 	//Error Messages

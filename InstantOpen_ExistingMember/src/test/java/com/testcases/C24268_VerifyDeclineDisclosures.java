@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
+public class C24268_VerifyDeclineDisclosures extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +33,7 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
   }
 	
   @Test
-  public void C24309_VerifyMoneyMarketSelection() throws InterruptedException, MessagingException, IOException {
+  public void C24268_VerifyDeclineDisclosures() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -42,14 +42,14 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
-					String loanAmount= excl.getCellData(sheetName, 11, startIter);
+					String loanAmt= excl.getCellData(sheetName, 6, startIter);
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
-					String idTypeDD= excl.getCellData(sheetName, 16, startIter);
-					String idNumber= excl.getCellData(sheetName, 17, startIter);
+					String idType= excl.getCellData(sheetName, 16, startIter);
+					String idNum= excl.getCellData(sheetName, 17, startIter);
 					String issueDt= excl.getCellData(sheetName, 18, startIter);
-					String expireDt= excl.getCellData(sheetName, 19, startIter);
+					String expDt= excl.getCellData(sheetName, 19, startIter);
 					String housePymt= excl.getCellData(sheetName, 20, startIter);
 					String addrYears= excl.getCellData(sheetName, 21, startIter);
 					String addrMonths= excl.getCellData(sheetName, 22, startIter);
@@ -58,8 +58,6 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					String empYears= excl.getCellData(sheetName, 25, startIter);
 					String empMonths= excl.getCellData(sheetName, 26, startIter);
 					String confirmProd1= excl.getCellData(sheetName, 1, startIter);
-					String confirmProd2= excl.getCellData(sheetName, 2, startIter);
-					String errorMsg1= excl.getCellData(sheetName, 30, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -68,34 +66,25 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
 					//Select Products
-					getElement(ObjectRepository.checkingExpand).click();
-					getElement(ObjectRepository.mnyMrktCheckBox).click();
-					test.log(Status.INFO, "Money Market account selected");
-					/*currently back button navigation not working
-					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Continue button clicked");
-					getElement(ObjectRepository.mmbrVerifyBack).click();
-					test.log(Status.INFO, "Back button clicked");
-					verifyElementPresent(ObjectRepository.mnyMrktChecked);*/
 					getElement(ObjectRepository.personalLoanExpand).click();
-					getElement(ObjectRepository.cash$tashCheckBox).click();
-					test.log(Status.INFO, "Personal Loan selected");
+					getElement(ObjectRepository.personalCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Continue button clicked");
-					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmount);
+					test.log(Status.INFO, "Personal loan selected");
+					//Loan info
+					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmt);
 					getElement(ObjectRepository.prodInfoNextButton).click();
-					test.log(Status.INFO, "Loan amount entered");
+					test.log(Status.INFO, "Loan amount entered");	
 					//Member Verification
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
-					getElement(ObjectRepository.mmbrVerifyNext).click();
+					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
-					//Your Information
-					selectDropdownOpt(ObjectRepository.idType,idTypeDD);
-					getElement(ObjectRepository.idNum).sendKeys(idNumber);
+					//Applicant Info
+					selectDropdownOpt(ObjectRepository.idType,idType);
+					getElement(ObjectRepository.idNum).sendKeys(idNum);
 					getElement(ObjectRepository.issueDate).sendKeys(issueDt);
-					getElement(ObjectRepository.expDate).sendKeys(expireDt);
+					getElement(ObjectRepository.expDate).sendKeys(expDt);
 					getElement(ObjectRepository.housePymt).sendKeys(housePymt);
 					getElement(ObjectRepository.addrYears).sendKeys(addrYears);
 					getElement(ObjectRepository.addrMonths).sendKeys(addrMonths);
@@ -103,31 +92,18 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
 					getElement(ObjectRepository.empYears).sendKeys(empYears);
 					getElement(ObjectRepository.empMonths).sendKeys(empMonths);
-					test.log(Status.INFO, "Applicant information entered");
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Continue button clicked");
+					test.log(Status.INFO, "Applicant Information entered");
 					//Confirm Accounts
 					verifyText(ObjectRepository.prodOne,confirmProd1);
-					verifyText(ObjectRepository.prodTwo,confirmProd2);
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Account selections confirmed");
-					//Agreements and Disclosures
-					getElement(ObjectRepository.termsAndCondCheckBox).click();
-					getElement(ObjectRepository.agreeAndSignCheckBox).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Terms and conditions accepted");
-					//Identity Verification
-					getElement(ObjectRepository.questionOne).click();
-					getElement(ObjectRepository.questionTwo).click();
-					getElement(ObjectRepository.questionThree).click();
-					getElement(ObjectRepository.questionFour).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Identity Verification questions answered");
-					//Account Funding
-					verifyElementPresent(ObjectRepository.acctFundTitle);
-					getElement(ObjectRepository.submitBtn).click();
-					verifyText(ObjectRepository.errorMsg1,errorMsg1);
-					test.log(Status.INFO, "Select funding method message displayed");
+					test.log(Status.INFO, "Account selection confirmed");
+					getElement(ObjectRepository.declineBtn).click();
+					test.log(Status.INFO, "Decline button clicked");
+					verifyElementPresent(ObjectRepository.declineTtl);
+					getElement(ObjectRepository.prodInfoBackButton).click();
+					test.log(Status.INFO, "Back button clicked");
+					verifyElementPresent(ObjectRepository.agreementTtl);
 				}
 			}
 	  }
@@ -139,7 +115,7 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify money market selection for existing member");
+			test.log(Status.PASS, "Verify  decline agreement and disclosures for existing member");
 		}
 	}
 
