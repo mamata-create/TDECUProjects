@@ -46,31 +46,31 @@ public class C23415_VerifySingleTransfer extends GenericKeywords {
 				//click login button
 				getElement(ObjectRepository.login_btn).click();
 				test.log(Status.INFO, "Login button clicked");
+		/*		
+		try{
+				//click login button
+				getElement(ObjectRepository.otpemail_btn).click();
+				test.log(Status.INFO, "Send OTP to email button clicked");
+				Thread.sleep(15000);
 				
-//		try{
-//				//click login button
-//				getElement(ObjectRepository.otpemail_btn).click();
-//				test.log(Status.INFO, "Send OTP to email button clicked");
-//				Thread.sleep(15000);
-//				
-//				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-//				test.log(Status.INFO, "Login ID entered");
-//				
-//				
-//				getElement(ObjectRepository.submit_btn).click();
-//				test.log(Status.INFO, "Send OTP to email button clicked");
-//				Thread.sleep(7000);
-//				
-//				
-//					if(getElement(ObjectRepository.register_btn).isDisplayed()){
-//						getElement(ObjectRepository.register_btn).click();
-//						test.log(Status.INFO, "Register device button clicked");
-//						Thread.sleep(7000);
-//					}
-//					}catch(Exception e){
-//						test.log(Status.INFO, "Register device button not available to be clicked");
-//					}
-//				
+				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
+				test.log(Status.INFO, "Login ID entered");
+				
+				
+				getElement(ObjectRepository.submit_btn).click();
+				test.log(Status.INFO, "Send OTP to email button clicked");
+				Thread.sleep(7000);
+				
+				
+					if(getElement(ObjectRepository.register_btn).isDisplayed()){
+						getElement(ObjectRepository.register_btn).click();
+						test.log(Status.INFO, "Register device button clicked");
+						Thread.sleep(7000);
+					}
+					}catch(Exception e){
+						test.log(Status.INFO, "Register device button not available to be clicked");
+					}*/
+				
 				
 				//Verify log off link available after login
 				verifyElementPresent(ObjectRepository.logoff_lnk);

@@ -88,7 +88,7 @@ public class C23600_VerifyLinkInValidAccountValidation extends GenericKeywords {
 			 {	
 				if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter)))
 				 {
-					String toacnt=excl.getCellData(sheetName, 1, startIter);
+					String toacnt=excl.getCellData(sheetName, 4, startIter);
 					String acnttyp=excl.getCellData(sheetName, 2, startIter);
 					String lastname3char=excl.getCellData(sheetName, 3, startIter);
 					

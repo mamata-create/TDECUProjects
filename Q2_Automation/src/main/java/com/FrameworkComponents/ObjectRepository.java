@@ -1,5 +1,9 @@
 package com.FrameworkComponents;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 public class ObjectRepository {
 
 	//login page
@@ -23,8 +27,8 @@ public class ObjectRepository {
 	public static String logout_msg="//h1[contains(text(),'Successfully Logged Out')]";
 	
 	//transactions page
-	public static String trnsctn_menu="//a[@aria-label='Transactions']//div[text()='Transactions']";
-	public static String fndtrnsfr_menu="//a[@aria-label='Funds Transfer']//div[text()='Funds Transfer']";
+	public static String trnsctn_menu="//a[contains(@class,'transactions')]//div[text()='Transactions']";
+	public static String fndtrnsfr_menu="//a[contains(@class,'transfers-tab')]//div[text()='Funds Transfer']";
 	//Fund Transfer page
 	public static String fndtrnsfr_ttl="//h1[text()='Funds Transfer']";
 	public static String frmacnt_dropdown="//select[@id='inputFrom']";
@@ -32,7 +36,7 @@ public class ObjectRepository {
 	public static String amnt_txt="//input[@test-id='fldAmount']";
 	public static String rccrng_chkbx="//span[@test-id='cbxRecurring']";
 	
-	public static String frqncy_dropdown="//select[@test-id='drpFrequency']";
+	public static String frqncy_dropdown="//select[@test-id='selFrequency']";
 	public static String stdt_cal="//div[contains(@class,'start-date')]//input[@test-id='fldCalendar']";
 	public static String enddt_cal="//div[contains(@class,'end-date')]//input[@test-id='fldCalendar']";
 	public static String noenddt="//div[contains(text(),'No End Date')]";
@@ -346,4 +350,19 @@ public class ObjectRepository {
 				public static String modalConfirmButton ="//button[contains(text(),'Confirm')]";
 				public static String modalTxt = "//div[@test-id='txtModalText']";
 				public static String modalCloseButton = "//button[@test-id='btnClose']";
+				
+		//Retrun shadow root element
+				
+				public static WebElement expandRootElement(WebDriver driver,WebElement element) {
+					WebElement ele = (WebElement) ((JavascriptExecutor)driver)
+				.executeScript("return arguments[0].shadowRoot", element);
+					return ele;
+				}
+				
+	 	//Date option selection
+			public static String dateRangeOption(String value){
+				String locator = "//div[contains(text(),'"+value+"')]";
+				return locator;
+				
+			}
 }

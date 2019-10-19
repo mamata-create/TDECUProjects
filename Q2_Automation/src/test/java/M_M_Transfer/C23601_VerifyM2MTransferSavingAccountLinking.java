@@ -1,9 +1,12 @@
 package M_M_Transfer;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -88,7 +91,7 @@ public class C23601_VerifyM2MTransferSavingAccountLinking   extends GenericKeywo
 			 {	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("MemberToMember", 0, startIter)))
 				 {
-					String acntnumber=excl.getCellData(sheetName, 1, startIter);
+					String acntnumber=excl.getCellData(sheetName, 4, startIter);
 					String acnttyp=excl.getCellData(sheetName, 2, startIter);
 					String lstname=excl.getCellData(sheetName, 3, startIter);
 		
@@ -129,6 +132,31 @@ public class C23601_VerifyM2MTransferSavingAccountLinking   extends GenericKeywo
 		
 		getElement(ObjectRepository.mtm_donebtn).click();
 		test.log(Status.INFO, "Done button clicked from account linking success screen");
+		
+		getElement(ObjectRepository.fndtrnsfr_menu).click();
+		test.log(Status.INFO, "Fund Transfers tab is clicked");
+		
+		WebElement root1 = driver.findElement(By.cssSelector("div[test-id='selTransferTo'] q2-select"));
+		WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+		WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[label='To Account']"));
+		WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver,root2);
+		
+		WebElement toAccounDropDown = shadowRoot2.findElement(By.cssSelector("button[aria-label=', To Account']"));
+		toAccounDropDown.click();
+		
+		
+		List<WebElement> allOptions = driver.findElements(By.xpath("//q2-select[@label='To Account']/q2-option"));
+		for(int count=1;count<=allOptions.size();count++){
+			String option= driver.findElement(By.xpath("(//q2-select[@label='To Account']/q2-option)["+count+"]")).getAttribute("display");
+			System.out.println(option);
+			
+			if(option.contains(acntnumber)){
+				Assert.assertTrue(true, "Provided account number is present in the displayed options");
+			}else if(count >= allOptions.size() && !option.contains(acntnumber) ){
+				Assert.assertTrue(false, "Provided account number is not present in the displayed options");
+			}
+		}
+		
 		
 			 }
 			}
