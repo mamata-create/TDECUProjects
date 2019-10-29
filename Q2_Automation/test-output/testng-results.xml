@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="52941" started-at="2019-08-28T03:29:23Z" finished-at="2019-08-28T03:30:16Z">
+  <suite name="Default suite" duration-ms="64924" started-at="2019-10-29T19:12:14Z" finished-at="2019-10-29T19:13:19Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="52941" started-at="2019-08-28T03:29:23Z" finished-at="2019-08-28T03:30:16Z">
-      <class name="Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989]" name="setUp" is-config="true" duration-ms="19648" started-at="2019-08-28T03:29:23Z" finished-at="2019-08-28T03:29:42Z">
+    <test name="Default test" duration-ms="64924" started-at="2019-10-29T19:12:14Z" finished-at="2019-10-29T19:13:19Z">
+      <class name="ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989]" name="setUp" is-config="true" duration-ms="36394" started-at="2019-10-29T19:12:14Z" finished-at="2019-10-29T19:12:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23508_VerifyMakeRecurringCommercialLoanPayment()[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989]" name="C23508_VerifyMakeRecurringCommercialLoanPayment" duration-ms="31914" started-at="2019-08-28T03:29:42Z" finished-at="2019-08-28T03:30:14Z">
+        <test-method status="PASS" signature="C23624_VerifyColumnsSortingOnActivityCenter()[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989]" name="C23624_VerifyColumnsSortingOnActivityCenter" duration-ms="26785" started-at="2019-10-29T19:12:51Z" finished-at="2019-10-29T19:13:17Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C23508_VerifyMakeRecurringCommercialLoanPayment -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-08-28T03:30:14Z" finished-at="2019-08-28T03:30:14Z">
+        </test-method> <!-- C23624_VerifyColumnsSortingOnActivityCenter -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989]" name="afterMethod" is-config="true" duration-ms="1" started-at="2019-10-29T19:13:17Z" finished-at="2019-10-29T19:13:17Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23508_VerifyMakeRecurringCommercialLoanPayment status=SUCCESS method=C23508_VerifyMakeRecurringCommercialLoanPayment.C23508_VerifyMakeRecurringCommercialLoanPayment()[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989] output={null}]]]>
+                <![CDATA[[TestResult name=C23624_VerifyColumnsSortingOnActivityCenter status=SUCCESS method=C23624_VerifyColumnsSortingOnActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter()[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989]" name="tearDown" is-config="true" duration-ms="1347" started-at="2019-08-28T03:30:14Z" finished-at="2019-08-28T03:30:16Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989]" name="tearDown" is-config="true" duration-ms="1520" started-at="2019-10-29T19:13:17Z" finished-at="2019-10-29T19:13:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment -->
+      </class> <!-- ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

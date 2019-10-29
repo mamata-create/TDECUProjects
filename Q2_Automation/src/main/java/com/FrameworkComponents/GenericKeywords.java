@@ -111,6 +111,24 @@ public class GenericKeywords extends BaseClass{
 		}
 	}
 	
+	public static void selectDropdownOptForShadowRoot(WebElement element, String opt, String accountType){
+		try{
+			List<WebElement> allOptions = driver.findElements(By.xpath("//q2-select[@label='"+accountType+"']/q2-option"));
+			for(int count=1;count<=allOptions.size();count++){
+				String option= driver.findElement(By.xpath("(//q2-select[@label='"+accountType+"']/q2-option)["+count+"]")).getAttribute("display");
+				
+				if(option.contains(opt)){
+					String fromAccountLocator = "//q2-select[@label='"+accountType+"']/q2-option[contains(@display,'"+opt+"')]";
+					getElement(fromAccountLocator).click();
+				}
+				
+			}
+		
+		}catch(Exception e){
+			System.out.println("Exception caught");
+		}
+	}
+	
 	public static void verifyDropdownSelection(String locator,String option){
 		WebElement element=getElement(locator);
 		Select select = new Select(element);

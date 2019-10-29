@@ -46,13 +46,13 @@ public class ObjectRepository {
 	public static String memo_txt="//input[@test-id='fldMemo']";
 	public static String trnsfrfnds_btn="//button[@test-id='btnTransferFunds']";
 	public static String clr_btn="//button[@test-id='btnClear']";
-	public static String trnsfrsccs_msg="//div[text()='Transaction Processed']";
-	public static String schdltrnsfrsccs_msg="//div[text()='Transaction Authorized']";
-	public static String vwactvtycntr_btn="//button[text()='View In Activity Center']";
+	public static String trnsfrsccs_msg="//*[text()='Transaction Processed']";
+	public static String schdltrnsfrsccs_msg="//*[text()='Transaction Authorized']";
+	public static String vwactvtycntr_btn="//div[text()='Activity Center']";
 	public static String cls_btn="//button[text()='Close']";
 	
-	public static String fndtrnsfrerr="//div[@class='modal-title']";
-	public static String fndtrnsfrerr_msg="//div[@class='modal-msg mrg-A-sm']";
+	public static String fndtrnsfrerr="//div[@test-id='ui-modal-dialog']";
+	public static String fndtrnsfrerr_msg="//div[@class='ui-modal-header']";
 	
 	//Make a Payment
 	public static String mkpymnt_menu="//div[@class='menu-text' and text()='Make A Payment']";
@@ -74,11 +74,11 @@ public class ObjectRepository {
 //Activity Center
 	public static String actvtycntr_menu="//div[@class='menu-text' and text()='Activity Center']";
 	public static String actvtycntr_ttl="//h1[text()='Activity Center']";
-	public static String actvtycntr_amnt="//tr[contains(@class,'selected')]//td[@test-id='txtAmount']";
+	public static String actvtycntr_amnt="(//table[@id='tblTransactions']//td[@test-id='txtAmount']/span)[1]";
 	public static String actvtycntr_memo="//span[@test-id='txtDescription']";
 	public static String sngltrnsctn_tab="//span[text()='Single Transactions']";
 	public static String rcrngtrnsctn_tab="//span[text()='Recurring Transactions']";
-	public static String srchtrnsctn_txt="//span[contains(@class,'searchbox')]//input[@placeholder='Search transactions']";
+	public static String srchtrnsctn_txt="//div[@class='searchbox']//input[@placeholder='Search transactions']";
 	public static String fltr_lnk="//button[@test-id='lnkShowClassic']";
 	public static String trnsctntyp_parent="//div[@class='col-xs-12']/div[1]/div[1]";
 	public static String trnsctntyp_drop="//select[@class='ember-view ember-select form-control']";
@@ -93,7 +93,7 @@ public class ObjectRepository {
 	public static String trnsctntyp_col_srt="//table[@test-id='txtAccountsTable']//th[@test-id='lblTransactionType']//span[contains(@class,'sort-icon')]";
 	public static String acnt_col_srt="//table[@test-id='txtAccountsTable']//th[@test-id='lblAccount']//span[contains(@class,'sort-icon')]";
 	public static String amnt_col_srt="//table[@test-id='txtAccountsTable']//th[@test-id='lblAmount']//span[contains(@class,'sort-icon')]";
-	public static String actns_lnk="//div[@class='content-wrapper grid-column']//tbody[@class='scrollable']/tr[1]//div[@test-id='drpTransactionActions']";
+	public static String actns_lnk="(//button[@aria-label='Actions']//span)[1]";
 	public static String recactns_lnk="//div[@class='content-wrapper grid-column']//tbody[@class='scrollable']/tr[5]//div[@test-id='drpTransactionActions']";
 	public static String fav_drop="//a[@test-id='btnACFavorites']";
 	public static String addfav="//div[@test-id='btnAddFavorite']";
@@ -103,8 +103,8 @@ public class ObjectRepository {
 	public static String resetfltr_btn="//button[@test-id='btnResetFilters']";
 	public static String aplyfltr_btn="//button[@test-id='lnkSearch']";
 	public static String actn_lnk="//tr[@test-id='txtTransactionSummary']/td[6]/div[@test-id='drpTransactionActions']";
-	public static String actn_cncl="//div[@test-id='drpTransactionActions']/ul/li[1]";
-	public static String actn_inqr="//div[@test-id='drpTransactionActions']/ul/li[2]";
+	public static String actn_cncl="//button[@aria-label='Actions']/following::ul[1]//li[2]";
+	public static String actn_inqr="//button[@aria-label='Actions']/following::ul[1]//li[3]";
 	
 	public static String trnsfrmnynow_lnk="//div[@test-id='btnQuickTransfer']";
 	
@@ -119,8 +119,8 @@ public class ObjectRepository {
 	public static String cntctus_h1="//h1[text()='Contact Us']";
 	public static String cntctus_h2="//h2[text()='We'd love to hear from you']";
 	public static String actvtycntr_infmsg="//div[@class='quicktips-text' and contains(text(),'View or search transactions')]";
-	public static String cncl_cnfmbtn="//button[contains(text(),'Confirm')]";
-	public static String cncl_sccs="//div[text()='Transaction Cancelled']";
+	public static String cncl_cnfmbtn="//button[contains(@class,'btn-primary')]";
+	public static String cncl_sccs="//*[text()='Transaction Cancelled']";
 	public static String inqr_ttl="//h2[text()='Transaction Inquiry']";
 	public static String inqr_msg="//textarea[@test-id='fldMessageContent']";
 	public static String inqr_sccs="//div[text()='Message Sent']";
@@ -176,7 +176,7 @@ public class ObjectRepository {
 		public static String nickname_svbtn="//span[@class='icon-ok']";
 		public static String nickname_cnclbtn="//span[@class='icon-remove']";
 		public static String acntsrch_txt="//div[contains(@class,'searchbox')]//input[@test-id='fldSearch']";
-		public static String acntsrch_clr="//div[contains(@class,'searchbox')]//span[@test-id='iconRemove']";
+		public static String acntsrch_clr="//button[@test-id='iconRemove']//span";
 		public static String acntsrch_errmsg="//div[contains(text(),'No available accounts match the search criteria')]";
 		public static String nickname_edt="//span[@class='icon-edit link-icon pointer']";
 		public static String acntdtl_desc="//div[@id='historyItems']/div[1]//div[@test-id='historyItemDescription']";
@@ -350,6 +350,7 @@ public class ObjectRepository {
 				public static String modalConfirmButton ="//button[contains(text(),'Confirm')]";
 				public static String modalTxt = "//div[@test-id='txtModalText']";
 				public static String modalCloseButton = "//button[@test-id='btnClose']";
+				public static String modalFundTransferPopUpCloseBtn = "//button[@test-id='btnModalButton2']";
 				
 		//Retrun shadow root element
 				

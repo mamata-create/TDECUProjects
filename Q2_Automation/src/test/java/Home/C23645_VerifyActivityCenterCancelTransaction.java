@@ -96,11 +96,22 @@ public class C23645_VerifyActivityCenterCancelTransaction   extends GenericKeywo
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
-					test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
 					
-					verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
-					test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					//Modified steps. Added elemnts of ShadowRoot
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement singleTransactionTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
+					if(singleTransactionTab.isDisplayed()) 
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					//verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
+					//test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					
+					WebElement RecurringTransactionTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+					if(RecurringTransactionTab.isDisplayed()) 
+						test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					
+				//	verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
+				//	test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
 					
 					verifyElementPresent(ObjectRepository.srchtrnsctn_txt);
 					test.log(Status.INFO, "Search transaction field available on Activity Center page");

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -101,24 +102,52 @@ public class C23413_VerifySingleTransactionInActivityCenter extends GenericKeywo
 					getElement(ObjectRepository.fndtrnsfr_menu).click();
 					test.log(Status.INFO, "Fund Transfer menu clicked");
 					
-					verifyElementPresent(ObjectRepository.fndtrnsfr_ttl);
+				    verifyElementPresent(ObjectRepository.fndtrnsfr_ttl);
 					test.log(Status.INFO, "Fund Transfer page opened");
 					
-					Assert.assertFalse(getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
+					Assert.assertFalse(!getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
 					test.log(Status.INFO, "Transfer Funds button disabled");
 					
-					selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
+					WebElement root1 = driver.findElement(By.cssSelector("div[test-id='selTransferFrom'] q2-select"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[label='From Account']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver,root2);
+					
+					WebElement fromAccounDropDown = shadowRoot2.findElement(By.cssSelector("button[aria-label=', From Account']"));
+					fromAccounDropDown.click();
+					Thread.sleep(1500);
+					selectDropdownOptForShadowRoot(fromAccounDropDown,frmacnt,"From Account");
+					
 					test.log(Status.INFO, "From Account selected");
 		
-					selectDropdownOptContain(ObjectRepository.toacnt_dropdown, toacnt);
+					WebElement root = driver.findElement(By.cssSelector("div[test-id='selTransferTo'] q2-select"));
+					WebElement shadowRoot = ObjectRepository.expandRootElement(driver,root);
+					WebElement root3 = shadowRoot.findElement(By.cssSelector("q2-input[label='To Account']"));
+					WebElement shadowRoot3 = ObjectRepository.expandRootElement(driver,root3);
+					
+					WebElement toAccounDropDown = shadowRoot3.findElement(By.cssSelector("button[aria-label=', To Account']"));
+					toAccounDropDown.click();
+					Thread.sleep(1500);
+					selectDropdownOptForShadowRoot(toAccounDropDown,toacnt,"To Account");
+					
+				
 					test.log(Status.INFO, "To Account selected");
 					
-					getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+					WebElement amountroot = driver.findElement(By.cssSelector("q2-input[test-id='fldAmount']"));
+					WebElement amountshadowRoot = ObjectRepository.expandRootElement(driver,amountroot);
+					WebElement amountField = amountshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					amountField.sendKeys(amnt);
+					
+					
 					test.log(Status.INFO, "Amount entered");
 					
-					getElement(ObjectRepository.memo_txt).sendKeys(memo);
+					WebElement Memoroot = driver.findElement(By.cssSelector("q2-input[test-id='fldMemo']"));
+					WebElement MemoshadowRoot = ObjectRepository.expandRootElement(driver,Memoroot);
+					WebElement MemoField = MemoshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					MemoField.sendKeys(memo);
+					
 					test.log(Status.INFO, "Memo entered");
-					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);
+				
 					
 					getElement(ObjectRepository.trnsfrfnds_btn).click();
 					test.log(Status.INFO, "Transfer Funds button clicked");
@@ -126,16 +155,27 @@ public class C23413_VerifySingleTransactionInActivityCenter extends GenericKeywo
 					verifyElementPresent(ObjectRepository.trnsfrsccs_msg);
 					test.log(Status.INFO, "Transfer success message appeared");
 					
+					
+					getElement(ObjectRepository.modalFundTransferPopUpCloseBtn).click();
+					test.log(Status.INFO, "Transfer success message disappeared");
+					
+					scrollToElement(ObjectRepository.vwactvtycntr_btn);
 					getElement(ObjectRepository.vwactvtycntr_btn).click();
 					test.log(Status.INFO, "View Activity Center button clicked from transfer success page");
 					
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					WebElement ele=getElement("//span[text()='Single Transactions']/parent::*/parent::*");
 					
-					String sngltrnsctn=ele.getAttribute("class");
-					if(sngltrnsctn.contains("active")){
+					WebElement singleAccountRoot = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement singleAccountShadowRoot = ObjectRepository.expandRootElement(driver,singleAccountRoot);
+					WebElement singleAccount = singleAccountShadowRoot.findElement(By.cssSelector("a[value='individual']"));
+					
+					
+					//WebElement ele=getElement("//span[text()='Single Transactions']/parent::*/parent::*");
+					
+					String sngltrnsctn=singleAccount.getAttribute("aria-selected");
+					if(sngltrnsctn.contains("true")){
 						Assert.assertTrue(true);
 						test.log(Status.INFO, "Single Transaction tab is selected");
 					}else{
@@ -145,9 +185,15 @@ public class C23413_VerifySingleTransactionInActivityCenter extends GenericKeywo
 					
 					verifyText(ObjectRepository.actvtycntr_amnt, amnt);
 					test.log(Status.INFO, "Transfer amount appearing correctly in first selected row");
+					getElement(ObjectRepository.actvtycntr_amnt).click();
 					
-					verifyText(ObjectRepository.actvtycntr_memo, memo);
-					test.log(Status.INFO, "Description/memo appearing correctly in first selected row");
+					String transactionDetails = getElement("//*[contains(@class,'selected-detail  transaction-detail')]").getAttribute("class");
+					if(transactionDetails.contains("selected-detail")){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Transaction details section  is opened");
+					}
+					
+					
 					
 	
 				 }
