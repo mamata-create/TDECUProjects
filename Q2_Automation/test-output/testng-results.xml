@@ -1,36 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="64924" started-at="2019-10-29T19:12:14Z" finished-at="2019-10-29T19:13:19Z">
+  <suite name="Default suite" duration-ms="80210" started-at="2019-11-07T19:34:53Z" finished-at="2019-11-07T19:36:13Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="64924" started-at="2019-10-29T19:12:14Z" finished-at="2019-10-29T19:13:19Z">
-      <class name="ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989]" name="setUp" is-config="true" duration-ms="36394" started-at="2019-10-29T19:12:14Z" finished-at="2019-10-29T19:12:50Z">
+    <test name="Default test" duration-ms="80210" started-at="2019-11-07T19:34:53Z" finished-at="2019-11-07T19:36:13Z">
+      <class name="Home.C23446_VerifyAccountDetailTransactionSearchByTime">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:Home.C23446_VerifyAccountDetailTransactionSearchByTime@85bdee]" name="setUp" is-config="true" duration-ms="47184" started-at="2019-11-07T19:34:53Z" finished-at="2019-11-07T19:35:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23624_VerifyColumnsSortingOnActivityCenter()[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989]" name="C23624_VerifyColumnsSortingOnActivityCenter" duration-ms="26785" started-at="2019-10-29T19:12:51Z" finished-at="2019-10-29T19:13:17Z">
+        <test-method status="FAIL" signature="C23446_VerifyAccountDetailTransactionSearchByTime()[pri:0, instance:Home.C23446_VerifyAccountDetailTransactionSearchByTime@85bdee]" name="C23446_VerifyAccountDetailTransactionSearchByTime" duration-ms="30089" started-at="2019-11-07T19:35:40Z" finished-at="2019-11-07T19:36:10Z">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //span[@class='account-nbr' and contains(text(),'10100')] (tried for 30 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[@class='account-nbr' and contains(text(),'10100')] (tried for 30 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:113)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+at com.FrameworkComponents.GenericKeywords.getElement(GenericKeywords.java:43)
+at Home.C23446_VerifyAccountDetailTransactionSearchByTime.C23446_VerifyAccountDetailTransactionSearchByTime(C23446_VerifyAccountDetailTransactionSearchByTime.java:94)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: //span[@class='account-nbr' and contains(text(),'10100')]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
+System info: host: 'LAPTOP-1F0JMU93', ip: '192.168.43.244', os.name: 'Windows 10', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: driver.version: unknown
+at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
+at java.util.Optional.orElseThrow(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:895)
+at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:44)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:206)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:202)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:260)
+... 27 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C23624_VerifyColumnsSortingOnActivityCenter -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989]" name="afterMethod" is-config="true" duration-ms="1" started-at="2019-10-29T19:13:17Z" finished-at="2019-10-29T19:13:17Z">
+        </test-method> <!-- C23446_VerifyAccountDetailTransactionSearchByTime -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Home.C23446_VerifyAccountDetailTransactionSearchByTime@85bdee]" name="afterMethod" is-config="true" duration-ms="582" started-at="2019-11-07T19:36:10Z" finished-at="2019-11-07T19:36:11Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23624_VerifyColumnsSortingOnActivityCenter status=SUCCESS method=C23624_VerifyColumnsSortingOnActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter()[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989] output={null}]]]>
+                <![CDATA[[TestResult name=C23446_VerifyAccountDetailTransactionSearchByTime status=FAILURE method=C23446_VerifyAccountDetailTransactionSearchByTime.C23446_VerifyAccountDetailTransactionSearchByTime()[pri:0, instance:Home.C23446_VerifyAccountDetailTransactionSearchByTime@85bdee] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter@1ee9989]" name="tearDown" is-config="true" duration-ms="1520" started-at="2019-10-29T19:13:17Z" finished-at="2019-10-29T19:13:19Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Home.C23446_VerifyAccountDetailTransactionSearchByTime@85bdee]" name="tearDown" is-config="true" duration-ms="2209" started-at="2019-11-07T19:36:11Z" finished-at="2019-11-07T19:36:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter -->
+      </class> <!-- Home.C23446_VerifyAccountDetailTransactionSearchByTime -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

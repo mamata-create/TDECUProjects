@@ -147,6 +147,8 @@ public class C24246_VerifyInquiryOptionForChangedAddresses extends GenericKeywor
 					if(getElement(ObjectRepository.firstRecordInTable).getAttribute("innerText").contains(FirstaccountName)){
 						Assert.assertTrue(true);
 					}
+					awaitForElementToVisible(ObjectRepository.actionsDropdown);
+					scrollToElement(ObjectRepository.applyButtonToScroll);
 					selectActions(ObjectRepository.actionsDropdown,ObjectRepository.allOptions,option);
 				//	validateSecureMsgPageComponent();
 					getElement(ObjectRepository.messageArea).click();

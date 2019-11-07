@@ -113,7 +113,7 @@ public class ObjectRepository {
 	
 	public static String accntgrp_expnd="//div[contains(@class,'account-group')]//a[@aria-label='Expand Group']";
 	public static String accn_lbl="//span[@class='account-label']";
-	public static String dtls_lnk="//span[text()='Details']";
+	public static String dtls_lnk="//*[text()='Details']";
 	
 	public static String cntctus_menu="//div[@class='menu-text' and text()='Contact Us']";
 	public static String cntctus_h1="//h1[text()='Contact Us']";
@@ -162,7 +162,7 @@ public class ObjectRepository {
 	
 	//Locations
 	public static String loc_menu="//div[@class='menu-text' and text()='Locations']";
-	public static String atm_tab="//li[@test-id='btnBranchesATMTab' and contains(text(),'ATMs')]";
+	public static String atm_tab="//button[@test-id='btnBranchesATMTab']";
 	public static String locsrch_txt="//input[@test-id='fldSearch']";
 	
 	//Settings
@@ -335,22 +335,23 @@ public class ObjectRepository {
 				public static String activityCenterHeader = "//h1[contains(text(),'Activity Center')]";
 				public static String recordOfTable ="(//table[@test-id='txtAccountsTable']//tr)[2]";
 				public static String closeButton = "//button[@test-id='btnClose']";
-				public static String viewInActivityButton = "//button[contains(text(),'View In Activity Center')]";
-				public static String modalTitle = "//div[@class='modal-title']";
-				public static String selectAllButton = "//button[@test-id='btnSelectAll']";
-				public static String confirmationMsg = "//div[@class='modal-msg mrg-A-sm' and @test-id='txtModalText' ]";
+				public static String viewInActivityButton = "//button[text()='View In Activity Center']";
+				public static String modalTitle = "//div[@class='ui-modal-header']";
+				public static String selectAllButton = "//button[text()='Select All']";
+				public static String confirmationMsg = "//div[@class='ui-modal-header']//p";
 				public static String firstRecordInTable = "(//table[@test-id='txtAccountsTable']//td[@test-id='txtHeaderAccount'])[1]";
 				public static String actionsDropdown = "(//table[@test-id='txtAccountsTable']//div[@test-id='drpTransactionActions'])[1]";
 				public static String allOptions ="(//table[@test-id='txtAccountsTable']//div[@test-id='drpTransactionActions'])[1]//li";
 				public static String secureMasgPageTitle = "//h1[@test-id='lblMessagesTitle']";
 				public static String messageArea = "//textarea[@test-id='fldMessageContent']";
 				public static String sendButton = "//button[@test-id='btnSubmit']";
-				public static String modalLableTitle = "//div[@test-id='lblModalTitle']";
-				public static String modalNoButton = "//button[contains(text(),'No')]";
-				public static String modalConfirmButton ="//button[contains(text(),'Confirm')]";
-				public static String modalTxt = "//div[@test-id='txtModalText']";
+				public static String modalLableTitle = "//*[@test-id='lblModalTitle']";
+				public static String modalNoButton = "//button[text()='No']";
+				public static String modalConfirmButton ="//button[text()='Confirm']";
+				public static String modalTxt = "//*[@test-id='txtModalText']";
 				public static String modalCloseButton = "//button[@test-id='btnClose']";
 				public static String modalFundTransferPopUpCloseBtn = "//button[@test-id='btnModalButton2']";
+				public static String applyButtonToScroll = "//button[text()='Apply']";
 				
 		//Retrun shadow root element
 				

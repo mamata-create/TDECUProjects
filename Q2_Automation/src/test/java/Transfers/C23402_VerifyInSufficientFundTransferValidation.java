@@ -1,9 +1,11 @@
 package Transfers;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -106,10 +108,29 @@ public class C23402_VerifyInSufficientFundTransferValidation extends GenericKeyw
 					verifyElementPresent(ObjectRepository.fndtrnsfr_ttl);
 					test.log(Status.INFO, "Fund Transfer page opened");
 					
-					Assert.assertFalse(getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
+					Assert.assertFalse(!getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
 					test.log(Status.INFO, "Transfer Funds button disabled");
 					
-					selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
+					WebElement root1 = driver.findElement(By.cssSelector("div[test-id='selTransferFrom'] q2-select"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[label='From Account']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver,root2);
+					
+					WebElement fromAccounDropDown = shadowRoot2.findElement(By.cssSelector("button[aria-label=', From Account']"));
+					fromAccounDropDown.click();
+					List<WebElement> allOptions = driver.findElements(By.xpath("//q2-select[@label='From Account']/q2-option"));
+					for(int count=1;count<=allOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='From Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(frmacnt)){
+							String fromAccountLocator = "//q2-select[@label='From Account']/q2-option[contains(@display,'"+frmacnt+"')]";
+							getElement(fromAccountLocator).click();
+						}
+						
+					}
+					
+					
+				//	selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
 					test.log(Status.INFO, "From Account selected");
 					Thread.sleep(2000);
 					

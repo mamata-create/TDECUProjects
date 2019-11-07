@@ -2,10 +2,12 @@ package com.FrameworkComponents;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BaseClass {
 
@@ -25,6 +27,7 @@ public class BaseClass {
 		sheetName="General";
 		int rowCountGeneralSheet = excl.getRowCount(sheetName);
 		System.out.println(rowCountGeneralSheet);
+		DesiredCapabilities capabilities = null;
 		for(int row=1;row<=rowCountGeneralSheet;row++)
 			{
 				if(myTestCaseName.equals(excl.getCellData(sheetName, 0,row)))
@@ -41,8 +44,10 @@ public class BaseClass {
 							System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\src\\main\\java\\com\\Resources\\chromedriver.exe");
 							driver=new ChromeDriver();
 						}else if(browser.equalsIgnoreCase("IE")){
+							capabilities = DesiredCapabilities.internetExplorer();
+							capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 							System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\src\\main\\java\\com\\Resources\\IEDriverServer.exe");
-							driver=new InternetExplorerDriver();
+							driver=new InternetExplorerDriver(capabilities);
 						}else if(browser.equalsIgnoreCase("Firefox")){
 							System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\src\\main\\java\\com\\Resources\\geckodriver.exe");
 							driver=new FirefoxDriver();
@@ -50,6 +55,7 @@ public class BaseClass {
 						driver.get(url);
 						driver.manage().window().maximize();
 						driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+						
 					}
 				}
 			}	

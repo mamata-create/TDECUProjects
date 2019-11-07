@@ -1,10 +1,13 @@
 package Transfers;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -103,16 +106,61 @@ public class C23403_VerifyMemoFieldLimit extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.fndtrnsfr_ttl);
 					test.log(Status.INFO, "Fund Transfer page opened");
 					
-					Assert.assertFalse(getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
+					Assert.assertFalse(!getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
 					test.log(Status.INFO, "Transfer Funds button disabled");
 					
-					selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
+					WebElement root1 = driver.findElement(By.cssSelector("div[test-id='selTransferFrom'] q2-select"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[label='From Account']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver,root2);
+					
+					WebElement fromAccounDropDown = shadowRoot2.findElement(By.cssSelector("button[aria-label=', From Account']"));
+					fromAccounDropDown.click();
+					List<WebElement> allOptions = driver.findElements(By.xpath("//q2-select[@label='From Account']/q2-option"));
+					for(int count=1;count<=allOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='From Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(frmacnt)){
+							String fromAccountLocator = "//q2-select[@label='From Account']/q2-option[contains(@display,'"+frmacnt+"')]";
+							getElement(fromAccountLocator).click();
+						}
+						
+					}
+					
+				//	selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
 					test.log(Status.INFO, "From Account selected");
+					
+					WebElement root = driver.findElement(By.cssSelector("div[test-id='selTransferTo'] q2-select"));
+					WebElement shadowRoot = ObjectRepository.expandRootElement(driver,root);
+					WebElement root3 = shadowRoot.findElement(By.cssSelector("q2-input[label='To Account']"));
+					WebElement shadowRoot3 = ObjectRepository.expandRootElement(driver,root3);
+					
+					WebElement toAccounDropDown = shadowRoot3.findElement(By.cssSelector("button[aria-label=', To Account']"));
+					toAccounDropDown.click();
+					
+					
+					List<WebElement> allToOptions = driver.findElements(By.xpath("//q2-select[@label='To Account']/q2-option"));
+					for(int count=1;count<=allToOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='To Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(toacnt)){
+							String toAccountLocator = "//q2-select[@label='To Account']/q2-option[contains(@display,'"+toacnt+"')]";
+							getElement(toAccountLocator).click();
+						}
+						
+					}
 		
-					selectDropdownOptContain(ObjectRepository.toacnt_dropdown, toacnt);
+				//	selectDropdownOptContain(ObjectRepository.toacnt_dropdown, toacnt);
 					test.log(Status.INFO, "To Account selected");
 					
-					getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+					WebElement amountroot = driver.findElement(By.cssSelector("q2-input[test-id='fldAmount']"));
+					WebElement amountshadowRoot = ObjectRepository.expandRootElement(driver,amountroot);
+					WebElement amountField = amountshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					
+					amountField.click();
+					amountField.sendKeys(amnt);
+					
+				//	getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
 					test.log(Status.INFO, "Amount entered");
 					
 				//Verify Transfer funds button enabled when memo field is blank
@@ -120,19 +168,22 @@ public class C23403_VerifyMemoFieldLimit extends GenericKeywords {
 					test.log(Status.INFO, "Fund Transfer button enabled even when memo field blank");
 					
 				//Verify Special characters not allowed in memo field
-					getElement(ObjectRepository.memo_txt).sendKeys("@#$%^&*");
-					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);
+					WebElement MemoRoot1 = driver.findElement(By.cssSelector("q2-input[label='Memo']"));
+					WebElement shadowRootMemo1 = ObjectRepository.expandRootElement(driver, MemoRoot1);
+					WebElement memoTxt = shadowRootMemo1.findElement(By.cssSelector("input[test-id='inputField']"));
+					memoTxt.sendKeys("@#$%^&*");
+					memoTxt.sendKeys(Keys.TAB);
 					
-					String memovalue=getElement(ObjectRepository.memo_txt).getText();
+					String memovalue=memoTxt.getText();
 					Assert.assertTrue(memovalue.equals(""));
 					test.log(Status.INFO, "Special characters not allowed in memo field");
 					
 					
 				//Verify 49 characters allowed in memo field
-					getElement(ObjectRepository.memo_txt).sendKeys(memo.substring(0, memo.length()-2));
-					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);
+					memoTxt.sendKeys(memo.substring(0, memo.length()-2));
+					memoTxt.sendKeys(Keys.TAB);
 					
-					 memovalue=getElement(ObjectRepository.memo_txt).getText();
+					 memovalue=memoTxt.getText();
 					if(memovalue.length()==49){
 						Assert.assertTrue(true);
 						test.log(Status.INFO, "49 characters allowed in memo field");
@@ -141,12 +192,12 @@ public class C23403_VerifyMemoFieldLimit extends GenericKeywords {
 					}
 					
 				//Verify more than 50 characters not allowed in memo field	
-					getElement(ObjectRepository.memo_txt).clear();
-					getElement(ObjectRepository.memo_txt).sendKeys(memo);
+					memoTxt.clear();
+					memoTxt.sendKeys(memo);
 					test.log(Status.INFO, "Memo entered");
-					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);
+					memoTxt.sendKeys(Keys.TAB);
 					
-					 memovalue=getElement(ObjectRepository.memo_txt).getText();
+					 memovalue=memoTxt.getText();
 					if(memovalue.length()==50){
 						Assert.assertTrue(true);
 						test.log(Status.INFO, "Memo field allowed limit is 50");
@@ -155,10 +206,10 @@ public class C23403_VerifyMemoFieldLimit extends GenericKeywords {
 					}
 					
 				//Verify  letters and numbers are allowed in memo field
-					getElement(ObjectRepository.memo_txt).clear();
-					getElement(ObjectRepository.memo_txt).sendKeys("ABcde123");
-					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);
-					 memovalue=getElement(ObjectRepository.memo_txt).getText();
+					memoTxt.clear();
+					memoTxt.sendKeys("ABcde123");
+					memoTxt.sendKeys(Keys.TAB);
+					 memovalue=memoTxt.getText();
 						if(memovalue.equals("ABcde123")){
 							Assert.assertTrue(true);
 							test.log(Status.INFO, "Letters and Numbers allowed in memo field");

@@ -105,6 +105,12 @@ public class C23422_VerifyMapOfLocations extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.locpg_ttl);
 					test.log(Status.INFO, "Locations page opened");
 					Thread.sleep(2000);
+					//Added additional steps
+					getElement(ObjectRepository.locsrch_txt).sendKeys(locname);
+					test.log(Status.INFO, "Location entered for searching");
+					
+					awaitForElementToVisible("//div[@test-id='txtBranchesLocationName' and contains(text(),'"+locname+"')]");
+					
 					
 					verifyElementPresent("//div[@test-id='txtBranchesLocationName' and contains(text(),'"+locname+"')]");
 					test.log(Status.INFO, "Locations name appearing correctly");
@@ -120,13 +126,19 @@ public class C23422_VerifyMapOfLocations extends GenericKeywords {
 					
 					Thread.sleep(2000);
 					
+					//Added additional steps
+					getElement(ObjectRepository.locsrch_txt).clear();
+					getElement(ObjectRepository.locsrch_txt).sendKeys(atmname);
+					test.log(Status.INFO, "ATM NAme entered for searching");
+					
+					awaitForElementToVisible("//div[@test-id='txtBranchesLocationName' and contains(text(),'"+atmname+"')]");
 					verifyElementPresent("//div[@test-id='txtBranchesLocationName' and contains(text(),'"+atmname+"')]");
 					test.log(Status.INFO, "Locations name appearing correctly");
-					Thread.sleep(2000);
+					//awaitForElementToVisible("//div[@test-id='txtBranchesLocationName' and contains(text(),'"+atmname+"')]/parent::*");
 					WebElement atmele=getElement("//div[@test-id='txtBranchesLocationName' and contains(text(),'"+atmname+"')]/parent::*");
 					String actatmaddress=atmele.findElement(By.xpath("//div[@test-id='txtBranchesLocationAddress']")).getText();
-					
-					Assert.assertTrue(actatmaddress.equals(atmaddress));
+					Thread.sleep(1500);
+					Assert.assertTrue(actatmaddress.contains(atmaddress));
 					test.log(Status.INFO, "ATM name & address appearing correctly");
 					
 					 }

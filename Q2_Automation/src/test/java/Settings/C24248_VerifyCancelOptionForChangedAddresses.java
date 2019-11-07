@@ -144,13 +144,19 @@ public class C24248_VerifyCancelOptionForChangedAddresses extends GenericKeyword
 					Thread.sleep(3000);
 					verifyElementPresent(ObjectRepository.recordOfTable);
 					
-					if(getElement(ObjectRepository.firstRecordInTable).getAttribute("innerText").equalsIgnoreCase(FirstaccountName)){
+					if(getElement(ObjectRepository.firstRecordInTable).getAttribute("innerText").contains(FirstaccountName)){
 						Assert.assertTrue(true);
 					}
+					awaitForElementToVisible(ObjectRepository.actionsDropdown);
+					
+					scrollToElement(ObjectRepository.applyButtonToScroll);
+					
 					selectActions(ObjectRepository.actionsDropdown,ObjectRepository.allOptions,option);
 					verifyElementPresent(ObjectRepository.modalLableTitle);
 					getElement(ObjectRepository.modalNoButton).click();
-					Thread.sleep(3000);
+					Thread.sleep(3000);	
+					awaitForElementToVisible(ObjectRepository.actionsDropdown);
+					scrollToElement(ObjectRepository.applyButtonToScroll);
 					selectActions(ObjectRepository.actionsDropdown,ObjectRepository.allOptions,option);
 					verifyElementPresent(ObjectRepository.modalLableTitle);
 					getElement(ObjectRepository.modalConfirmButton).click();

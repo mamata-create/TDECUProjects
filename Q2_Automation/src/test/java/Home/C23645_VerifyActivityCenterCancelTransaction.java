@@ -94,7 +94,7 @@ public class C23645_VerifyActivityCenterCancelTransaction   extends GenericKeywo
 					Thread.sleep(3000);
 					
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
-					test.log(Status.INFO, "Activity Center page opened");
+					test.log(Status.INFO, "Activity Center page opened");	
 					
 					
 					//Modified steps. Added elemnts of ShadowRoot

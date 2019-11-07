@@ -4,8 +4,10 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -114,10 +116,15 @@ public class C23527_VerifyCommercialLoanGreaterThanAmountPayment  extends Generi
 					js.executeScript("arguments[0].value='"+amnt+"';", getElement(ObjectRepository.mkpymnt_amnt));
 					
 					
-					getElement(ObjectRepository.clndr_icon).click();
-					test.log(Status.INFO, "Calender icon clicked");
-					
-					selectFutureDate(1);
+					WebElement root1 = driver.findElement(By.cssSelector("q2-calendar[calendar-label='Select Date']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[icon-right='calendar']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver, root2);
+					WebElement calStartDate = shadowRoot2.findElement(By.cssSelector("button[test-id='inputField']"));
+					calStartDate.click();
+					Thread.sleep(3000);
+					selectDateofShadowRootElement(1,"Select Date");
+					test.log(Status.INFO, "Date selected");
 					
 					getElement(ObjectRepository.mkpymnt_memo).sendKeys(memo);
 					test.log(Status.INFO, "Memo entered");

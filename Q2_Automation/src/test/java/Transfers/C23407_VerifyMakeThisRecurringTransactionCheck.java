@@ -109,6 +109,7 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 					verifyElementPresent(ObjectRepository.fndtrnsfr_ttl);
 					test.log(Status.INFO, "Fund Transfer page opened");
 					
+					Thread.sleep(6500);
 					/*
 					 * Update: Locator updation of From account, To account and Ammount
 					 */
@@ -127,7 +128,7 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 						String option= driver.findElement(By.xpath("(//q2-select[@label='From Account']/q2-option)["+count+"]")).getAttribute("display");
 						
 						if(option.contains(frmacnt)){
-							String fromAccountLocator = "//q2-select[@label='From Account']/q2-option[@display='"+frmacnt+"']";
+							String fromAccountLocator = "//q2-select[@label='From Account']/q2-option[contains(@display,'"+frmacnt+"')]";
 							getElement(fromAccountLocator).click();
 						}
 						
@@ -148,7 +149,7 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 						String option= driver.findElement(By.xpath("(//q2-select[@label='To Account']/q2-option)["+count+"]")).getAttribute("display");
 						
 						if(option.contains(toacnt)){
-							String toAccountLocator = "//q2-select[@label='To Account']/q2-option[@display='"+toacnt+"']";
+							String toAccountLocator = "//q2-select[@label='To Account']/q2-option[contains(@display,'"+toacnt+"')]";
 							getElement(toAccountLocator).click();
 						}
 						
@@ -162,6 +163,10 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 					amountField.click();
 					amountField.sendKeys(amnt);
 					test.log(Status.INFO, "Amount entered");
+					
+					WebElement freqroot1 = driver.findElement(By.cssSelector("q2-select[test-id='selFrequency']"));
+				//	WebElement freqShadowRoot1 = ObjectRepository
+					
 					verifyElementPresent(ObjectRepository.frqncy_dropdown);
 					test.log(Status.INFO, "Frequency dropdown appeared");
 					Thread.sleep(2000);

@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Home.C23645_VerifyActivityCenterCancelTransaction">
+      <class name="Home.C23446_VerifyAccountDetailTransactionSearchByTime">
         <methods>
+          <include name="tearDown"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="C23645_VerifyActivityCenterCancelTransaction"/>
-          <include name="tearDown"/>
+          <include name="C23446_VerifyAccountDetailTransactionSearchByTime"/>
         </methods>
-      </class> <!-- Home.C23645_VerifyActivityCenterCancelTransaction -->
+      </class> <!-- Home.C23446_VerifyAccountDetailTransactionSearchByTime -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
