@@ -95,11 +95,7 @@ public class C23494_VerifyAccountBalanceAlertSetUpViaSecureMessage  extends Gene
 					String acnt=excl.getCellData(sheetName, 8, startIter);
 					String field=excl.getCellData(sheetName, 9, startIter);
 					String cmpr=excl.getCellData(sheetName, 10, startIter);
-					String msg=excl.getCellData(sheetName, 3, startIter);
-					String dlvry_mthd=excl.getCellData(sheetName, 4, startIter);
-					String cntry=excl.getCellData(sheetName, 5, startIter);
-					String phone=excl.getCellData(sheetName, 6, startIter);
-					String amnt=randomAmount();
+					String amnt=excl.getCellData(sheetName, 11, startIter);
 				
 				//Click Settings Menu
 					getElement(ObjectRepository.stng_menu).click();
@@ -124,46 +120,24 @@ public class C23494_VerifyAccountBalanceAlertSetUpViaSecureMessage  extends Gene
 						test.log(Status.INFO, "Alerts type selected");
 					}
 					
-					verifyElementPresent(ObjectRepository.alrtsel_acnt);
-					verifyElementPresent(ObjectRepository.alrtsel_fld);
-					verifyElementPresent(ObjectRepository.alrtsel_cmpr);
-					verifyElementPresent(ObjectRepository.alrtsel_amnt);
-					verifyElementPresent(ObjectRepository.alrtsel_frqncy);
-					verifyElementPresent(ObjectRepository.alrtsel_dlvrymthd);
-					test.log(Status.INFO, "Alert selected info appearing in the left");
-					
-					String svbtn_class=getElement(ObjectRepository.alrt_svbtn).getAttribute("class");
-					Assert.assertTrue(svbtn_class.contains("disabled"));
-					test.log(Status.INFO, "Save button is disabled by default");
-					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+acnt+"')]").click();
+					selectDropdownOptContain(ObjectRepository.alrtsel_acnt, acnt);
 					test.log(Status.INFO, "Account selected");
 					Thread.sleep(2000);
 					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+field+"')]").click();
-					test.log(Status.INFO, "Field selected");
+					getElement("//div[@test-id='fldHadeRadioTile']//div[contains(text(),'"+field+"')]").click();
+					test.log(Status.INFO, "Account balance type selected");
 					Thread.sleep(2000);
 					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+cmpr+"')]").click();
+					getElement("//div[@test-id='radioAmount']//div[contains(text(),'"+cmpr+"')]").click();
 					test.log(Status.INFO, "Comparison selected");
 					Thread.sleep(2000);
 					
-					if(amnt.contains(".")){
-						 amnt=amnt.replace(".", "");
-						}
-						for(int i=0;i<amnt.length();i++){
-							char chr=amnt.charAt(i);
-							getElement("//span[@class='integerInputButtonText' and text()='"+chr+"']").click();
-						}
-						test.log(Status.INFO, "Amount entered");
-						
-						getElement(ObjectRepository.acntalrt_svbtn).click();
-						test.log(Status.INFO, "Alert save button clicked");
-						Thread.sleep(2000);
+					getElement(ObjectRepository.alrtsel_amnt).clear();
+					getElement(ObjectRepository.alrtsel_amnt).sendKeys(amnt);
+					test.log(Status.INFO, "Amount entered");
 					
-					
-					selectDropdownOptContain(ObjectRepository.alrt_dlvrymthd, dlvry_mthd);
-					test.log(Status.INFO, "Alerts delivery method selected");
+					getElement(ObjectRepository.alrtsel_dlvrymsg).click();
+					test.log(Status.INFO, "Secure Message delivery method selected");
 					Thread.sleep(2000);
 					
 					getElement(ObjectRepository.alrt_svbtn).click();
@@ -175,6 +149,21 @@ public class C23494_VerifyAccountBalanceAlertSetUpViaSecureMessage  extends Gene
 					
 					getElement(ObjectRepository.alrt_clsbtn).click();
 					test.log(Status.INFO, "Alert close button clicked");
+					
+					getElement(ObjectRepository.msg_menu).click();
+					test.log(Status.INFO, "Secure Messages menu clicked");
+					
+					verifyElementPresent("//div[contains(@aria-label,'"+alrtopts+"')]");
+					test.log(Status.INFO, "Message subject verified");
+					verifyElementPresent("//div[@test-id='lblSelectedMessageBody' and contains(text(),'"+acnt+"')]");
+					test.log(Status.INFO, "Message text verified");
+			
+					String reply = getElement(ObjectRepository.replyBtn).getAttribute("disabled type");
+					if(reply != null){
+						Assert.assertTrue(true);
+					}else{
+						Assert.assertTrue(false);}
+					test.log(Status.INFO, "Reply button disabled");
 					
 				 }
 			 }

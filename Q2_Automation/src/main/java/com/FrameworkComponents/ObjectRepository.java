@@ -193,35 +193,45 @@ public class ObjectRepository {
 		public static String acntdtl_checknofrom="//input[@test-id='fldCheckNoFrom']";
 		public static String acntdtl_checknoto="//input[@test-id='fldCheckNoTo']";
 		
+	//Messages
+		public static String msg_menu ="//div[@class='menu-text' and text()='Secure Messages']";
+		public static String replyBtn = "//button[@test-id='btnReplyMessage']";
+		
 	//Alerts
 		public static String alrt_menu="//div[@class='menu-text' and text()='Alerts']";
 		public static String alrt_ttl="//h1[@test-id='lblAlertsTitle' and text()='Alerts']";
-		public static String alrtopts_drop="//div[@test-id='selNewAlert']/select";
-		public static String alrtsel_typ="//div[@test-id='lblAlertSelectedType']";
-		public static String alrtsel_dt="//div[@test-id='lblAlertSelectedType']";
-		public static String alrtsel_msg="//div[@test-id='lblAlertSelectedMsg']";
-		public static String alrtsel_dlvrymthd="//div[@test-id='lblAlertSelectedDelivery']";
+		public static String alrtopts_drop="//div[@test-id='openNewAlert']";
+		public static String alrtBackLink = "//a[text()='Back to Alerts']";
+		public static String alrtsel_typ="//q2-select[@test-id='fldDateTypeSelect']";
+		public static String alrtsel_dt="//q2-calendar[@test-id='dateAlertDate']";
+		public static String alrtsel_msg="//q2-input[@test-id='fldAlertMessage']";
+		public static String alrtsel_dlvryEmail="//div[@class='fieldset-content']//div[contains(text(),'Email')]";
+		public static String alrtsel_dlvryVoice="//div[@class='fieldset-content']//div[contains(text(),'Voice')]";
+		public static String alrtsel_dlvryText="//div[@class='fieldset-content']//div[contains(text(),'SMS Text Message')]";
+		public static String alrtsel_dlvrymsg="//div[@class='fieldset-content']//div[contains(text(),'Secure Message')]";		
 		
-		public static String alrtsel_acnt="//div[@test-id='lblAlertSelectedAccount']";
+		public static String alrtsel_acnt="//q2-select[@test-id='fldAccountSelect']";
 		public static String alrtsel_fld="//div[@test-id='lblAlertSelectedHade']";
 		public static String alrtsel_trnsctn="//div[@test-id='lblAlertSelectedPostedType']";
-		public static String onlnalrtsel_trnsctn="//div[@test-id='lblAlertSelectedTransType']";
+		public static String onlnalrtsel_trnsctn="//q2-select[@test-id='fldSelectAlertTransType']";
 		public static String alrtsel_cmpr="//div[@test-id='lblAlertSelectedOperator']";
-		public static String alrtsel_amnt="//div[@test-id='lblAlertSelectedAmount']";
+		public static String alrtsel_amnt="//q2-input[@test-id='fldAlertAmount']";
 		public static String alrtsel_frqncy="//input[@test-id='cbxFrequency']";
 		public static String onlnalrtsel_frqncy="//div[@test-id='lblAlertSelectedFreq']";
+		public static String alrtStatus = "//q2-select[@test-id='fldOnlineActivityTypeSelect']";
 		
-		
+		public static String alrt_backbtn="//button[@test-id='btnGoBack']";
 		public static String alrt_svbtn="//button[@test-id='btnSave']";
 		public static String acntalrt_svbtn="//span[@class='integerInputButtonText' and text()='Save']";
-		public static String alrt_rccryr="//input[@test-id='cbxAnnualAlert']";
+		public static String alrt_rccryr="//div[@test-id='cbxAnnualAlert']";
 		public static String alrt_msg="//input[@test-id='fldAlertMessage']";
 		public static String alrt_setbtn="//div[@test-id='btnSet']";
 		public static String alrt_dlvrymthd="//select[@test-id='selAlertDelivery']";
 		public static String alrt_cntry="//select[@test-id='selAlertTextCountry']";
 		public static String alrtcall_cntry="//select[@test-id='selAlertCallCountry']";
 		public static String alrt_phone="//input[@test-id='fldAlertTextNumber']";
-		public static String alrtcall_phone="//input[@test-id='fldAlertCallNumber']";
+		public static String alrtcall_phone="//q2-input[@test-id='fldAlertCallNumber']";
+		public static String alrtCheckNumLbl = "//q2-input[@label='Check Number']";
 		
 		public static String alrt_sndimdt="//input[@test-id='cbxAlertSendImmediately']";
 		public static String alrt_acpttrms="//input[@test-id='cbxAcceptTerms']";

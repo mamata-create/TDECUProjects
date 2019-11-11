@@ -92,10 +92,7 @@ public class C23486_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 				if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter)))
 				 {
 					String alrtopts=excl.getCellData(sheetName, 1, startIter);
-					String alrt_typ=excl.getCellData(sheetName, 2, startIter);
-					String msg=excl.getCellData(sheetName, 3, startIter);
-					String dlvry_mthd=excl.getCellData(sheetName, 4, startIter);
-					String cntry=excl.getCellData(sheetName, 5, startIter);
+					String transType=excl.getCellData(sheetName, 3, startIter);
 					String phone=excl.getCellData(sheetName, 6, startIter);
 					String acnt=excl.getCellData(sheetName, 8, startIter);
 					String stts=excl.getCellData(sheetName, 12, startIter);
@@ -123,44 +120,40 @@ public class C23486_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 						test.log(Status.INFO, "Alerts type selected");
 					}
 					
-					verifyElementPresent(ObjectRepository.onlnalrtsel_trnsctn);
-					verifyElementPresent(ObjectRepository.onlnalrtsel_frqncy);
-					verifyElementPresent(ObjectRepository.alrtsel_dlvrymthd);
-					test.log(Status.INFO, "Alert selected info appearing in the left");
+					getElement(ObjectRepository.alrtBackLink).click();
+					test.log(Status.INFO, "Back to Alerts clicked");
 					
-					String svbtn_class=getElement(ObjectRepository.alrt_svbtn).getAttribute("class");
-					Assert.assertTrue(svbtn_class.contains("disabled"));
-					test.log(Status.INFO, "Save button is disabled by default");
+					try{
+						selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
+						test.log(Status.INFO, "Alerts type selected");
+						Thread.sleep(2000);
+						}catch(Exception e){
+							test.log(Status.INFO, "Alerts type selected");
+						}
 					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+alrt_typ+"')]").click();
+					selectDropdownOptContain(ObjectRepository.onlnalrtsel_trnsctn, transType);
 					test.log(Status.INFO, "Transaction type selected");
+					Thread.sleep(2000);	
 					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+acnt+"')]").click();
+					selectDropdownOptContain(ObjectRepository.alrtsel_acnt, acnt);
 					test.log(Status.INFO, "Account selected");
 					Thread.sleep(2000);
 					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+stts+"')]").click();
+					verifyAlrtStatus();
+					selectDropdownOptContain(ObjectRepository.alrtStatus, stts);
 					test.log(Status.INFO, "Status selected");
-					Thread.sleep(2000);
 					
-					
-					selectDropdownOptContain(ObjectRepository.alrt_dlvrymthd, dlvry_mthd);
-					test.log(Status.INFO, "Alerts delivery method selected");
-					Thread.sleep(2000);
-					
-					selectDropdownOptContain(ObjectRepository.alrtcall_cntry, cntry);
-					test.log(Status.INFO, "Country selected");
-					Thread.sleep(2000);
-					
-					JavascriptExecutor js = (JavascriptExecutor)driver;
-					js.executeScript("arguments[0].value='"+phone+"';", getElement(ObjectRepository.alrtcall_phone));
+					verifyElementPresent(ObjectRepository.alrtsel_dlvryEmail);
+					verifyElementPresent(ObjectRepository.alrtsel_dlvryVoice);
+					verifyElementPresent(ObjectRepository.alrtsel_dlvryText);
+					verifyElementPresent(ObjectRepository.alrtsel_dlvrymsg);
+					getElement(ObjectRepository.alrtsel_dlvryVoice).click();
+					test.log(Status.INFO, "Delivery method selected");
 					
 					Thread.sleep(2000);
-					getElement(ObjectRepository.alrtcall_phone).sendKeys(Keys.ENTER);
+					getElement(ObjectRepository.alrtcall_phone).sendKeys(phone);
 					test.log(Status.INFO, "Phone number entered");
 					Thread.sleep(2000);
-					
-										
 
 					getElement(ObjectRepository.alrt_svbtn).click();
 					test.log(Status.INFO, "Alert save button clicked");

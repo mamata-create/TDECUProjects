@@ -549,4 +549,51 @@ public class GenericKeywords extends BaseClass{
 		return pageValues;
 	}
 	
+	public static void verifyAlrtErrMsg(){	
+		String errorMsg = driver.findElement(By.xpath("//q2-message[@type='danger']/p")).getAttribute("innerText");
+		String allMissingFields = "//q2-message[@type='danger']//li";
+		String errorMsgText = "The following 3 fields have an error:";
+		String missingField1 = "Check Number";
+		String missingField2 = "Account";
+		String missingField3 = "Alert Delivery Method";
+
+		if(errorMsg.equals(errorMsgText))
+		{		
+			List<WebElement> allMissingFieldsLoc = driver.findElements(By.xpath(allMissingFields));
+			for(int count=1;count<= allMissingFieldsLoc.size();count++){
+				String bulletPoint = "//q2-message[@type='danger]//li["+count+"]";
+				String bulletPointValue = driver.findElement(By.xpath(bulletPoint)).getAttribute("innerText");
+				
+				if(bulletPointValue.equals(missingField1)||bulletPointValue.equals(missingField2)||bulletPointValue.equals(missingField3)){
+					Assert.assertTrue(true);
+				}
+				else{
+					Assert.assertTrue(false);
+				}
+			}
+		}
+		else{
+			Assert.assertTrue(false);
+		}		
+	}
+	
+	public static void verifyAlrtStatus(){	
+		String[] statusList = {"Authorized", "Cancelled", "Drafted", "Failed", "Processed"};
+		WebElement dropdown = driver.findElement(By.xpath("//q2-select[@test-id='fldOnlineActivityTypeSelect']"));
+		Select select = new Select(dropdown);
+		
+		List<WebElement> options = select.getOptions();  
+		 for(WebElement we:options)  
+		 {  
+			 boolean match = false;
+			 for(int i=0; i<statusList.length; i++){
+		     if(we.getText().equals(statusList[i])){
+		        match = true;
+		      }
+		    }
+		  Assert.assertTrue(match);
+		 }  
+	}
+
+	
 }

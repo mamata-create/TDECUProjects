@@ -96,13 +96,7 @@ public class C23503_VerifyHistoryAlertSetupForCheckTransaction extends GenericKe
 					String alrtopts=excl.getCellData(sheetName, 1, startIter);
 					String acnt=excl.getCellData(sheetName, 8, startIter);
 					String field=excl.getCellData(sheetName, 9, startIter);
-					String cmpr=excl.getCellData(sheetName, 10, startIter);
 					String chkNumber=excl.getCellData(sheetName, 11, startIter);
-					String msg=excl.getCellData(sheetName, 3, startIter);
-					String dlvry_mthd=excl.getCellData(sheetName, 4, startIter);
-					String cntry=excl.getCellData(sheetName, 5, startIter);
-					String phone=excl.getCellData(sheetName, 6, startIter);
-					String amnt=randomAmount();
 				
 				//Click Settings Menu
 					getElement(ObjectRepository.stng_menu).click();
@@ -127,63 +121,40 @@ public class C23503_VerifyHistoryAlertSetupForCheckTransaction extends GenericKe
 						test.log(Status.INFO, "Alerts type selected");
 					}
 					
-					verifyElementPresent(ObjectRepository.alrtsel_acnt);
-					verifyElementPresent(ObjectRepository.alrtsel_trnsctn);
-					verifyElementPresent(ObjectRepository.alrtsel_cmpr);
-					verifyElementPresent(ObjectRepository.alrtsel_amnt);
-					verifyElementPresent(ObjectRepository.alrtsel_frqncy);
-					verifyElementPresent(ObjectRepository.alrtsel_dlvrymthd);
-					test.log(Status.INFO, "Alert selected info appearing in the left");
+					getElement("//div[@test-id='radioTranType']//div[contains(text(),'"+field+"')]").click();
+					test.log(Status.INFO, "Transaction type selected");
+					verifyElementPresent(ObjectRepository.alrtCheckNumLbl);
+					test.log(Status.INFO, "Check Number field available");
 					
-					String svbtn_class=getElement(ObjectRepository.alrt_svbtn).getAttribute("class");
-					Assert.assertTrue(svbtn_class.contains("disabled"));
-					test.log(Status.INFO, "Save button is disabled by default");
+					getElement(ObjectRepository.alrt_svbtn).click();
+					verifyAlrtErrMsg();
+					test.log(Status.INFO, "Save button clicked, error message displayed");
 					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+acnt+"')]").click();
+					getElement(ObjectRepository.alrtBackLink).click();
+					test.log(Status.INFO, "Back to Alerts clicked");
+					
+					try{
+						selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
+						test.log(Status.INFO, "Alerts type selected");
+						Thread.sleep(2000);
+						}catch(Exception e){
+							test.log(Status.INFO, "Alerts type selected");
+						}
+					
+					getElement("//div[@test-id='radioTranType']//div[contains(text(),'"+field+"')]").click();
+					getElement(ObjectRepository.alrtCheckNumLbl).sendKeys(chkNumber);
+					test.log(Status.INFO, "Check Number entered");
+					
+					selectDropdownOptContain(ObjectRepository.alrtsel_acnt, acnt);
 					test.log(Status.INFO, "Account selected");
 					Thread.sleep(2000);
 					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+field+"')]").click();
-					test.log(Status.INFO, "Field selected");
+					getElement(ObjectRepository.alrtsel_dlvrymsg).click();
+					test.log(Status.INFO, "Email delivery method selected");
 					Thread.sleep(2000);
 					
-					for(int i=0;i<chkNumber.length();i++){
-						char chr=chkNumber.charAt(i);
-						getElement("//span[@class='integerInputButtonText' and text()='"+chr+"']").click();
-					}
-					
-					WebElement ele=getElement(ObjectRepository.stppaymnt_svbtn);
-					JavascriptExecutor executor = (JavascriptExecutor)driver;
-					executor.executeScript("arguments[0].click();", ele);
-					test.log(Status.INFO, "Save button clicked");
-					Thread.sleep(3000);
-					
-									
-					
-					selectDropdownOptContain(ObjectRepository.alrt_dlvrymthd, dlvry_mthd);
-					test.log(Status.INFO, "Alerts delivery method selected");
-					Thread.sleep(2000);
-					
-					JavascriptExecutor js = (JavascriptExecutor)driver;
-					js.executeScript("arguments[0].value='"+phone+"';", getElement(ObjectRepository.alrtcall_phone));
-					
-					Thread.sleep(2000);
-					getElement(ObjectRepository.alrtcall_phone).sendKeys(Keys.ENTER);
-					test.log(Status.INFO, "Phone number entered");
-					Thread.sleep(2000);
-				
-					Thread.sleep(2000);
-					
-					getElement(ObjectRepository.alrt_svbtn).click();
-					test.log(Status.INFO, "Alert save button clicked");
-					Thread.sleep(2000);
-					
-					verifyElementPresent(ObjectRepository.alrt_svsccs);
-					test.log(Status.INFO, "Alert save success available");
-					
-					getElement(ObjectRepository.alrt_clsbtn).click();
-					test.log(Status.INFO, "Alert close button clicked");
-					
+					getElement(ObjectRepository.alrt_backbtn).click();
+					test.log(Status.INFO, "Back button clicked");
 				 }
 			 }
 			
