@@ -200,41 +200,49 @@ public class ObjectRepository {
 	//Alerts
 		public static String alrt_menu="//div[@class='menu-text' and text()='Alerts']";
 		public static String alrt_ttl="//h1[@test-id='lblAlertsTitle' and text()='Alerts']";
-		public static String alrtopts_drop="//div[@test-id='openNewAlert']";
+		public static String alrtopts_drop="//button[@test-id='btnUIDropdownToggle']";
+		public static String alrtTypes= "//ul[@role='menu']//li";
 		public static String alrtBackLink = "//a[text()='Back to Alerts']";
 		public static String alrtsel_typ="//q2-select[@test-id='fldDateTypeSelect']";
+		public static String alrtEvents = "//q2-select[@label='Event']//q2-option";
 		public static String alrtsel_dt="//q2-calendar[@test-id='dateAlertDate']";
 		public static String alrtsel_msg="//q2-input[@test-id='fldAlertMessage']";
 		public static String alrtsel_dlvryEmail="//div[@class='fieldset-content']//div[contains(text(),'Email')]";
 		public static String alrtsel_dlvryVoice="//div[@class='fieldset-content']//div[contains(text(),'Voice')]";
 		public static String alrtsel_dlvryText="//div[@class='fieldset-content']//div[contains(text(),'SMS Text Message')]";
-		public static String alrtsel_dlvrymsg="//div[@class='fieldset-content']//div[contains(text(),'Secure Message')]";		
+		public static String alrtsel_dlvrymsg="//div[@class='fieldset-content']//div[contains(text(),'Secure Message')]";
+		public static String alrtTermsLink = "//button[@test-id='lnkTermsAndCond']";
+		public static String SMStermsTitle = "//h1[@test-id='lblModalTitle' and text()='SMS Terms and Conditions']";
 		
 		public static String alrtsel_acnt="//q2-select[@test-id='fldAccountSelect']";
+		public static String accountList= "//q2-select[@label='Account']//q2-option";
 		public static String alrtsel_fld="//div[@test-id='lblAlertSelectedHade']";
 		public static String alrtsel_trnsctn="//div[@test-id='lblAlertSelectedPostedType']";
 		public static String onlnalrtsel_trnsctn="//q2-select[@test-id='fldSelectAlertTransType']";
+		public static String transTypes= "//q2-select[@label='Transaction']//q2-option";
 		public static String alrtsel_cmpr="//div[@test-id='lblAlertSelectedOperator']";
 		public static String alrtsel_amnt="//q2-input[@test-id='fldAlertAmount']";
 		public static String alrtsel_frqncy="//input[@test-id='cbxFrequency']";
 		public static String onlnalrtsel_frqncy="//div[@test-id='lblAlertSelectedFreq']";
 		public static String alrtStatus = "//q2-select[@test-id='fldOnlineActivityTypeSelect']";
+		public static String statusList= "//q2-select[@label='Status']//q2-option";
 		
 		public static String alrt_backbtn="//button[@test-id='btnGoBack']";
 		public static String alrt_svbtn="//button[@test-id='btnSave']";
 		public static String acntalrt_svbtn="//span[@class='integerInputButtonText' and text()='Save']";
 		public static String alrt_rccryr="//div[@test-id='cbxAnnualAlert']";
-		public static String alrt_msg="//input[@test-id='fldAlertMessage']";
+		public static String alrt_msg="//q2-input[@test-id='fldAlertMessage']";
 		public static String alrt_setbtn="//div[@test-id='btnSet']";
 		public static String alrt_dlvrymthd="//select[@test-id='selAlertDelivery']";
-		public static String alrt_cntry="//select[@test-id='selAlertTextCountry']";
+		public static String alrt_cntry="//q2-select[@test-id='selAlertTextCountry']";
+		public static String countryList= "//q2-select[@label='Country']//q2-option";
 		public static String alrtcall_cntry="//select[@test-id='selAlertCallCountry']";
-		public static String alrt_phone="//input[@test-id='fldAlertTextNumber']";
+		public static String alrt_phone="//q2-input[@test-id='fldAlertTextNumber']";
 		public static String alrtcall_phone="//q2-input[@test-id='fldAlertCallNumber']";
 		public static String alrtCheckNumLbl = "//q2-input[@label='Check Number']";
 		
 		public static String alrt_sndimdt="//input[@test-id='cbxAlertSendImmediately']";
-		public static String alrt_acpttrms="//input[@test-id='cbxAcceptTerms']";
+		public static String alrt_acpttrms="//q2-checkbox[@test-id='cbxAcceptTerms']";
 		public static String alrt_svsccs="//div[text()='Save Alert']";
 		public static String alrt_clsbtn="//button[@test-id='btnClose']";
 		public static String alrt_email="//input[@test-id='fldAlertEmail']";

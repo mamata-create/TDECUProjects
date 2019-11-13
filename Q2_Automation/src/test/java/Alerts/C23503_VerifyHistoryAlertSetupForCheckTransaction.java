@@ -97,29 +97,21 @@ public class C23503_VerifyHistoryAlertSetupForCheckTransaction extends GenericKe
 					String acnt=excl.getCellData(sheetName, 8, startIter);
 					String field=excl.getCellData(sheetName, 9, startIter);
 					String chkNumber=excl.getCellData(sheetName, 11, startIter);
+					String errorField1=excl.getCellData(sheetName, 11, startIter);
+					String errorField2=excl.getCellData(sheetName, 11, startIter);
 				
 				//Click Settings Menu
 					getElement(ObjectRepository.stng_menu).click();
 					test.log(Status.INFO, "Settings menu clicked");
-					Thread.sleep(3000);
 					
 					getElement(ObjectRepository.alrt_menu).click();
 					test.log(Status.INFO, "Alerts menu clicked");
-					Thread.sleep(3000);
 				//Verify Alerts page title
 					verifyElementPresent(ObjectRepository.alrt_ttl);
 					test.log(Status.INFO, "Alerts page opened and title available");
-					Thread.sleep(3000);
 					
-					scrollToElement(ObjectRepository.alrtopts_drop);
-					
-					try{
-					selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
+					selectValue(ObjectRepository.alrtopts_drop,ObjectRepository.alrtTypes, alrtopts);
 					test.log(Status.INFO, "Alerts type selected");
-					Thread.sleep(2000);
-					}catch(Exception e){
-						test.log(Status.INFO, "Alerts type selected");
-					}
 					
 					getElement("//div[@test-id='radioTranType']//div[contains(text(),'"+field+"')]").click();
 					test.log(Status.INFO, "Transaction type selected");
@@ -127,25 +119,20 @@ public class C23503_VerifyHistoryAlertSetupForCheckTransaction extends GenericKe
 					test.log(Status.INFO, "Check Number field available");
 					
 					getElement(ObjectRepository.alrt_svbtn).click();
-					verifyAlrtErrMsg();
+					verifyAlrtErrMsg(errorField1, errorField2);
 					test.log(Status.INFO, "Save button clicked, error message displayed");
 					
 					getElement(ObjectRepository.alrtBackLink).click();
 					test.log(Status.INFO, "Back to Alerts clicked");
 					
-					try{
-						selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
-						test.log(Status.INFO, "Alerts type selected");
-						Thread.sleep(2000);
-						}catch(Exception e){
-							test.log(Status.INFO, "Alerts type selected");
-						}
+					selectValue(ObjectRepository.alrtopts_drop,ObjectRepository.alrtTypes, alrtopts);
+					test.log(Status.INFO, "Alerts type selected");
 					
 					getElement("//div[@test-id='radioTranType']//div[contains(text(),'"+field+"')]").click();
-					getElement(ObjectRepository.alrtCheckNumLbl).sendKeys(chkNumber);
+					enterText(ObjectRepository.alrtCheckNumLbl,chkNumber);
 					test.log(Status.INFO, "Check Number entered");
 					
-					selectDropdownOptContain(ObjectRepository.alrtsel_acnt, acnt);
+					selectValue(ObjectRepository.alrtsel_acnt,ObjectRepository.accountList, acnt);
 					test.log(Status.INFO, "Account selected");
 					Thread.sleep(2000);
 					

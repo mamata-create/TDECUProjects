@@ -100,49 +100,33 @@ public class C23494_VerifyAccountBalanceAlertSetUpViaSecureMessage  extends Gene
 				//Click Settings Menu
 					getElement(ObjectRepository.stng_menu).click();
 					test.log(Status.INFO, "Settings menu clicked");
-					Thread.sleep(3000);
 					
 					getElement(ObjectRepository.alrt_menu).click();
 					test.log(Status.INFO, "Alerts menu clicked");
-					Thread.sleep(3000);
 				//Verify Alerts page title
 					verifyElementPresent(ObjectRepository.alrt_ttl);
 					test.log(Status.INFO, "Alerts page opened and title available");
-					Thread.sleep(3000);
 					
-					scrollToElement(ObjectRepository.alrtopts_drop);
-					
-					try{
-					selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
+					selectValue(ObjectRepository.alrtopts_drop,ObjectRepository.alrtTypes, alrtopts);
 					test.log(Status.INFO, "Alerts type selected");
-					Thread.sleep(2000);
-					}catch(Exception e){
-						test.log(Status.INFO, "Alerts type selected");
-					}
 					
-					selectDropdownOptContain(ObjectRepository.alrtsel_acnt, acnt);
+					selectValue(ObjectRepository.alrtsel_acnt,ObjectRepository.accountList, acnt);
 					test.log(Status.INFO, "Account selected");
-					Thread.sleep(2000);
 					
 					getElement("//div[@test-id='fldHadeRadioTile']//div[contains(text(),'"+field+"')]").click();
 					test.log(Status.INFO, "Account balance type selected");
-					Thread.sleep(2000);
 					
 					getElement("//div[@test-id='radioAmount']//div[contains(text(),'"+cmpr+"')]").click();
 					test.log(Status.INFO, "Comparison selected");
-					Thread.sleep(2000);
 					
-					getElement(ObjectRepository.alrtsel_amnt).clear();
-					getElement(ObjectRepository.alrtsel_amnt).sendKeys(amnt);
+					enterText(ObjectRepository.alrtsel_amnt,amnt);
 					test.log(Status.INFO, "Amount entered");
 					
 					getElement(ObjectRepository.alrtsel_dlvrymsg).click();
 					test.log(Status.INFO, "Secure Message delivery method selected");
-					Thread.sleep(2000);
 					
 					getElement(ObjectRepository.alrt_svbtn).click();
 					test.log(Status.INFO, "Alert save button clicked");
-					Thread.sleep(2000);
 					
 					verifyElementPresent(ObjectRepository.alrt_svsccs);
 					test.log(Status.INFO, "Alert save success available");
@@ -158,7 +142,7 @@ public class C23494_VerifyAccountBalanceAlertSetUpViaSecureMessage  extends Gene
 					verifyElementPresent("//div[@test-id='lblSelectedMessageBody' and contains(text(),'"+acnt+"')]");
 					test.log(Status.INFO, "Message text verified");
 			
-					String reply = getElement(ObjectRepository.replyBtn).getAttribute("disabled type");
+					String reply = getElement(ObjectRepository.replyBtn).getAttribute("disabled");
 					if(reply != null){
 						Assert.assertTrue(true);
 					}else{

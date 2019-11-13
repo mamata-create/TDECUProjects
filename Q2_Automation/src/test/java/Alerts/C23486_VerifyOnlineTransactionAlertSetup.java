@@ -100,47 +100,30 @@ public class C23486_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 				//Click Settings Menu
 					getElement(ObjectRepository.stng_menu).click();
 					test.log(Status.INFO, "Settings menu clicked");
-					Thread.sleep(3000);
 					
 					getElement(ObjectRepository.alrt_menu).click();
 					test.log(Status.INFO, "Alerts menu clicked");
-					Thread.sleep(3000);
 				//Verify Alerts page title
 					verifyElementPresent(ObjectRepository.alrt_ttl);
 					test.log(Status.INFO, "Alerts page opened and title available");
-					Thread.sleep(3000);
 					
-					scrollToElement(ObjectRepository.alrtopts_drop);
-					
-					try{
-					selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
+					selectValue(ObjectRepository.alrtopts_drop,ObjectRepository.alrtTypes, alrtopts);
 					test.log(Status.INFO, "Alerts type selected");
-					Thread.sleep(2000);
-					}catch(Exception e){
-						test.log(Status.INFO, "Alerts type selected");
-					}
 					
 					getElement(ObjectRepository.alrtBackLink).click();
 					test.log(Status.INFO, "Back to Alerts clicked");
 					
-					try{
-						selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
-						test.log(Status.INFO, "Alerts type selected");
-						Thread.sleep(2000);
-						}catch(Exception e){
-							test.log(Status.INFO, "Alerts type selected");
-						}
+					selectValue(ObjectRepository.alrtopts_drop,ObjectRepository.alrtTypes, alrtopts);
+					test.log(Status.INFO, "Alerts type selected");
 					
-					selectDropdownOptContain(ObjectRepository.onlnalrtsel_trnsctn, transType);
+					selectValue(ObjectRepository.onlnalrtsel_trnsctn,ObjectRepository.transTypes, transType);
 					test.log(Status.INFO, "Transaction type selected");
-					Thread.sleep(2000);	
 					
-					selectDropdownOptContain(ObjectRepository.alrtsel_acnt, acnt);
+					selectValue(ObjectRepository.alrtsel_acnt,ObjectRepository.accountList, acnt);
 					test.log(Status.INFO, "Account selected");
-					Thread.sleep(2000);
 					
 					verifyAlrtStatus();
-					selectDropdownOptContain(ObjectRepository.alrtStatus, stts);
+					selectValue(ObjectRepository.alrtStatus,ObjectRepository.statusList, stts);
 					test.log(Status.INFO, "Status selected");
 					
 					verifyElementPresent(ObjectRepository.alrtsel_dlvryEmail);
@@ -150,14 +133,11 @@ public class C23486_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 					getElement(ObjectRepository.alrtsel_dlvryVoice).click();
 					test.log(Status.INFO, "Delivery method selected");
 					
-					Thread.sleep(2000);
-					getElement(ObjectRepository.alrtcall_phone).sendKeys(phone);
+					enterText(ObjectRepository.alrtcall_phone,phone);
 					test.log(Status.INFO, "Phone number entered");
-					Thread.sleep(2000);
 
 					getElement(ObjectRepository.alrt_svbtn).click();
 					test.log(Status.INFO, "Alert save button clicked");
-					Thread.sleep(2000);
 					
 					verifyElementPresent(ObjectRepository.alrt_svsccs);
 					test.log(Status.INFO, "Alert save success available");

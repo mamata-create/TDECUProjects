@@ -96,47 +96,32 @@ public class C23476_VerifyRecurringDateAlertSetUp extends GenericKeywords {
 				//Click Settings Menu
 					getElement(ObjectRepository.stng_menu).click();
 					test.log(Status.INFO, "Settings menu clicked");
-					Thread.sleep(3000);
 					
 					getElement(ObjectRepository.alrt_menu).click();
 					test.log(Status.INFO, "Alerts menu clicked");
-					Thread.sleep(3000);
 				//Verify Alerts page title
 					verifyElementPresent(ObjectRepository.alrt_ttl);
 					test.log(Status.INFO, "Alerts page opened and title available");
-					Thread.sleep(3000);
 					
 					scrollToElement(ObjectRepository.alrtopts_drop);
 					
-					try{
-					selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
+					selectValue(ObjectRepository.alrtopts_drop,ObjectRepository.alrtTypes, alrtopts);
 					test.log(Status.INFO, "Alerts type selected");
-					Thread.sleep(2000);
-					}catch(Exception e){
-						test.log(Status.INFO, "Alerts type selected");
-					}
 					
-					selectDropdownOptContain(ObjectRepository.alrtsel_typ, alrt_typ);
-					//getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+alrt_typ+"')]").click();
-					test.log(Status.INFO, "Type selected");
+					selectValue(ObjectRepository.alrtsel_typ,ObjectRepository.alrtEvents, alrt_typ);
+					test.log(Status.INFO, "Event selected");
 					
-					//updated just to select date
-					selectFutureDate(2);
+					selectTodayShadowRootCal(-1);
 					test.log(Status.INFO, "Date selected");
 					
-					getElement(ObjectRepository.alrt_msg).sendKeys(msg);
+					enterText(ObjectRepository.alrt_msg,msg);
 					test.log(Status.INFO, "Alerts message entered");
-					
-					Thread.sleep(3000);
 					
 					getElement(ObjectRepository.alrtsel_dlvrymsg).click();
 					test.log(Status.INFO, "Alerts delivery method selected");				
-					
-					Thread.sleep(2000);
 
 					getElement(ObjectRepository.alrt_svbtn).click();
 					test.log(Status.INFO, "Alert save button clicked");
-					Thread.sleep(2000);
 					
 					verifyElementPresent(ObjectRepository.alrt_svsccs);
 					test.log(Status.INFO, "Alert save success available");
@@ -152,7 +137,7 @@ public class C23476_VerifyRecurringDateAlertSetUp extends GenericKeywords {
 					verifyElementPresent("//div[@test-id='lblSelectedMessageBody' and contains(text(),'"+msg+"')]");
 					test.log(Status.INFO, "Message text verified");
 			
-					String reply = getElement(ObjectRepository.replyBtn).getAttribute("disabled type");
+					String reply = getElement(ObjectRepository.replyBtn).getAttribute("disabled");
 					if(reply != null){
 						Assert.assertTrue(true);
 					}else{

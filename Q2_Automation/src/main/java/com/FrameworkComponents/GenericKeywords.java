@@ -23,11 +23,13 @@ import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -549,19 +551,17 @@ public class GenericKeywords extends BaseClass{
 		return pageValues;
 	}
 	
-	public static void verifyAlrtErrMsg(){	
+	public static void verifyAlrtErrMsg(String missingField1, String missingField2){	
 		String errorMsg = driver.findElement(By.xpath("//q2-message[@type='danger']/p")).getAttribute("innerText");
 		String allMissingFields = "//q2-message[@type='danger']//li";
 		String errorMsgText = "The following 3 fields have an error:";
-		String missingField1 = "Check Number";
-		String missingField2 = "Account";
 		String missingField3 = "Alert Delivery Method";
 
 		if(errorMsg.equals(errorMsgText))
 		{		
 			List<WebElement> allMissingFieldsLoc = driver.findElements(By.xpath(allMissingFields));
 			for(int count=1;count<= allMissingFieldsLoc.size();count++){
-				String bulletPoint = "//q2-message[@type='danger]//li["+count+"]";
+				String bulletPoint = "//q2-message[@type='danger']//li["+count+"]";
 				String bulletPointValue = driver.findElement(By.xpath(bulletPoint)).getAttribute("innerText");
 				
 				if(bulletPointValue.equals(missingField1)||bulletPointValue.equals(missingField2)||bulletPointValue.equals(missingField3)){
@@ -594,6 +594,101 @@ public class GenericKeywords extends BaseClass{
 		  Assert.assertTrue(match);
 		 }  
 	}
+	
+	public static void verifyAlrtEvents(){	
+		String[] eventList = {"Birthday","Anniversary","Meeting","Call","Wakeup","Appointment","Vacation","Travel","General"};
+		WebElement dropdown = driver.findElement(By.xpath("//q2-select[@test-id='fldDateTypeSelect']"));
+		Select select = new Select(dropdown);
+		
+		List<WebElement> options = select.getOptions();  
+		 for(WebElement we:options)  
+		 {  
+			 boolean match = false;
+			 for(int i=0; i<eventList.length; i++){
+		     if(we.getText().equals(eventList[i])){
+		        match = true;
+		      }
+		    }
+		  Assert.assertTrue(match);
+		 }  
+	}
+	
+	public void selectValue(String locator, String itemsLoc, String text) {
+		try{
+		WebElement menu = getElement(locator);
+		menu.click();
+        List<WebElement> options = driver.findElements(By.xpath(itemsLoc));
 
+        for (WebElement select : options) {
+            if (select.getText().contains(text)) { 
+                select.click();
+                break;
+            }
+        }
+		}catch(Exception e){
+			System.out.println("Exception caught");
+		}
+    }
+	
+	public static void selectTodayShadowRootCal(int noOfDays){		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date today = new Date();
+		String newDate = dateFormat.format(today);
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, noOfDays);
+		String date2 = dateFormat.format(cal.getTime());	
+		
+		WebElement root1 = driver.findElement(By.xpath("//q2-calendar[@test-id='dateAlertDate']"));
+		root1.click();
+		WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+		WebElement calendarDropdown = shadowRoot1.findElement(By.cssSelector("div[class='q2-element-dropdown']"));
+
+		WebElement nxtmnth=calendarDropdown.findElement(By.cssSelector("q2-btn[aria-label='Next month']"));
+		WebElement prevmnth=calendarDropdown.findElement(By.cssSelector("q2-btn[aria-label='Previous month']"));
+		WebElement nxtyr=calendarDropdown.findElement(By.cssSelector("q2-btn[aria-label='Next year']"));
+		WebElement prevyr=calendarDropdown.findElement(By.cssSelector("q2-btn[aria-label='Previous year']"));
+		nxtmnth.click();
+		prevmnth.click();
+		nxtyr.click();
+		prevyr.click();
+
+		List<WebElement> list = calendarDropdown.findElements(By.cssSelector("div[class*='cal-day'] q2-btn"));
+
+		for(WebElement e : list){
+			String cdate = e.getAttribute("data-date");
+			String disabled = e.getAttribute("disabled");
+			System.out.println(cdate+" "+disabled);
+			
+			if(cdate.equals(date2)){
+				if(disabled != null){
+					Assert.assertTrue(true);
+				}
+				else{
+					Assert.assertTrue(false);
+				}
+			}
+
+			if(cdate.equals(newDate)){
+				JavascriptExecutor executor = (JavascriptExecutor)driver;
+				executor.executeScript("arguments[0].click();", e);
+				break;
+			}
+
+		}
+	}
+	
+	public static void enterText(String locator, String text){
+		try{
+		Actions actions = new Actions(driver);
+		WebElement ele = driver.findElement(By.xpath(locator));
+		actions.moveToElement(ele);
+		actions.click();
+		actions.sendKeys(Keys.chord(Keys.CONTROL, "a"),text);
+		actions.build().perform();
+		}catch(Exception e){
+			System.out.println("Exception caught");
+		}
+	}
 	
 }
