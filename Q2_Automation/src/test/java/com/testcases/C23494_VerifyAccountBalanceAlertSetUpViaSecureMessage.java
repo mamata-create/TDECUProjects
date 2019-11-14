@@ -129,7 +129,7 @@ public class C23494_VerifyAccountBalanceAlertSetUpViaSecureMessage  extends Gene
 					verifyElementPresent(ObjectRepository.alrtsel_cmpr);
 					verifyElementPresent(ObjectRepository.alrtsel_amnt);
 					verifyElementPresent(ObjectRepository.alrtsel_frqncy);
-					verifyElementPresent(ObjectRepository.alrtsel_dlvrymthd);
+					verifyElementPresent(ObjectRepository.alrt_dlvrymthd);
 					test.log(Status.INFO, "Alert selected info appearing in the left");
 					
 					String svbtn_class=getElement(ObjectRepository.alrt_svbtn).getAttribute("class");

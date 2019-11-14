@@ -93,80 +93,87 @@ public class C23469_VerifyAlertsSetup extends GenericKeywords {
 					String alrtopts=excl.getCellData(sheetName, 1, startIter);
 					String alrt_typ=excl.getCellData(sheetName, 2, startIter);
 					String msg=excl.getCellData(sheetName, 3, startIter);
-					String dlvry_mthd=excl.getCellData(sheetName, 4, startIter);
-					String cntry=excl.getCellData(sheetName, 5, startIter);
+					String cntry=excl.getCellData(sheetName, 4, startIter);
+					String phone2=excl.getCellData(sheetName, 5, startIter);
 					String phone=excl.getCellData(sheetName, 6, startIter);
+					String errorField1=excl.getCellData(sheetName, 7, startIter);
+					String errorField2=excl.getCellData(sheetName, 8, startIter);
+					String SMSerror=excl.getCellData(sheetName, 9, startIter);
+					
 				
 				//Click Settings Menu
 					getElement(ObjectRepository.stng_menu).click();
 					test.log(Status.INFO, "Settings menu clicked");
-					Thread.sleep(3000);
 					
 					getElement(ObjectRepository.alrt_menu).click();
 					test.log(Status.INFO, "Alerts menu clicked");
-					Thread.sleep(3000);
 				//Verify Alerts page title
 					verifyElementPresent(ObjectRepository.alrt_ttl);
 					test.log(Status.INFO, "Alerts page opened and title available");
-					Thread.sleep(3000);
 					
-					scrollToElement(ObjectRepository.alrtopts_drop);
-					
-					try{
-					selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
+					selectValue(ObjectRepository.alrtopts_drop,ObjectRepository.alrtTypes, alrtopts);
 					test.log(Status.INFO, "Alerts type selected");
-					Thread.sleep(2000);
-					}catch(Exception e){
-						test.log(Status.INFO, "Alerts type selected");
-					}
 					
-					verifyElementPresent(ObjectRepository.alrtsel_typ);
-					verifyElementPresent(ObjectRepository.alrtsel_dt);
-					verifyElementPresent(ObjectRepository.alrtsel_msg);
-					verifyElementPresent(ObjectRepository.alrtsel_dlvrymthd);
-					test.log(Status.INFO, "Alert selected info appearing in the left");
+					Thread.sleep(1000);
+					getElement(ObjectRepository.alrtBackLink).click();
+					test.log(Status.INFO, "Back to Alerts clicked");
+					selectValue(ObjectRepository.alrtopts_drop,ObjectRepository.alrtTypes, alrtopts);
 					
-					String svbtn_class=getElement(ObjectRepository.alrt_svbtn).getAttribute("class");
-					Assert.assertTrue(svbtn_class.contains("disabled"));
-					test.log(Status.INFO, "Save button is disabled by default");
+					Thread.sleep(1000);
+					getElement(ObjectRepository.alrt_svbtn).click();
+					verifyAlrtErrMsg(errorField1, errorField2);
+					test.log(Status.INFO, "Save button clicked, error message displayed");
+									
+					selectValue(ObjectRepository.alrtsel_typ,ObjectRepository.alrtEvents, alrt_typ);
+					test.log(Status.INFO, "Event selected");
 					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+alrt_typ+"')]").click();
-					test.log(Status.INFO, "Type selected");
-					
-					verifyElementPresent(ObjectRepository.alrt_rccryr);
-					test.log(Status.INFO, "Recurr every year checkbox available");
-					
-					selectFutureDate(2);
+					selectTodayShadowRootCal(-1);
 					test.log(Status.INFO, "Date selected");
 					
-					getElement(ObjectRepository.alrt_msg).sendKeys(msg);
+					Boolean recursYearly = getElement(ObjectRepository.alrt_rccryr).isSelected();
+					if(recursYearly == true){
+						Assert.assertTrue(recursYearly);
+					}
+					getElement(ObjectRepository.alrt_rccryr).click();
+					Boolean recursUpdated = getElement(ObjectRepository.alrt_rccryr).isSelected();
+					if(!recursUpdated){						
+						Assert.assertTrue(true);						
+					}
+					else{
+						Assert.assertTrue(false);
+					}
+					test.log(Status.INFO, "Recurr every year checkbox verified");
+					
+					enterText(ObjectRepository.alrt_msg,msg);
 					test.log(Status.INFO, "Alerts message entered");
 					
-					getElement(ObjectRepository.alrt_setbtn).click();
-					test.log(Status.INFO, "Alerts set button clicked");
+					verifyElementPresent(ObjectRepository.alrtsel_dlvryEmail);
+					verifyElementPresent(ObjectRepository.alrtsel_dlvryVoice);
+					verifyElementPresent(ObjectRepository.alrtsel_dlvryText);
+					verifyElementPresent(ObjectRepository.alrtsel_dlvrymsg);
+					getElement(ObjectRepository.alrtsel_dlvryText).click();
+					test.log(Status.INFO, "Delivery method selected");
 					
-					Thread.sleep(3000);
-					
-					selectDropdownOptContain(ObjectRepository.alrt_dlvrymthd, dlvry_mthd);
-					test.log(Status.INFO, "Alerts delivery method selected");
-					Thread.sleep(2000);
-					
-					selectDropdownOptContain(ObjectRepository.alrt_cntry, cntry);
+					selectValue(ObjectRepository.alrt_cntry,ObjectRepository.countryList, cntry);
 					test.log(Status.INFO, "Country selected");
-					Thread.sleep(2000);
 					
-					JavascriptExecutor js = (JavascriptExecutor)driver;
-					js.executeScript("arguments[0].value='9876543210';", getElement(ObjectRepository.alrt_phone));
-					
-					Thread.sleep(2000);
-					getElement(ObjectRepository.alrt_phone).sendKeys(Keys.ENTER);
-					test.log(Status.INFO, "Phone number entered");
-					Thread.sleep(2000);
+					getElement(ObjectRepository.alrtTermsLink).click();
+					verifyElementPresent(ObjectRepository.SMStermsTitle);
+					getElement(ObjectRepository.alrt_clsbtn).click();
+					test.log(Status.INFO, "Terms and Conditions displayed");
 					
 					getElement(ObjectRepository.alrt_acpttrms).click();
 					test.log(Status.INFO, "Accept term & Conditions");
 					
-
+					enterText(ObjectRepository.alrt_phone,phone2);
+					getElement(ObjectRepository.alrt_svbtn).click();		
+					verifyText(ObjectRepository.modalTxt,SMSerror);
+					getElement(ObjectRepository.alrt_clsbtn).click();
+					test.log(Status.INFO, "Phone number field validated");
+					
+					enterText(ObjectRepository.alrt_phone,phone);
+					test.log(Status.INFO, "Phone number entered");
+					
 					getElement(ObjectRepository.alrt_svbtn).click();
 					test.log(Status.INFO, "Alert save button clicked");
 					Thread.sleep(2000);
@@ -191,7 +198,7 @@ public class C23469_VerifyAlertsSetup extends GenericKeywords {
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Alert Setup scenario working fine");
+			test.log(Status.PASS, "Verify SMS text reminder setup working fine");
 		}
 	}
 
