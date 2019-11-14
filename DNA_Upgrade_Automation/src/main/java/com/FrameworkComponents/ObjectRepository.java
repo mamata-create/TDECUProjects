@@ -2,7 +2,7 @@ package com.FrameworkComponents;
 
 public class ObjectRepository {
 
-	public static String app_ttl="//h1[contains(text(),'Account, Credit Card and Loan Application')]";
+	public static String app_ttl="//h1[contains(text(),'Experience the TDECU Difference')]";
 	public static String nonmmbrstrt_btn="//input[@id='btnNonMember']";
 	public static String mmbrstrt_btn="//input[@id='btnMember']";
 	
@@ -71,7 +71,7 @@ public class ObjectRepository {
 //
 	public static String Corporation_Verification="//label[text()='None of the above']";
 	
-	public static String address_Verification="//label[text()='I have never been associated with any of these addresses']";
+	public static String address_Verification="//label[text()='None of the above']";
 
 	public static String background_Verification="//label[text()='I have never been associated with this address']";
 	public static String Counties_Verification="//label[text()='I have never lived in any of these counties']";

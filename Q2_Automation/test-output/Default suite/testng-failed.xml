@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Home.C23446_VerifyAccountDetailTransactionSearchByTime">
+      <class name="ActivityCenter.C23621_VerifyActivityCenterSearchFilter">
         <methods>
+          <include name="C23621_VerifyActivityCenterSearchFilter"/>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="C23446_VerifyAccountDetailTransactionSearchByTime"/>
         </methods>
-      </class> <!-- Home.C23446_VerifyAccountDetailTransactionSearchByTime -->
+      </class> <!-- ActivityCenter.C23621_VerifyActivityCenterSearchFilter -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,9 +1,12 @@
 package Home;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.mail.MessagingException;
 
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -81,9 +84,13 @@ public class C23450_VerifyWelcomePageOnHomePage  extends GenericKeywords {
 	{
 		
 		verifyElementPresent(ObjectRepository.wlcmmsg);
+		String loggedInUser = getElement(ObjectRepository.wlcmmsg).getText();
+		Assert.assertTrue(true, loggedInUser.split(",")[1].trim());
 		test.log(Status.INFO, "Welcome message available on home page");	
-		
-		
+		verifyElementPresent(ObjectRepository.timeStamp);
+		String timeStamp = new SimpleDateFormat("MM/dd/yyyy_HHmm").format(Calendar.getInstance().getTime());
+		String lastLoggedInTime = getElement(ObjectRepository.timeStamp).getText();
+		Assert.assertTrue(lastLoggedInTime.contains(timeStamp.split("_")[0].trim()));
 	}
 
 	@AfterMethod

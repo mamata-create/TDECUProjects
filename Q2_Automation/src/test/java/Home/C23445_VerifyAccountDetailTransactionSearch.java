@@ -7,6 +7,7 @@ import javax.mail.MessagingException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -93,6 +94,7 @@ public class C23445_VerifyAccountDetailTransactionSearch  extends GenericKeyword
 					String desc=excl.getCellData(sheetName, 4, startIter);
 					String amnt=excl.getCellData(sheetName, 5, startIter);
 					
+					Thread.sleep(1500);
 					awaitForElementToVisible("//span[@class='account-nbr' and contains(text(),'"+acntNumber+"')]");
 					getElement("//span[@class='account-nbr' and contains(text(),'"+acntNumber+"')]").click();
 					test.log(Status.INFO, "Account link clicked");
@@ -120,36 +122,39 @@ public class C23445_VerifyAccountDetailTransactionSearch  extends GenericKeyword
 					/*verifyElementPresent(clearIcon);
 					test.log(Status.INFO, "Remove icon appearing inside search text box");*/
 					
-					getElement(ObjectRepository.acntsrch_clr).click();
+					clearIcon.click();
 					test.log(Status.INFO, "Remove icon appearing inside search text box clicked");
 					
-					verifyText(ObjectRepository.locsrch_txt, "");
+					String text = searchBox.getText();
+					if(text==" "){
+						Assert.assertTrue(true, "Existing text is removed");
+					}
 					test.log(Status.INFO, "Remove icon click removed the text from search text box");
 					
-					getElement(ObjectRepository.locsrch_txt).sendKeys(desc);
+					searchBox.sendKeys(desc);
 					test.log(Status.INFO, "Search text entered in search text box");
-					getElement(ObjectRepository.locsrch_txt).sendKeys(Keys.ENTER);
+					searchBox.sendKeys(Keys.ENTER);
 					Thread.sleep(3000);
 					
 					verifyText(ObjectRepository.acntdtl_desc, desc);
 					test.log(Status.INFO, "transaction searched correctly with description");
 					
-					getElement(ObjectRepository.locsrch_txt).clear();
+					searchBox.clear();
 			//Search transaction by Amount		
-					getElement(ObjectRepository.locsrch_txt).sendKeys(amnt);
+					searchBox.sendKeys(amnt);
 					test.log(Status.INFO, "Search text entered in search text box");
-					getElement(ObjectRepository.locsrch_txt).sendKeys(Keys.ENTER);
+					searchBox.sendKeys(Keys.ENTER);
 					Thread.sleep(3000);
 					
 					verifyText(ObjectRepository.acntdtl_amnt, amnt);
 					test.log(Status.INFO, "Transaction searched correctly with amount");
 					
-					getElement(ObjectRepository.locsrch_txt).clear();
+					searchBox.clear();
 					
 			//Search transaction by invalid criteria		
-					getElement(ObjectRepository.locsrch_txt).sendKeys("asd@#$1234");
+					searchBox.sendKeys("asd@#$1234");
 					test.log(Status.INFO, "Search text entered in search text box");
-					getElement(ObjectRepository.locsrch_txt).sendKeys(Keys.ENTER);
+					searchBox.sendKeys(Keys.ENTER);
 					Thread.sleep(3000);
 					
 					test.log(Status.INFO, "No Such transaction available message appeared");

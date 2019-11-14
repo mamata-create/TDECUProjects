@@ -81,7 +81,7 @@ public class ObjectRepository {
 	public static String srchtrnsctn_txt="//div[@class='searchbox']//input[@placeholder='Search transactions']";
 	public static String fltr_lnk="//button[@test-id='lnkShowClassic']";
 	public static String trnsctntyp_parent="//div[@class='col-xs-12']/div[1]/div[1]";
-	public static String trnsctntyp_drop="//select[@class='ember-view ember-select form-control']";
+	public static String trnsctntyp_drop="//select[@test-id='selTranType']";
 	public static String stts_parent="//div[@class='col-xs-12']/div[1]/div[2]//select[@class='ember-view ember-select form-control']";
 	public static String acnt_parent="//div[@class='col-xs-12']/div[1]/div[3]//select[@class='ember-view ember-select form-control']";
 	public static String crtd_parent="//div[@class='col-xs-12']/div[1]/div[4]//select[@class='ember-view ember-select form-control']";
@@ -105,11 +105,12 @@ public class ObjectRepository {
 	public static String actn_lnk="//tr[@test-id='txtTransactionSummary']/td[6]/div[@test-id='drpTransactionActions']";
 	public static String actn_cncl="//button[@aria-label='Actions']/following::ul[1]//li[2]";
 	public static String actn_inqr="//button[@aria-label='Actions']/following::ul[1]//li[3]";
-	
+	public static String applyFilterBtn = "//button[@test-id='lnkSearch']";
 	public static String trnsfrmnynow_lnk="//div[@test-id='btnQuickTransfer']";
 	
 	public static String fundtransfer_ttl="//h1[text()='Funds Transfer']";
-	public static String wlcmmsg="//span[contains(text(),'Welcome back')]";
+	public static String wlcmmsg="//div[@class='customer-name']";
+	public static String timeStamp = "//div[@test-id='lblLastLogin']";
 	
 	public static String accntgrp_expnd="//div[contains(@class,'account-group')]//a[@aria-label='Expand Group']";
 	public static String accn_lbl="//span[@class='account-label']";
@@ -118,7 +119,7 @@ public class ObjectRepository {
 	public static String cntctus_menu="//div[@class='menu-text' and text()='Contact Us']";
 	public static String cntctus_h1="//h1[text()='Contact Us']";
 	public static String cntctus_h2="//h2[text()='We'd love to hear from you']";
-	public static String actvtycntr_infmsg="//div[@class='quicktips-text' and contains(text(),'View or search transactions')]";
+	public static String actvtycntr_infmsg="//span[@test-id='textQT' and contains(text(),'View or search transactions')]";
 	public static String cncl_cnfmbtn="//button[contains(@class,'btn-primary')]";
 	public static String cncl_sccs="//*[text()='Transaction Cancelled']";
 	public static String inqr_ttl="//h2[text()='Transaction Inquiry']";
@@ -174,17 +175,17 @@ public class ObjectRepository {
 		public static String nickname_btn="//button[@class='btn btn-default input-sm pad-H-md']";
 		public static String nickname_txt="//input[@test-id='fldEditing']";
 		public static String nickname_svbtn="//span[@class='icon-ok']";
-		public static String nickname_cnclbtn="//span[@class='icon-remove']";
+		public static String nickname_cnclbtn="(//button[@aria-label='Close Tip'])[2]";
 		public static String acntsrch_txt="//div[contains(@class,'searchbox')]//input[@test-id='fldSearch']";
 		public static String acntsrch_clr="//button[@test-id='iconRemove']//span";
 		public static String acntsrch_errmsg="//div[contains(text(),'No available accounts match the search criteria')]";
 		public static String nickname_edt="//span[@class='icon-edit link-icon pointer']";
-		public static String acntdtl_desc="//div[@id='historyItems']/div[1]//div[@test-id='historyItemDescription']";
-		public static String acntdtl_amnt="//div[@id='historyItems']/div[1]//div[@test-id='lblAmount']";
+		public static String acntdtl_desc="//ul[@id='historyItems']//div[1]//div[@test-id='historyItemDescription']";
+		public static String acntdtl_amnt="(//ul[@id='historyItems']//div)[1]//span[@test-id='lblAmount']";
 		public static String trnsctn_err_msg="//p[contains(text(),'There are no transactions that match your filter')]";
 		public static String home_menu="//div[@class='menu-text' and contains(text(),'Home')]";
-		public static String acntdtl_shwfltr="//a[@test-id='lnkShowFilter']";
-		public static String acntdtl_aplyfltr="//span[@test-id='btnApplyFilter']";
+		public static String acntdtl_shwfltr="//button[@test-id='btnShowFilter']";
+		public static String acntdtl_aplyfltr="//q2-btn[@test-id='btnApplyFilter']";
 		public static String acntdtl_resetfltr="//span[@test-id='btnClearFilter']";
 		public static String acntdtl_timeprd_dropdown="//select[@test-id='selTimePeriod']";
 		public static String acntdtl_trnsctntyp_dropdown="//select[@test-id='selTransType']";

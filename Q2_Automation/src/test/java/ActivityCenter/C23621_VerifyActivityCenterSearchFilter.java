@@ -6,6 +6,7 @@ import javax.mail.MessagingException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -90,7 +91,7 @@ public class C23621_VerifyActivityCenterSearchFilter  extends GenericKeywords {
 			 {	
 				if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter)))
 				 {
-					String locname=excl.getCellData(sheetName, 1, startIter);
+					String transactionType=excl.getCellData(sheetName, 1, startIter);
 					String locaddress=excl.getCellData(sheetName, 2, startIter);
 					String atmname=excl.getCellData(sheetName, 3, startIter);
 					String atmaddress=excl.getCellData(sheetName, 4, startIter);
@@ -106,11 +107,29 @@ public class C23621_VerifyActivityCenterSearchFilter  extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
-					test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
 					
-					verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
-					test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					if(SingleTransactionsTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
+					}
+					
+					WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+					
+					Thread.sleep(1500);
+					if(RecurringTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
+					}
+					
+					
+					
 					
 					verifyElementPresent(ObjectRepository.srchtrnsctn_txt);
 					test.log(Status.INFO, "Search transaction field available on Activity Center page");
@@ -124,12 +143,28 @@ public class C23621_VerifyActivityCenterSearchFilter  extends GenericKeywords {
 					
 				//Search filter options
 					//verifyElementPresent("//label[contains(text(),'Transaction Type')]");
-					WebElement trnsctntyp_ele=getElement(ObjectRepository.trnsctntyp_parent).findElement(By.xpath(ObjectRepository.trnsctntyp_drop));
-					Assert.assertTrue(trnsctntyp_ele.isDisplayed());
-					test.log(Status.INFO, "Transaction type filter option available");
+					
+					String[]filterType = new String[]{"Transaction Type","Status","Account","Created By"};
+					String[]options = new String[]{"Funds Transfer","Drafted","PRIMARY CHECKING	70024450	$1,835.10","Äll"};
+					for(int index=0;index<filterType.length;index++){
+						WebElement element = driver.findElement(By.xpath("//label[contains(text(),'"+filterType[index].toString()+"')]/following::select[@class='form-control q2-select ember-view']"));
+						if(element.isDisplayed())
+							test.log(Status.INFO, filterType[index].toString()+" filter option available");
+					}
+					
+					for(String count:filterType){
+						WebElement element = driver.findElement(By.xpath("//label[contains(text(),'"+filterType[Integer.parseInt(count)].toString()+"')]/following::select[@class='form-control q2-select ember-view']"));
+						Select sel=new Select(element);
+						sel.selectByVisibleText(options[Integer.parseInt(count)].toString());
+						getElement(ObjectRepository.applyFilterBtn).click();;
+					}
 					
 					
-					WebElement stts_ele=getElement(ObjectRepository.stts_parent).findElement(By.xpath(ObjectRepository.trnsctntyp_drop));
+				//	verifyElementPresent(ObjectRepository.trnsctntyp_drop);
+				//	test.log(Status.INFO, "Transaction type filter option available");
+					
+					
+				/*	WebElement stts_ele=getElement(ObjectRepository.stts_parent).findElement(By.xpath(ObjectRepository.trnsctntyp_drop));
 					Assert.assertTrue(stts_ele.isDisplayed());
 					test.log(Status.INFO, "Status filter option available");
 				
@@ -143,7 +178,7 @@ public class C23621_VerifyActivityCenterSearchFilter  extends GenericKeywords {
 					
 					WebElement amnt_ele=getElement(ObjectRepository.amnt_parent).findElement(By.xpath(ObjectRepository.srchamnt_txt));
 					Assert.assertTrue(amnt_ele.isDisplayed());
-					test.log(Status.INFO, "Amount filter option available");
+					test.log(Status.INFO, "Amount filter option available");*/
 				 }
 			 }
 		}

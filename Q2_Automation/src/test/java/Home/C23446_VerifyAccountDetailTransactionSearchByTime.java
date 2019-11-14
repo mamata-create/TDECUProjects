@@ -81,7 +81,7 @@ public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericK
 	}
 
 	@Test
-	public void C23446_VerifyAccountDetailTransactionSearchByTime() throws InterruptedException, MessagingException, IOException
+	public void C23446_VerifyAccountDetailTransactionSearchByTime() throws Exception
 	{
 		if(continuetestcase==true)
 		{
@@ -95,6 +95,8 @@ public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericK
 					String desc=excl.getCellData(sheetName, 4, startIter);
 					String amnt=excl.getCellData(sheetName, 5, startIter);
 					
+					Thread.sleep(1500);
+					awaitForElementToVisible("//span[@class='account-nbr' and contains(text(),'"+acntNumber+"')]");
 					getElement("//span[@class='account-nbr' and contains(text(),'"+acntNumber+"')]").click();
 					test.log(Status.INFO, "Account link clicked");
 										
@@ -107,8 +109,14 @@ public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericK
 					
 					getElement(ObjectRepository.acntdtl_shwfltr).click();
 					test.log(Status.INFO, "Filter icon clicked to show filter options");
+					
+					WebElement timePerd_root1 = driver.findElement(By.cssSelector("q2-select[label='Time Period']"));
+					WebElement shadow_timePerd_root1 = ObjectRepository.expandRootElement(driver, timePerd_root1);
+					WebElement timePerd_root2 = shadow_timePerd_root1.findElement(By.cssSelector("q2-input[label='Time Period']"));
+					WebElement timePerd_shadow_Root2 = ObjectRepository.expandRootElement(driver, timePerd_root2);
+					WebElement timePerdDropdown = timePerd_shadow_Root2.findElement(By.cssSelector("button[test-id='inputField']"));
+					selectOptionShadowRoot(timePerdDropdown,"Today").click();
 						
-					selectDropdownOptContain(ObjectRepository.acntdtl_timeprd_dropdown, "Today");
 					test.log(Status.INFO, "Today selected from time period dropdown");
 					
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
@@ -116,14 +124,14 @@ public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericK
 					Thread.sleep(3000);
 					test.log(Status.INFO, "Today transactions searched");
 					
-					selectDropdownOptContain(ObjectRepository.acntdtl_timeprd_dropdown, "Yesterday");
+					selectOptionShadowRoot(timePerdDropdown,"Yesterday").click();
 					test.log(Status.INFO, "Yesterday selected from time period dropdown");
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");
 					Thread.sleep(3000);
 					test.log(Status.INFO, "Yesterday transactions searched");
 					
-					selectDropdownOptContain(ObjectRepository.acntdtl_timeprd_dropdown, "This Month");
+					selectOptionShadowRoot(timePerdDropdown,"This month").click();
 					test.log(Status.INFO, "This month selected from time period dropdown");
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");

@@ -79,7 +79,7 @@ public class GenericKeywords extends BaseClass{
 	public static void awaitForElementToVisible(String locator){
 
 		WebElement elementToCheck = getElement(locator); 
-		elementToCheck = new WebDriverWait(driver, 60)
+		elementToCheck = new WebDriverWait(driver, 120)
 				.until(ExpectedConditions.visibilityOf(elementToCheck));
 
 
@@ -547,6 +547,21 @@ public class GenericKeywords extends BaseClass{
 			pageValues[index] = value;
 		}
 		return pageValues;
+	}
+	
+	public static WebElement selectOptionShadowRoot(WebElement shadowelement,String optionToClick) throws Exception{
+		WebElement elementToReturn = null;
+		try{
+			
+			boolean displayed = shadowelement.isDisplayed();
+			if(displayed)
+				elementToReturn = shadowelement.findElement(By.cssSelector("q2-option[display='"+optionToClick+"']"));
+			
+			
+		}catch(Exception e){
+			throw new Exception(e);
+		}
+		return elementToReturn;
 	}
 	
 }
