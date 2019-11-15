@@ -109,6 +109,10 @@ public class ObjectRepository {
 	public static String selectTermDropdown = "//label[contains(text(),'Select a term')]/following::select";
 	public static String termCheckBox = "//div[contains(@style,'display: block')]//div[contains(@class,'icheckbox')]//following::label[1]";
 	
+	//Money Market Accounts
+	public static String moneyMarketAccounts = "//h4[contains(text(),'Checking & Money Market Accounts')]/i";
+	public static String moneyMarket_CheckBox = "//label[contains(text(),'Money Market')]";
+	
 	
 	//
 	public static String Highyieldchking_opt="//label[contains(text(),'High Yield Checking')]/preceding::div[1]"; 
