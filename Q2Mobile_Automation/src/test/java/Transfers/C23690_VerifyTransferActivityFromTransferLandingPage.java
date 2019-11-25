@@ -81,17 +81,19 @@ public class C23690_VerifyTransferActivityFromTransferLandingPage  extends Gener
 		test.log(Status.INFO, "Activity button clicked");
 		Thread.sleep(15000);	
 		
-		verifyElementPresent(ObjectRepository.pending_tab);
-		test.log(Status.INFO, "Pending tab appeared");
-		
+//		verifyElementPresent(ObjectRepository.pending_tab);
+//		test.log(Status.INFO, "Pending tab appeared");
+//		
 		//clickElement(ObjectRepository.pending_tab);
 		//getElement(ObjectRepository.pending_tab).click();
 		test.log(Status.INFO, "Pending tab clicked");
 		Thread.sleep(4000);	
 		
 		String transaction=getElement(ObjectRepository.pending_trnsctn).getAttribute("name");
-		String searchID=transaction.substring(transaction.length()-8);
-		searchID=searchID.replace(" ", "");
+		int id_indx=transaction.indexOf("ID");
+		id_indx=id_indx+1;
+		String searchID=transaction.substring(id_indx, id_indx+8);
+		//searchID=searchID.replace(" ", "");
 //		
 		System.out.println("Search text-"+transaction+","+searchID);
 		

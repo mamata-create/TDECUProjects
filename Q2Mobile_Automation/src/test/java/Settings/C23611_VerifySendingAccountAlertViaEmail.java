@@ -60,9 +60,7 @@ public class C23611_VerifySendingAccountAlertViaEmail extends GenericKeywords {
 					String dlvrymthd=excl.getCellData(sheetName, 6, startIter);
 					String email=excl.getCellData(sheetName, 11, startIter);
 								
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -79,7 +77,7 @@ public class C23611_VerifySendingAccountAlertViaEmail extends GenericKeywords {
 		test.log(Status.INFO, "Alert menu clicked");
 		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.alrt_menu);
+		verifyElementPresent(ObjectRepository.alrt_ttl);
 		test.log(Status.INFO, "Alerts page opened");
 		
 				
@@ -88,7 +86,7 @@ public class C23611_VerifySendingAccountAlertViaEmail extends GenericKeywords {
 		test.log(Status.INFO, "Alert type dropdown clicked");
 		Thread.sleep(4000);
 		
-		getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
+		getElement("//android.view.View[@content-desc='"+alerttype+"']").click();
 		test.log(Status.INFO, "Account Alert type selected");
 		Thread.sleep(4000);
 
@@ -105,94 +103,103 @@ public class C23611_VerifySendingAccountAlertViaEmail extends GenericKeywords {
 		Thread.sleep(4000);
 		
 	//Select Field
-		getElement(ObjectRepository.alrt_fld).click();
-		test.log(Status.INFO, "Alert Field option clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_fld).click();
+//		test.log(Status.INFO, "Alert Field option clicked");
+//		Thread.sleep(4000);
 		
-		getElement("//android.view.View[contains(@content-desc,'"+field+"')]").click();
+		getElement("//android.widget.RadioButton[contains(@content-desc,'"+field+"')]").click();
 		test.log(Status.INFO, "Field selected");
 		Thread.sleep(4000);
 		
 	//Select Comparison
-		getElement(ObjectRepository.alrt_cmprsn).click();
-		test.log(Status.INFO, "Alert Comparison option clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_cmprsn).click();
+//		test.log(Status.INFO, "Alert Comparison option clicked");
+//		Thread.sleep(4000);
 		
-		getElement("//android.view.View[contains(@content-desc,'"+cmprsn+"')]").click();
+		getElement("//android.widget.RadioButton[contains(@content-desc,'"+cmprsn+"')]").click();
 		test.log(Status.INFO, "Comparison type selected");
 		Thread.sleep(4000);
 		
 	//Enter amount
-		getElement(ObjectRepository.alrt_amnt).click();
-		test.log(Status.INFO, "Alert Amount option clicked");
-		Thread.sleep(4000);
-		
-		verifyElementPresent(ObjectRepository.amnt_txt);
-		test.log(Status.INFO, "Amount field appearing");
+//		getElement(ObjectRepository.alrt_amnt).click();
+//		test.log(Status.INFO, "Alert Amount option clicked");
+//		Thread.sleep(4000);
+//		
+//		verifyElementPresent(ObjectRepository.amnt_txt);
+//		test.log(Status.INFO, "Amount field appearing");
 	
 	
 	//Set amount and save
-		if(!amnt.contains(".")){
-		getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+//		if(!amnt.contains(".")){
+//		getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+//		test.log(Status.INFO, "Alert Amount entered");
+//		Thread.sleep(2000);
+//		}else{
+//			getElement(ObjectRepository.amnt_txt).sendKeys(amnt+"00");
+//			test.log(Status.INFO, "Alert Amount entered");
+//			Thread.sleep(2000);
+//		}
+//		
+//		getElement(ObjectRepository.alrt_amntsv).click();
+//		test.log(Status.INFO, "Alert Amount save button clicked");
+//		Thread.sleep(2000);
+		clickElement(ObjectRepository.amnt_txt);
+		
+		Submitamount(amnt, ObjectRepository.amnt_txt);
+		//getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
 		test.log(Status.INFO, "Alert Amount entered");
 		Thread.sleep(2000);
-		}else{
-			getElement(ObjectRepository.amnt_txt).sendKeys(amnt+"00");
-			test.log(Status.INFO, "Alert Amount entered");
-			Thread.sleep(2000);
-		}
+		scrollToElement(1);
 		
-		getElement(ObjectRepository.alrt_amntsv).click();
-		test.log(Status.INFO, "Alert Amount save button clicked");
-		Thread.sleep(2000);
 		
 	//Select Delivery Method
-		getElement(ObjectRepository.alrt_dlvrymthd).click();
-		test.log(Status.INFO, "Alert Delivery Method option clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_dlvrymthd).click();
+//		test.log(Status.INFO, "Alert Delivery Method option clicked");
+//		Thread.sleep(4000);
 		
 		verifyElementPresent(ObjectRepository.alrt_dlvrymthd_ttl);
 		test.log(Status.INFO, "Delivery MEthod Page title appearing");
 		
-		getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
-		test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
-		Thread.sleep(4000);
-		
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Email']");
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Phone']");
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Text Message']");
+//		getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
+//		test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
+//		Thread.sleep(4000);
+//		
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='Email']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='Voice']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='SMS Text Message']");
 		test.log(Status.INFO, "Alert Delivery Method different options appearing");
 		
-		getElement("//android.widget.CheckedTextView[@text='"+dlvrymthd+"']").click();
+		getElement("//android.widget.RadioButton[@content-desc='"+dlvrymthd+"']").click();
 		test.log(Status.INFO, "Delivery Method selected");
-		Thread.sleep(4000);
 		
 //		getElement(ObjectRepository.alrt_msgtxt).sendKeys("sravyavagalaboina.com");
 //		Assert.assertFalse(getElement(ObjectRepository.alrt_donebtn).isEnabled());
 //		test.log(Status.INFO, "Done button disabled when email without @ provided");
 //		Thread.sleep(4000);
 		
-		getElement(ObjectRepository.alrt_msgtxt).sendKeys(email);
+		clickElement(ObjectRepository.alrt_emailtxt);
+		Thread.sleep(2000);
+		getElement(ObjectRepository.alrt_emailtxt).sendKeys(email);
 		test.log(Status.INFO, "Valid Email provided");
 		Thread.sleep(2000);
 		
 		
-		getElement(ObjectRepository.alrt_donebtn).click();
-		test.log(Status.INFO, "Done button clicked");
-		Thread.sleep(2000);
+//		getElement(ObjectRepository.alrt_donebtn).click();
+//		test.log(Status.INFO, "Done button clicked");
+//		Thread.sleep(2000);
 		
 		
 
 	//Verify Occurence field	
-		String frqncy=getElement(ObjectRepository.alrt_occrnc).getAttribute("checked");
-		Assert.assertTrue(frqncy.equalsIgnoreCase("true"));
-		test.log(Status.INFO, "By default Every occurence field checked");
-		
-		getElement(ObjectRepository.alrt_occrnc).click();
-		test.log(Status.INFO, "Every occurence check box deselected");
+//		String frqncy=getElement(ObjectRepository.alrt_occrnc).getAttribute("checked");
+//		Assert.assertTrue(frqncy.equalsIgnoreCase("true"));
+//		test.log(Status.INFO, "By default Every occurence field checked");
+//		
+//		getElement(ObjectRepository.alrt_occrnc).click();
+//		test.log(Status.INFO, "Every occurence check box deselected");
 	//Save the alert
-		getElement(ObjectRepository.alrt_svbtn).click();
-		test.log(Status.INFO, "Save button clicked");
+		clickElement(ObjectRepository.alrt_svbtn);
+		test.log(Status.INFO, "Create Alert button clicked");
 		Thread.sleep(4000);
 		
 		verifyElementPresent(ObjectRepository.alrt_svsccs);

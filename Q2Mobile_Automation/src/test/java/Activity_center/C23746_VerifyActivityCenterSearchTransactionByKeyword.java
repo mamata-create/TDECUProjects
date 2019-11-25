@@ -45,8 +45,6 @@ public class C23746_VerifyActivityCenterSearchTransactionByKeyword  extends Gene
 	public void C23746_VerifyActivityCenter() throws InterruptedException
 	{
 		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");

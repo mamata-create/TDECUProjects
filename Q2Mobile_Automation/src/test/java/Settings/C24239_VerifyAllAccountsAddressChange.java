@@ -55,9 +55,7 @@ public class C24239_VerifyAllAccountsAddressChange  extends GenericKeywords {
 					String acnt=excl.getCellData(sheetName, 1, startIter);
 					String scndacnt=excl.getCellData(sheetName, 2, startIter);
 					
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -74,8 +72,8 @@ public class C24239_VerifyAllAccountsAddressChange  extends GenericKeywords {
 		test.log(Status.INFO, "Address Change menu clicked");
 		Thread.sleep(4000);	
 		
-		verifyElementPresent(ObjectRepository.addrschange_menu);
-		test.log(Status.INFO, "Address cange option appearing");
+		verifyElementPresent(ObjectRepository.addrschange_ttl);
+		test.log(Status.INFO, "Address change page opened");
 		
 		getElement(ObjectRepository.clrall_btn).click();
 		test.log(Status.INFO, "Clear All button clicked");

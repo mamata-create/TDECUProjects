@@ -59,8 +59,7 @@ public class C23716_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 					String lastname=excl.getCellData(sheetName, 6, startIter);
 								
 		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -77,10 +76,10 @@ public class C23716_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
 		Thread.sleep(2000);
 		
-		verifyElementPresent(ObjectRepository.mtm_menu);
+		verifyElementPresent(ObjectRepository.mtm_ttl);
 		test.log(Status.INFO, "Member to Member Transfer title appeared");
 		
-		
+		scrollToElement(1);
 		verifyElementPresent(ObjectRepository.sngltrnsfr_btn);
 		test.log(Status.INFO, "Single Transfer option appeared");
 		
@@ -100,6 +99,8 @@ public class C23716_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		Thread.sleep(4000);	
 		
 		getElement(ObjectRepository.trnsctn_menu).click();
+		Thread.sleep(2000);	
+		getElement(ObjectRepository.trnsctn_menu).click();
 		test.log(Status.INFO, "Transaction menu clicked");
 		Thread.sleep(2000);	
 		
@@ -107,10 +108,10 @@ public class C23716_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
 		Thread.sleep(2000);
 		
-		verifyElementPresent(ObjectRepository.mtm_menu);
+		verifyElementPresent(ObjectRepository.mtm_ttl);
 		test.log(Status.INFO, "Member to Member Transfer title appeared");
 		
-		
+		scrollToElement(1);
 		
 		getElement(ObjectRepository.sngltrnsfr_btn).click();
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
@@ -146,7 +147,7 @@ public class C23716_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		
 		getElement(ObjectRepository.mtm_toacnt).sendKeys(toacnt);
 		test.log(Status.INFO, "To Account Number entered");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		clickElement(ObjectRepository.mtm_lstthreechar);
 		Thread.sleep(2000);

@@ -43,30 +43,30 @@ public class C23549_VerifySelectRememberMeOption   extends GenericKeywords {
 		getElement(ObjectRepository.login_btn).click();
 		test.log(Status.INFO, "Login button clicked after entering username and password");
 		
-		try{
-			if(getElement(ObjectRepository.emailotp_btn).isDisplayed()){
-				getElement(ObjectRepository.emailotp_btn).click();
-				test.log(Status.INFO, "Send otp to email button clicked");
-				Thread.sleep(17000);
-				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-				test.log(Status.INFO, "Secure Access code entered");
-
-				getElement(ObjectRepository.submit_btn).click();
-				test.log(Status.INFO, "Submit button clicked");
-				Thread.sleep(3000);
-				try{
-					if(getElement(ObjectRepository.rgstrdvc_btn).isDisplayed()){
-						getElement(ObjectRepository.rgstrdvc_btn).click();
-						test.log(Status.INFO, "Register device button available to be clicked");
-					}
-				}catch(Exception e1){
-					test.log(Status.INFO, "Register device button not available to be clicked");
-				}
-			}
-			}catch(Exception e){
-				test.log(Status.INFO, "Device already registered");
-			}
-		
+//		try{
+//			if(getElement(ObjectRepository.emailotp_btn).isDisplayed()){
+//				getElement(ObjectRepository.emailotp_btn).click();
+//				test.log(Status.INFO, "Send otp to email button clicked");
+//				Thread.sleep(17000);
+//				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
+//				test.log(Status.INFO, "Secure Access code entered");
+//
+//				getElement(ObjectRepository.submit_btn).click();
+//				test.log(Status.INFO, "Submit button clicked");
+//				Thread.sleep(3000);
+//				try{
+//					if(getElement(ObjectRepository.rgstrdvc_btn).isDisplayed()){
+//						getElement(ObjectRepository.rgstrdvc_btn).click();
+//						test.log(Status.INFO, "Register device button available to be clicked");
+//					}
+//				}catch(Exception e1){
+//					test.log(Status.INFO, "Register device button not available to be clicked");
+//				}
+//			}
+//			}catch(Exception e){
+//				test.log(Status.INFO, "Device already registered");
+//			}
+//		
 		
 	}
 	
@@ -74,9 +74,8 @@ public class C23549_VerifySelectRememberMeOption   extends GenericKeywords {
 	@Test
 	public void C23549_VerifySelectRememberMeOption() throws InterruptedException
 	{
-		Thread.sleep(3000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(20000);	
+		
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -85,12 +84,10 @@ public class C23549_VerifySelectRememberMeOption   extends GenericKeywords {
 		test.log(Status.INFO, "Menu link clicked");
 		Thread.sleep(4000);	
 			
-		TouchAction actn=new TouchAction(driver);
-		actn.tap(200,1100).perform();
-		Thread.sleep(4000);	
+		getElement(ObjectRepository.logoff_menu).click();
 		test.log(Status.INFO, "Log off link clicked");
 		
-		Assert.assertTrue(getElement(ObjectRepository.username_txt).getText().contains("u**"));
+		Assert.assertTrue(getElement(ObjectRepository.username_txt).getText().contains("5**"));
 		test.log(Status.INFO, "Username field contains encrypted auto saved username except first character ");
 		
 		getElement(ObjectRepository.rmbrme_chk).click();
@@ -101,33 +98,32 @@ public class C23549_VerifySelectRememberMeOption   extends GenericKeywords {
 		getElement(ObjectRepository.login_btn).click();
 		test.log(Status.INFO, "Login button clicked after entering username and password");
 		
-		try{
-			if(getElement(ObjectRepository.emailotp_btn).isDisplayed()){
-				getElement(ObjectRepository.emailotp_btn).click();
-				test.log(Status.INFO, "Send otp to email button clicked");
-				Thread.sleep(17000);
-				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-				test.log(Status.INFO, "Secure Access code entered");
-
-				getElement(ObjectRepository.submit_btn).click();
-				test.log(Status.INFO, "Submit button clicked");
-				Thread.sleep(3000);
-				try{
-					if(getElement(ObjectRepository.rgstrdvc_btn).isDisplayed()){
-						getElement(ObjectRepository.rgstrdvc_btn).click();
-						test.log(Status.INFO, "Register device button available to be clicked");
-					}
-				}catch(Exception e1){
-					test.log(Status.INFO, "Register device button not available to be clicked");
-				}
-			}
-			}catch(Exception e){
-				test.log(Status.INFO, "Device already registered");
-			}
+//		try{
+//			if(getElement(ObjectRepository.emailotp_btn).isDisplayed()){
+//				getElement(ObjectRepository.emailotp_btn).click();
+//				test.log(Status.INFO, "Send otp to email button clicked");
+//				Thread.sleep(17000);
+//				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
+//				test.log(Status.INFO, "Secure Access code entered");
+//
+//				getElement(ObjectRepository.submit_btn).click();
+//				test.log(Status.INFO, "Submit button clicked");
+//				Thread.sleep(3000);
+//				try{
+//					if(getElement(ObjectRepository.rgstrdvc_btn).isDisplayed()){
+//						getElement(ObjectRepository.rgstrdvc_btn).click();
+//						test.log(Status.INFO, "Register device button available to be clicked");
+//					}
+//				}catch(Exception e1){
+//					test.log(Status.INFO, "Register device button not available to be clicked");
+//				}
+//			}
+//			}catch(Exception e){
+//				test.log(Status.INFO, "Device already registered");
+//			}
 		
-		Thread.sleep(3000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(20000);	
+		
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -136,10 +132,9 @@ public class C23549_VerifySelectRememberMeOption   extends GenericKeywords {
 		test.log(Status.INFO, "Menu link clicked");
 		Thread.sleep(4000);	
 			
-		TouchAction actn1=new TouchAction(driver);
-		actn1.tap(200,1100).perform();
-		Thread.sleep(4000);	
+		getElement(ObjectRepository.logoff_menu).click();
 		test.log(Status.INFO, "Log off link clicked");
+		Thread.sleep(4000);	
 		
 		Assert.assertTrue(getElement(ObjectRepository.username_txt).getText().contains(""));
 		test.log(Status.INFO, "Username field becomes blank");

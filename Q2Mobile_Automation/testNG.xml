@@ -3,7 +3,7 @@
 <suite name="OLB Test Suite" >
   <test name="VerifyMinimumAmountTransfer Test Cases" >
     <classes>
-       <class name="com.TestCases.VerifyMinimumAmountTransfer"/> 
+       <class name="Transfers.C23686_VerifyFundTransferOption"/> 
     </classes>
 </test>
 

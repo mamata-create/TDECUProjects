@@ -65,10 +65,9 @@ public class C23654_VerifyWireTransferRecipientCreation   extends GenericKeyword
 					String city=excl.getCellData(sheetName, 5, startIter);
 					String state=excl.getCellData(sheetName, 6, startIter);
 					String zip=excl.getCellData(sheetName, 7, startIter);
+					String abanumber=excl.getCellData(sheetName, 8, startIter);
 		
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -88,76 +87,34 @@ public class C23654_VerifyWireTransferRecipientCreation   extends GenericKeyword
 		verifyElementPresent(ObjectRepository.wiretrnsfr_ttl);
 		test.log(Status.INFO, "Wire Transfer page opened");
 		
+		getElement(ObjectRepository.rcpnt_srchtxt).click();
+		test.log(Status.INFO, "Clicked inside Search Recipient text box");
+		Thread.sleep(2000);
+		
 		getElement(ObjectRepository.newrcpnt_btn).click();
 		test.log(Status.INFO, "New Recipient button clicked");
 		Thread.sleep(2000);
 		
 		verifyElementPresent(ObjectRepository.dsplyname_txt);
-		verifyElementPresent(ObjectRepository.wirename_txt);
+		//verifyElementPresent(ObjectRepository.wirename_txt);
 		verifyElementPresent(ObjectRepository.emailadrs_txt);
-		verifyElementPresent(ObjectRepository.cntry_dropdown);
-		verifyElementPresent(ObjectRepository.city_txt);
-		verifyElementPresent(ObjectRepository.state_dropdown);
-		verifyElementPresent(ObjectRepository.zip_txt);
+//		verifyElementPresent(ObjectRepository.cntry_dropdown);
+//		verifyElementPresent(ObjectRepository.city_txt);
+//		verifyElementPresent(ObjectRepository.state_dropdown);
+//		verifyElementPresent(ObjectRepository.zip_txt);
 		test.log(Status.INFO, "Display Name, wire name,email address, country , state, city and zip fields appearing");
-		
-		clickElement(ObjectRepository.cncl_btn);
-		test.log(Status.INFO, "Cancel button clicked");
-		Thread.sleep(2000);
-		
-		verifyElementPresent(ObjectRepository.wiretrnsfr_ttl);
-		test.log(Status.INFO, "Wire Transfer page opened");
-		
-		getElement(ObjectRepository.newrcpnt_btn).click();
-		test.log(Status.INFO, "New Recipient button clicked again");
-		Thread.sleep(2000);
-		
+
 		getElement(ObjectRepository.dsplyname_txt).sendKeys(displayname);
 		test.log(Status.INFO, "Display Name entered");
 		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.wirename_txt).sendKeys(wirename);
-		test.log(Status.INFO, "Wire Name entered");
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.emailntfctn_chk).click();
-		test.log(Status.INFO, "Send email notification check box clicked");
-		Thread.sleep(2000);
-		
 		getElement(ObjectRepository.emailadrs_txt).sendKeys("sravy.vagalaboina@eaglecrk.com");
 		test.log(Status.INFO, "Email entered");
 		Thread.sleep(2000);	
 		
-		String defcountry=getElement(ObjectRepository.cntry_dropdown).getAttribute("name");
-		Assert.assertTrue(defcountry.contains("United States"));
-		test.log(Status.INFO, "Default selected country is - United States");
-		Thread.sleep(2000);	
 		
-		getElement(ObjectRepository.adrs1_txt).sendKeys(addrs1);
-		test.log(Status.INFO, "Address 1 entered");
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.city_txt).sendKeys(city);
-		test.log(Status.INFO, "City Name entered");
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.state_dropdown).click();
-		test.log(Status.INFO, "State dropdown opened");
-		Thread.sleep(2000);
-		
-		getElement("//android.widget.CheckedTextView[@text='"+state+"']").click();
-		test.log(Status.INFO, "State selected");
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.zip_txt).sendKeys(zip);
-		test.log(Status.INFO, "Zip code entered");
-		Thread.sleep(2000);
-		
-//Account New tab values entered
-		getElement(ObjectRepository.acntnew_tab).click();
-		test.log(Status.INFO, "Account - New tab selected");
-		Thread.sleep(2000);
-		
+/*
+ * Bank Information		
+ */
 		getElement(ObjectRepository.acnt_txt).sendKeys(acntno);
 		test.log(Status.INFO, "Account number entered");
 		Thread.sleep(2000);
@@ -166,19 +123,21 @@ public class C23654_VerifyWireTransferRecipientCreation   extends GenericKeyword
 		test.log(Status.INFO, "Bank Name entered");
 		Thread.sleep(2000);
 		
-		getElement(ObjectRepository.rtngnmbr_txt).sendKeys(rtngno);
-		test.log(Status.INFO, "Routing Number entered");
+		getElement(ObjectRepository.ABANumber_txt).sendKeys(abanumber);
+		test.log(Status.INFO, "FI ABA Number entered");
 		Thread.sleep(2000);
 		
 		getElement(ObjectRepository.bankaddress1_txt).sendKeys(addrs1);
 		test.log(Status.INFO, "Address1 entered");
 		Thread.sleep(2000);
 		
+		clickElement(ObjectRepository.bankcity_txt);
 		getElement(ObjectRepository.bankcity_txt).sendKeys(city);
 		test.log(Status.INFO, "City name entered");
 		Thread.sleep(2000);
 		
-		getElement(ObjectRepository.bankstate_dropdown).click();
+		clickElement(ObjectRepository.bankstate_dropdown);
+		//getElement(ObjectRepository.bankstate_dropdown).click();
 		test.log(Status.INFO, "Bank State dropdown opened");
 		Thread.sleep(2000);
 		
@@ -186,14 +145,122 @@ public class C23654_VerifyWireTransferRecipientCreation   extends GenericKeyword
 		test.log(Status.INFO, "Bank State selected");
 		Thread.sleep(2000);
 		
+		clickElement(ObjectRepository.bankzip_txt);
 		getElement(ObjectRepository.bankzip_txt).sendKeys(zip);
 		test.log(Status.INFO, "Bank zip code entered");
 		Thread.sleep(2000);
+
+
 		
+//		clickElement(ObjectRepository.cncl_btn);
+//		test.log(Status.INFO, "Cancel button clicked");
+//		Thread.sleep(2000);
+//		
+//		verifyElementPresent(ObjectRepository.wiretrnsfr_ttl);
+//		test.log(Status.INFO, "Wire Transfer page opened");
+//		
+//		getElement(ObjectRepository.newrcpnt_btn).click();
+//		test.log(Status.INFO, "New Recipient button clicked again");
+//		Thread.sleep(2000);
 		
-		getElement(ObjectRepository.ok_btn).click();
-		test.log(Status.INFO, "Ok button clicked");
+//Immediary Info
+		clickElement(ObjectRepository.rtngnmbr_txt);
+		getElement(ObjectRepository.rtngnmbr_txt).sendKeys(rtngno);
+		test.log(Status.INFO, "Routing Number entered");
 		Thread.sleep(2000);
+		
+		clickElement(ObjectRepository.ok_btn);
+		test.log(Status.INFO, "Done button clicked");
+		Thread.sleep(5000);
+		
+		
+//Recipient Details		
+		clickElement(ObjectRepository.wirename_txt);
+		getElement(ObjectRepository.wirename_txt).sendKeys(wirename);
+		test.log(Status.INFO, "Wire Name entered");
+		Thread.sleep(2000);
+		
+		String defcountry=getElement(ObjectRepository.cntry_dropdown).getAttribute("name");
+		Assert.assertTrue(defcountry.contains("United States"));
+		test.log(Status.INFO, "Default selected country is - United States");
+		Thread.sleep(2000);
+
+		getElement(ObjectRepository.adrs1_txt).sendKeys(addrs1);
+		test.log(Status.INFO, "Address 1 entered");
+		Thread.sleep(2000);
+		
+//		
+//		getElement(ObjectRepository.emailntfctn_chk).click();
+//		test.log(Status.INFO, "Send email notification check box clicked");
+//		Thread.sleep(2000);
+
+		clickElement(ObjectRepository.city_txt);
+		getElement(ObjectRepository.city_txt).sendKeys(city);
+		test.log(Status.INFO, "City Name entered");
+		Thread.sleep(2000);
+		
+		clickElement(ObjectRepository.state_dropdown);
+		//getElement(ObjectRepository.state_dropdown).click();
+		test.log(Status.INFO, "State dropdown opened");
+		Thread.sleep(2000);
+		
+		getElement("//android.widget.CheckedTextView[@text='"+state+"']").click();
+		test.log(Status.INFO, "State selected");
+		Thread.sleep(4000);
+		
+		//scrollToElement(1);
+		clickElement(ObjectRepository.zip_txt);
+		getElement(ObjectRepository.zip_txt).sendKeys(zip);
+		test.log(Status.INFO, "Zip code entered");
+		Thread.sleep(2000);
+		
+//Account New tab values entered
+		
+//		clickElement(ObjectRepository.acntnew_tab);
+//		test.log(Status.INFO, "Account - New tab selected");
+//		Thread.sleep(2000);
+		
+//		getElement(ObjectRepository.acnt_txt).sendKeys(acntno);
+//		test.log(Status.INFO, "Account number entered");
+//		Thread.sleep(2000);
+//		
+//		getElement(ObjectRepository.bankname_txt).sendKeys(bank);
+//		test.log(Status.INFO, "Bank Name entered");
+//		Thread.sleep(2000);
+//		
+//		scrollToElement(2);
+//		Thread.sleep(2000);
+//		getElement(ObjectRepository.rtngnmbr_txt).sendKeys(rtngno);
+//		test.log(Status.INFO, "Routing Number entered");
+//		Thread.sleep(2000);
+//		
+//		getElement(ObjectRepository.bankaddress1_txt).sendKeys(addrs1);
+//		test.log(Status.INFO, "Address1 entered");
+//		Thread.sleep(2000);
+//		
+//		clickElement(ObjectRepository.bankcity_txt);
+//		getElement(ObjectRepository.bankcity_txt).sendKeys(city);
+//		test.log(Status.INFO, "City name entered");
+//		Thread.sleep(2000);
+//		
+//		clickElement(ObjectRepository.bankstate_dropdown);
+//		//getElement(ObjectRepository.bankstate_dropdown).click();
+//		test.log(Status.INFO, "Bank State dropdown opened");
+//		Thread.sleep(2000);
+//		
+//		getElement("//android.widget.CheckedTextView[@text='"+state+"']").click();
+//		test.log(Status.INFO, "Bank State selected");
+//		Thread.sleep(2000);
+//		
+//		clickElement(ObjectRepository.bankzip_txt);
+//		getElement(ObjectRepository.bankzip_txt).sendKeys(zip);
+//		test.log(Status.INFO, "Bank zip code entered");
+//		Thread.sleep(2000);
+//		
+		//scrollToElement(3);
+		clickElement(ObjectRepository.ok_btn);
+		test.log(Status.INFO, "Ok button clicked");
+		Thread.sleep(5000);
 		
 				 }
 			 }

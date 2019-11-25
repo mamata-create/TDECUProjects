@@ -63,12 +63,13 @@ public class C23711_VerifyMemberToMemberTransferModule  extends GenericKeywords 
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
 		Thread.sleep(2000);
 		
-		verifyElementPresent(ObjectRepository.mtm_menu);
+		verifyElementPresent(ObjectRepository.mtm_ttl);
 		test.log(Status.INFO, "Member to Member Transfer title appeared");
 		
 		verifyElementPresent(ObjectRepository.mtm_info);
 		test.log(Status.INFO, "Member to Member Transfer Info message appeared");
 		
+		scrollToElement(1);
 		verifyElementPresent(ObjectRepository.sngltrnsfr_btn);
 		test.log(Status.INFO, "Single Transfer option appeared");
 		

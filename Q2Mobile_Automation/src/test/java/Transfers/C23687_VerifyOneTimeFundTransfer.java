@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -18,6 +20,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 
 public class C23687_VerifyOneTimeFundTransfer  extends GenericKeywords {
@@ -57,9 +60,7 @@ public class C23687_VerifyOneTimeFundTransfer  extends GenericKeywords {
 					String toacnt=excl.getCellData(sheetName, 2, startIter);
 					String amnt=excl.getCellData(sheetName, 3, startIter);
 					
-		Thread.sleep(10000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(20000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -95,33 +96,49 @@ public class C23687_VerifyOneTimeFundTransfer  extends GenericKeywords {
 		Thread.sleep(2000);	
 		
 		getElement("//android.view.View[contains(@content-desc,'"+frmacnt+"')]").click();
+		test.log(Status.INFO, "From Account selected");
 		Thread.sleep(2000);	
 		
 		getElement(ObjectRepository.fndtrnsfr_to).click();
 		Thread.sleep(5000);	
 		
 		getElement("//android.view.View[contains(@content-desc,'"+toacnt+"')]").click();
+		test.log(Status.INFO, "To Account selected");
 		Thread.sleep(2000);	
 		
 		getElement(ObjectRepository.fndtrnsfr_amnt).click();
 		Thread.sleep(2000);	
 		
-		getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
-		Thread.sleep(2000);
-	
-		getElement(ObjectRepository.save_btn).click();
-		Thread.sleep(5000);	
+//		JavascriptExecutor jse = (JavascriptExecutor)driver;
+//		jse.executeScript("arguments[0].value='"+ amnt +"';", getElement(ObjectRepository.fndtrnsfr_amnt));
 		
-		scrollToElement(1);
+		//clickElement(ObjectRepository.fndtrnsfr_amnt);
+		Thread.sleep(2000);	
+		if (amnt.contains(".")){
+			amnt=amnt.replace(".", "");
+		//Submitamount(amnt, ObjectRepository.fndtrnsfr_amnt);
+		}else{
+			amnt=amnt+"00";
+			
+			//Submitamount(amnt, ObjectRepository.fndtrnsfr_amnt);
+		}
+		MobileElement ele=(MobileElement) getElement(ObjectRepository.fndtrnsfr_amnt);
+		ele.setValue(amnt);
+		test.log(Status.INFO, "Amount entered");
+		Thread.sleep(2000);
 
-	   		Thread.sleep(2000);
+		scrollToElement(1);
+		Thread.sleep(2000);
 	   		
 	   	clickElement(ObjectRepository.trnsfrfnds_btn);	
+	   	test.log(Status.INFO, "Fund Transfer button clicked");
 		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.vwactvty_btn);
+		verifyElementPresent(ObjectRepository.mtm_clsbtn);
+		test.log(Status.INFO, "Close button appearing");
 		Thread.sleep(4000);
-		getElement(ObjectRepository.vwactvty_btn).click();
+		getElement(ObjectRepository.mtm_clsbtn).click();
+		test.log(Status.INFO, "Close button clicked");
 		Thread.sleep(4000);
 		
 		

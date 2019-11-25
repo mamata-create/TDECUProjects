@@ -60,9 +60,7 @@ public class C23608_VerifyHistoryAlertSetup  extends GenericKeywords {
 					String dlvrymthd=excl.getCellData(sheetName, 6, startIter);
 					String trnsctn=excl.getCellData(sheetName, 7, startIter);
 								
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -79,12 +77,12 @@ public class C23608_VerifyHistoryAlertSetup  extends GenericKeywords {
 		test.log(Status.INFO, "Alert menu clicked");
 		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.alrt_menu);
+		verifyElementPresent(ObjectRepository.alrt_ttl);
 		test.log(Status.INFO, "Alerts page opened");
 		
 		
-		verifyElementPresent(ObjectRepository.acntalrt_sctn);
-		test.log(Status.INFO, "Account alert sections appearing on alert page");
+//		verifyElementPresent(ObjectRepository.acntalrt_sctn);
+//		test.log(Status.INFO, "Account alert sections appearing on alert page");
 		
 		verifyElementPresent(ObjectRepository.alrttyp_dropdown);
 		test.log(Status.INFO, "Alerts type dropdown appearing");
@@ -94,165 +92,161 @@ public class C23608_VerifyHistoryAlertSetup  extends GenericKeywords {
 		test.log(Status.INFO, "Alert type dropdown clicked");
 		Thread.sleep(4000);
 		
-		getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
+		getElement("//android.view.View[@content-desc='"+alerttype+"']").click();
 		test.log(Status.INFO, "History Alert type selected");
 		Thread.sleep(4000);
 
 		verifyElementPresent(ObjectRepository.hstryalrt_ttl);
 		test.log(Status.INFO, "History alert page title appearing");
-	//Back button clicked	
-		getElement(ObjectRepository.back_btn).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
-		
-		verifyElementPresent(ObjectRepository.alrt_menu);
-		test.log(Status.INFO, "Alerts page opened");
-	//select account alert type again	
-		getElement(ObjectRepository.alrttyp_dropdown).click();
-		test.log(Status.INFO, "Alert type dropdown clicked");
-		Thread.sleep(4000);
-		
-		getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
-		test.log(Status.INFO, "History Alert type selected");
-		Thread.sleep(4000);
-
-		verifyElementPresent(ObjectRepository.hstryalrt_ttl);
-		test.log(Status.INFO, "History alert page title appearing");
-		
-		verifyElementPresent(ObjectRepository.alrt_noacnt);
-		test.log(Status.INFO, "No Account selected messages appearing");
+//	//Back button clicked	
+//		getElement(ObjectRepository.back_btn).click();
+//		test.log(Status.INFO, "Back button clicked");
+//		Thread.sleep(4000);
+//		
+//		verifyElementPresent(ObjectRepository.alrt_menu);
+//		test.log(Status.INFO, "Alerts page opened");
+//	//select account alert type again	
+//		getElement(ObjectRepository.alrttyp_dropdown).click();
+//		test.log(Status.INFO, "Alert type dropdown clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
+//		test.log(Status.INFO, "History Alert type selected");
+//		Thread.sleep(4000);
+//
+//		verifyElementPresent(ObjectRepository.hstryalrt_ttl);
+//		test.log(Status.INFO, "History alert page title appearing");
+//		
+//		verifyElementPresent(ObjectRepository.alrt_noacnt);
+//		test.log(Status.INFO, "No Account selected messages appearing");
 		
 	//	Select account
-		getElement(ObjectRepository.alrt_acnt).click();
-		test.log(Status.INFO, "Alert account option clicked");
-		Thread.sleep(4000);
-		
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
-		
-		getElement(ObjectRepository.alrt_acnt).click();
-		test.log(Status.INFO, "Alert account option clicked");
-		Thread.sleep(4000);
-		
-		getElement("//android.view.View[contains(@content-desc,'"+acnt+"')]").click();
-		test.log(Status.INFO, "Account selected");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_acnt).click();
+//		test.log(Status.INFO, "Alert account option clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement(ObjectRepository.alrt_acntback).click();
+//		test.log(Status.INFO, "Back button clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement(ObjectRepository.alrt_acnt).click();
+//		test.log(Status.INFO, "Alert account option clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement("//android.view.View[contains(@content-desc,'"+acnt+"')]").click();
+//		test.log(Status.INFO, "Account selected");
+//		Thread.sleep(4000);
 		
 	//Select transaction
 		
-		verifyElementPresent(ObjectRepository.alrt_notrnsctn);
-		test.log(Status.INFO, "No transaction messages appearing");
+//		verifyElementPresent(ObjectRepository.alrt_notrnsctn);
+//		test.log(Status.INFO, "No transaction messages appearing");
 		
-		getElement(ObjectRepository.alrt_trnsctn).click();
-		test.log(Status.INFO, "Alert Transaction option clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_trnsctn).click();
+//		test.log(Status.INFO, "Alert Transaction option clicked");
+//		Thread.sleep(4000);
 		
-		verifyElementPresent("//android.view.View[contains(@content-desc,'Debit Transaction')]");
-		verifyElementPresent("//android.view.View[contains(@content-desc,'Credit Transaction')]");
-		verifyElementPresent("//android.view.View[contains(@content-desc,'Check Number')]");
-		verifyElementPresent("//android.view.View[contains(@content-desc,'Description')]");
+		verifyElementPresent("//android.widget.RadioButton[contains(@content-desc,'Debit Transaction')]");
+		verifyElementPresent("//android.widget.RadioButton[contains(@content-desc,'Credit Transaction')]");
+		verifyElementPresent("//android.widget.RadioButton[contains(@content-desc,'Check Number')]");
+		verifyElementPresent("//android.widget.RadioButton[contains(@content-desc,'Description')]");
 		test.log(Status.INFO, "Transaction different options appearing");
 		
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_acntback).click();
+//		test.log(Status.INFO, "Back button clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement(ObjectRepository.alrt_trnsctn).click();
+//		test.log(Status.INFO, "Alert Transaction option again clicked");
+//		Thread.sleep(4000);
 		
-		getElement(ObjectRepository.alrt_trnsctn).click();
-		test.log(Status.INFO, "Alert Transaction option again clicked");
-		Thread.sleep(4000);
-		
-		getElement("//android.view.View[contains(@content-desc,'"+trnsctn+"')]").click();
+		getElement("//android.widget.RadioButton[contains(@content-desc,'"+trnsctn+"')]").click();
 		test.log(Status.INFO, "Transaction selected");
 		Thread.sleep(4000);
 		
 		
 	//Select Comparison
-		getElement(ObjectRepository.alrt_cmprsn).click();
-		test.log(Status.INFO, "Alert Comparison option clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_cmprsn).click();
+//		test.log(Status.INFO, "Alert Comparison option clicked");
+//		Thread.sleep(4000);
 		
-		getElement("//android.view.View[contains(@content-desc,'"+cmprsn+"')]").click();
+		getElement("//android.widget.RadioButton[contains(@content-desc,'"+cmprsn+"')]").click();
 		test.log(Status.INFO, "Comparison type selected");
 		Thread.sleep(4000);
 		
 	//Enter amount
-		getElement(ObjectRepository.alrt_amnt).click();
-		test.log(Status.INFO, "Alert Amount option clicked");
-		Thread.sleep(4000);
-		
-		verifyElementPresent(ObjectRepository.amnt_txt);
-		test.log(Status.INFO, "Amount field appearing");
-	//amount back	
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
-		
-		getElement(ObjectRepository.alrt_amnt).click();
-		test.log(Status.INFO, "Alert Amount option clicked");
-		Thread.sleep(4000);
-		
-	//	Amount- delete and clear
-		getElement("//android.view.View[contains(@content-desc,'2')]").click();
-		getElement("//android.view.View[contains(@content-desc,'2')]").click();
-		test.log(Status.INFO, "Amount entered");
-		
-		getElement(ObjectRepository.alrt_amntdlt).click();
-		test.log(Status.INFO, "Alert Amount Delete option clicked");
-		Thread.sleep(2000);
-		
-		String amnt_val=getElement(ObjectRepository.amnt_txt).getAttribute("name");
-		Assert.assertTrue(amnt_val.equals("0.02"));
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.alrt_amntclr).click();
-		test.log(Status.INFO, "Alert Amount Clear option clicked");
-		Thread.sleep(2000);
-		
-		 amnt_val=getElement(ObjectRepository.amnt_txt).getAttribute("name");
-		Assert.assertTrue(amnt_val.equals("0.00"));
-		Thread.sleep(2000);
-	
+//		getElement(ObjectRepository.alrt_amnt).click();
+//		test.log(Status.INFO, "Alert Amount option clicked");
+//		Thread.sleep(4000);
+//		
+//		verifyElementPresent(ObjectRepository.amnt_txt);
+//		test.log(Status.INFO, "Amount field appearing");
+//	//amount back	
+//		getElement(ObjectRepository.alrt_acntback).click();
+//		test.log(Status.INFO, "Back button clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement(ObjectRepository.alrt_amnt).click();
+//		test.log(Status.INFO, "Alert Amount option clicked");
+//		Thread.sleep(4000);
+//		
+//	//	Amount- delete and clear
+//		getElement("//android.view.View[contains(@content-desc,'2')]").click();
+//		getElement("//android.view.View[contains(@content-desc,'2')]").click();
+//		test.log(Status.INFO, "Amount entered");
+//		
+//		getElement(ObjectRepository.alrt_amntdlt).click();
+//		test.log(Status.INFO, "Alert Amount Delete option clicked");
+//		Thread.sleep(2000);
+//		
+//		String amnt_val=getElement(ObjectRepository.amnt_txt).getAttribute("name");
+//		Assert.assertTrue(amnt_val.equals("0.02"));
+//		Thread.sleep(2000);
+//		
+//		getElement(ObjectRepository.alrt_amntclr).click();
+//		test.log(Status.INFO, "Alert Amount Clear option clicked");
+//		Thread.sleep(2000);
+//		
+//		 amnt_val=getElement(ObjectRepository.amnt_txt).getAttribute("name");
+//		Assert.assertTrue(amnt_val.equals("0.00"));
+//		Thread.sleep(2000);
+//	
 	//Set amount and save
 		getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
 		test.log(Status.INFO, "Alert Amount entered");
 		Thread.sleep(2000);
 		
-		getElement(ObjectRepository.alrt_amntsv).click();
-		test.log(Status.INFO, "Alert Amount save button clicked");
-		Thread.sleep(2000);
+//		getElement(ObjectRepository.alrt_amntsv).click();
+//		test.log(Status.INFO, "Alert Amount save button clicked");
+//		Thread.sleep(2000);
 		
 	//Select Delivery Method
-		getElement(ObjectRepository.alrt_dlvrymthd).click();
-		test.log(Status.INFO, "Alert Delivery Method option clicked");
-		Thread.sleep(4000);
-		
+//		getElement(ObjectRepository.alrt_dlvrymthd).click();
+//		test.log(Status.INFO, "Alert Delivery Method option clicked");
+//		Thread.sleep(4000);
+		scrollToElement(1);
 		verifyElementPresent(ObjectRepository.alrt_dlvrymthd_ttl);
 		test.log(Status.INFO, "Delivery MEthod Page title appearing");
 		
-		getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
-		test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
+//		test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
+//		Thread.sleep(4000);
 		
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Email']");
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Phone']");
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Text Message']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='Email']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='Voice']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='SMS Text Message']");
 		test.log(Status.INFO, "Alert Delivery Method different options appearing");
 		
-		getElement("//android.widget.CheckedTextView[@text='"+dlvrymthd+"']").click();
-		
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
-		
+		getElement("//android.widget.RadioButton[@content-desc='"+dlvrymthd+"']").click();
+		test.log(Status.INFO, "Delivery Method selected");		
 
 	//Verify Occurence field	
-		String frqncy=getElement(ObjectRepository.alrt_occrnc).getAttribute("checked");
-		Assert.assertTrue(frqncy.equalsIgnoreCase("true"));
-		test.log(Status.INFO, "By default Every occurence field checked");
-		
-		getElement(ObjectRepository.alrt_occrnc).click();
-		test.log(Status.INFO, "Every occurence check box clicked");
+//		String frqncy=getElement(ObjectRepository.alrt_occrnc).getAttribute("checked");
+//		Assert.assertTrue(frqncy.equalsIgnoreCase("true"));
+//		test.log(Status.INFO, "By default Every occurence field checked");
+//		
+//		getElement(ObjectRepository.alrt_occrnc).click();
+//		test.log(Status.INFO, "Every occurence check box clicked");
 		
 		
 				 }

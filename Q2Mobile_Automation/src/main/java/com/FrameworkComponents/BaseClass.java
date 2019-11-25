@@ -51,9 +51,12 @@ public class BaseClass {
 //				cap.setCapability("resetKeyboard", true);
 				//cap.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
 				//cap.setCapability(MobileCapabilityType.APP, APP_PATH);
-				cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.texasdowcreditunion5004.mobile.preproduction.ui.MainActivity");
-				
+				//Old Main Activity
+				//cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.texasdowcreditunion5004.mobile.preproduction.ui.MainActivity");
+				//New Main Activity
+				cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.q2.app.core.ui.MainActivity");
 				cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.texasdowcreditunion5004.mobile.preproduction");
+				
 				URL serverURL = new URL("http://localhost:"+4723+"/wd/hub");
 				
 				 driver = new AndroidDriver<MobileElement>(serverURL,cap);

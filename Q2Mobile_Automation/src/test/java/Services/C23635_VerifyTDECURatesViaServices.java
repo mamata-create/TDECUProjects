@@ -46,9 +46,7 @@ public class C23635_VerifyTDECURatesViaServices extends GenericKeywords {
 	@Test
 	public void C23635_VerifyTDECURatesViaServices() throws InterruptedException
 	{
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);	
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");

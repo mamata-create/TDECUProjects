@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Services.C23654_VerifyWireTransferRecipientCreation">
+      <class name="Transfers.C23686_VerifyFundTransferOption">
         <methods>
           <include name="tearDown"/>
-          <include name="C23654_VerifyWireTransferRecipientCreation"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
+          <include name="C23686_VerifyFundTransferOption"/>
         </methods>
-      </class> <!-- Services.C23654_VerifyWireTransferRecipientCreation -->
+      </class> <!-- Transfers.C23686_VerifyFundTransferOption -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -55,8 +55,7 @@ public class C23731_VerifyMemberToMemberLinkingSameAccountValidation extends Gen
 					String lastname=excl.getCellData(sheetName, 6, startIter);
 								
 		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -73,19 +72,23 @@ public class C23731_VerifyMemberToMemberLinkingSameAccountValidation extends Gen
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
 		Thread.sleep(2000);
 		
-		verifyElementPresent(ObjectRepository.mtm_menu);
+		verifyElementPresent(ObjectRepository.mtm_ttl);
 		test.log(Status.INFO, "Member to Member Transfer title appeared");
 		
 		verifyElementPresent(ObjectRepository.mtm_info);
 		test.log(Status.INFO, "Member to Member Transfer Info message appeared");
 		
+		scrollToElement(1);
+		Thread.sleep(2000);
 		verifyElementPresent(ObjectRepository.lnkacnt_btn);
 		test.log(Status.INFO, "Link Account option appeared");
 		
-		getElement(ObjectRepository.lnkacnt_btn).click();
+		clickElement(ObjectRepository.lnkacnt_btn);
 		test.log(Status.INFO, "Link Account option clicked");
 		Thread.sleep(2000);
 		
+		clickElement(ObjectRepository.mtm_toacnt);
+		Thread.sleep(2000);
 		getElement(ObjectRepository.mtm_toacnt).sendKeys(toacnt);
 		test.log(Status.INFO, "To Account Number entered");
 		Thread.sleep(2000);
@@ -93,10 +96,10 @@ public class C23731_VerifyMemberToMemberLinkingSameAccountValidation extends Gen
 		getElement(ObjectRepository.mtm_lstthreechar).sendKeys(lastname);
 		test.log(Status.INFO, "Last Name three characters entered");
 		
-		getElement(ObjectRepository.mtm_sbmtbtn).click();
+		clickElement(ObjectRepository.mtm_sbmtbtn);
 		test.log(Status.INFO, "Submit button clicked");
 		
-		
+		Thread.sleep(2000);
 		verifyElementPresent(ObjectRepository.lnkacnt_again);
 		test.log(Status.INFO, "Linking same  Account validation Message appeared");
 				 }

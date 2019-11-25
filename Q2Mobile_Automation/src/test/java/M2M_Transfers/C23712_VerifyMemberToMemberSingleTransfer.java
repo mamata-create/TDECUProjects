@@ -20,6 +20,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.MobileElement;
+
 public class C23712_VerifyMemberToMemberSingleTransfer  extends GenericKeywords {
 
 	ExtentReports extent;
@@ -61,8 +63,8 @@ public class C23712_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 					String lastname=excl.getCellData(sheetName, 6, startIter);
 								
 		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+//		verifyElementPresent(ObjectRepository.home_ttl);
+//		test.log(Status.INFO, "Home link appearing");
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -79,10 +81,10 @@ public class C23712_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
 		Thread.sleep(2000);
 		
-		verifyElementPresent(ObjectRepository.mtm_menu);
+		verifyElementPresent(ObjectRepository.mtm_ttl);
 		test.log(Status.INFO, "Member to Member Transfer title appeared");
 		
-		
+		scrollToElement(1);
 		verifyElementPresent(ObjectRepository.sngltrnsfr_btn);
 		test.log(Status.INFO, "Single Transfer option appeared");
 		
@@ -102,18 +104,21 @@ public class C23712_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		Thread.sleep(4000);	
 		
 		getElement(ObjectRepository.trnsctn_menu).click();
+		Thread.sleep(2000);	
+		getElement(ObjectRepository.trnsctn_menu).click();
 		test.log(Status.INFO, "Transaction menu clicked");
 		Thread.sleep(2000);	
 		
 		getElement(ObjectRepository.mtm_menu).click();
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.mtm_menu);
+		verifyElementPresent(ObjectRepository.mtm_ttl);
 		test.log(Status.INFO, "Member to Member Transfer title appeared");
 		
 		
-		
+		scrollToElement(1);
+		Thread.sleep(2000);
 		getElement(ObjectRepository.sngltrnsfr_btn).click();
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
 		Thread.sleep(2000);
@@ -127,12 +132,16 @@ public class C23712_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		test.log(Status.INFO, "Submit button clicked");
 		Thread.sleep(2000);
 		
+		scrollUp(1);
+		
+		
 		//Fill mandatory fields
 		clickElement(ObjectRepository.mtm_frm);
 		test.log(Status.INFO, "From Account dropdown opened");
 		
 		getElement("//android.widget.CheckedTextView[contains(@text,'"+frmacnt+"')]").click();
 		test.log(Status.INFO, "From Account selected");
+		Thread.sleep(2000);
 		
 	//verify only numbers allowed in amount field
 		Submitamount("A#$B", ObjectRepository.mtm_amnt);
@@ -144,10 +153,12 @@ public class C23712_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		
 		Submitamount(amnt, ObjectRepository.mtm_amnt);
 		test.log(Status.INFO, "Amount entered");
+		Thread.sleep(2000);
 		
 		amountfielddata=getElement(ObjectRepository.mtm_amnt).getAttribute("name");
 		Assert.assertEquals(amountfielddata,amnt);
 		test.log(Status.INFO, "Amount field allow numbers only");
+		Thread.sleep(2000);
 		
 		clickElement(ObjectRepository.mtm_desc);
 		Thread.sleep(2000);
@@ -161,8 +172,10 @@ public class C23712_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 //		test.log(Status.INFO, "Description field doesn't allow special characters");
 		
 		//Submitamount(desc, ObjectRepository.mtm_desc);
-		getElement(ObjectRepository.mtm_desc).sendKeys(desc);
+		MobileElement mb1=(MobileElement) getElement(ObjectRepository.mtm_desc);
+		mb1.setValue(desc);
 		test.log(Status.INFO, "Description entered");
+		Thread.sleep(2000);
 		
 		getElement(ObjectRepository.mtm_desc).sendKeys(Keys.TAB);
 		
@@ -177,7 +190,9 @@ public class C23712_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		clickElement(ObjectRepository.mtm_toacnt);
 		Thread.sleep(2000);
 		
-		getElement(ObjectRepository.mtm_toacnt).sendKeys(toacnt);
+		MobileElement mb=(MobileElement) getElement(ObjectRepository.mtm_toacnt);
+		mb.setValue(toacnt);
+		//Submitamount(toacnt,ObjectRepository.mtm_toacnt);
 		test.log(Status.INFO, "To Account Number entered");
 		Thread.sleep(2000);
 	
@@ -186,8 +201,9 @@ public class C23712_VerifyMemberToMemberSingleTransfer  extends GenericKeywords 
 		clickElement(ObjectRepository.mtm_lstthreechar);
 		Thread.sleep(2000);
 
-		getElement(ObjectRepository.mtm_lstthreechar).sendKeys("A"+lastname);
-		//Submitamount(lastname, ObjectRepository.mtm_lstthreechar);
+		MobileElement mbele=(MobileElement) getElement(ObjectRepository.mtm_lstthreechar);
+		mbele.setValue(lastname+"A");
+		//Submitamount("A"+lastname, ObjectRepository.mtm_lstthreechar);
 		
 		getElement(ObjectRepository.mtm_lstthreechar).sendKeys(Keys.TAB);
 		test.log(Status.INFO, "Last Name three characters entered");

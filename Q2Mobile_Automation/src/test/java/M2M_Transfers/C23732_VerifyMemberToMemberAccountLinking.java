@@ -55,47 +55,50 @@ public class C23732_VerifyMemberToMemberAccountLinking  extends GenericKeywords 
 					String lastname=excl.getCellData(sheetName, 6, startIter);
 								
 		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
-	//Verify menu item option
-		verifyElementPresent(ObjectRepository.menu_btn);
-		test.log(Status.INFO, "Menu link appearing");
 	
-		getElement(ObjectRepository.menu_btn).click();
-		test.log(Status.INFO, "Menu link clicked");
-		Thread.sleep(4000);	
-		
-		getElement(ObjectRepository.trnsctn_menu).click();
-		test.log(Status.INFO, "Transaction menu clicked");
-		Thread.sleep(2000);	
-		
-		getElement(ObjectRepository.mtm_menu).click();
-		test.log(Status.INFO, "Member to Member Transfer menu clicked");
-		Thread.sleep(2000);
-		
-		verifyElementPresent(ObjectRepository.mtm_menu);
-		test.log(Status.INFO, "Member to Member Transfer title appeared");
-		
-		verifyElementPresent(ObjectRepository.mtm_info);
-		test.log(Status.INFO, "Member to Member Transfer Info message appeared");
-		
-		verifyElementPresent(ObjectRepository.lnkacnt_btn);
-		test.log(Status.INFO, "Link Account option appeared");
-		
-		getElement(ObjectRepository.lnkacnt_btn).click();
-		test.log(Status.INFO, "Link Account option clicked");
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.mtm_toacnt).sendKeys(toacnt);
-		test.log(Status.INFO, "To Account Number entered");
-		Thread.sleep(2000);
-		
-		getElement(ObjectRepository.mtm_lstthreechar).sendKeys(lastname);
-		test.log(Status.INFO, "Last Name three characters entered");
-		
-		getElement(ObjectRepository.mtm_sbmtbtn).click();
-		test.log(Status.INFO, "Submit button clicked");
-		
+		//Verify menu item option
+				verifyElementPresent(ObjectRepository.menu_btn);
+				test.log(Status.INFO, "Menu link appearing");
+			
+				getElement(ObjectRepository.menu_btn).click();
+				test.log(Status.INFO, "Menu link clicked");
+				Thread.sleep(4000);	
+				
+				getElement(ObjectRepository.trnsctn_menu).click();
+				test.log(Status.INFO, "Transaction menu clicked");
+				Thread.sleep(2000);	
+				
+				getElement(ObjectRepository.mtm_menu).click();
+				test.log(Status.INFO, "Member to Member Transfer menu clicked");
+				Thread.sleep(2000);
+				
+				verifyElementPresent(ObjectRepository.mtm_ttl);
+				test.log(Status.INFO, "Member to Member Transfer title appeared");
+				
+				verifyElementPresent(ObjectRepository.mtm_info);
+				test.log(Status.INFO, "Member to Member Transfer Info message appeared");
+				
+				scrollToElement(1);
+				Thread.sleep(2000);
+				verifyElementPresent(ObjectRepository.lnkacnt_btn);
+				test.log(Status.INFO, "Link Account option appeared");
+				
+				clickElement(ObjectRepository.lnkacnt_btn);
+				test.log(Status.INFO, "Link Account option clicked");
+				Thread.sleep(2000);
+				
+				clickElement(ObjectRepository.mtm_toacnt);
+				Thread.sleep(2000);
+				getElement(ObjectRepository.mtm_toacnt).sendKeys(toacnt);
+				test.log(Status.INFO, "To Account Number entered");
+				Thread.sleep(2000);
+				
+				getElement(ObjectRepository.mtm_lstthreechar).sendKeys(lastname);
+				test.log(Status.INFO, "Last Name three characters entered");
+				
+				clickElement(ObjectRepository.mtm_sbmtbtn);
+				test.log(Status.INFO, "Submit button clicked");
+					
 		
 		verifyElementPresent(ObjectRepository.lnkacnt_sccs);
 		test.log(Status.INFO, "Successful account linking Message appeared");

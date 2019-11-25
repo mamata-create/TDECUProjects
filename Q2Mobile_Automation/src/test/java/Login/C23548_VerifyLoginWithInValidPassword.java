@@ -43,7 +43,7 @@ public class C23548_VerifyLoginWithInValidPassword  extends GenericKeywords {
 	@Test
 	public void C23548_VerifyLoginWithInValidPassword() throws InterruptedException
 	{
-		Thread.sleep(3000);	
+		Thread.sleep(5000);	
 		verifyElementPresent(ObjectRepository.loginvldtn_msg);
 		test.log(Status.INFO, "Validation Message appearing");
 			

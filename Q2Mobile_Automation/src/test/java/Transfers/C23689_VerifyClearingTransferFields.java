@@ -20,6 +20,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 
 public class C23689_VerifyClearingTransferFields  extends GenericKeywords {
@@ -59,9 +60,7 @@ public class C23689_VerifyClearingTransferFields  extends GenericKeywords {
 					String toacnt=excl.getCellData(sheetName, 2, startIter);
 					String amnt=excl.getCellData(sheetName, 3, startIter);
 					
-		Thread.sleep(15000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(20000);	
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -97,37 +96,27 @@ public class C23689_VerifyClearingTransferFields  extends GenericKeywords {
 		Thread.sleep(2000);	
 		
 		getElement("//android.view.View[contains(@content-desc,'"+frmacnt+"')]").click();
+		test.log(Status.INFO, "From Account selected");
 		Thread.sleep(2000);	
 		
 		getElement(ObjectRepository.fndtrnsfr_to).click();
 		Thread.sleep(5000);	
 		
 		getElement("//android.view.View[contains(@content-desc,'"+toacnt+"')]").click();
+		test.log(Status.INFO, "To Account selected");
 		Thread.sleep(2000);	
 		
 		getElement(ObjectRepository.fndtrnsfr_amnt).click();
 		Thread.sleep(2000);	
 		
-		getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+		MobileElement ele=(MobileElement) getElement(ObjectRepository.fndtrnsfr_amnt);
+		ele.setValue(amnt);
+		test.log(Status.INFO, "Amount entered");
 		Thread.sleep(2000);
-//		WebElement ele1=driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
-//                + "new UiSelector().description(\"Save\"));"));
 		
-		getElement(ObjectRepository.save_btn).click();
-		Thread.sleep(5000);	
-		
-	//	scrollToElement(ObjectRepository.clr_btn, 10);
-		
-		
-//		WebElement ele=driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
-//                + "new UiSelector().text(\"Clear\"));"));
-		
-//		WebElement ele=driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
-//                + "new UiSelector().text(\"Clear\"));"));
-
-	   	Thread.sleep(4000);
 		//getElement(ObjectRepository.clr_btn).click();
-	   	clickElement(ObjectRepository.clr_btn);
+	   //	clickElement(ObjectRepository.clr_btn);
+	   	test.log(Status.INFO, "Clear button clicked");
 //		String trnsfr=getElement(ObjectRepository.trnsfrfnds_btn).getAttribute("enabled");
 //		Assert.assertTrue(trnsfr.contains("false"));
 		

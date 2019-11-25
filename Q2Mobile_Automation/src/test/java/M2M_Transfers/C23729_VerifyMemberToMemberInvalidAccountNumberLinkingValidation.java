@@ -45,8 +45,6 @@ public class C23729_VerifyMemberToMemberInvalidAccountNumberLinkingValidation  e
 	{
 						
 		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -63,16 +61,20 @@ public class C23729_VerifyMemberToMemberInvalidAccountNumberLinkingValidation  e
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
 		Thread.sleep(2000);
 		
-		verifyElementPresent(ObjectRepository.mtm_menu);
+		verifyElementPresent(ObjectRepository.mtm_ttl);
 		test.log(Status.INFO, "Member to Member Transfer title appeared");
 		
 		verifyElementPresent(ObjectRepository.mtm_info);
 		test.log(Status.INFO, "Member to Member Transfer Info message appeared");
 		
+		scrollToElement(1);
+		Thread.sleep(2000);
 		verifyElementPresent(ObjectRepository.lnkacnt_btn);
 		test.log(Status.INFO, "Link Account option appeared");
 		
-		getElement(ObjectRepository.lnkacnt_btn).click();
+		Thread.sleep(2000);
+		
+		clickElement(ObjectRepository.lnkacnt_btn);
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
 		Thread.sleep(2000);
 		
@@ -82,9 +84,11 @@ public class C23729_VerifyMemberToMemberInvalidAccountNumberLinkingValidation  e
 		
 		getElement(ObjectRepository.mtm_lstthreechar).sendKeys("ABC");
 		test.log(Status.INFO, "Last Name three characters entered");
+		Thread.sleep(2000);
 		
-		getElement(ObjectRepository.mtm_sbmtbtn).click();
+		clickElement(ObjectRepository.mtm_sbmtbtn);
 		test.log(Status.INFO, "Submit button clicked");
+		Thread.sleep(2000);
 		
 		verifyElementPresent(ObjectRepository.rstrctd_msg);
 		test.log(Status.INFO, "Restricted Message appeared");
@@ -98,9 +102,11 @@ public class C23729_VerifyMemberToMemberInvalidAccountNumberLinkingValidation  e
 		
 		getElement(ObjectRepository.mtm_lstthreechar).sendKeys("ABC");
 		test.log(Status.INFO, "Last Name three characters entered");
+		Thread.sleep(2000);
 		
-		getElement(ObjectRepository.mtm_sbmtbtn).click();
+		clickElement(ObjectRepository.mtm_sbmtbtn);
 		test.log(Status.INFO, "Submit button clicked");
+		Thread.sleep(2000);
 		
 		verifyElementPresent(ObjectRepository.lnkacnt_errmsg);
 		test.log(Status.INFO, "Link Account validation Message appeared");

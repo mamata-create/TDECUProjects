@@ -61,9 +61,7 @@ public class C23613_VerifySendingOnlineTransactionAlertViaTextMessage  extends G
 					String trnsctn=excl.getCellData(sheetName, 7, startIter);
 					String phone=excl.getCellData(sheetName, 12, startIter);
 								
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -80,12 +78,9 @@ public class C23613_VerifySendingOnlineTransactionAlertViaTextMessage  extends G
 		test.log(Status.INFO, "Alert menu clicked");
 		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.alrt_menu);
+		verifyElementPresent(ObjectRepository.alrt_ttl);
 		test.log(Status.INFO, "Alerts page opened");
 		
-		
-		verifyElementPresent(ObjectRepository.acntalrt_sctn);
-		test.log(Status.INFO, "Account alert sections appearing on alert page");
 		
 		verifyElementPresent(ObjectRepository.alrttyp_dropdown);
 		test.log(Status.INFO, "Alerts type dropdown appearing");
@@ -95,16 +90,13 @@ public class C23613_VerifySendingOnlineTransactionAlertViaTextMessage  extends G
 		test.log(Status.INFO, "Alert type dropdown clicked");
 		Thread.sleep(4000);
 		
-		getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
-		test.log(Status.INFO, "Online Transaction Alert type selected");
+		getElement("//android.view.View[@content-desc='"+alerttype+"']").click();
+		test.log(Status.INFO, "Account Alert type selected");
 		Thread.sleep(4000);
 
 		verifyElementPresent(ObjectRepository.onlntrnstcnalrt_ttl);
 		test.log(Status.INFO, "Online Transaction alert page title appearing");
 	//Select transaction
-		
-		verifyElementPresent(ObjectRepository.alrt_notrnsctn);
-		test.log(Status.INFO, "No transaction messages appearing");
 		
 		getElement(ObjectRepository.alrt_trnsctn).click();
 		test.log(Status.INFO, "Alert Transaction option clicked");
@@ -130,75 +122,81 @@ public class C23613_VerifySendingOnlineTransactionAlertViaTextMessage  extends G
 			Thread.sleep(6000);
 		
 		
-	//Select Status
-		getElement(ObjectRepository.alrt_stts).click();
-		test.log(Status.INFO, "Alert Status option clicked");
-		Thread.sleep(4000);
+//Select Status
+			getElement(ObjectRepository.alrt_stts).click();
+			test.log(Status.INFO, "Alert Status option clicked");
+			Thread.sleep(4000);
+			
+			verifyElementPresent("//android.view.View[contains(@content-desc,'Authorized')]");
+			verifyElementPresent("//android.view.View[contains(@content-desc,'Cancelled')]");
+			verifyElementPresent("//android.view.View[contains(@content-desc,'Drafted')]");
+			verifyElementPresent("//android.view.View[contains(@content-desc,'Failed')]");
+			verifyElementPresent("//android.view.View[contains(@content-desc,'Processed')]");
+			test.log(Status.INFO, "Status different options appearing");
 		
-		verifyElementPresent("//android.view.View[contains(@content-desc,'Authorized')]");
-		verifyElementPresent("//android.view.View[contains(@content-desc,'Cancelled')]");
-		verifyElementPresent("//android.view.View[contains(@content-desc,'Drafted')]");
-		verifyElementPresent("//android.view.View[contains(@content-desc,'Failed')]");
-		verifyElementPresent("//android.view.View[contains(@content-desc,'Processed')]");
-		test.log(Status.INFO, "Status different options appearing");
-		
-		getElement("//android.view.View[contains(@content-desc,'"+stts+"')]").click();
-		test.log(Status.INFO, "Status type selected");
-		Thread.sleep(4000);
+			getElement("//android.view.View[contains(@content-desc,'"+stts+"')]").click();
+			test.log(Status.INFO, "Status type selected");
+			Thread.sleep(4000);
 		
 		
 	//Select Delivery Method
-		getElement(ObjectRepository.alrt_dlvrymthd).click();
-		test.log(Status.INFO, "Alert Delivery Method option clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_dlvrymthd).click();
+//		test.log(Status.INFO, "Alert Delivery Method option clicked");
+//		Thread.sleep(4000);
 		
 		verifyElementPresent(ObjectRepository.alrt_dlvrymthd_ttl);
 		test.log(Status.INFO, "Delivery MEthod Page title appearing");
 		
-		getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
-		test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
+//		test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
+//		Thread.sleep(4000);
 		
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Email']");
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Phone']");
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Text Message']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='Email']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='Voice']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='SMS Text Message']");
 		test.log(Status.INFO, "Alert Delivery Method different options appearing");
 		
-		getElement("//android.widget.CheckedTextView[@text='"+dlvrymthd+"']").click();
-		test.log(Status.INFO, "Alert Delivery Method selected");
+		getElement("//android.widget.RadioButton[@content-desc='"+dlvrymthd+"']").click();
+		test.log(Status.INFO, "Delivery Method selected");
 		
-		getElement(ObjectRepository.alrt_phone).sendKeys(phone);
-		test.log(Status.INFO, "Valid Phone provided");
+//		getElement(ObjectRepository.alrt_phone).sendKeys(phone);
+//		test.log(Status.INFO, "Valid Phone provided");
+//		Thread.sleep(2000);
+//		
+//		String tnc=getElement(ObjectRepository.alrt_tnc).getAttribute("checked");
+//		Assert.assertTrue(tnc.equalsIgnoreCase("False"));
+//		test.log(Status.INFO, "By default Term and condition field Unchecked");
+//		
+//		String sndimdt=getElement(ObjectRepository.alrt_sndimdt).getAttribute("checked");
+//		Assert.assertTrue(sndimdt.equalsIgnoreCase("True"));
+//		test.log(Status.INFO, "By default Send Immediately field checked");
+//		Thread.sleep(2000);
+//		getElement(ObjectRepository.alrt_tnc).click();
+//		test.log(Status.INFO, "Term and condition checked");
+//		
+//		scrollToElement(1);
+//		Thread.sleep(2000);
+//		clickElement(ObjectRepository.alrt_donebtn);
+//		test.log(Status.INFO, "Done button clicked");
+//		Thread.sleep(2000);
+		
 		Thread.sleep(2000);
-		
-		String tnc=getElement(ObjectRepository.alrt_tnc).getAttribute("checked");
-		Assert.assertTrue(tnc.equalsIgnoreCase("False"));
-		test.log(Status.INFO, "By default Term and condition field Unchecked");
-		
-		String sndimdt=getElement(ObjectRepository.alrt_sndimdt).getAttribute("checked");
-		Assert.assertTrue(sndimdt.equalsIgnoreCase("True"));
-		test.log(Status.INFO, "By default Send Immediately field checked");
-		Thread.sleep(2000);
-		getElement(ObjectRepository.alrt_tnc).click();
-		test.log(Status.INFO, "Term and condition checked");
-		
-		scrollToElement(1);
-		Thread.sleep(2000);
-		clickElement(ObjectRepository.alrt_donebtn);
-		test.log(Status.INFO, "Done button clicked");
+		clickElement(ObjectRepository.alrt_smstxt);
+		getElement(ObjectRepository.alrt_smstxt).sendKeys(phone);
+		test.log(Status.INFO, "Valid SMS Number provided");
 		Thread.sleep(2000);
 
 	//Verify Occurence field	
-		String frqncy=getElement(ObjectRepository.alrt_occrnc).getAttribute("checked");
-		Assert.assertTrue(frqncy.equalsIgnoreCase("true"));
-		test.log(Status.INFO, "By default Every occurence field checked");
-		
-		getElement(ObjectRepository.alrt_occrnc).click();
-		test.log(Status.INFO, "Every occurence check box clicked");
+//		String frqncy=getElement(ObjectRepository.alrt_occrnc).getAttribute("checked");
+//		Assert.assertTrue(frqncy.equalsIgnoreCase("true"));
+//		test.log(Status.INFO, "By default Every occurence field checked");
+//		
+//		getElement(ObjectRepository.alrt_occrnc).click();
+//		test.log(Status.INFO, "Every occurence check box clicked");
 		
 		//Save the alert
-				getElement(ObjectRepository.alrt_svbtn).click();
-				test.log(Status.INFO, "Save button clicked");
+				clickElement(ObjectRepository.alrt_svbtn);
+				test.log(Status.INFO, "Create Alert button clicked");
 				Thread.sleep(4000);
 				
 				verifyElementPresent(ObjectRepository.alrt_svsccs);

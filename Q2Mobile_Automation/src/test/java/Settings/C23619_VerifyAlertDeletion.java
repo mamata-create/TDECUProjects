@@ -41,7 +41,7 @@ public class C23619_VerifyAlertDeletion  extends GenericKeywords {
 	
 
 	@Test
-	public void C23618_VerifyAlertEnablingDisabling() throws InterruptedException
+	public void C23619_VerifyAlertDeletion() throws InterruptedException
 	{
 		if(continuetestcase==true)
 		{
@@ -56,37 +56,39 @@ public class C23619_VerifyAlertDeletion  extends GenericKeywords {
 		Thread.sleep(20000);	
 		verifyElementPresent(ObjectRepository.home_ttl);
 		test.log(Status.INFO, "Home link appearing");
-	//Verify menu item option
-		verifyElementPresent(ObjectRepository.menu_btn);
-		test.log(Status.INFO, "Menu link appearing");
-		
-		getElement(ObjectRepository.menu_btn).click();
-		test.log(Status.INFO, " menu clicked");
-		Thread.sleep(4000);	
-		
-		getElement(ObjectRepository.settings_menu).click();
-		test.log(Status.INFO, "Settings menu clicked");
-		Thread.sleep(4000);	
-	
-		getElement(ObjectRepository.alrt_menu).click();
-		test.log(Status.INFO, "Alert menu clicked");
-		Thread.sleep(4000);
-		
-		verifyElementPresent(ObjectRepository.alrt_menu);
-		test.log(Status.INFO, "Alerts page opened");
-		
-		
-		verifyElementPresent(ObjectRepository.dtalrt_sctn);
-		test.log(Status.INFO, "Date alert section appearing on alert page");
-		Thread.sleep(4000);
-		
-		getElement("//android.view.View[contains(@content-desc,'"+msg+"')]").click();
-		test.log(Status.INFO, "Date Alert selected");
-		Thread.sleep(4000);
-		
-		verifyElementPresent(ObjectRepository.datealrt_ttl);
-		test.log(Status.INFO, "Date alert page title appearing");
-		
+		//Verify menu item option
+				verifyElementPresent(ObjectRepository.menu_btn);
+				test.log(Status.INFO, "Menu link appearing");
+				
+				getElement(ObjectRepository.menu_btn).click();
+				test.log(Status.INFO, " menu clicked");
+				Thread.sleep(4000);	
+				
+				getElement(ObjectRepository.settings_menu).click();
+				test.log(Status.INFO, "Settings menu clicked");
+				Thread.sleep(4000);	
+			
+				getElement(ObjectRepository.alrt_menu).click();
+				test.log(Status.INFO, "Alert menu clicked");
+				Thread.sleep(4000);
+				
+				verifyElementPresent(ObjectRepository.alrt_ttl);
+				test.log(Status.INFO, "Alerts page opened");
+				
+				scrollTillElement(ObjectRepository.dtalrt_sctn);
+				Thread.sleep(2000);
+				
+				verifyElementPresent(ObjectRepository.dtalrt_sctn);
+				test.log(Status.INFO, "Reminder alert section appearing on alert page");
+				Thread.sleep(4000);
+				
+				getElement(ObjectRepository.alrt_edtbtn).click();
+				test.log(Status.INFO, "Alert Edit option clicked");
+				Thread.sleep(4000);
+				
+				verifyElementPresent(ObjectRepository.datealrt_ttl);
+				test.log(Status.INFO, "Date alert page title appearing");
+					
 //		Delete alert and don't confirm
 			getElement(ObjectRepository.alrt_dltbtn).click();
 			test.log(Status.INFO, "Delete Alert button clicked");
@@ -100,7 +102,7 @@ public class C23619_VerifyAlertDeletion  extends GenericKeywords {
 			Thread.sleep(4000);
 		
 //		Delete alert and confirm
-			getElement(ObjectRepository.alrt_dltbtn).click();
+			clickElement(ObjectRepository.alrt_dltbtn);
 			test.log(Status.INFO, "Delete Alert button clicked");
 			Thread.sleep(4000);
 			

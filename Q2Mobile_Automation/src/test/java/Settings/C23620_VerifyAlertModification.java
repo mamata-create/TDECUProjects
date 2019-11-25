@@ -41,7 +41,7 @@ public class C23620_VerifyAlertModification  extends GenericKeywords {
 	
 
 	@Test
-	public void C23618_VerifyAlertEnablingDisabling() throws InterruptedException
+	public void C23620_VerifyAlertModification() throws InterruptedException
 	{
 		if(continuetestcase==true)
 		{
@@ -53,9 +53,7 @@ public class C23620_VerifyAlertModification  extends GenericKeywords {
 				 {
 					String msg=excl.getCellData(sheetName, 10, startIter);
 					String type=excl.getCellData(sheetName, 9, startIter);
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -72,16 +70,21 @@ public class C23620_VerifyAlertModification  extends GenericKeywords {
 		test.log(Status.INFO, "Alert menu clicked");
 		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.alrt_menu);
+		verifyElementPresent(ObjectRepository.alrt_ttl);
 		test.log(Status.INFO, "Alerts page opened");
 		
+		scrollTillElement(ObjectRepository.dtalrt_sctn);
+		Thread.sleep(2000);
 		
 		verifyElementPresent(ObjectRepository.dtalrt_sctn);
-		test.log(Status.INFO, "Date alert section appearing on alert page");
+		test.log(Status.INFO, "Reminder alert section appearing on alert page");
 		Thread.sleep(4000);
 		
-		getElement("//android.view.View[contains(@content-desc,'"+msg+"')]").click();
-		test.log(Status.INFO, "Date Alert selected");
+//		getElement("//android.view.View[contains(@content-desc,'"+msg+"')]").click();
+//		test.log(Status.INFO, "Date Alert selected");
+//		Thread.sleep(4000);
+		getElement(ObjectRepository.alrt_edtbtn).click();
+		test.log(Status.INFO, "Alert Edit option clicked");
 		Thread.sleep(4000);
 		
 		verifyElementPresent(ObjectRepository.datealrt_ttl);
@@ -93,20 +96,20 @@ public class C23620_VerifyAlertModification  extends GenericKeywords {
 			Thread.sleep(4000);
 			
 			getElement("//android.view.View[contains(@content-desc,'"+type+"')]").click();
-			test.log(Status.INFO, "Account selected");
+			test.log(Status.INFO, "Event Type selected");
 			Thread.sleep(4000);
 		
 		//Save the alert
-				getElement(ObjectRepository.alrt_svbtn).click();
-				test.log(Status.INFO, "Save button clicked");
-				Thread.sleep(4000);
-				
-				verifyElementPresent(ObjectRepository.alrt_svsccs);
-				test.log(Status.INFO, "Alert success message appearing");
-				
-				getElement(ObjectRepository.mtm_clsbtn).click();
-				test.log(Status.INFO, "Close button clicked");
-				Thread.sleep(4000);	
+			clickElement(ObjectRepository.alrt_svbtn);
+			test.log(Status.INFO, "Create Alert button clicked");
+			Thread.sleep(4000);
+			
+			verifyElementPresent(ObjectRepository.alrt_svsccs);
+			test.log(Status.INFO, "Alert success message appearing");
+			
+			getElement(ObjectRepository.mtm_clsbtn).click();
+			test.log(Status.INFO, "Close button clicked");
+			Thread.sleep(4000);	
 		
 				 }
 			 }

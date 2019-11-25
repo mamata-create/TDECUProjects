@@ -54,9 +54,7 @@ public class VerifyPSCUCreditCard  extends GenericKeywords {
 	@Test
 	public void VerifyPSCUCreditCard() throws InterruptedException
 	{
-		Thread.sleep(10000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");

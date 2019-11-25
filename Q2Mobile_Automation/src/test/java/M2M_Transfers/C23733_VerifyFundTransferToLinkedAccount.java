@@ -55,10 +55,8 @@ public class C23733_VerifyFundTransferToLinkedAccount extends GenericKeywords {
 					String toacnt=excl.getCellData(sheetName, 2, startIter);
 					String amnt=excl.getCellData(sheetName, 3, startIter);
 					
-		Thread.sleep(10000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
-	//Verify menu item option
+		Thread.sleep(20000);	
+//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
 	
@@ -90,24 +88,29 @@ public class C23733_VerifyFundTransferToLinkedAccount extends GenericKeywords {
 		test.log(Status.INFO, "Date field appeared");
 		
 		getElement(ObjectRepository.fndtrnsfr_frm).click();
+		test.log(Status.INFO, "From Account dropdown opened");
 		Thread.sleep(2000);	
 		
 		getElement("//android.view.View[contains(@content-desc,'"+frmacnt+"')]").click();
+		test.log(Status.INFO, "From Account selected");
 		Thread.sleep(2000);	
 		
 		getElement(ObjectRepository.fndtrnsfr_to).click();
+		test.log(Status.INFO, "To Account dropdown opened");
 		Thread.sleep(5000);	
 		
 		getElement("//android.view.View[contains(@content-desc,'"+toacnt+"')]").click();
+		test.log(Status.INFO, "To Account selected");
 		Thread.sleep(2000);	
 		
 		getElement(ObjectRepository.fndtrnsfr_amnt).click();
 		Thread.sleep(2000);	
 		
 		getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+		test.log(Status.INFO, "Amount entered");
 		Thread.sleep(2000);
 	
-		getElement(ObjectRepository.save_btn).click();
+		//getElement(ObjectRepository.save_btn).click();
 		Thread.sleep(5000);	
 		
 		scrollToElement(1);
@@ -115,9 +118,11 @@ public class C23733_VerifyFundTransferToLinkedAccount extends GenericKeywords {
 	   		Thread.sleep(2000);
 	   		
 	   	clickElement(ObjectRepository.trnsfrfnds_btn);	
+	   	test.log(Status.INFO, "Fund transfer button clicked");
 		Thread.sleep(4000);
 		
 		verifyElementPresent(ObjectRepository.vwactvty_btn);
+		test.log(Status.INFO, "View Activity button appearing");
 		Thread.sleep(4000);
 		
 		

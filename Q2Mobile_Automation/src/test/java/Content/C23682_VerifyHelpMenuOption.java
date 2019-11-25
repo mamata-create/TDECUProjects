@@ -71,10 +71,7 @@ public class C23682_VerifyHelpMenuOption extends GenericKeywords {
 	@Test
 	public void C23682_VerifyHelpMenuOption() throws InterruptedException
 	{
-		Thread.sleep(8000);	
-		
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -83,8 +80,6 @@ public class C23682_VerifyHelpMenuOption extends GenericKeywords {
 		test.log(Status.INFO, "Menu link clicked");
 		Thread.sleep(4000);	
 	
-//		TouchAction actn=new TouchAction(driver);
-//		actn.tap(100,850).perform();
 		getElement(ObjectRepository.help_menu).click();
 		test.log(Status.INFO, "Help Menu link clicked");
 		

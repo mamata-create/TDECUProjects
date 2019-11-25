@@ -60,9 +60,9 @@ public class C23609_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 					String dlvrymthd=excl.getCellData(sheetName, 6, startIter);
 					String trnsctn=excl.getCellData(sheetName, 7, startIter);
 								
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);	
+//		verifyElementPresent(ObjectRepository.home_ttl);
+//		test.log(Status.INFO, "Home link appearing");
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -79,12 +79,12 @@ public class C23609_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 		test.log(Status.INFO, "Alert menu clicked");
 		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.alrt_menu);
+		verifyElementPresent(ObjectRepository.alrt_ttl);
 		test.log(Status.INFO, "Alerts page opened");
 		
 		
-		verifyElementPresent(ObjectRepository.acntalrt_sctn);
-		test.log(Status.INFO, "Account alert sections appearing on alert page");
+//		verifyElementPresent(ObjectRepository.acntalrt_sctn);
+//		test.log(Status.INFO, "Account alert sections appearing on alert page");
 		
 		verifyElementPresent(ObjectRepository.alrttyp_dropdown);
 		test.log(Status.INFO, "Alerts type dropdown appearing");
@@ -94,36 +94,36 @@ public class C23609_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 		test.log(Status.INFO, "Alert type dropdown clicked");
 		Thread.sleep(4000);
 		
-		getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
+		getElement("//android.view.View[@content-desc='"+alerttype+"']").click();
 		test.log(Status.INFO, "Online Transaction Alert type selected");
 		Thread.sleep(4000);
 
 		verifyElementPresent(ObjectRepository.onlntrnstcnalrt_ttl);
 		test.log(Status.INFO, "Online Transaction alert page title appearing");
 	//Back button clicked	
-		getElement(ObjectRepository.back_btn).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
-		
-		verifyElementPresent(ObjectRepository.alrt_menu);
-		test.log(Status.INFO, "Alerts page opened");
-	//select account alert type again	
-		getElement(ObjectRepository.alrttyp_dropdown).click();
-		test.log(Status.INFO, "Alert type dropdown clicked");
-		Thread.sleep(4000);
-		
-		getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
-		test.log(Status.INFO, "Online TRansaction Alert type selected");
-		Thread.sleep(4000);
-
-		verifyElementPresent(ObjectRepository.onlntrnstcnalrt_ttl);
-		test.log(Status.INFO, "Online Transaction alert page title appearing");
+//		getElement(ObjectRepository.back_btn).click();
+//		test.log(Status.INFO, "Back button clicked");
+//		Thread.sleep(4000);
+//		
+//		verifyElementPresent(ObjectRepository.alrt_menu);
+//		test.log(Status.INFO, "Alerts page opened");
+//	//select account alert type again	
+//		getElement(ObjectRepository.alrttyp_dropdown).click();
+//		test.log(Status.INFO, "Alert type dropdown clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
+//		test.log(Status.INFO, "Online TRansaction Alert type selected");
+//		Thread.sleep(4000);
+//
+//		verifyElementPresent(ObjectRepository.onlntrnstcnalrt_ttl);
+//		test.log(Status.INFO, "Online Transaction alert page title appearing");
 		
 		
 	//Select transaction
 		
-		verifyElementPresent(ObjectRepository.alrt_notrnsctn);
-		test.log(Status.INFO, "No transaction messages appearing");
+//		verifyElementPresent(ObjectRepository.alrt_notrnsctn);
+//		test.log(Status.INFO, "No transaction messages appearing");
 		
 		getElement(ObjectRepository.alrt_trnsctn).click();
 		test.log(Status.INFO, "Alert Transaction option clicked");
@@ -135,13 +135,13 @@ public class C23609_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 		verifyElementPresent("//android.view.View[contains(@content-desc,'Stop Payment')]");
 		test.log(Status.INFO, "Transaction different options appearing");
 		
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
-		
-		getElement(ObjectRepository.alrt_trnsctn).click();
-		test.log(Status.INFO, "Alert Transaction option again clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_acntback).click();
+//		test.log(Status.INFO, "Back button clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement(ObjectRepository.alrt_trnsctn).click();
+//		test.log(Status.INFO, "Alert Transaction option again clicked");
+//		Thread.sleep(4000);
 		
 		getElement("//android.view.View[contains(@content-desc,'"+trnsctn+"')]").click();
 		test.log(Status.INFO, "Transaction selected");
@@ -152,13 +152,13 @@ public class C23609_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 			test.log(Status.INFO, "Alert account option clicked");
 			Thread.sleep(4000);
 			
-			getElement(ObjectRepository.alrt_acntback).click();
-			test.log(Status.INFO, "Back button clicked");
-			Thread.sleep(4000);
-			
-			getElement(ObjectRepository.alrt_acnt).click();
-			test.log(Status.INFO, "Alert account option clicked");
-			Thread.sleep(4000);
+//			getElement(ObjectRepository.alrt_acntback).click();
+//			test.log(Status.INFO, "Back button clicked");
+//			Thread.sleep(4000);
+//			
+//			getElement(ObjectRepository.alrt_acnt).click();
+//			test.log(Status.INFO, "Alert account option clicked");
+//			Thread.sleep(4000);
 			
 			getElement("//android.view.View[contains(@content-desc,'"+acnt+"')]").click();
 			test.log(Status.INFO, "Account selected");
@@ -187,37 +187,34 @@ public class C23609_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 		
 		
 	//Select Delivery Method
-		getElement(ObjectRepository.alrt_dlvrymthd).click();
-		test.log(Status.INFO, "Alert Delivery Method option clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_dlvrymthd).click();
+//		test.log(Status.INFO, "Alert Delivery Method option clicked");
+//		Thread.sleep(4000);
 		
 		verifyElementPresent(ObjectRepository.alrt_dlvrymthd_ttl);
 		test.log(Status.INFO, "Delivery MEthod Page title appearing");
 		
-		getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
-		test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
+//		test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
+//		Thread.sleep(4000);
 		
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Email']");
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Phone']");
-		verifyElementPresent("//android.widget.CheckedTextView[@text='Text Message']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='Email']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='Voice']");
+		verifyElementPresent("//android.widget.RadioButton[@content-desc='SMS Text Message']");
 		test.log(Status.INFO, "Alert Delivery Method different options appearing");
 		
-		getElement("//android.widget.CheckedTextView[@text='"+dlvrymthd+"']").click();
-		
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
-		
+		getElement("//android.widget.RadioButton[@content-desc='"+dlvrymthd+"']").click();
+		test.log(Status.INFO, "Delivery Method selected");		
+
 
 	//Verify Occurence field	
-		String frqncy=getElement(ObjectRepository.alrt_occrnc).getAttribute("checked");
-		Assert.assertTrue(frqncy.equalsIgnoreCase("true"));
-		test.log(Status.INFO, "By default Every occurence field checked");
-		
-		getElement(ObjectRepository.alrt_occrnc).click();
-		test.log(Status.INFO, "Every occurence check box clicked");
-		
+//		String frqncy=getElement(ObjectRepository.alrt_occrnc).getAttribute("checked");
+//		Assert.assertTrue(frqncy.equalsIgnoreCase("true"));
+//		test.log(Status.INFO, "By default Every occurence field checked");
+//		
+//		getElement(ObjectRepository.alrt_occrnc).click();
+//		test.log(Status.INFO, "Every occurence check box clicked");
+//		
 		
 				 }
 			 }

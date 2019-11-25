@@ -59,9 +59,7 @@ public class C23606_VerifyDateAlertSetup  extends GenericKeywords {
 					String amnt=excl.getCellData(sheetName, 5, startIter);
 					String dlvrymthd=excl.getCellData(sheetName, 6, startIter);
 								
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(35000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -78,12 +76,12 @@ public class C23606_VerifyDateAlertSetup  extends GenericKeywords {
 		test.log(Status.INFO, "Alert menu clicked");
 		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.alrt_menu);
+		verifyElementPresent(ObjectRepository.alrt_ttl);
 		test.log(Status.INFO, "Alerts page opened");
 		
 		
-		verifyElementPresent(ObjectRepository.acntalrt_sctn);
-		test.log(Status.INFO, "Account alert sections appearing on alert page");
+//		verifyElementPresent(ObjectRepository.acntalrt_sctn);
+//		test.log(Status.INFO, "Account alert sections appearing on alert page");
 		
 		verifyElementPresent(ObjectRepository.alrttyp_dropdown);
 		test.log(Status.INFO, "Alerts type dropdown appearing");
@@ -93,31 +91,31 @@ public class C23606_VerifyDateAlertSetup  extends GenericKeywords {
 		test.log(Status.INFO, "Alert type dropdown clicked");
 		Thread.sleep(4000);
 		
-		getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
+		getElement("//android.view.View[@content-desc='"+alerttype+"']").click();
 		test.log(Status.INFO, "Date Alert type selected");
 		Thread.sleep(4000);
 
 		verifyElementPresent(ObjectRepository.datealrt_ttl);
 		test.log(Status.INFO, "Date alert page title appearing");
 	
-		//Back button clicked	
-				getElement(ObjectRepository.back_btn).click();
-				test.log(Status.INFO, "Back button clicked");
-				Thread.sleep(4000);
-				
-				verifyElementPresent(ObjectRepository.alrt_menu);
-				test.log(Status.INFO, "Alerts page opened");
-		//Select alert as date alert 
-				getElement(ObjectRepository.alrttyp_dropdown).click();
-				test.log(Status.INFO, "Alert type dropdown clicked");
-				Thread.sleep(4000);
-				
-				getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
-				test.log(Status.INFO, "Date Alert type selected");
-				Thread.sleep(4000);
-
-				verifyElementPresent(ObjectRepository.datealrt_ttl);
-				test.log(Status.INFO, "Date alert page title appearing");			
+//		//Back button clicked	
+//				getElement(ObjectRepository.back_btn).click();
+//				test.log(Status.INFO, "Back button clicked");
+//				Thread.sleep(4000);
+//				
+//				verifyElementPresent(ObjectRepository.alrt_menu);
+//				test.log(Status.INFO, "Alerts page opened");
+//		//Select alert as date alert 
+//				getElement(ObjectRepository.alrttyp_dropdown).click();
+//				test.log(Status.INFO, "Alert type dropdown clicked");
+//				Thread.sleep(4000);
+//				
+//				getElement("//android.widget.CheckedTextView[@text='"+alerttype+"']").click();
+//				test.log(Status.INFO, "Date Alert type selected");
+//				Thread.sleep(4000);
+//
+//				verifyElementPresent(ObjectRepository.datealrt_ttl);
+//				test.log(Status.INFO, "Date alert page title appearing");			
 				
 	//	Select Type
 		getElement(ObjectRepository.alrt_type).click();
@@ -130,16 +128,16 @@ public class C23606_VerifyDateAlertSetup  extends GenericKeywords {
 		verifyElementPresent("//android.view.View[contains(@content-desc,'Vacation')]");
 		test.log(Status.INFO, "Different types appearing");
 		
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
-		
-		getElement(ObjectRepository.alrt_type).click();
-		test.log(Status.INFO, "Alert Type option clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_acntback).click();
+//		test.log(Status.INFO, "Back button clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement(ObjectRepository.alrt_type).click();
+//		test.log(Status.INFO, "Alert Type option clicked");
+//		Thread.sleep(4000);
 		
 		getElement("//android.view.View[contains(@content-desc,'"+type+"')]").click();
-		test.log(Status.INFO, "Account selected");
+		test.log(Status.INFO, "Event Type selected");
 		Thread.sleep(4000);
 		
 		
@@ -149,15 +147,15 @@ public class C23606_VerifyDateAlertSetup  extends GenericKeywords {
 		test.log(Status.INFO, "Alert Date option clicked");
 		Thread.sleep(4000);
 		
-		getElement(ObjectRepository.alrt_acntback).click();
-		test.log(Status.INFO, "Back button clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_acntback).click();
+//		test.log(Status.INFO, "Back button clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement(ObjectRepository.alrt_date).click();
+//		test.log(Status.INFO, "Alert Date option clicked");
+//		Thread.sleep(4000);
 		
-		getElement(ObjectRepository.alrt_date).click();
-		test.log(Status.INFO, "Alert Date option clicked");
-		Thread.sleep(4000);
-		
-		selectFutureDate(0,7);
+		selectAlertDate(0);
 		test.log(Status.INFO, "Date selected");
 		Thread.sleep(4000);
 		
@@ -166,54 +164,55 @@ public class C23606_VerifyDateAlertSetup  extends GenericKeywords {
 		test.log(Status.INFO, "Alert Message option clicked");
 		Thread.sleep(4000);
 		
-		getElement(ObjectRepository.alrt_msgtxt).sendKeys("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
+		getElement(ObjectRepository.alrt_msg).sendKeys("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
 		test.log(Status.INFO, "Tried to enter over 50 characters ");
 		Thread.sleep(2000);
-		getElement(ObjectRepository.alrt_setbtn).click();
-		test.log(Status.INFO, "Alert Set button clicked");
-		Thread.sleep(4000);
+//		getElement(ObjectRepository.alrt_setbtn).click();
+//		test.log(Status.INFO, "Alert Set button clicked");
+//		Thread.sleep(4000);
+//		
+//		getElement(ObjectRepository.alrt_msg).click();
+//		test.log(Status.INFO, "Alert Message option clicked");
+//		Thread.sleep(4000);
+//		
+//		String message=getElement(ObjectRepository.alrt_msg).getAttribute("name");
+//		Assert.assertTrue(message.length()==50);
+//		test.log(Status.INFO, "Verified as maximum 50 characters allowed for message ");
 		
-		getElement(ObjectRepository.alrt_msg).click();
-		test.log(Status.INFO, "Alert Message option clicked");
-		Thread.sleep(4000);
-		
-		String message=getElement(ObjectRepository.alrt_msgtxt).getAttribute("name");
-		Assert.assertTrue(message.length()==50);
-		test.log(Status.INFO, "Verified as maximum 50 characters allowed for message ");
-		
-		getElement(ObjectRepository.alrt_msgtxt).clear();
+		getElement(ObjectRepository.alrt_msg).clear();
 		Thread.sleep(2000);
 		
-		getElement(ObjectRepository.alrt_msgtxt).sendKeys(msg);
+		getElement(ObjectRepository.alrt_msg).sendKeys(msg);
 		test.log(Status.INFO, "Alert Message entered");
 		Thread.sleep(4000);
 		
-		getElement(ObjectRepository.alrt_setbtn).click();
-		test.log(Status.INFO, "Alert Set button clicked");
-		Thread.sleep(4000);
-		
+//		getElement(ObjectRepository.alrt_setbtn).click();
+//		test.log(Status.INFO, "Alert Set button clicked");
+//		Thread.sleep(4000);
+//		
 		//Select Delivery Method
-				getElement(ObjectRepository.alrt_dlvrymthd).click();
-				test.log(Status.INFO, "Alert Delivery Method option clicked");
-				Thread.sleep(4000);
+//				getElement(ObjectRepository.alrt_dlvrymthd).click();
+//				test.log(Status.INFO, "Alert Delivery Method option clicked");
+//				Thread.sleep(4000);
 				
 				verifyElementPresent(ObjectRepository.alrt_dlvrymthd_ttl);
-				test.log(Status.INFO, "Delivery MEthod Page title appearing");
+				test.log(Status.INFO, "Delivery MEthod title appearing");
 				
-				getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
-				test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
-				Thread.sleep(4000);
+//				getElement(ObjectRepository.alrt_dlvrymthdtyp).click();
+//				test.log(Status.INFO, "Alert Delivery Method type dropdown clicked");
+//				Thread.sleep(4000);
 				
-				verifyElementPresent("//android.widget.CheckedTextView[@text='Email']");
-				verifyElementPresent("//android.widget.CheckedTextView[@text='Phone']");
-				verifyElementPresent("//android.widget.CheckedTextView[@text='Text Message']");
+				verifyElementPresent("//android.widget.RadioButton[@content-desc='Email']");
+				verifyElementPresent("//android.widget.RadioButton[@content-desc='Voice']");
+				verifyElementPresent("//android.widget.RadioButton[@content-desc='SMS Text Message']");
 				test.log(Status.INFO, "Alert Delivery Method different options appearing");
 				
-				getElement("//android.widget.CheckedTextView[@text='"+dlvrymthd+"']").click();
+				getElement("//android.widget.RadioButton[@content-desc='"+dlvrymthd+"']").click();
+				test.log(Status.INFO, "Delivery MEthod selected");
 				
-				getElement(ObjectRepository.alrt_acntback).click();
-				test.log(Status.INFO, "Back button clicked");
-				Thread.sleep(4000);
+//				getElement(ObjectRepository.alrt_acntback).click();
+//				test.log(Status.INFO, "Back button clicked");
+//				Thread.sleep(4000);
 				
 		
 				 }

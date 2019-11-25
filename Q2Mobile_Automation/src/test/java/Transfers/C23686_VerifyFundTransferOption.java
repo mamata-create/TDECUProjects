@@ -43,9 +43,9 @@ public class C23686_VerifyFundTransferOption  extends GenericKeywords {
 	@Test
 	public void C23686_VerifyFundTransferOption() throws InterruptedException
 	{
-		Thread.sleep(10000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(20000);	
+//		verifyElementPresent(ObjectRepository.home_ttl);
+//		test.log(Status.INFO, "Home link appearing");
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");

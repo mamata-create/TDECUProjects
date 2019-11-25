@@ -59,8 +59,7 @@ public class C23714_VerifyMemberToMemberSingleTransferWithInValidToAccount   ext
 					String lastname=excl.getCellData(sheetName, 6, startIter);
 								
 		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -77,9 +76,10 @@ public class C23714_VerifyMemberToMemberSingleTransferWithInValidToAccount   ext
 		test.log(Status.INFO, "Member to Member Transfer menu clicked");
 		Thread.sleep(2000);
 		
-		verifyElementPresent(ObjectRepository.mtm_menu);
+		verifyElementPresent(ObjectRepository.mtm_ttl);
 		test.log(Status.INFO, "Member to Member Transfer title appeared");
 		
+		scrollToElement(1);
 		
 		verifyElementPresent(ObjectRepository.sngltrnsfr_btn);
 		test.log(Status.INFO, "Single Transfer option appeared");

@@ -39,40 +39,13 @@ public class C23605_VerifyMyAlertsViaSettings  extends GenericKeywords {
 		getElement(ObjectRepository.login_btn).click();
 		test.log(Status.INFO, "Login button clicked after entering username and password");
 		
-//		try{
-//			if(getElement(ObjectRepository.emailotp_btn).isDisplayed()){
-//				getElement(ObjectRepository.emailotp_btn).click();
-//				test.log(Status.INFO, "Send otp to email button clicked");
-//				Thread.sleep(17000);
-//				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-//				test.log(Status.INFO, "Secure Access code entered");
-//
-//				getElement(ObjectRepository.submit_btn).click();
-//				test.log(Status.INFO, "Submit button clicked");
-//				Thread.sleep(3000);
-//				try{
-//					if(getElement(ObjectRepository.rgstrdvc_btn).isDisplayed()){
-//						getElement(ObjectRepository.rgstrdvc_btn).click();
-//						test.log(Status.INFO, "Register device button available to be clicked");
-//					}
-//				}catch(Exception e1){
-//					test.log(Status.INFO, "Register device button not available to be clicked");
-//				}
-//			}
-//			}catch(Exception e){
-//				test.log(Status.INFO, "Device already registered");
-//			}
-		
-		
 	}
 	
 
 	@Test
 	public void C23605_VerifyMyAlertsViaSettings() throws InterruptedException
 	{
-		Thread.sleep(8000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(35000);	
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -89,15 +62,15 @@ public class C23605_VerifyMyAlertsViaSettings  extends GenericKeywords {
 		test.log(Status.INFO, "Alert menu clicked");
 		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.alrt_menu);
+		verifyElementPresent(ObjectRepository.alrt_ttl);
 		test.log(Status.INFO, "Alerts page opened");
 		
-		verifyElementPresent(ObjectRepository.dtalrt_sctn);
-		verifyElementPresent(ObjectRepository.acntalrt_sctn);
-		verifyElementPresent(ObjectRepository.hstryalrt_sctn);
-		verifyElementPresent(ObjectRepository.onlntrnsctnalrt_sctn);
-		verifyElementPresent(ObjectRepository.scrtyalrt_sctn);
-		test.log(Status.INFO, "Date,Account,History,Online Transaction and Security alert sections appearing on alert page");
+//		verifyElementPresent(ObjectRepository.dtalrt_sctn);
+//		verifyElementPresent(ObjectRepository.acntalrt_sctn);
+//		verifyElementPresent(ObjectRepository.hstryalrt_sctn);
+//		verifyElementPresent(ObjectRepository.onlntrnsctnalrt_sctn);
+//		verifyElementPresent(ObjectRepository.scrtyalrt_sctn);
+//		test.log(Status.INFO, "Date,Account,History,Online Transaction and Security alert sections appearing on alert page");
 		
 		verifyElementPresent(ObjectRepository.alrttyp_dropdown);
 		test.log(Status.INFO, "Alerts type dropdown appearing");

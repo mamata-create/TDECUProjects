@@ -18,6 +18,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
+import io.appium.java_client.MobileElement;
+
 public class C23837_VerifyRecurringFundTransferWithiutEndDate  extends GenericKeywords {
 
 	ExtentReports extent;
@@ -55,95 +57,102 @@ public class C23837_VerifyRecurringFundTransferWithiutEndDate  extends GenericKe
 					String toacnt=excl.getCellData(sheetName, 2, startIter);
 					String amnt=excl.getCellData(sheetName, 3, startIter);
 					
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
-	//Verify menu item option
-		verifyElementPresent(ObjectRepository.menu_btn);
-		test.log(Status.INFO, "Menu link appearing");
-	
-		getElement(ObjectRepository.menu_btn).click();
-		test.log(Status.INFO, "Menu link clicked");
-		Thread.sleep(4000);	
-		
-		getElement(ObjectRepository.trnsctn_menu).click();
-		test.log(Status.INFO, "Transaction menu clicked");
-		Thread.sleep(2000);	
-		
-		getElement(ObjectRepository.fndtrnsfr_menu).click();
-		test.log(Status.INFO, "Fund Transfer menu clicked");
-		Thread.sleep(2000);
-		
-		verifyElementPresent(ObjectRepository.fndtrnsfr_menu);
-		test.log(Status.INFO, "Transfer title appeared");
-		
-		verifyElementPresent(ObjectRepository.fndtrnsfr_frm);
-		test.log(Status.INFO, "From field appeared");
-		
-		verifyElementPresent(ObjectRepository.fndtrnsfr_to);
-		test.log(Status.INFO, "To field appeared");
-		
-		verifyElementPresent(ObjectRepository.fndtrnsfr_amnt);
-		test.log(Status.INFO, "Amount field appeared");
-		
-		verifyElementPresent(ObjectRepository.fndtrnsfr_dt);
-		test.log(Status.INFO, "Date field appeared");
-		
-		getElement(ObjectRepository.fndtrnsfr_frm).click();
-		Thread.sleep(2000);	
-		
-		getElement("//android.view.View[contains(@content-desc,'"+frmacnt+"')]").click();
-		Thread.sleep(2000);	
-		
-		getElement(ObjectRepository.fndtrnsfr_to).click();
-		Thread.sleep(5000);	
-		
-		getElement("//android.view.View[contains(@content-desc,'"+toacnt+"')]").click();
-		Thread.sleep(2000);	
-		
-		getElement(ObjectRepository.fndtrnsfr_amnt).click();
-		Thread.sleep(2000);	
-		
-		getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
-		Thread.sleep(2000);
+					Thread.sleep(20000);	
+					//Verify menu item option
+						verifyElementPresent(ObjectRepository.menu_btn);
+						test.log(Status.INFO, "Menu link appearing");
+					
+						getElement(ObjectRepository.menu_btn).click();
+						test.log(Status.INFO, "Menu link clicked");
+						Thread.sleep(4000);	
+						
+						getElement(ObjectRepository.trnsctn_menu).click();
+						test.log(Status.INFO, "Transaction menu clicked");
+						Thread.sleep(2000);	
+						
+						getElement(ObjectRepository.fndtrnsfr_menu).click();
+						test.log(Status.INFO, "Fund Transfer menu clicked");
+						Thread.sleep(2000);
+						
+						verifyElementPresent(ObjectRepository.fndtrnsfr_menu);
+						test.log(Status.INFO, "Transfer title appeared");
+						
+						verifyElementPresent(ObjectRepository.fndtrnsfr_frm);
+						test.log(Status.INFO, "From field appeared");
+						
+						verifyElementPresent(ObjectRepository.fndtrnsfr_to);
+						test.log(Status.INFO, "To field appeared");
+						
+						verifyElementPresent(ObjectRepository.fndtrnsfr_amnt);
+						test.log(Status.INFO, "Amount field appeared");
+						
+						verifyElementPresent(ObjectRepository.fndtrnsfr_dt);
+						test.log(Status.INFO, "Date field appeared");
+						
+						getElement(ObjectRepository.fndtrnsfr_frm).click();
+						Thread.sleep(2000);	
+						
+						getElement("//android.view.View[contains(@content-desc,'"+frmacnt+"')]").click();
+						test.log(Status.INFO, "From Account selected");
+						Thread.sleep(2000);	
+						
+						getElement(ObjectRepository.fndtrnsfr_to).click();
+						Thread.sleep(5000);	
+						
+						getElement("//android.view.View[contains(@content-desc,'"+toacnt+"')]").click();
+						test.log(Status.INFO, "To Account selected");
+						Thread.sleep(2000);	
+						
+						getElement(ObjectRepository.fndtrnsfr_amnt).click();
+						Thread.sleep(2000);	
+						
+						MobileElement ele=(MobileElement) getElement(ObjectRepository.fndtrnsfr_amnt);
+						ele.setValue(amnt);
+						test.log(Status.INFO, "Amount entered");
+						Thread.sleep(2000);
+						
+						scrollToElement(1);
+				   		Thread.sleep(2000);
+				   		
+				   		//getElement(ObjectRepository.recurring_chk).click();
+						Thread.sleep(2000);	
+						getElement(ObjectRepository.frqncy).click();
+						Thread.sleep(2000);	
+						getElement(ObjectRepository.weekly).click();
+						Thread.sleep(2000);	
+						
+				   		Thread.sleep(5000);
+//				   		clickElement(ObjectRepository.st_dt);
+//				   		
+//				   		
+//						
+//						//getElement("//*[@content-desc='9']").click();
+//				   		selectFutureDate(1,7);
+//						Thread.sleep(3000);	
+						
+//						clickElement(ObjectRepository.end_dt);
+//						Thread.sleep(3000);	
+//						
+//						//getElement("//*[@content-desc='29']").click();
+//						selectFutureDate(10,8);
+//						Thread.sleep(3000);
+						
+						clickElement(ObjectRepository.trnsfrfnds_btn);
 
-		getElement(ObjectRepository.save_btn).click();
-		Thread.sleep(5000);	
-		
-		scrollToElement(1);
-   		Thread.sleep(2000);
-   		
-   		getElement(ObjectRepository.recurring_chk).click();
-		Thread.sleep(2000);	
-		getElement(ObjectRepository.hwoften).click();
-		Thread.sleep(2000);	
-		getElement(ObjectRepository.weekly).click();
-		Thread.sleep(2000);	
-		
-   		Thread.sleep(5000);
-   		clickElement(ObjectRepository.st_dt);
-		
-   		selectFutureDate(1,7);
-		Thread.sleep(3000);	
-		
-		clickElement(ObjectRepository.end_dt);
-		Thread.sleep(3000);	
-		
-		getElement(ObjectRepository.rptforever).click();
-		Thread.sleep(3000);
-		
-		getElement(ObjectRepository.enddt_back).click();
-		Thread.sleep(3000);
-		
-		clickElement(ObjectRepository.trnsfrfnds_btn);
-
-	
-	Thread.sleep(4000);
-	
-	verifyElementPresent(ObjectRepository.vwactvty_btn);
-	Thread.sleep(4000);
-	getElement(ObjectRepository.vwactvty_btn).click();
-	Thread.sleep(4000);
+					
+					Thread.sleep(4000);
+					verifyElementPresent(ObjectRepository.mtm_clsbtn);
+					test.log(Status.INFO, "Close button appearing");
+					Thread.sleep(4000);
+					getElement(ObjectRepository.mtm_clsbtn).click();
+					test.log(Status.INFO, "Close button clicked");
+					Thread.sleep(4000);
+//					verifyElementPresent(ObjectRepository.vwactvty_btn);
+//					Thread.sleep(4000);
+//					getElement(ObjectRepository.vwactvty_btn).click();
+//					Thread.sleep(4000);
+					
+						
 	
 		
 				 }

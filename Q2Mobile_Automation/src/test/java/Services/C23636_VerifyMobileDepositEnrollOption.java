@@ -45,9 +45,7 @@ public class C23636_VerifyMobileDepositEnrollOption   extends GenericKeywords {
 	@Test
 	public void C23636_VerifyMobileDepositEnrollOption() throws InterruptedException
 	{
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -64,7 +62,7 @@ public class C23636_VerifyMobileDepositEnrollOption   extends GenericKeywords {
 		test.log(Status.INFO, "Mobile Deposit Menu link clicked");
 		Thread.sleep(4000);
 		
-		verifyElementPresent(ObjectRepository.mbldpst_menu);
+		verifyElementPresent(ObjectRepository.mbldpst_ttl);
 		test.log(Status.INFO, "Mobile Deposit Enrollment page opened");
 		
 			

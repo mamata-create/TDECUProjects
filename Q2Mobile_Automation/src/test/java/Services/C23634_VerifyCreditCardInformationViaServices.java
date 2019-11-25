@@ -44,9 +44,7 @@ public class C23634_VerifyCreditCardInformationViaServices extends GenericKeywor
 	@Test
 	public void C23634_VerifyCreditCardInformationViaServices() throws InterruptedException
 	{
-		Thread.sleep(20000);	
-		verifyElementPresent(ObjectRepository.home_ttl);
-		test.log(Status.INFO, "Home link appearing");
+		Thread.sleep(30000);
 	//Verify menu item option
 		verifyElementPresent(ObjectRepository.menu_btn);
 		test.log(Status.INFO, "Menu link appearing");
@@ -56,7 +54,7 @@ public class C23634_VerifyCreditCardInformationViaServices extends GenericKeywor
 		Thread.sleep(4000);	
 		
 		getElement(ObjectRepository.service_menu).click();
-		test.log(Status.INFO, "Service link clicked");
+		test.log(Status.INFO, "Service menu clicked");
 		Thread.sleep(4000);
 		
 		Thread.sleep(3000);	

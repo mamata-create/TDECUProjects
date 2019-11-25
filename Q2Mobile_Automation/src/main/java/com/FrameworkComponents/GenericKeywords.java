@@ -91,6 +91,27 @@ public class GenericKeywords extends BaseClass {
 		
 	}
 	
+	public static void selectAlertDate(int days){
+		DateFormat dateFormat = new SimpleDateFormat("MMMM/d/yyyy");
+	    Calendar cal = Calendar.getInstance();
+	    cal.setTime(new Date());
+	    cal.add(Calendar.DATE, days);
+	    String newDate = dateFormat.format(cal.getTime());
+
+	    
+		String date,month,year;
+		String caldt,calmonth,calyear;		
+		/*
+		 * Split the String into String Array
+		 */
+		String dateArray[]= newDate.split("/");
+		date=dateArray[1];
+		month=dateArray[0];
+		year=dateArray[2];
+		System.out.println(date+month+year);
+		getElement("//android.widget.Button[contains(@content-desc,'"+date+"')]").click();
+	}
+	
 public static void selectStopPaymentFutureDate(int days,int index) throws InterruptedException{
 		
 		DateFormat dateFormat = new SimpleDateFormat("MMMM/d/yyyy");
@@ -174,11 +195,12 @@ public static void selectStopPaymentFutureDate(int days,int index) throws Interr
 		
 	}
 	
-	public static void Submitamount(String amnt,String locator){
+	public static void Submitamount(String amnt,String locator) throws InterruptedException{
 		char[] varArr = amnt.trim().toCharArray();
 		for(int i=varArr.length-1;i>=0;i--){
 			String str=Character.toString(varArr[i]);
 			getElement(locator).sendKeys(str);
+			Thread.sleep(1000);
 		}
 		
 	}
@@ -193,6 +215,7 @@ public static void selectStopPaymentFutureDate(int days,int index) throws Interr
    		TouchAction act1=new TouchAction(driver);
    		act1.tap(x,y).perform();
    	
+   	
 		Thread.sleep(2000);
 		break;
 		}catch(Exception e){
@@ -201,6 +224,18 @@ public static void selectStopPaymentFutureDate(int days,int index) throws Interr
 		}
 	}
 	
+	public static void scrollTillElement(String locator) throws InterruptedException{
+		for(int i=1;i<10;i++){
+		try{	
+			WebDriverWait wait = new WebDriverWait(driver, 2); 
+			WebElement		element = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+		Thread.sleep(2000);
+		break;
+		}catch(Exception e){
+			scrollToElement(1);
+		}
+		}
+	}
 	
 	public static void enterDate(String amnt){
 		if(amnt.contains(".")){
@@ -229,7 +264,7 @@ public static void selectStopPaymentFutureDate(int days,int index) throws Interr
 	test.addScreenCaptureFromPath(dest); 
 	}
 	
-	public static void scrollToElement(int loopCount){
+	public static void scrollToElement(int loopCount) throws InterruptedException{
 		
 		for(int i=1;i<=loopCount;i++)
 		{
@@ -242,11 +277,26 @@ public static void selectStopPaymentFutureDate(int days,int index) throws Interr
 				int bottom_y = (int)(height*0.35);
 				System.out.println("coordinates :" + x + "  "+ top_y + " "+ bottom_y);
 				TouchAction ts = new TouchAction(driver);
-				ts.press(x, top_y).moveTo(x, bottom_y).release().perform();
-				
+				ts.press(x, top_y).moveTo(x, bottom_y).release().perform();	
+				Thread.sleep(2000);
+			}	
+	}
+	
+	public static void scrollUp(int loopcount) throws InterruptedException{
+		for(int i=1;i<=loopcount;i++)
+		{
+			
+				Dimension dim = driver.manage().window().getSize();
+				int height = dim.getHeight();
+				int width = dim.getWidth();
+				int x = width/2;
+				int top_y = (int)(height*0.35);
+				int bottom_y = (int)(height*0.65);
+				System.out.println("coordinates :" + x + "  "+ top_y + " "+ bottom_y);
+				TouchAction ts = new TouchAction(driver);
+				ts.press(x, top_y).moveTo(x, bottom_y).release().perform();	
+				Thread.sleep(2000);
 			}
-		
-		
 	}
 
 	public static String randomNumber(){
