@@ -2,7 +2,7 @@ package com.FrameworkComponents;
 
 public class ObjectRepository {
 
-	public static String app_ttl="//h1[contains(text(),'Account, Credit Card and Loan Application')]";
+	public static String app_ttl="//h1[contains(text(),'Experience the TDECU Difference')]";
 	public static String nonmmbrstrt_btn="//input[@id='btnNonMember']";
 	public static String mmbrstrt_btn="//input[@id='btnMember']";
 	
@@ -206,6 +206,7 @@ public class ObjectRepository {
 	public static String monthlySal = "//input[@id='MonthlySalary_MoneyTextBox']";
 	public static String employeeDurationYear ="//input[@id='EmploymentDuration_YearTextBox']";
 	public static String employeeDurationMonth ="//input[@id='EmploymentDuration_MonthTextBox']";
+	public static String cardType_dropdown = "//select[@name='ProductDropDownList_DropDownList']";
 	
 	public static String getLocatorBasedOnOption(String option){
 		String locator = "//*[contains(text(),'"+option+"')]";

@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24217_MoneyMarketProduct">
+      <class name="com.testcases.C24218_ClubProductForInstantOpen">
         <methods>
+          <include name="C24119_RegisterThroughMembersOption"/>
           <include name="tearDown"/>
-          <include name="C24217_MoneyMarketProduct"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
         </methods>
-      </class> <!-- com.testcases.C24217_MoneyMarketProduct -->
+      </class> <!-- com.testcases.C24218_ClubProductForInstantOpen -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
