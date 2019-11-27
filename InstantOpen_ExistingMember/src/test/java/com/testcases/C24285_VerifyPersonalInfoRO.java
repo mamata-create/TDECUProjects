@@ -52,9 +52,6 @@ public class C24285_VerifyPersonalInfoRO extends GenericKeywords{
 					String readAddr= excl.getCellData(sheetName, 20, startIter);
 					String readCity= excl.getCellData(sheetName, 21, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

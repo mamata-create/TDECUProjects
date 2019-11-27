@@ -51,9 +51,6 @@ public class C24154_VerifyCCMinMax extends GenericKeywords{
 					String selectBucees=excl.getCellData(sheetName, 1, startIter);
 					String amount3=excl.getCellData(sheetName, 9, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

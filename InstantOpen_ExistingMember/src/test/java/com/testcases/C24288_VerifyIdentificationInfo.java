@@ -63,9 +63,6 @@ public class C24288_VerifyIdentificationInfo extends GenericKeywords{
 					String expDate=excl.getCellData(sheetName, 20, startIter);
 					String errorMsg7=excl.getCellData(sheetName, 32, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

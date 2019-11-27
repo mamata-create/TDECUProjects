@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24029_VerifyIdentityQuestions extends GenericKeywords{
+public class C24052_VerifyAccountFundingOption extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +33,7 @@ public class C24029_VerifyIdentityQuestions extends GenericKeywords{
   }
 	
   @Test
-  public void C24029_VerifyIdentityQuestions() throws InterruptedException, MessagingException, IOException {
+  public void C24052_VerifyAccountFundingOption() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -42,26 +42,25 @@ public class C24029_VerifyIdentityQuestions extends GenericKeywords{
 			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
-					String selectCD= excl.getCellData(sheetName, 1, startIter);
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
-					String confirmProd= excl.getCellData(sheetName, 2, startIter);
-					String errorMsg1= excl.getCellData(sheetName, 6, startIter);
-					String errorMsg2= excl.getCellData(sheetName, 7, startIter);
-					String errorMsg3= excl.getCellData(sheetName, 8, startIter);
-					String errorMsg4= excl.getCellData(sheetName, 9, startIter);
+					String confirmProd= excl.getCellData(sheetName, 1, startIter);
+					String fundAmount= excl.getCellData(sheetName, 6, startIter);
+					String amtFormat= excl.getCellData(sheetName, 7, startIter);
+					String errorMsg= excl.getCellData(sheetName, 16, startIter);
+					String transferFunds= excl.getCellData(sheetName, 2, startIter);
+					String eleCheck= excl.getCellData(sheetName, 3, startIter);
+					String debitCredit= excl.getCellData(sheetName, 4, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
 					//Select Products
-					getElement(ObjectRepository.cdExpand).click();
-					selectDropdownOpt(ObjectRepository.selectTermDropdown,selectCD);
-					getElement(ObjectRepository.visibleCD36).click();					
+					getElement(ObjectRepository.checkingExpand).click();
+					getElement(ObjectRepository.classicCheckCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "36 Month CD selected");
-					//Member Verification/Applicant Info
+					test.log(Status.INFO, "Classic Checking account selected");
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
@@ -78,23 +77,35 @@ public class C24029_VerifyIdentityQuestions extends GenericKeywords{
 					getElement(ObjectRepository.confirmBtn).click();
 					test.log(Status.INFO, "Agreements and Disclosures accepted");
 					//Identity Questions
-					getElement(ObjectRepository.confirmBtn).click();
-					verifyText(ObjectRepository.errorMsg,errorMsg1);
 					getElement(ObjectRepository.qstnOneOptnOne).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					verifyText(ObjectRepository.errorMsg,errorMsg2);
 					getElement(ObjectRepository.qstnTwoOptnTwo).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					verifyText(ObjectRepository.errorMsg,errorMsg3);
 					getElement(ObjectRepository.qstnThreeOptnThree).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					verifyText(ObjectRepository.errorMsg,errorMsg4);
 					getElement(ObjectRepository.qstnFourOptnFour).click();
-					test.log(Status.INFO, "Identity answers selected");
 					getElement(ObjectRepository.confirmBtn).click();
-					verifyElementPresent(ObjectRepository.acctFundTitle);
+					test.log(Status.INFO, "Identity questions answered");
+					//Account Funding
+					verifyText(ObjectRepository.fundProdLbl1,confirmProd);
+					getElement(ObjectRepository.fundProdInput1).sendKeys(fundAmount);	
+					getElement(ObjectRepository.fundTotalAmt).click();
+					verifyText(ObjectRepository.fundTotalAmt,amtFormat);
+					test.log(Status.INFO, "Funding amount entered");
+					getElement(ObjectRepository.submitBtn).click();
+					verifyText(ObjectRepository.errorMsg1,errorMsg);
+					test.log(Status.INFO, "Correct error message displayed");
+					verifyText(ObjectRepository.transferLbl,transferFunds);
+					verifyText(ObjectRepository.eleCheckLbl,eleCheck);
+					verifyText(ObjectRepository.creditLbl,debitCredit);
+					test.log(Status.INFO, "Correct funding methods displayed");
+					getElement(ObjectRepository.transferOptn).click();
+					verifyElementPresent(ObjectRepository.transferSlctd);
+					getElement(ObjectRepository.eleCheckOptn).click();
+					verifyElementPresent(ObjectRepository.transferOptn);
+					test.log(Status.INFO, "Only one funding method is able to be selected");
+					verifySubmitTerms();
+					test.log(Status.INFO, "Bottom text displayed correctly");
 				}
 			}
+			
 	  }
   }
   @AfterMethod
@@ -104,7 +115,7 @@ public class C24029_VerifyIdentityQuestions extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify identity questions for existing member");
+			test.log(Status.PASS, "Verify account funding page for existing member");
 		}
 	}
 

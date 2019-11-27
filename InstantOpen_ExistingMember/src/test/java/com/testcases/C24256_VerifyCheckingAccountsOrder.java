@@ -41,10 +41,7 @@ public class C24256_VerifyCheckingAccountsOrder extends GenericKeywords{
 				for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
 				{	
 					if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
-					{
-						verifyElementPresent(ObjectRepository.app_ttl);
-						test.log(Status.INFO, "Instant Open Title appearing");
-						
+					{						
 						scrollToElement(ObjectRepository.mmbrstrt_btn);
 						getElement(ObjectRepository.mmbrstrt_btn).click();
 						test.log(Status.INFO, "Members Start Here button clicked");

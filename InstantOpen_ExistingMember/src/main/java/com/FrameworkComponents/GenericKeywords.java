@@ -364,7 +364,7 @@ public class GenericKeywords extends BaseClass{
 		
 		List<WebElement>allCDsList = driver.findElements(By.xpath(allCDsLocator));
 		int count=allCDsList.size();			
-			if(count == 9){
+			if(count == 10){
 				Assert.assertTrue(true);
 			}
 			else{
@@ -376,7 +376,7 @@ public class GenericKeywords extends BaseClass{
 		
 		List<WebElement>allCDsList = driver.findElements(By.xpath(allCDsLocator));
 		int count=allCDsList.size();			
-			if(count == 9){
+			if(count == 10){
 				Assert.assertTrue(true);
 			}
 			else{
@@ -531,6 +531,70 @@ public class GenericKeywords extends BaseClass{
 		}else{
 			Assert.assertTrue(false);
 		}
+	}
+	
+	public static void verifySaveProgressText(){	
+		String saveInfo1 = "You can save your application to finish later. To log back in, you will need your email address, the last four digits of your Social Security Number and a password.";
+		String saveInfo2 = "If this is the first time saving your password, just enter the missing information and select either 'Save and Continue', or 'Save and Leave', to come back later.";
+		String saveInfo3 = "You can finish your application by visiting the Status Center. You will be prompted for your email address, the last four digits of your Social Security Number and password.";
+		String saveInfo4 = "(To help you out, we are also sending an email to you with this information.)";
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver; 
+		Object info4Locator = js.executeScript("var value = document.evaluate(\"//span[@id='ErrorSummary1']//following::p[3]/br/following::text()[1]\",document, null, XPathResult.STRING_TYPE, null); return value.stringValue;");
+		String info4Text = info4Locator.toString();
+		
+		if(info4Text.equals(saveInfo4))
+		{
+			for(int count=1;count<=3;count++){
+			
+				String eachTextLocator = "//span[@id='ErrorSummary1']//following::p["+count+"]";
+				String eachValueFromPage = driver.findElement(By.xpath(eachTextLocator)).getText();
+			
+				if(eachValueFromPage.equals(saveInfo1) || eachValueFromPage.equals(saveInfo2) || eachValueFromPage.contains(saveInfo3)){
+					Assert.assertTrue(true);
+				}
+				else{
+					Assert.assertTrue(false);
+				}
+			}
+		}
+		else{
+			Assert.assertTrue(false);
+		}
+				
+	}
+	
+	public static void verifySubmitTerms(){	
+		String allTextEle = "//div[@id='bottomText']//p";
+		String header = "By clicking the Submit Application button below, you:";
+		String bullet1 = "Authorize TDECU to charge the account as shown above.";
+		String bullet2 = "Certify that all the other information on this form, including information about the account at the financial institution above, is true, correct, and complete.";
+		String bullet3 = "Certify that you are authorized to perform transactions for the account at the financial institution shown above.";
+		
+		List<WebElement>allTerms = driver.findElements(By.xpath(allTextEle));
+		for(int count=1;count<=allTerms.size();count++){
+			
+			String eachTextLocator = "(//div[@id='bottomText']//p)["+count+"]";
+			String eachValueFromPage = driver.findElement(By.xpath(eachTextLocator)).getText();
+			
+			System.out.println(eachValueFromPage);
+			
+			if(eachValueFromPage.equals(header) || eachValueFromPage.equals(bullet1) || eachValueFromPage.equals(bullet2)|| eachValueFromPage.equals(bullet3)){
+					Assert.assertTrue(true);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}			
+	}
+	
+	public static String cdMaturityDate(int months){
+		DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		cal.add(Calendar.MONTH, months);
+		String newDate = dateFormat.format(cal.getTime());
+		return newDate;
 	}
 	
 	//Select Credit Card based on Excel input

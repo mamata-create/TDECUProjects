@@ -204,11 +204,14 @@ public class ObjectRepository {
 	public static String showAllLabel = "//label[contains(text(),'Show All')]";
 	public static String visibleCD3 = "//div[contains(@id,'ProductPanel_775')and contains(@style, 'block')]";
 	public static String visibleCD6 = "//div[contains(@id,'ProductPanel_781')and contains(@style, 'block')]";
-	public static String visibleCD12= "//div[contains(@id,'ProductPanel_723')and contains(@style, 'block')]";
+	public static String visibleCD12= "//div[contains(@id,'ProductPanel_761')and contains(@style, 'block')]";
 	public static String visibleCD24= "//div[contains(@id,'ProductPanel_767')and contains(@style, 'block')]";
 	public static String visibleCD36= "//div[contains(@id,'ProductPanel_772')and contains(@style, 'block')]";
 	public static String visibleCD48= "//div[contains(@id,'ProductPanel_777')and contains(@style, 'block')]";
 	public static String visibleCD60= "//div[contains(@id,'ProductPanel_779')and contains(@style, 'block')]";
+	public static String visibleCD18= "//div[contains(@id,'ProductPanel_764')and contains(@style, 'block')]";
+	public static String visibleCD13= "//div[contains(@id,'ProductPanel_2999')and contains(@style, 'block')]";
+	public static String visibleCD27= "//div[contains(@id,'ProductPanel_2458')and contains(@style, 'block')]";
 	public static String termCheckBox= "//div[conta]ins(@style,'display: block')]//div[contains(@class,'icheckbox')]//following::label[1]";
 	
 	//Checking & Money Market Accounts
@@ -400,22 +403,41 @@ public class ObjectRepository {
 	//ID Verification
 	public static String IdentityTtl= "//h3[text()='Identity Verification']";
 	public static String questionOne = "(//span[@id='IDAuthenticationQuestions']//table//tr[4])[1]";
-	public static String qstnOneOptnOne= "(//table[contains(@id,'23573')]//div[@class='iradio_square-grey'])[1]";
+	public static String qstnOneOptnOne= "(//span[contains(text(),'counties')]//following::div[@class='iradio_square-grey'])[1]";
 	public static String questionTwo = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[1]";
-	public static String qstnTwoOptnTwo= "(//table[contains(@id,'23583')]//div[@class='iradio_square-grey'])[2]";
+	public static String qstnTwoOptnTwo= "(//span[contains(text(),'corporations')]//following::div[@class='iradio_square-grey'])[2]";
 	public static String questionThree = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[2]";
-	public static String qstnThreeOptnThree= "(//table[contains(@id,'23593')]//div[@class='iradio_square-grey'])[3]";
+	public static String qstnThreeOptnThree= "(//span[contains(text(),'city')]//following::div[@class='iradio_square-grey'])[3]";
 	public static String questionFour = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[3]";
-	public static String qstnFourOptnFour= "(//table[contains(@id,'23603')]//div[@class='iradio_square-grey'])[4]";
+	public static String qstnFourOptnFour= "(//span[contains(text(),'addresses')]//following::div[@class='iradio_square-grey'])[4]";
 	public static String errorMsg ="//span[@id='ErrorSummary1']//div[@style='color: red;']//li[1]";
 	
 	//Save Your Progress
 	public static String saveTitle= "//strong[text()='Save Your Progress']";
 	public static String cancelBtn= "//input[@id='btnCancel_SubmitButton']";
+	public static String emailAddr = "//input[@id='EmailTextBox_RadTextBox']";
+	public static String password = "//input[@id='tbASCPassword_TextBox']";
+	public static String statusCenter = "//a[text()='Status Center']";
+	public static String statusCenterTtl = "//span[contains(text(),'Application') and contains(text(),'Status Center')]";
+	public static String LeaveBtn="//input[@id='btnLeave_SubmitButton']";
+	public static String errorPassword = "//input[@type='password' and contains(@style,'LightYellow')]";
+	public static String pwAsterisk= "//span[contains(@id,'Password') and @style='color:Red;']";
 	
 	//Account Funding
 	public static String acctFundTitle = "//strong[text()='Account Funding']";
 	public static String submitBtn="//input[@id='NextButton2_SubmitButton']";
+	public static String fundProdLbl1 = "(//label[contains(@for,'ProductFund')])[1]";
+	public static String fundProdInput1 = "(//input[contains(@name,'ProductFund')])[1]";
+	public static String fundProdError = "//input[contains(@name,'ProductFund')and contains(@style,'LightYellow')]";
+	public static String fundProdRO = "//input[contains(@name,'ProductFund') and @disabled='disabled']";
+	public static String fundAmtPopup = "//div[@class='popover-content']";
+	public static String fundTotalAmt = "//div[contains(@id,'FundingTotal')]";
+	public static String transferLbl = "//label[@for ='TransFunding_RadioButton']";
+	public static String eleCheckLbl = "//label[@for ='ACHFunding_RadioButton']";
+	public static String creditLbl = "//label[@for ='CCFunding_RadioButton']";
+	public static String transferOptn = "//span[@id='TransFunding']//div[@class='iradio_square-grey']";
+	public static String transferSlctd = "//span[@id='TransFunding']//div[contains(@class,'checked')]";
+	public static String eleCheckOptn = "//span[@id='ACHFunding']//div[@class='iradio_square-grey']";
 	
 	//Error Messages
 	public static String errorMsg1 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[1]";

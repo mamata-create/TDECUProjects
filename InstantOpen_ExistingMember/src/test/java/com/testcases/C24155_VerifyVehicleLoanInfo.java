@@ -76,9 +76,6 @@ public class C24155_VerifyVehicleLoanInfo extends GenericKeywords{
 					String mileage = excl.getCellData(sheetName, 34, startIter);
 					String vin = excl.getCellData(sheetName, 35, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

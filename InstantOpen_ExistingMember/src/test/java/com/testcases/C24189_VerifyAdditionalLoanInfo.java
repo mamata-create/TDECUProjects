@@ -51,9 +51,6 @@ public class C24189_VerifyAdditionalLoanInfo extends GenericKeywords{
 					String idSection=excl.getCellData(sheetName, 2, startIter);
 					String loanSection=excl.getCellData(sheetName, 3, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

@@ -58,9 +58,6 @@ public class C24194_VerifyEmployerField extends GenericKeywords{
 					String errorMsg=excl.getCellData(sheetName, 23, startIter);
 					String oneChar=excl.getCellData(sheetName, 11, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
 					

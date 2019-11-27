@@ -51,9 +51,6 @@ public class C24190_VerifyHousingTypeField extends GenericKeywords{
 					String ownDdown=excl.getCellData(sheetName, 9, startIter);
 					String mortgageDdown=excl.getCellData(sheetName, 10, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

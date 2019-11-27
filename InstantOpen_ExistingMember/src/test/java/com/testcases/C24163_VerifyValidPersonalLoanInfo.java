@@ -51,9 +51,6 @@ public class C24163_VerifyValidPersonalLoanInfo extends GenericKeywords{
 					String popupMsg=excl.getCellData(sheetName, 25, startIter);
 					String aboveMax=excl.getCellData(sheetName, 7, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

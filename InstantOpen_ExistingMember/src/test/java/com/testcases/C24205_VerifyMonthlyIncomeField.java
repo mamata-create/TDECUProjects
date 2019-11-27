@@ -65,9 +65,6 @@ public class C24205_VerifyMonthlyIncomeField extends GenericKeywords{
 					String popupMsg=excl.getCellData(sheetName, 23, startIter);
 					String errorMsg=excl.getCellData(sheetName, 24, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

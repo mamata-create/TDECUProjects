@@ -55,9 +55,6 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						String courtesyPayTitle= excl.getCellData(sheetName, 5, startIter);
 						String courtesyPayInfo= excl.getCellData(sheetName, 24, startIter);
 						
-						verifyElementPresent(ObjectRepository.app_ttl);
-						test.log(Status.INFO, "Instant Open Title appearing");
-						
 						scrollToElement(ObjectRepository.mmbrstrt_btn);
 						getElement(ObjectRepository.mmbrstrt_btn).click();
 						test.log(Status.INFO, "Members Start Here button clicked");

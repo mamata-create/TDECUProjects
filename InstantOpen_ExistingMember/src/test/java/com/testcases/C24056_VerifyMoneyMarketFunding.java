@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24188_VerifyPersonalInfo extends GenericKeywords{
+public class C24056_VerifyMoneyMarketFunding extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +33,7 @@ public class C24188_VerifyPersonalInfo extends GenericKeywords{
   }
 	
   @Test
-  public void C24188_VerifyPersonalInfo() throws InterruptedException, MessagingException, IOException {
+  public void C24056_VerifyMoneyMarketFunding() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -45,50 +45,42 @@ public class C24188_VerifyPersonalInfo extends GenericKeywords{
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
-					String jtOwnersLabel= excl.getCellData(sheetName, 6, startIter);
-					String beneficiaryLbl= excl.getCellData(sheetName, 7, startIter);
-					String backBtn= excl.getCellData(sheetName, 8, startIter);
-					String continueBtn= excl.getCellData(sheetName, 9, startIter);
+					String confirmProd= excl.getCellData(sheetName, 1, startIter);
+					String ROamount= excl.getCellData(sheetName, 6, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
-					//Select Checking account
+					//Select Products
 					getElement(ObjectRepository.checkingExpand).click();
-					getElement(ObjectRepository.classicCheckCheckBox).click();
-					test.log(Status.INFO, "Checking account selected");
+					getElement(ObjectRepository.mnyMrktCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Continue button clicked");
-					//Member Verification
+					test.log(Status.INFO, "Money Market account selected");
+					//Member info
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
-					test.log(Status.INFO, "Member Verified");
-					//Verify Applicant Info fields
-					verifyElementPresent(ObjectRepository.fnameLabel);
-					verifyElementPresent(ObjectRepository.mnameLabel);
-					verifyElementPresent(ObjectRepository.lnameLabel);
-					verifyElementPresent(ObjectRepository.nameSffxLabel);
-					verifyElementPresent(ObjectRepository.stAddrLabel);
-					verifyElementPresent(ObjectRepository.cityLabel);
-					verifyElementPresent(ObjectRepository.commLabel);
-					verifyElementPresent(ObjectRepository.commDdown);
-					verifyElementPresent(ObjectRepository.jtOwnerCheckBox);
-					verifyText(ObjectRepository.jtOwnerLbl,jtOwnersLabel);
-					verifyElementPresent(ObjectRepository.addBeneCheckBox);
-					verifyText(ObjectRepository.addBeneLbl,beneficiaryLbl);
-					verifyTxtFieldValue(ObjectRepository.productPageBack,backBtn);
-					verifyTxtFieldValue(ObjectRepository.productPageNext,continueBtn);
-					test.log(Status.INFO, "Applicant Information fields displayed");
 					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmTtl);					
+					test.log(Status.INFO, "Member and Applicant Info Verified");
+					//Confirm Accounts
+					verifyText(ObjectRepository.prodOne,confirmProd);
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Confirm button clicked");
-					verifyElementPresent(ObjectRepository.agreementTtl);
-					getElement(ObjectRepository.prodInfoBackButton).click();
-					test.log(Status.INFO, "Back button clicked");
-					verifyElementPresent(ObjectRepository.yourInfoTtl);
+					test.log(Status.INFO, "Account selection confirmed");
+					//Agreements and Disclosures
+					getElement(ObjectRepository.discCheckBox).click();
+					getElement(ObjectRepository.agreeCheckBox).click();
+					getElement(ObjectRepository.confirmBtn).click();
+					test.log(Status.INFO, "Agreements and Disclosures accepted");
+					//Identity Questions
+					getElement(ObjectRepository.qstnOneOptnOne).click();
+					getElement(ObjectRepository.qstnTwoOptnTwo).click();
+					getElement(ObjectRepository.qstnThreeOptnThree).click();
+					getElement(ObjectRepository.qstnFourOptnFour).click();
+					getElement(ObjectRepository.confirmBtn).click();
+					test.log(Status.INFO, "Identity questions answered");
+					//Account Funding
+					verifyTxtFieldValue(ObjectRepository.fundProdRO,ROamount);
 				}
 			}
 	  }
@@ -100,7 +92,7 @@ public class C24188_VerifyPersonalInfo extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify personal information fields for existing member");
+			test.log(Status.PASS, "Verify money market RO funding amount for existing member");
 		}
 	}
 

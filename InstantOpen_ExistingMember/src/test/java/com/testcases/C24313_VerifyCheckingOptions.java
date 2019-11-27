@@ -46,9 +46,6 @@ public class C24313_VerifyCheckingOptions extends GenericKeywords{
 					String option2=excl.getCellData(sheetName, 2, startIter);
 					String option3=excl.getCellData(sheetName, 3, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

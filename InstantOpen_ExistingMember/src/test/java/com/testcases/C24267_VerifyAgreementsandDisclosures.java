@@ -75,10 +75,7 @@ public class C24267_VerifyAgreementsandDisclosures extends GenericKeywords{
 					String note= excl.getCellData(sheetName, 34, startIter);
 					String agreementInfo= excl.getCellData(sheetName, 35, startIter);
 					String agreeAndSignNote= excl.getCellData(sheetName, 36, startIter);
-					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
+
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

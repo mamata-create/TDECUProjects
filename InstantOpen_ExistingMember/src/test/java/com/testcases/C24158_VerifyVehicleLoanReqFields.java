@@ -51,9 +51,6 @@ public class C24158_VerifyVehicleLoanReqFields extends GenericKeywords{
 					String errorMsg3=excl.getCellData(sheetName, 25, startIter);
 					String vinNum=excl.getCellData(sheetName, 8, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

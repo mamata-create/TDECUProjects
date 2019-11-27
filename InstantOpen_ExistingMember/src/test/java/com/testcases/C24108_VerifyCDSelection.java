@@ -56,6 +56,9 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						String cdDropdown5= excl.getCellData(sheetName, 5, startIter);
 						String cdDropdown6= excl.getCellData(sheetName, 6, startIter);
 						String cdDropdown7= excl.getCellData(sheetName, 7, startIter);
+						String cdDropdown8= excl.getCellData(sheetName, 8, startIter);
+						String cdDropdown9= excl.getCellData(sheetName, 25, startIter);
+						String cdDropdown10= excl.getCellData(sheetName, 26, startIter);
 						String loanAmount= excl.getCellData(sheetName, 14, startIter);
 						String prodAmount= excl.getCellData(sheetName, 15, startIter);
 						String mmbrNum= excl.getCellData(sheetName, 27, startIter);
@@ -75,9 +78,6 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						String confirmProd= excl.getCellData(sheetName, 9, startIter);
 						String confirmProd2= excl.getCellData(sheetName, 10, startIter);
 						String errorMsg= excl.getCellData(sheetName, 36, startIter);
-						
-						verifyElementPresent(ObjectRepository.app_ttl);
-						test.log(Status.INFO, "Instant Open Title appearing");
 						
 						scrollToElement(ObjectRepository.mmbrstrt_btn);
 						getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -121,6 +121,12 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						verifyElementPresent(ObjectRepository.visibleCD48);
 						selectDropdownOpt(ObjectRepository.selectTermDropdown,cdDropdown7);
 						verifyElementPresent(ObjectRepository.visibleCD60);
+						selectDropdownOpt(ObjectRepository.selectTermDropdown,cdDropdown8);
+						verifyElementPresent(ObjectRepository.visibleCD18);
+						selectDropdownOpt(ObjectRepository.selectTermDropdown,cdDropdown9);
+						verifyElementPresent(ObjectRepository.visibleCD13);
+						selectDropdownOpt(ObjectRepository.selectTermDropdown,cdDropdown10);
+						verifyElementPresent(ObjectRepository.visibleCD27);
 						test.log(Status.INFO, "Dropdown values correct");
 						//Show All
 						getElement(ObjectRepository.showAllCheckBox).click();

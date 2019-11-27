@@ -61,9 +61,6 @@ public class C24103_VerifyProductSelectionInfo extends GenericKeywords{
 					String backButton = excl.getCellData(sheetName, 16, startIter);
 					String continueBtn = excl.getCellData(sheetName, 17, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

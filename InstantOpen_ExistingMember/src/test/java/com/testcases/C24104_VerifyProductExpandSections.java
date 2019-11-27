@@ -42,9 +42,6 @@ public class C24104_VerifyProductExpandSections extends GenericKeywords {
 				 {	
 					if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 					{
-						verifyElementPresent(ObjectRepository.app_ttl);
-						test.log(Status.INFO, "Instant Open Title appearing");
-						
 						scrollToElement(ObjectRepository.mmbrstrt_btn);
 						getElement(ObjectRepository.mmbrstrt_btn).click();
 						test.log(Status.INFO, "Members Start Here button clicked");

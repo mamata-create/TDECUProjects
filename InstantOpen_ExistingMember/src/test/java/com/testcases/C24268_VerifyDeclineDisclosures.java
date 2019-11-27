@@ -59,9 +59,6 @@ public class C24268_VerifyDeclineDisclosures extends GenericKeywords{
 					String empMonths= excl.getCellData(sheetName, 26, startIter);
 					String confirmProd1= excl.getCellData(sheetName, 1, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

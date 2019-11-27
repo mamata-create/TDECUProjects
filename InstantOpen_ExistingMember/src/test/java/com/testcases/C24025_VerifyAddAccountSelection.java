@@ -67,9 +67,6 @@ public class C24025_VerifyAddAccountSelection extends GenericKeywords{
 					String incomeFormat= excl.getCellData(sheetName, 35, startIter);
 					String confirmProd3= excl.getCellData(sheetName, 3, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

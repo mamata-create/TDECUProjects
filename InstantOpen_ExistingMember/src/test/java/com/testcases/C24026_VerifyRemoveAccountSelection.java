@@ -51,9 +51,6 @@ public class C24026_VerifyRemoveAccountSelection extends GenericKeywords{
 					String DOBformat= excl.getCellData(sheetName, 31, startIter);
 					String confirmProd3= excl.getCellData(sheetName, 3, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

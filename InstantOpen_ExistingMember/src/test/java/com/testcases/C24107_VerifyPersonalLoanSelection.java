@@ -82,9 +82,6 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					String empMonths= excl.getCellData(sheetName, 38, startIter);
 					String confirmProd= excl.getCellData(sheetName, 10, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

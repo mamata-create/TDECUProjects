@@ -56,9 +56,6 @@ public class C24027_VerifyModifyAccountSelection extends GenericKeywords{
 					String SSNformat= excl.getCellData(sheetName, 30, startIter);
 					String DOBformat= excl.getCellData(sheetName, 31, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

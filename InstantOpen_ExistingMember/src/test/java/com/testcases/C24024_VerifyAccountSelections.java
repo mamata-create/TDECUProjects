@@ -59,9 +59,6 @@ public class C24024_VerifyAccountSelections extends GenericKeywords{
 					String confirmProd1= excl.getCellData(sheetName, 1, startIter);
 					String confirmProd2= excl.getCellData(sheetName, 2, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
