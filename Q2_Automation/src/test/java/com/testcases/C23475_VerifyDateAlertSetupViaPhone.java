@@ -123,7 +123,7 @@ public class C23475_VerifyDateAlertSetupViaPhone extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.alrtsel_typ);
 					verifyElementPresent(ObjectRepository.alrtsel_dt);
 					verifyElementPresent(ObjectRepository.alrtsel_msg);
-					verifyElementPresent(ObjectRepository.alrtsel_dlvrymthd);
+					verifyElementPresent(ObjectRepository.alrt_dlvrymthd);
 					test.log(Status.INFO, "Alert selected info appearing in the left");
 					
 					String svbtn_class=getElement(ObjectRepository.alrt_svbtn).getAttribute("class");

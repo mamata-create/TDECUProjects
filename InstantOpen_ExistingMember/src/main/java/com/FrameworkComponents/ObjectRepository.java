@@ -204,11 +204,14 @@ public class ObjectRepository {
 	public static String showAllLabel = "//label[contains(text(),'Show All')]";
 	public static String visibleCD3 = "//div[contains(@id,'ProductPanel_775')and contains(@style, 'block')]";
 	public static String visibleCD6 = "//div[contains(@id,'ProductPanel_781')and contains(@style, 'block')]";
-	public static String visibleCD12= "//div[contains(@id,'ProductPanel_723')and contains(@style, 'block')]";
+	public static String visibleCD12= "//div[contains(@id,'ProductPanel_761')and contains(@style, 'block')]";
 	public static String visibleCD24= "//div[contains(@id,'ProductPanel_767')and contains(@style, 'block')]";
 	public static String visibleCD36= "//div[contains(@id,'ProductPanel_772')and contains(@style, 'block')]";
 	public static String visibleCD48= "//div[contains(@id,'ProductPanel_777')and contains(@style, 'block')]";
 	public static String visibleCD60= "//div[contains(@id,'ProductPanel_779')and contains(@style, 'block')]";
+	public static String visibleCD18= "//div[contains(@id,'ProductPanel_764')and contains(@style, 'block')]";
+	public static String visibleCD13= "//div[contains(@id,'ProductPanel_2999')and contains(@style, 'block')]";
+	public static String visibleCD27= "//div[contains(@id,'ProductPanel_2458')and contains(@style, 'block')]";
 	public static String termCheckBox= "//div[conta]ins(@style,'display: block')]//div[contains(@class,'icheckbox')]//following::label[1]";
 	
 	//Checking & Money Market Accounts
@@ -283,19 +286,58 @@ public class ObjectRepository {
 	public static String mmbrVerifyTile = "//strong[text()='Member Verification']";
 	public static String mmbrVerifyNext = "//span[@id='NextButton']";
 	public static String mmbrVerifyBack = "//span[@id='BackButton']";
+	public static String mmbrNumLabel= "//label[text()='*Member Number:']";
 	public static String mmbrVerifyNum="//input[@id='tbEMAMMemberNumber_TextBox']";
+	public static String mmbrNumRO="//input[@id='tbEMAMMemberNumber_TextBox' and @disabled='disabled']";
+	public static String mmbrSSNlabel= "//label[text()='*Social Security Number:']";
 	public static String mmbrVerifySSN="//input[@id='tbEMAMSSNTextBox_TextBox']";
+	public static String mmbrSSNRO="//input[@id='tbEMAMSSNTextBox_TextBox'and @disabled='disabled']";
+	public static String mmbrDOBlabel= "//label[text()='*Date of Birth:']";
 	public static String mmbrVerifyDOB="//input[@id='tbBirthDate_RadDatePicker']";
+	public static String mmbrDOBRO="//input[@id='tbBirthDate_RadDatePicker'and @disabled='disabled']";
 	
 	//Your Information
 	public static String yourInfoTtl = "//strong[text()='Your Information']";
 	public static String applicantHdr= " (//div[@class='SectionHeaders'])[1]";
 	public static String identityHdr= " (//div[@class='SectionHeaders'])[2]";
 	public static String loanHdr= " (//div[@class='SectionHeaders'])[3]";
+	//Applicant Information
+	public static String fnameLabel= "//label[text()='*First Name:']";
+	public static String fname= "//input[@id='tbFirstName_TextBox'and @disabled='disabled']";
+	public static String mnameLabel= "//label[text()='Middle Name:']";
+	public static String mname= "//input[@id='tbMiddleName_TextBox'and @disabled='disabled']";
+	public static String lnameLabel= "//label[text()='*Last Name:']";
+	public static String lname= "//input[@id='tbLastName_TextBox'and @disabled='disabled']";
+	public static String nameSffxLabel= "//label[text()='Name Suffix:']";
+	public static String nameSuffix= "//input[@id='tbNameSuffix_TextBox'and @disabled='disabled']";
+	public static String stAddrLabel= "//label[text()='*Street Address:']";
+	public static String stAddr= "//input[contains(@id,'AddressLine1')and @disabled='disabled']";
+	public static String cityLabel= "//label[text()='*City, State, ZIP']";
+	public static String cityStZip= "//input[contains(@id,'CityStateZip')and @disabled='disabled']";
+	public static String commLabel= "//label[text()='Preferred Method of Communication:']";
+	public static String commDdown= "//select[contains(@id,'ContactMethod')]";
+	//Identification Information
 	public static String idType="//select[@id='IDType_IDType']";
+	public static String errorIdType = "//select[contains(@name,'IDType')and contains(@style,'LightYellow')]";
+	public static String IdTypeAsterisk= "//span[@id='ctl40' and @style='color:Red;']";
+	public static String stateLabel= "//label[@for='IDType_StateComboBox']";
+	public static String stateDropdown= "//select[@id='IDType_StateComboBox']";
+	public static String errorState = "//select[contains(@name,'State')and contains(@style,'LightYellow')]";
+	public static String stateAsterisk= "//span[@id='ctl42' and @style='color:Red;']";
+	public static String countryLbl= "//label[@for='IDType_CountryComboBox']";
+	public static String countryDdown= "//select[@id='IDType_CountryComboBox']";
+	public static String errorCountry = "//select[contains(@name,'Country')and contains(@style,'LightYellow')]";
+	public static String countryAsterisk= "//span[@id='ctl44' and @style='color:Red;']";
 	public static String idNum="//input[@id='IDType_IDNumber']";
+	public static String errorIdNum = "//input[contains(@name,'IDNumber')and contains(@style,'LightYellow')]";
+	public static String idNumAsterisk= "//span[@id='ctl46' and @style='color:Red;']";
 	public static String issueDate="//input[@id='IDType_IssueDate']";
+	public static String errorIssDt = "//input[contains(@name,'IssueDate')and contains(@style,'LightYellow')]";
+	public static String issDtAsterisk= "//span[@id='ctl48' and @style='color:Red;']";
 	public static String expDate="//input[@id='IDType_ExpirationDate']";
+	public static String errorExpDt = "//input[contains(@name,'Expiration')and contains(@style,'LightYellow')]";
+	public static String expDtAsterisk= "//span[@id='ctl50' and @style='color:Red;']";
+	//Loan Information
 	public static String houseType= "//select[@id='HousingType_DropDownList']";
 	public static String housePymt="//input[@id='HousePayment_MoneyTextBox']";
 	public static String addrYears="//input[@id='AddresstDuration_YearTextBox']";
@@ -310,32 +352,103 @@ public class ObjectRepository {
 	public static String prevYears="//input[@id='PreviousEmploymentDuration_YearTextBox']";
 	public static String prevMonths="//input[@id='PreviousEmploymentDuration_MonthTextBox']";
 	public static String appInfoPopup= "//div[@class='popover-content']";
+	//Bottom of page
+	public static String jtOwnerCheckBox= "//span[@id='cbAddJoint']/div";
+	public static String jtOwnerLbl= "//label[@for='cbAddJoint_CheckBox']";
+	public static String addBeneCheckBox= "//span[@id='cbAddBene']/div";
+	public static String addBeneLbl= "//label[@for='cbAddBene_CheckBox']";
 	
 	//Confirm Accounts
 	public static String confirmTtl = "//strong[text()='Confirm Account Selections']";
 	public static String prodOne = "(//span[@id='ProductsAndServices']//li[1])[1]";
 	public static String prodTwo = "//span[@id='ProductsAndServices']//li[2]";
+	public static String prodWOptions = "(//span[@id='ProductsAndServices']//li[2])[1]";
+	public static String prodWOptionsOne = "(//span[@id='ProductsAndServices']//li[1])[2]";
 	public static String prodWOptionsTwo = "(//span[@id='ProductsAndServices']//li[2])[2]";
 	public static String confirmBtn="//input[@id='btnNext_SubmitButton']";
 	public static String changeBtn="//input[@id='btnChange_SubmitButton']";
 	
 	//Agreements and Disclosures
+	public static String agreementTtl = "//h2[text()='Account Agreements and Disclosures']";
 	public static String termsAndCondCheckBox = "//span[@id='cbDisclosures']//div[@class='icheckbox_square-grey']";
 	public static String agreeAndSignCheckBox = "//span[@id='Authroization']//div[@class='icheckbox_square-grey']";
+	public static String eDocsLink= "//a[text()='eDocument Consent']";
+	public static String discCheckBox= "//span[@id='cbDisclosures']//div[@class='icheckbox_square-grey']";
+	public static String discChecked= "//span[@id='cbDisclosures']//div[contains(@class,'checked')]";	
+	public static String disclosuresText= "//div[@class='col-sm-11']";
+	public static String courtesyPayTtl= "//h3[text()='Courtesy Pay']";
+	public static String crtsyPayDescOne= "//span[@id='pnlCourtesyPay']/p[1]";
+	public static String crtsyPayDescTwo= "//span[@id='pnlCourtesyPay']/p[2]";
+	public static String crtsyPayInfoOne= "//span[@id='pnlCourtesyPay']/ol/li[1]";
+	public static String crtsyPayInfoTwo= "//span[@id='pnlCourtesyPay']/ol/li[2]";
+	public static String crtsyPayInfoThree= "//span[@id='pnlCourtesyPay']/ol/li[3]";
+	public static String FAQtitle= "//h4[text()='Frequently Asked Questions']";
+	public static String belowFAQ= "//p[text()='Below are frequently asked questions about Courtesy Pay. ']";
+	public static String FAQone= "(//div[@id='accordion']//div[contains(@class,'panel-heading')])[1]";
+	public static String FAQoneClose= "(//div[@id='accordion']//div[contains(@class,'collapsed')])[1]";
+	public static String FAQtwo= "(//div[@id='accordion']//div[contains(@class,'panel-heading')])[2]";
+	public static String FAQtwoClose= "(//div[@id='accordion']//div[contains(@class,'collapsed')])[2]";
+	public static String FAQtwoInfo= "//div[@id='accordion']//div[@id='collapseQ2']//li";
+	public static String crtsyPayNote= "(//div[@class='col-sm']//p)[3]";
+	public static String agreeAndSignTtl= "//h3[text()='Agreement and Signature(s)']";
+	public static String agreeandSignInfo= "//div[@class='col-sm checkCopy']";
+	public static String agreeCheckBox= "//span[@id='Authroization']//div[@class='icheckbox_square-grey']";
+	public static String agreeChecked= "//span[@id='Authroization']//div[contains(@class,'checked')]";
+	public static String agreementNote= "//div[@class='row disclaimer']//div[@class='col-sm']";
+	public static String declineBtn= "//input[@id='btnDecline_SubmitButton']";
+	public static String saveBtn= "//input[@id='SaveButton_SubmitButton']";
+	//Cannot Process Application
+	public static String declineTtl= "//strong[text()='We Cannot Process Your Application']";
 	
 	//ID Verification
+	public static String IdentityTtl= "//h3[text()='Identity Verification']";
 	public static String questionOne = "(//span[@id='IDAuthenticationQuestions']//table//tr[4])[1]";
+	public static String qstnOneOptnOne= "(//span[contains(text(),'counties')]//following::div[@class='iradio_square-grey'])[1]";
 	public static String questionTwo = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[1]";
+	public static String qstnTwoOptnTwo= "(//span[contains(text(),'corporations')]//following::div[@class='iradio_square-grey'])[2]";
 	public static String questionThree = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[2]";
+	public static String qstnThreeOptnThree= "(//span[contains(text(),'city')]//following::div[@class='iradio_square-grey'])[3]";
 	public static String questionFour = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[3]";
+	public static String qstnFourOptnFour= "(//span[contains(text(),'addresses')]//following::div[@class='iradio_square-grey'])[4]";
+	public static String errorMsg ="//span[@id='ErrorSummary1']//div[@style='color: red;']//li[1]";
+	
+	//Save Your Progress
+	public static String saveTitle= "//strong[text()='Save Your Progress']";
+	public static String cancelBtn= "//input[@id='btnCancel_SubmitButton']";
+	public static String emailAddr = "//input[@id='EmailTextBox_RadTextBox']";
+	public static String password = "//input[@id='tbASCPassword_TextBox']";
+	public static String statusCenter = "//a[text()='Status Center']";
+	public static String statusCenterTtl = "//span[contains(text(),'Application') and contains(text(),'Status Center')]";
+	public static String LeaveBtn="//input[@id='btnLeave_SubmitButton']";
+	public static String errorPassword = "//input[@type='password' and contains(@style,'LightYellow')]";
+	public static String pwAsterisk= "//span[contains(@id,'Password') and @style='color:Red;']";
 	
 	//Account Funding
-	public static String acctFundTile = "//strong[text()='Account Funding']";
+	public static String acctFundTitle = "//strong[text()='Account Funding']";
 	public static String submitBtn="//input[@id='NextButton2_SubmitButton']";
+	public static String fundProdLbl1 = "(//label[contains(@for,'ProductFund')])[1]";
+	public static String fundProdInput1 = "(//input[contains(@name,'ProductFund')])[1]";
+	public static String fundProdInput2 = "(//input[contains(@name,'ProductFund')])[2]";
+	public static String fundProdError = "//input[contains(@name,'ProductFund')and contains(@style,'LightYellow')]";
+	public static String fundProdRO = "//input[contains(@name,'ProductFund') and @disabled='disabled']";
+	public static String fundAmtPopup = "//div[@class='popover-content']";
+	public static String fundTotalAmt = "//div[contains(@id,'FundingTotal')]";
+	public static String transferLbl = "//label[@for ='TransFunding_RadioButton']";
+	public static String eleCheckLbl = "//label[@for ='ACHFunding_RadioButton']";
+	public static String creditLbl = "//label[@for ='CCFunding_RadioButton']";
+	public static String transferOptn = "//span[@id='TransFunding']//div[@class='iradio_square-grey']";
+	public static String transferSlctd = "//span[@id='TransFunding']//div[contains(@class,'checked')]";
+	public static String accountDdownLbl = "//div[@id='transDiv']";
+	public static String accountDdownError = "//select[@id='AccountDropDownList_DropDownList'and contains(@style,LightYellow)]";
+	public static String accountDdown = "//select[@id='AccountDropDownList_DropDownList']";
+	public static String eleCheckOptn = "//span[@id='ACHFunding']//div[@class='iradio_square-grey']";
+	public static String submitApp = "//h1[text()='Thank You for Your Application!']";	
 	
 	//Error Messages
 	public static String errorMsg1 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[1]";
 	public static String errorMsg2 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[2]";
+	public static String errorMsg3 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[3]";
+	public static String errorMsg4 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[4]";
 
 	//Don't use below elements for IO Existing Member*******************************************************************
 	//New Member fields

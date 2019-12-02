@@ -148,6 +148,8 @@ public class C24247_VerifyPrintOptionForChangedAddresses extends GenericKeywords
 						Assert.assertTrue(true);
 					}
 					
+					awaitForElementToVisible(ObjectRepository.actionsDropdown);
+					scrollToElement(ObjectRepository.applyButtonToScroll);
 					selectActions(ObjectRepository.actionsDropdown,ObjectRepository.allOptions,option);
 					
 					

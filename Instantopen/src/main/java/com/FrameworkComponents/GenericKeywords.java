@@ -607,9 +607,41 @@ public class GenericKeywords extends BaseClass{
 					}
 					
 			}
+			
+		
 		}
+		
 	}
 	
+	public static boolean creditCardCheckedUncheckedValidator(String cardName,boolean check) {
+		boolean flag = true;
+		String creditCardLocator = "//div[contains(@id,'CreditCard_ProductPanel')]//following::label[contains(text(),'"+cardName+"')]";
+		if(check==true){
+			String checkedStatusLocator = "//div[contains(@id,'CreditCard_ProductPanel')]//following::label[contains(text(),'"+cardName+"')]/../div[1]";
+			boolean checkedStatus = getElement(checkedStatusLocator).getAttribute("class").contains("checked");
+			if(checkedStatus)
+				return flag;
+			else
+			return	flag=false;
+		}else if(check==false){
+			getElement(creditCardLocator).click();
+		}
+		
+		return flag;
+		
+	}
+	
+	public static boolean checkamountandNavigateNextthenValidate(String cardName){
+		boolean status = false;
+		String limitLocator = "//div[contains(@id,'CreditCard_ProductPanel')]//following::label[contains(text(),'"+cardName+"')]/following::li[2]";
+		String cardLimitFromPage = getElement(limitLocator).getAttribute("inneText").split("$")[1].toString();
+		getElement(ObjectRepository.continue_btn).click();
+		boolean limitChecked = getElement(ObjectRepository.creditcardLimitTxt).getText().contains(cardLimitFromPage);
+		if(limitChecked)
+			return status=true;
+		return status;
+	}
+
 	public static void validatProductOptionsDetails(String subProduct,String subProductTag){
 		
 		String subProductHeaderLocator = "//span[@id='"+subProduct+"']//following::label[contains(@for,'"+subProduct+"_ProductCheckbox_')]";

@@ -45,9 +45,6 @@ public class C24110_VerifySavingsSelection extends GenericKeywords{
 						String clubTitle= excl.getCellData(sheetName, 1, startIter);
 						String clubDesc= excl.getCellData(sheetName, 16, startIter);
 						
-						verifyElementPresent(ObjectRepository.app_ttl);
-						test.log(Status.INFO, "Instant Open Title appearing");
-						
 						scrollToElement(ObjectRepository.mmbrstrt_btn);
 						getElement(ObjectRepository.mmbrstrt_btn).click();
 						test.log(Status.INFO, "Members Start Here button clicked");

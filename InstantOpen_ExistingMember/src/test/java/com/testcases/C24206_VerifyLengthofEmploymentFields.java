@@ -56,9 +56,6 @@ public class C24206_VerifyLengthofEmploymentFields extends GenericKeywords{
 					String popupMsg2=excl.getCellData(sheetName, 24, startIter);
 					String validMonths=excl.getCellData(sheetName, 12, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
 					

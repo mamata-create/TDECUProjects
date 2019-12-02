@@ -1,36 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="52941" started-at="2019-08-28T03:29:23Z" finished-at="2019-08-28T03:30:16Z">
+  <suite name="Default suite" duration-ms="123984" started-at="2019-11-12T19:32:09Z" finished-at="2019-11-12T19:34:13Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="52941" started-at="2019-08-28T03:29:23Z" finished-at="2019-08-28T03:30:16Z">
-      <class name="Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989]" name="setUp" is-config="true" duration-ms="19648" started-at="2019-08-28T03:29:23Z" finished-at="2019-08-28T03:29:42Z">
+    <test name="Default test" duration-ms="123984" started-at="2019-11-12T19:32:09Z" finished-at="2019-11-12T19:34:13Z">
+      <class name="ActivityCenter.C23621_VerifyActivityCenterSearchFilter">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ActivityCenter.C23621_VerifyActivityCenterSearchFilter@425407]" name="setUp" is-config="true" duration-ms="32630" started-at="2019-11-12T19:32:09Z" finished-at="2019-11-12T19:32:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23508_VerifyMakeRecurringCommercialLoanPayment()[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989]" name="C23508_VerifyMakeRecurringCommercialLoanPayment" duration-ms="31914" started-at="2019-08-28T03:29:42Z" finished-at="2019-08-28T03:30:14Z">
+        <test-method status="PASS" signature="C23621_VerifyActivityCenterSearchFilter()[pri:0, instance:ActivityCenter.C23621_VerifyActivityCenterSearchFilter@425407]" name="C23621_VerifyActivityCenterSearchFilter" duration-ms="89992" started-at="2019-11-12T19:32:41Z" finished-at="2019-11-12T19:34:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C23508_VerifyMakeRecurringCommercialLoanPayment -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-08-28T03:30:14Z" finished-at="2019-08-28T03:30:14Z">
+        </test-method> <!-- C23621_VerifyActivityCenterSearchFilter -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:ActivityCenter.C23621_VerifyActivityCenterSearchFilter@425407]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-11-12T19:34:11Z" finished-at="2019-11-12T19:34:11Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23508_VerifyMakeRecurringCommercialLoanPayment status=SUCCESS method=C23508_VerifyMakeRecurringCommercialLoanPayment.C23508_VerifyMakeRecurringCommercialLoanPayment()[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989] output={null}]]]>
+                <![CDATA[[TestResult name=C23621_VerifyActivityCenterSearchFilter status=SUCCESS method=C23621_VerifyActivityCenterSearchFilter.C23621_VerifyActivityCenterSearchFilter()[pri:0, instance:ActivityCenter.C23621_VerifyActivityCenterSearchFilter@425407] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment@1ee9989]" name="tearDown" is-config="true" duration-ms="1347" started-at="2019-08-28T03:30:14Z" finished-at="2019-08-28T03:30:16Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:ActivityCenter.C23621_VerifyActivityCenterSearchFilter@425407]" name="tearDown" is-config="true" duration-ms="1325" started-at="2019-11-12T19:34:11Z" finished-at="2019-11-12T19:34:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment -->
+      </class> <!-- ActivityCenter.C23621_VerifyActivityCenterSearchFilter -->
+=======
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="43028" started-at="2019-11-13T01:03:36Z" finished-at="2019-11-13T01:04:19Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="43028" started-at="2019-11-13T01:03:36Z" finished-at="2019-11-13T01:04:19Z">
+      <class name="Alerts.C23469_VerifyAlertsSetup">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:Alerts.C23469_VerifyAlertsSetup@4c70fda8]" name="setUp" is-config="true" duration-ms="31801" started-at="2019-11-12T19:03:36Z" finished-at="2019-11-12T19:04:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="C23469_VerifyAlertsSetup()[pri:0, instance:Alerts.C23469_VerifyAlertsSetup@4c70fda8]" name="C23469_VerifyAlertsSetup" duration-ms="11211" started-at="2019-11-12T19:04:07Z" finished-at="2019-11-12T19:04:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- C23469_VerifyAlertsSetup -->
+      </class> <!-- Alerts.C23469_VerifyAlertsSetup -->
+>>>>>>> 1bcc766485c6b288ee882af9e4f1e5dd13c50d23
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

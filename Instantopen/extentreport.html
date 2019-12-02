@@ -40,7 +40,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a>
-				<span class='suite-start-time'>2 Dec, 2019 11:04:16 AM</span>
+				<span class='suite-start-time'>Nov 22, 2019 2:30:55 PM</span>
 			</a>
 			<a>
 				<span>v3.0.0</span>
@@ -125,10 +125,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span><span class='strong'>0</span> test(s) passed</span>
+					<span><span class='strong'>1</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong'>1</span> test(s) failed, <span class='strong'>0</span> others
+					<span class='strong'>0</span> test(s) failed, <span class='strong'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -140,10 +140,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span><span class='strong'>0</span> step(s) passed</span>
+					<span><span class='strong'>1</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong'>1</span> step(s) failed, <span class='strong'>6</span> others
+					<span class='strong'>0</span> step(s) failed, <span class='strong'>4</span> others
 				</div>
 			</div>
 		</div>
@@ -159,17 +159,17 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>C23881_VerifyVehicleLoanInfo</span>
-						<span class='test-time'>2 Dec, 2019 11:04:17 AM</span>
-						<span class='test-status right fail'>fail</span>
+						<span class='test-name'>C23843_NonMemberCreditCardtLimit</span>
+						<span class='test-time'>Nov 22, 2019 2:30:56 PM</span>
+						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>2 Dec, 2019 11:04:17 AM</span>
-	<span class='label end-time'>2 Dec, 2019 11:05:03 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 46s+6ms</span>
+	<span class='label start-time'>Nov 22, 2019 2:30:56 PM</span>
+	<span class='label end-time'>Nov 22, 2019 2:32:11 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 15s+344ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -183,54 +183,32 @@
 			<tbody>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>11:04:35 AM</td>
+					<td class='timestamp'>2:31:05 PM</td>
 					<td class='step-details'>Application url navigated</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>11:04:40 AM</td>
-					<td class='step-details'>Non Members Start Here button clicked</td>
+					<td class='timestamp'>2:31:06 PM</td>
+					<td class='step-details'>Instant Open Title appearing</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>11:04:40 AM</td>
-					<td class='step-details'>Dont want to open a checking account option selected</td>
+					<td class='timestamp'>2:31:08 PM</td>
+					<td class='step-details'>Non Member Start here button clicked</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>11:04:42 AM</td>
-					<td class='step-details'>Yes option selected</td>
+					<td class='timestamp'>2:31:15 PM</td>
+					<td class='step-details'>All options are checked</td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>11:04:55 AM</td>
-					<td class='step-details'>Vehicle loan selected</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>11:04:57 AM</td>
-					<td class='step-details'>Labels verified</td>
-				</tr>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>11:05:02 AM</td>
-					<td class='step-details'>Test Failed-org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=78.0.3904.97)
-  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 6.2.9200 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
-System info: host: 'SRAVYAKARTHIK', ip: '192.168.0.10', os.name: 'Windows 8', os.arch: 'x86', os.version: '6.2', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\sravya\AppData\Loc...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:52260}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 78.0.3904.97, webStorageEnabled: true}
-Session ID: fbf7501998b991a14693ae1757595557</td>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>2:32:11 PM</td>
+					<td class='step-details'>Verify that user can enter ammount based on Credit limit</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-							<ul class='screenshots'>
-								<li><img data-featherlight='C:\Users\sravya\git\TDECUProjects\InstantOpen//screenshots//C23881_VerifyVehicleLoanInfo_Error.png' width='25%' src='C:\Users\sravya\git\TDECUProjects\InstantOpen//screenshots//C23881_VerifyVehicleLoanInfo_Error.png'></li>
-							</ul>
 					</div>
 				</li>
 			</ul>
@@ -271,25 +249,25 @@ Session ID: fbf7501998b991a14693ae1757595557</td>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>7</div>
+					<div class='panel-lead'>5</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>2 Dec, 2019 11:04:16 AM</div>
+					<div class='panel-lead'>Nov 22, 2019 2:30:55 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>2 Dec, 2019 11:05:03 AM</div>
+			 		<div class='panel-lead'>Nov 22, 2019 2:32:11 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>46,341ms</div>
+					<div class='panel-lead'>75,563ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -303,19 +281,19 @@ Session ID: fbf7501998b991a14693ae1757595557</td>
 						</tr>
 						<tr>
 							<td>User Name</td>
-							<td>sravya</td>
+							<td>Divya</td>
 						</tr>
 						<tr>
 							<td>OS</td>
-							<td>Windows 8</td>
+							<td>Windows 10</td>
 						</tr>
 						<tr>
 							<td>Java Version</td>
-							<td>1.8.0_191</td>
+							<td>1.8.0_181</td>
 						</tr>
 						<tr>
 							<td>Host Name</td>
-							<td>sravyakarthik</td>
+							<td>LAPTOP-1F0JMU93</td>
 						</tr>
 					</table>
 				</div>
@@ -329,22 +307,22 @@ Session ID: fbf7501998b991a14693ae1757595557</td>
 
 		<script>
 			var statusGroup = {
-				passParent: 0,
-				failParent: 1,
+				passParent: 1,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
 				unknownParent: 0,
 				
-				passChild: 0,
-				failChild: 1,
+				passChild: 1,
+				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				unknownChild: 0,
-				infoChild: 6,
+				infoChild: 4,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,

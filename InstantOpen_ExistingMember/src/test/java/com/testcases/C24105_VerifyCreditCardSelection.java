@@ -79,9 +79,6 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 					String OnyxName= excl.getCellData(sheetName, 32, startIter);
 					String CDName= excl.getCellData(sheetName, 33, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

@@ -59,9 +59,6 @@ public class C24160_VerifyPersonalLoanInfo extends GenericKeywords{
 					String loanAmt= excl.getCellData(sheetName, 11, startIter);
 					String loanAmtFormat= excl.getCellData(sheetName, 12, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -75,8 +72,8 @@ public class C24160_VerifyPersonalLoanInfo extends GenericKeywords{
 					verifyText(ObjectRepository.prodInfoMsg,loanDesc);
 					verifyText(ObjectRepository.prodTypeLabel,typeLbl);
 					verifyText(ObjectRepository.prodLimitLabel,amountLbl);
-					verifyTxtValue(ObjectRepository.prodInfoBackButton,backBtn);
-					verifyTxtValue(ObjectRepository.prodInfoNextButton,continueBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoBackButton,backBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoNextButton,continueBtn);
 					test.log(Status.INFO, "Labels verified");
 					//verify dropdowns
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,myway4Ddown);

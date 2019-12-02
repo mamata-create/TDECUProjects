@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -90,29 +91,31 @@ public class C23614_VerifyActivityCenterTransactions extends GenericKeywords {
 		verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 		test.log(Status.INFO, "Activity Center page opened");
 		
-		WebElement ele=getElement("//span[text()='Single Transactions']/parent::*/parent::*");
+		WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+		WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+		WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
 		
-		String sngltrnsctn=ele.getAttribute("class");
-		if(sngltrnsctn.contains("active")){
+		
+		String sngltrnsctn=SingleTransactionsTab.getAttribute("aria-selected");
+		if(sngltrnsctn.contains("true")){
 			Assert.assertTrue(true);
 			test.log(Status.INFO, "Single Transaction tab is selected");
 		}else{
 			test.log(Status.INFO, "Single Transaction tab is not selected");
 		}
 		
-		getElement(ObjectRepository.rcrngtrnsctn_tab).click();
-		test.log(Status.INFO, "Recurring transaction tab clicked");
+		WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+		RecurringTab.click();
+		
 		Thread.sleep(3000);
-		
-		WebElement rele=getElement("//span[text()='Recurring Transactions']/parent::*/parent::*");
-		
-		String rcrngtrnsctn=rele.getAttribute("class");
-		if(rcrngtrnsctn.contains("active")){
+		String recurringTransaction=RecurringTab.getAttribute("aria-selected");
+		if(recurringTransaction.contains("true")){
 			Assert.assertTrue(true);
 			test.log(Status.INFO, "Recurring Transaction tab is selected");
 		}else{
 			test.log(Status.INFO, "Recurring Transaction tab is not selected");
 		}
+	
 		
 	}
 

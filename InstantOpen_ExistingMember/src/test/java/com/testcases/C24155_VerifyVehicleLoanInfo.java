@@ -76,9 +76,6 @@ public class C24155_VerifyVehicleLoanInfo extends GenericKeywords{
 					String mileage = excl.getCellData(sheetName, 34, startIter);
 					String vin = excl.getCellData(sheetName, 35, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -98,8 +95,8 @@ public class C24155_VerifyVehicleLoanInfo extends GenericKeywords{
 					verifyText(ObjectRepository.carYearLbl,yearLbl);
 					verifyText(ObjectRepository.carMilesLbl,milesLbl);
 					verifyText(ObjectRepository.carVINLbl,VINlbl);
-					verifyTxtValue(ObjectRepository.prodInfoBackButton,backBtn);
-					verifyTxtValue(ObjectRepository.prodInfoNextButton,continueBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoBackButton,backBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoNextButton,continueBtn);
 					test.log(Status.INFO, "Labels verified");
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,carDdown);
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,boatDdown);

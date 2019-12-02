@@ -148,7 +148,7 @@ public class C24238_VerifyConfirmationMessageWithAccountUpdateInfo extends Gener
 					
 					verifyElementPresent(ObjectRepository.modalTitle);
 					Thread.sleep(1500);
-					verifyText(ObjectRepository.confirmationMsg,confirmationMsg);
+					verifyText(ObjectRepository.confirmationMsg,confirmationMsg.trim());
 					
 					
 				

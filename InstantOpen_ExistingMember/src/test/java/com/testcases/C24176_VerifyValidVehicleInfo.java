@@ -70,9 +70,6 @@ public class C24176_VerifyValidVehicleInfo extends GenericKeywords{
 					String decimal=excl.getCellData(sheetName, 34, startIter);
 					String miles=excl.getCellData(sheetName, 35, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="20588" started-at="2019-09-10T14:51:28Z" finished-at="2019-09-10T14:51:49Z">
+  <suite name="Default suite" duration-ms="76975" started-at="2019-11-22T19:30:55Z" finished-at="2019-11-22T19:32:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="20588" started-at="2019-09-10T14:51:28Z" finished-at="2019-09-10T14:51:49Z">
-      <class name="com.testcases.C23835_VerifyInformationAboutAccountandProductSelection">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f]" name="setUp" is-config="true" duration-ms="11208" started-at="2019-09-10T14:51:28Z" finished-at="2019-09-10T14:51:40Z">
+    <test name="Default test" duration-ms="76975" started-at="2019-11-22T19:30:55Z" finished-at="2019-11-22T19:32:12Z">
+      <class name="CreditCard.C23843_NonMemberCreditCardtLimit">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28]" name="setUp" is-config="true" duration-ms="10135" started-at="2019-11-22T19:30:55Z" finished-at="2019-11-22T19:31:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23835_VerifyInformationAboutAccountandProductSelection()[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f]" name="C23835_VerifyInformationAboutAccountandProductSelection" duration-ms="7694" started-at="2019-09-10T14:51:40Z" finished-at="2019-09-10T14:51:47Z">
+        <test-method status="PASS" signature="C23843_VerifyUserCanEnterAmmountToRequestCreditLimit()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28]" name="C23843_VerifyUserCanEnterAmmountToRequestCreditLimit" duration-ms="65443" started-at="2019-11-22T19:31:06Z" finished-at="2019-11-22T19:32:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C23835_VerifyInformationAboutAccountandProductSelection -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-09-10T14:51:47Z" finished-at="2019-09-10T14:51:47Z">
+        </test-method> <!-- C23843_VerifyUserCanEnterAmmountToRequestCreditLimit -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28]" name="afterMethod" is-config="true" duration-ms="3" started-at="2019-11-22T19:32:11Z" finished-at="2019-11-22T19:32:11Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23835_VerifyInformationAboutAccountandProductSelection status=SUCCESS method=C23835_VerifyInformationAboutAccountandProductSelection.C23835_VerifyInformationAboutAccountandProductSelection()[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f] output={null}]]]>
+                <![CDATA[[TestResult name=C23843_VerifyUserCanEnterAmmountToRequestCreditLimit status=SUCCESS method=C23843_NonMemberCreditCardtLimit.C23843_VerifyUserCanEnterAmmountToRequestCreditLimit()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C23835_VerifyInformationAboutAccountandProductSelection@1686d1f]" name="tearDown" is-config="true" duration-ms="1654" started-at="2019-09-10T14:51:47Z" finished-at="2019-09-10T14:51:49Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28]" name="tearDown" is-config="true" duration-ms="1350" started-at="2019-11-22T19:32:11Z" finished-at="2019-11-22T19:32:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.testcases.C23835_VerifyInformationAboutAccountandProductSelection -->
+      </class> <!-- CreditCard.C23843_NonMemberCreditCardtLimit -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

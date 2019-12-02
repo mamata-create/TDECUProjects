@@ -1,9 +1,10 @@
-package Make_A_Payment;
+ package Make_A_Payment;
 
 import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -50,7 +51,7 @@ public class C23511_VerifyConsumerLoanPayOffPayment  extends GenericKeywords {
 				getElement(ObjectRepository.login_btn).click();
 				test.log(Status.INFO, "Login button clicked");
 				
-				//click login button
+			/*	//click login button
 				getElement(ObjectRepository.otpemail_btn).click();
 				test.log(Status.INFO, "Send OTP to email button clicked");
 				Thread.sleep(15000);
@@ -72,7 +73,7 @@ public class C23511_VerifyConsumerLoanPayOffPayment  extends GenericKeywords {
 					}catch(Exception e){
 						test.log(Status.INFO, "Register device button not available to be clicked");
 					}
-
+*/
 				
 				//Verify log off link available after login
 				verifyElementPresent(ObjectRepository.logoff_lnk);
@@ -127,17 +128,28 @@ public class C23511_VerifyConsumerLoanPayOffPayment  extends GenericKeywords {
 					test.log(Status.INFO, "Frequency selected");
 					Thread.sleep(2000);
 					scrollToElement(ObjectRepository.mkpymnt_cntinue);
-										
-					getElement(ObjectRepository.stdt_cal).click();
+					
+					//Modified steps added
+					WebElement root1 = driver.findElement(By.cssSelector("q2-calendar[calendar-label='Select Start Date']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[icon-right='calendar']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver, root2);
+					WebElement calStartDate = shadowRoot2.findElement(By.cssSelector("button[test-id='inputField']"));
+					calStartDate.click();
 					Thread.sleep(3000);
-					selectFutureDate(1);
+					selectDateofShadowRootElement(1,"Select Start Date");
 					test.log(Status.INFO, "Start Date selected");
-
-					getElement(ObjectRepository.enddt_cal).click();
+				
+					WebElement Endroot1 = driver.findElement(By.cssSelector("q2-calendar[calendar-label='Select End Date']"));
+					WebElement EndshadowRoot1 = ObjectRepository.expandRootElement(driver, Endroot1);
+					WebElement Endroot2 = EndshadowRoot1.findElement(By.cssSelector("q2-input[icon-right='calendar']"));
+					WebElement EndshadowRoot2 = ObjectRepository.expandRootElement(driver, Endroot2);
+					WebElement calEndDate = EndshadowRoot2.findElement(By.cssSelector("button[test-id='inputField']"));
+					calEndDate.click();
 					Thread.sleep(3000);
-					selectFutureDate(10);
+					selectDateofShadowRootElement(1,"Select End Date");
+					
 					test.log(Status.INFO, "End Date selected");
-
 					
 					getElement(ObjectRepository.mkpymnt_memo).sendKeys(memo);
 					test.log(Status.INFO, "Memo entered");
@@ -155,16 +167,30 @@ public class C23511_VerifyConsumerLoanPayOffPayment  extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					WebElement ele=getElement("//span[text()='Single Transactions']/parent::*/parent::*");
+				//	WebElement ele=getElement("//span[text()='Single Transactions']/parent::*/parent::*");
 					
-					String sngltrnsctn=ele.getAttribute("class");
+				/*	String sngltrnsctn=ele.getAttribute("class");
 					if(sngltrnsctn.contains("active")){
 						Assert.assertTrue(true);
 						test.log(Status.INFO, "Single Transaction tab is selected");
 					}else{
 						test.log(Status.INFO, "Single Transaction tab is not selected");
-					}
+						
+					}*/
 					
+				
+					String[] option = new String[]{"Amount","Description","From Account","To Account"};
+					String[] actualValue = new String[]{amnt,memo,frmacnt,toacnt};
+					for(int count=0;count<getTransactionDetails(option).length;count++){
+						
+						String eachValue = getTransactionDetails(option)[count];
+						System.out.println(eachValue);
+						if(eachValue.contains(actualValue[count])){
+							Assert.assertTrue(true, "Value matched");
+						}
+						
+					
+					}
 				
 				 }
 			 }

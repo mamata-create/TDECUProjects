@@ -107,15 +107,58 @@ public class C23401_VerifySelectedFromAccountNotInToAccount extends GenericKeywo
 					test.log(Status.INFO, "Fund Transfer page opened");
 					Thread.sleep(7000);
 					
-					selectDropdownOptContain(ObjectRepository.frmacnt_dropdown,frmacnt);
-					test.log(Status.INFO, "From Account selected ");
+					
+					WebElement root1 = driver.findElement(By.cssSelector("div[test-id='selTransferFrom'] q2-select"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[label='From Account']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver,root2);
+					
+					WebElement fromAccounDropDown = shadowRoot2.findElement(By.cssSelector("button[aria-label=', From Account']"));
+					fromAccounDropDown.click();
+					List<WebElement> allOptions = driver.findElements(By.xpath("//q2-select[@label='From Account']/q2-option"));
+					for(int count=1;count<=allOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='From Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(frmacnt)){
+							String fromAccountLocator = "//q2-select[@label='From Account']/q2-option[contains(@display,'"+frmacnt+"')]";
+							getElement(fromAccountLocator).click();
+						}
+						
+					}
+					
+					
+					
+					
+					
+					WebElement root = driver.findElement(By.cssSelector("div[test-id='selTransferTo'] q2-select"));
+					WebElement shadowRoot = ObjectRepository.expandRootElement(driver,root);
+					WebElement root3 = shadowRoot.findElement(By.cssSelector("q2-input[label='To Account']"));
+					WebElement shadowRoot3 = ObjectRepository.expandRootElement(driver,root3);
+					
+					WebElement toAccounDropDown = shadowRoot3.findElement(By.cssSelector("button[aria-label=', To Account']"));
+					toAccounDropDown.click();
+					
+					
+					List<WebElement> allToOptions = driver.findElements(By.xpath("//q2-select[@label='To Account']/q2-option"));
+					for(int count=1;count<=allToOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='To Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(frmacnt)){
+							Assert.assertTrue(false, "From account found in To account field");
+						}else{
+							Assert.assertTrue(true, "From account is not found in To account field");
+						}
+						
+					}
+				//	selectDropdownOptContain(ObjectRepository.frmacnt_dropdown,frmacnt);
+					/*test.log(Status.INFO, "From Account selected ");
 					Thread.sleep(3000);
 					
 					int foundOpt=0;
 					int notfoundOpt=0;
-					int i;
+					int i;*/
 					
-					List<WebElement> allOptions =driver.findElements(By.xpath("//select[@id='inputTo']/option"));
+				/*	List<WebElement> allOptions =driver.findElements(By.xpath("//select[@id='inputTo']/option"));
 					for( i=0; i<allOptions.size(); i++) {
 						String option=allOptions.get(i).getText();
 					    if(option.contains(frmacnt)) {
@@ -131,7 +174,7 @@ public class C23401_VerifySelectedFromAccountNotInToAccount extends GenericKeywo
 					}else{
 						Assert.assertTrue(false);
 						test.log(Status.INFO, "Selected From Account  available in To Account dropdown");
-					}
+					}*/
 									
 					
 	

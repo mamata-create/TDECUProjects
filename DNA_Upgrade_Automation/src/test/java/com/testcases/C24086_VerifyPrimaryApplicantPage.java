@@ -209,10 +209,23 @@ public class C24086_VerifyPrimaryApplicantPage extends GenericKeywords {
 					Thread.sleep(3000);
 					
 				//Identity verification page
+					
 					verifyElementPresent(ObjectRepository.idnty_ttl);
 					test.log(Status.INFO, "Identity verification page opened");
 					
-					getElement(ObjectRepository.Corporation_Verification).click();
+					String[]options = new String[]{"Loudon, MD","Foo Bar, Inc","Roanoke","123 W 14th Street"};
+					for(String eachOption : options){
+						
+						
+						String locator = "//label[text()='"+eachOption+"']";
+						scrollToElement(locator);
+						getElement(locator).click();
+						test.log(Status.INFO, eachOption+" verification question answered");
+					}
+					
+					
+					
+				/*	getElement(ObjectRepository.Corporation_Verification).click();
 					test.log(Status.INFO, "corporation verification question answered");
 					Thread.sleep(1000);
 					
@@ -230,7 +243,7 @@ public class C24086_VerifyPrimaryApplicantPage extends GenericKeywords {
 
 					getElement(ObjectRepository.Counties_Verification).click();
 					test.log(Status.INFO, "Counties verification question answered");
-					Thread.sleep(1000);
+					Thread.sleep(1000);*/
 					
 
 					getElement(ObjectRepository.cnfrm_btn).click();

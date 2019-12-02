@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -18,6 +20,8 @@ import com.FrameworkComponents.ObjectRepository;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+
+import junit.framework.Assert;
 
 public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericKeywords {
 
@@ -77,7 +81,7 @@ public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericK
 	}
 
 	@Test
-	public void C23446_VerifyAccountDetailTransactionSearchByTime() throws InterruptedException, MessagingException, IOException
+	public void C23446_VerifyAccountDetailTransactionSearchByTime() throws Exception
 	{
 		if(continuetestcase==true)
 		{
@@ -91,16 +95,28 @@ public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericK
 					String desc=excl.getCellData(sheetName, 4, startIter);
 					String amnt=excl.getCellData(sheetName, 5, startIter);
 					
+					Thread.sleep(1500);
+					awaitForElementToVisible("//span[@class='account-nbr' and contains(text(),'"+acntNumber+"')]");
 					getElement("//span[@class='account-nbr' and contains(text(),'"+acntNumber+"')]").click();
 					test.log(Status.INFO, "Account link clicked");
 										
-					verifyElementPresent(ObjectRepository.dtls_lnk);
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='account-details-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement DetailsRoot2 = shadowRoot1.findElement(By.cssSelector("a[value='details']"));
+					Assert.assertEquals(true, DetailsRoot2.isDisplayed());	
+					
 					test.log(Status.INFO, "Details link available on account details page");
 					
 					getElement(ObjectRepository.acntdtl_shwfltr).click();
 					test.log(Status.INFO, "Filter icon clicked to show filter options");
 					
-					selectDropdownOptContain(ObjectRepository.acntdtl_timeprd_dropdown, "Today");
+					WebElement timePerd_root1 = driver.findElement(By.cssSelector("q2-select[label='Time Period']"));
+					WebElement shadow_timePerd_root1 = ObjectRepository.expandRootElement(driver, timePerd_root1);
+					WebElement timePerd_root2 = shadow_timePerd_root1.findElement(By.cssSelector("q2-input[label='Time Period']"));
+					WebElement timePerd_shadow_Root2 = ObjectRepository.expandRootElement(driver, timePerd_root2);
+					WebElement timePerdDropdown = timePerd_shadow_Root2.findElement(By.cssSelector("button[test-id='inputField']"));
+					selectOptionShadowRoot(timePerdDropdown,"Today").click();
+						
 					test.log(Status.INFO, "Today selected from time period dropdown");
 					
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
@@ -108,14 +124,14 @@ public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericK
 					Thread.sleep(3000);
 					test.log(Status.INFO, "Today transactions searched");
 					
-					selectDropdownOptContain(ObjectRepository.acntdtl_timeprd_dropdown, "Yesterday");
+					selectOptionShadowRoot(timePerdDropdown,"Yesterday").click();
 					test.log(Status.INFO, "Yesterday selected from time period dropdown");
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");
 					Thread.sleep(3000);
 					test.log(Status.INFO, "Yesterday transactions searched");
 					
-					selectDropdownOptContain(ObjectRepository.acntdtl_timeprd_dropdown, "This Month");
+					selectOptionShadowRoot(timePerdDropdown,"This month").click();
 					test.log(Status.INFO, "This month selected from time period dropdown");
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");

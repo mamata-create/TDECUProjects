@@ -51,9 +51,6 @@ public class C24189_VerifyAdditionalLoanInfo extends GenericKeywords{
 					String idSection=excl.getCellData(sheetName, 2, startIter);
 					String loanSection=excl.getCellData(sheetName, 3, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -79,17 +76,17 @@ public class C24189_VerifyAdditionalLoanInfo extends GenericKeywords{
 					scrollToElement(ObjectRepository.loanHdr);
 					verifyText(ObjectRepository.loanHdr,loanSection);
 					test.log(Status.INFO, "Loan Information section displayed");
-					verifyText(ObjectRepository.housePymt,"");
-					verifyText(ObjectRepository.addrYears,"");
-					verifyText(ObjectRepository.addrMonths,"");
-					verifyText(ObjectRepository.currentEmp,"");
-					verifyText(ObjectRepository.monIncome,"");
-					verifyText(ObjectRepository.empYears,"");
-					verifyText(ObjectRepository.empMonths,"");
-					verifyText(ObjectRepository.prevEmp,"");
-					verifyText(ObjectRepository.prevIncome,"");
-					verifyText(ObjectRepository.prevYears,"");
-					verifyText(ObjectRepository.prevMonths,"");
+					verifyTxtFieldValue(ObjectRepository.housePymt,"");
+					verifyTxtFieldValue(ObjectRepository.addrYears,"");
+					verifyTxtFieldValue(ObjectRepository.addrMonths,"");
+					verifyTxtFieldValue(ObjectRepository.currentEmp,"");
+					verifyTxtFieldValue(ObjectRepository.monIncome,"");
+					verifyTxtFieldValue(ObjectRepository.empYears,"");
+					verifyTxtFieldValue(ObjectRepository.empMonths,"");
+					verifyTxtFieldValue(ObjectRepository.prevEmp,"");
+					verifyTxtFieldValue(ObjectRepository.prevIncome,"");
+					verifyTxtFieldValue(ObjectRepository.prevYears,"");
+					verifyTxtFieldValue(ObjectRepository.prevMonths,"");
 					test.log(Status.INFO, "Loan Information fields blank");
 				 }
 			}

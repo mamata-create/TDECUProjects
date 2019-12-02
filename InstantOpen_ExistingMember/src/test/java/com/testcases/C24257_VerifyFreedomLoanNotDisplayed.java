@@ -44,9 +44,6 @@ public class C24257_VerifyFreedomLoanNotDisplayed extends GenericKeywords{
 				 {
 					String dropdown=excl.getCellData(sheetName, 1, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

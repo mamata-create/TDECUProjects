@@ -63,9 +63,6 @@ public class C24157_VerifyVehicleLoanMinMax extends GenericKeywords{
 					String popupMsg5=excl.getCellData(sheetName, 30, startIter);
 					String popupMsg6=excl.getCellData(sheetName, 31, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

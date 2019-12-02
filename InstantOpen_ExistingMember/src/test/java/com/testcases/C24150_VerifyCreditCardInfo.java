@@ -52,9 +52,6 @@ public class C24150_VerifyCreditCardInfo extends GenericKeywords{
 					String ccAmount=excl.getCellData(sheetName, 11, startIter);
 					String amountFormat=excl.getCellData(sheetName, 12, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -71,8 +68,8 @@ public class C24150_VerifyCreditCardInfo extends GenericKeywords{
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,onyxDropdown);
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,plantinumDropdown);
 					
-					verifyTxtValue(ObjectRepository.prodInfoBackButton,backButton);
-					verifyTxtValue(ObjectRepository.prodInfoNextButton,continueBtn);
+					verifyTxtFieldValue(ObjectRepository.prodInfoBackButton,backButton);
+					verifyTxtFieldValue(ObjectRepository.prodInfoNextButton,continueBtn);
 					
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(ccAmount);
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(Keys.TAB);

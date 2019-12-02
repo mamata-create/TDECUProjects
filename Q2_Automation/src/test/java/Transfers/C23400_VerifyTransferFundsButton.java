@@ -1,6 +1,7 @@
 package Transfers;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
@@ -107,21 +108,70 @@ public class C23400_VerifyTransferFundsButton extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.fndtrnsfr_ttl);
 					test.log(Status.INFO, "Fund Transfer page opened");
 					
-					Assert.assertFalse(getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
+					Assert.assertFalse(!getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
 					test.log(Status.INFO, "Transfer Funds button disabled");
 					
-					selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
+					WebElement root1 = driver.findElement(By.cssSelector("div[test-id='selTransferFrom'] q2-select"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[label='From Account']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver,root2);
+					
+					WebElement fromAccounDropDown = shadowRoot2.findElement(By.cssSelector("button[aria-label=', From Account']"));
+					fromAccounDropDown.click();
+					List<WebElement> allOptions = driver.findElements(By.xpath("//q2-select[@label='From Account']/q2-option"));
+					for(int count=1;count<=allOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='From Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(frmacnt)){
+							String fromAccountLocator = "//q2-select[@label='From Account']/q2-option[contains(@display,'"+frmacnt+"')]";
+							getElement(fromAccountLocator).click();
+						}
+						
+					}
+					
+				//	selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
 					test.log(Status.INFO, "From Account selected");
+					
+					WebElement root = driver.findElement(By.cssSelector("div[test-id='selTransferTo'] q2-select"));
+					WebElement shadowRoot = ObjectRepository.expandRootElement(driver,root);
+					WebElement root3 = shadowRoot.findElement(By.cssSelector("q2-input[label='To Account']"));
+					WebElement shadowRoot3 = ObjectRepository.expandRootElement(driver,root3);
+					
+					WebElement toAccounDropDown = shadowRoot3.findElement(By.cssSelector("button[aria-label=', To Account']"));
+					toAccounDropDown.click();
+					
+					
+					List<WebElement> allToOptions = driver.findElements(By.xpath("//q2-select[@label='To Account']/q2-option"));
+					for(int count=1;count<=allToOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='To Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(toacnt)){
+							String toAccountLocator = "//q2-select[@label='To Account']/q2-option[contains(@display,'"+toacnt+"')]";
+							getElement(toAccountLocator).click();
+						}
+						
+					}
 		
-					selectDropdownOptContain(ObjectRepository.toacnt_dropdown, toacnt);
+				//	selectDropdownOptContain(ObjectRepository.toacnt_dropdown, toacnt);
 					test.log(Status.INFO, "To Account selected");
 					
-					getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+					WebElement amountroot = driver.findElement(By.cssSelector("q2-input[test-id='fldAmount']"));
+					WebElement amountshadowRoot = ObjectRepository.expandRootElement(driver,amountroot);
+					WebElement amountField = amountshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					
+					amountField.click();
+					amountField.sendKeys(amnt);
 					test.log(Status.INFO, "Amount entered");
 					
-					getElement(ObjectRepository.memo_txt).sendKeys(memo);
+				//	getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+			//		test.log(Status.INFO, "Amount entered");
+					
+					WebElement MemoRoot1 = driver.findElement(By.cssSelector("q2-input[label='Memo']"));
+					WebElement shadowRootMemo1 = ObjectRepository.expandRootElement(driver, MemoRoot1);
+					WebElement memoTxt = shadowRootMemo1.findElement(By.cssSelector("input[test-id='inputField']"));
+					memoTxt.sendKeys(memo);
 					test.log(Status.INFO, "Memo entered");
-					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);
+					memoTxt.sendKeys(Keys.TAB);
 					
 					Assert.assertTrue(getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
 					test.log(Status.INFO, "Transfer Funds button enabled");

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -106,10 +107,55 @@ public class C23496_VerifyMoreThanLineOfCreditAmountTransfer extends GenericKeyw
 					verifyElementPresent(ObjectRepository.fndtrnsfr_ttl);
 					test.log(Status.INFO, "Fund Transfer page opened");
 					
-					Assert.assertFalse(getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
-					test.log(Status.INFO, "Transfer Funds button disabled");
+					Assert.assertFalse(!getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
+					test.log(Status.INFO, "Transfer Funds button enabled");
 					
-					selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
+					//Modified steps 
+					WebElement root1 = driver.findElement(By.cssSelector("div[test-id='selTransferFrom'] q2-select"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[label='From Account']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver,root2);
+					
+					WebElement fromAccounDropDown = shadowRoot2.findElement(By.cssSelector("button[aria-label=', From Account']"));
+					fromAccounDropDown.click();
+					Thread.sleep(1500);
+					selectDropdownOptForShadowRoot(fromAccounDropDown,frmacnt,"From Account");
+					
+					test.log(Status.INFO, "From Account selected");
+					
+					WebElement root = driver.findElement(By.cssSelector("div[test-id='selTransferTo'] q2-select"));
+					WebElement shadowRoot = ObjectRepository.expandRootElement(driver,root);
+					WebElement root3 = shadowRoot.findElement(By.cssSelector("q2-input[label='To Account']"));
+					WebElement shadowRoot3 = ObjectRepository.expandRootElement(driver,root3);
+					
+					WebElement toAccounDropDown = shadowRoot3.findElement(By.cssSelector("button[aria-label=', To Account']"));
+					toAccounDropDown.click();
+					Thread.sleep(1500);
+					selectDropdownOptForShadowRoot(toAccounDropDown,toacnt,"To Account");
+					
+				
+					test.log(Status.INFO, "To Account selected");
+					
+					WebElement amountroot = driver.findElement(By.cssSelector("q2-input[test-id='fldAmount']"));
+					WebElement amountshadowRoot = ObjectRepository.expandRootElement(driver,amountroot);
+					WebElement amountField = amountshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					amountField.sendKeys(amnt);
+					
+					
+					test.log(Status.INFO, "Amount entered");
+					
+					WebElement Memoroot = driver.findElement(By.cssSelector("q2-input[test-id='fldMemo']"));
+					WebElement MemoshadowRoot = ObjectRepository.expandRootElement(driver,Memoroot);
+					WebElement MemoField = MemoshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					MemoField.sendKeys(memo);
+					
+					test.log(Status.INFO, "Memo entered");
+					
+					
+					
+					
+					
+				/*	selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
 					test.log(Status.INFO, "From Account selected");
 					Thread.sleep(2000);
 					
@@ -135,8 +181,9 @@ public class C23496_VerifyMoreThanLineOfCreditAmountTransfer extends GenericKeyw
 					
 					getElement(ObjectRepository.memo_txt).sendKeys(memo);
 					test.log(Status.INFO, "Memo entered");
-					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);
+					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);*/
 					
+					scrollToElement(ObjectRepository.trnsfrfnds_btn);
 					getElement(ObjectRepository.trnsfrfnds_btn).click();
 					test.log(Status.INFO, "Transfer Funds button clicked");
 					Thread.sleep(4000);

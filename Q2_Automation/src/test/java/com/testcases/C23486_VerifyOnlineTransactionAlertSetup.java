@@ -125,7 +125,7 @@ public class C23486_VerifyOnlineTransactionAlertSetup extends GenericKeywords {
 					
 					verifyElementPresent(ObjectRepository.onlnalrtsel_trnsctn);
 					verifyElementPresent(ObjectRepository.onlnalrtsel_frqncy);
-					verifyElementPresent(ObjectRepository.alrtsel_dlvrymthd);
+					verifyElementPresent(ObjectRepository.alrt_dlvrymthd);
 					test.log(Status.INFO, "Alert selected info appearing in the left");
 					
 					String svbtn_class=getElement(ObjectRepository.alrt_svbtn).getAttribute("class");

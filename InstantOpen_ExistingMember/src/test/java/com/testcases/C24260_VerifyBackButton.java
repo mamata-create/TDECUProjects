@@ -51,9 +51,6 @@ public class C24260_VerifyBackButton extends GenericKeywords{
 					String carPrice = "$10,000";
 					String personalLoan = "$500";
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

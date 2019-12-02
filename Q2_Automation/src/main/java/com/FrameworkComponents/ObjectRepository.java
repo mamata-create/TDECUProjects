@@ -1,5 +1,9 @@
 package com.FrameworkComponents;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 public class ObjectRepository {
 
 	//login page
@@ -23,8 +27,8 @@ public class ObjectRepository {
 	public static String logout_msg="//h1[contains(text(),'Successfully Logged Out')]";
 	
 	//transactions page
-	public static String trnsctn_menu="//a[@aria-label='Transactions']//div[text()='Transactions']";
-	public static String fndtrnsfr_menu="//a[@aria-label='Funds Transfer']//div[text()='Funds Transfer']";
+	public static String trnsctn_menu="//a[contains(@class,'transactions')]//div[text()='Transactions']";
+	public static String fndtrnsfr_menu="//a[contains(@class,'transfers-tab')]//div[text()='Funds Transfer']";
 	//Fund Transfer page
 	public static String fndtrnsfr_ttl="//h1[text()='Funds Transfer']";
 	public static String frmacnt_dropdown="//select[@id='inputFrom']";
@@ -32,7 +36,7 @@ public class ObjectRepository {
 	public static String amnt_txt="//input[@test-id='fldAmount']";
 	public static String rccrng_chkbx="//span[@test-id='cbxRecurring']";
 	
-	public static String frqncy_dropdown="//select[@test-id='drpFrequency']";
+	public static String frqncy_dropdown="//select[@test-id='selFrequency']";
 	public static String stdt_cal="//div[contains(@class,'start-date')]//input[@test-id='fldCalendar']";
 	public static String enddt_cal="//div[contains(@class,'end-date')]//input[@test-id='fldCalendar']";
 	public static String noenddt="//div[contains(text(),'No End Date')]";
@@ -42,13 +46,13 @@ public class ObjectRepository {
 	public static String memo_txt="//input[@test-id='fldMemo']";
 	public static String trnsfrfnds_btn="//button[@test-id='btnTransferFunds']";
 	public static String clr_btn="//button[@test-id='btnClear']";
-	public static String trnsfrsccs_msg="//div[text()='Transaction Processed']";
-	public static String schdltrnsfrsccs_msg="//div[text()='Transaction Authorized']";
-	public static String vwactvtycntr_btn="//button[text()='View In Activity Center']";
+	public static String trnsfrsccs_msg="//*[text()='Transaction Processed']";
+	public static String schdltrnsfrsccs_msg="//*[text()='Transaction Authorized']";
+	public static String vwactvtycntr_btn="//div[text()='Activity Center']";
 	public static String cls_btn="//button[text()='Close']";
 	
-	public static String fndtrnsfrerr="//div[@class='modal-title']";
-	public static String fndtrnsfrerr_msg="//div[@class='modal-msg mrg-A-sm']";
+	public static String fndtrnsfrerr="//div[@test-id='ui-modal-dialog']";
+	public static String fndtrnsfrerr_msg="//div[@class='ui-modal-header']";
 	
 	//Make a Payment
 	public static String mkpymnt_menu="//div[@class='menu-text' and text()='Make A Payment']";
@@ -70,14 +74,14 @@ public class ObjectRepository {
 //Activity Center
 	public static String actvtycntr_menu="//div[@class='menu-text' and text()='Activity Center']";
 	public static String actvtycntr_ttl="//h1[text()='Activity Center']";
-	public static String actvtycntr_amnt="//tr[contains(@class,'selected')]//td[@test-id='txtAmount']";
+	public static String actvtycntr_amnt="(//table[@id='tblTransactions']//td[@test-id='txtAmount']/span)[1]";
 	public static String actvtycntr_memo="//span[@test-id='txtDescription']";
 	public static String sngltrnsctn_tab="//span[text()='Single Transactions']";
 	public static String rcrngtrnsctn_tab="//span[text()='Recurring Transactions']";
-	public static String srchtrnsctn_txt="//span[contains(@class,'searchbox')]//input[@placeholder='Search transactions']";
+	public static String srchtrnsctn_txt="//div[@class='searchbox']//input[@placeholder='Search transactions']";
 	public static String fltr_lnk="//button[@test-id='lnkShowClassic']";
 	public static String trnsctntyp_parent="//div[@class='col-xs-12']/div[1]/div[1]";
-	public static String trnsctntyp_drop="//select[@class='ember-view ember-select form-control']";
+	public static String trnsctntyp_drop="//select[@test-id='selTranType']";
 	public static String stts_parent="//div[@class='col-xs-12']/div[1]/div[2]//select[@class='ember-view ember-select form-control']";
 	public static String acnt_parent="//div[@class='col-xs-12']/div[1]/div[3]//select[@class='ember-view ember-select form-control']";
 	public static String crtd_parent="//div[@class='col-xs-12']/div[1]/div[4]//select[@class='ember-view ember-select form-control']";
@@ -89,7 +93,7 @@ public class ObjectRepository {
 	public static String trnsctntyp_col_srt="//table[@test-id='txtAccountsTable']//th[@test-id='lblTransactionType']//span[contains(@class,'sort-icon')]";
 	public static String acnt_col_srt="//table[@test-id='txtAccountsTable']//th[@test-id='lblAccount']//span[contains(@class,'sort-icon')]";
 	public static String amnt_col_srt="//table[@test-id='txtAccountsTable']//th[@test-id='lblAmount']//span[contains(@class,'sort-icon')]";
-	public static String actns_lnk="//div[@class='content-wrapper grid-column']//tbody[@class='scrollable']/tr[1]//div[@test-id='drpTransactionActions']";
+	public static String actns_lnk="(//button[@aria-label='Actions']//span)[1]";
 	public static String recactns_lnk="//div[@class='content-wrapper grid-column']//tbody[@class='scrollable']/tr[5]//div[@test-id='drpTransactionActions']";
 	public static String fav_drop="//a[@test-id='btnACFavorites']";
 	public static String addfav="//div[@test-id='btnAddFavorite']";
@@ -99,24 +103,25 @@ public class ObjectRepository {
 	public static String resetfltr_btn="//button[@test-id='btnResetFilters']";
 	public static String aplyfltr_btn="//button[@test-id='lnkSearch']";
 	public static String actn_lnk="//tr[@test-id='txtTransactionSummary']/td[6]/div[@test-id='drpTransactionActions']";
-	public static String actn_cncl="//div[@test-id='drpTransactionActions']/ul/li[1]";
-	public static String actn_inqr="//div[@test-id='drpTransactionActions']/ul/li[2]";
-	
+	public static String actn_cncl="//button[@aria-label='Actions']/following::ul[1]//li[2]";
+	public static String actn_inqr="//button[@aria-label='Actions']/following::ul[1]//li[3]";
+	public static String applyFilterBtn = "//button[@test-id='lnkSearch']";
 	public static String trnsfrmnynow_lnk="//div[@test-id='btnQuickTransfer']";
 	
 	public static String fundtransfer_ttl="//h1[text()='Funds Transfer']";
-	public static String wlcmmsg="//span[contains(text(),'Welcome back')]";
+	public static String wlcmmsg="//div[@class='customer-name']";
+	public static String timeStamp = "//div[@test-id='lblLastLogin']";
 	
 	public static String accntgrp_expnd="//div[contains(@class,'account-group')]//a[@aria-label='Expand Group']";
 	public static String accn_lbl="//span[@class='account-label']";
-	public static String dtls_lnk="//span[text()='Details']";
+	public static String dtls_lnk="//*[text()='Details']";
 	
 	public static String cntctus_menu="//div[@class='menu-text' and text()='Contact Us']";
 	public static String cntctus_h1="//h1[text()='Contact Us']";
 	public static String cntctus_h2="//h2[text()='We'd love to hear from you']";
-	public static String actvtycntr_infmsg="//div[@class='quicktips-text' and contains(text(),'View or search transactions')]";
-	public static String cncl_cnfmbtn="//button[contains(text(),'Confirm')]";
-	public static String cncl_sccs="//div[text()='Transaction Cancelled']";
+	public static String actvtycntr_infmsg="//span[@test-id='textQT' and contains(text(),'View or search transactions')]";
+	public static String cncl_cnfmbtn="//button[contains(@class,'btn-primary')]";
+	public static String cncl_sccs="//*[text()='Transaction Cancelled']";
 	public static String inqr_ttl="//h2[text()='Transaction Inquiry']";
 	public static String inqr_msg="//textarea[@test-id='fldMessageContent']";
 	public static String inqr_sccs="//div[text()='Message Sent']";
@@ -158,7 +163,7 @@ public class ObjectRepository {
 	
 	//Locations
 	public static String loc_menu="//div[@class='menu-text' and text()='Locations']";
-	public static String atm_tab="//li[@test-id='btnBranchesATMTab' and contains(text(),'ATMs')]";
+	public static String atm_tab="//button[@test-id='btnBranchesATMTab']";
 	public static String locsrch_txt="//input[@test-id='fldSearch']";
 	
 	//Settings
@@ -170,17 +175,17 @@ public class ObjectRepository {
 		public static String nickname_btn="//button[@class='btn btn-default input-sm pad-H-md']";
 		public static String nickname_txt="//input[@test-id='fldEditing']";
 		public static String nickname_svbtn="//span[@class='icon-ok']";
-		public static String nickname_cnclbtn="//span[@class='icon-remove']";
+		public static String nickname_cnclbtn="(//button[@aria-label='Close Tip'])[2]";
 		public static String acntsrch_txt="//div[contains(@class,'searchbox')]//input[@test-id='fldSearch']";
-		public static String acntsrch_clr="//div[contains(@class,'searchbox')]//span[@test-id='iconRemove']";
+		public static String acntsrch_clr="//button[@test-id='iconRemove']//span";
 		public static String acntsrch_errmsg="//div[contains(text(),'No available accounts match the search criteria')]";
 		public static String nickname_edt="//span[@class='icon-edit link-icon pointer']";
-		public static String acntdtl_desc="//div[@id='historyItems']/div[1]//div[@test-id='historyItemDescription']";
-		public static String acntdtl_amnt="//div[@id='historyItems']/div[1]//div[@test-id='lblAmount']";
+		public static String acntdtl_desc="//ul[@id='historyItems']//div[1]//div[@test-id='historyItemDescription']";
+		public static String acntdtl_amnt="(//ul[@id='historyItems']//div)[1]//span[@test-id='lblAmount']";
 		public static String trnsctn_err_msg="//p[contains(text(),'There are no transactions that match your filter')]";
 		public static String home_menu="//div[@class='menu-text' and contains(text(),'Home')]";
-		public static String acntdtl_shwfltr="//a[@test-id='lnkShowFilter']";
-		public static String acntdtl_aplyfltr="//span[@test-id='btnApplyFilter']";
+		public static String acntdtl_shwfltr="//button[@test-id='btnShowFilter']";
+		public static String acntdtl_aplyfltr="//q2-btn[@test-id='btnApplyFilter']";
 		public static String acntdtl_resetfltr="//span[@test-id='btnClearFilter']";
 		public static String acntdtl_timeprd_dropdown="//select[@test-id='selTimePeriod']";
 		public static String acntdtl_trnsctntyp_dropdown="//select[@test-id='selTransType']";
@@ -189,38 +194,57 @@ public class ObjectRepository {
 		public static String acntdtl_checknofrom="//input[@test-id='fldCheckNoFrom']";
 		public static String acntdtl_checknoto="//input[@test-id='fldCheckNoTo']";
 		
+	//Messages
+		public static String msg_menu ="//div[@class='menu-text' and text()='Secure Messages']";
+		public static String replyBtn = "//button[@test-id='btnReplyMessage']";
+		
 	//Alerts
 		public static String alrt_menu="//div[@class='menu-text' and text()='Alerts']";
 		public static String alrt_ttl="//h1[@test-id='lblAlertsTitle' and text()='Alerts']";
-		public static String alrtopts_drop="//div[@test-id='selNewAlert']/select";
-		public static String alrtsel_typ="//div[@test-id='lblAlertSelectedType']";
-		public static String alrtsel_dt="//div[@test-id='lblAlertSelectedType']";
-		public static String alrtsel_msg="//div[@test-id='lblAlertSelectedMsg']";
-		public static String alrtsel_dlvrymthd="//div[@test-id='lblAlertSelectedDelivery']";
+		public static String alrtopts_drop="//button[@test-id='btnUIDropdownToggle']";
+		public static String alrtTypes= "//ul[@role='menu']//li";
+		public static String alrtBackLink = "//a[text()='Back to Alerts']";
+		public static String alrtsel_typ="//q2-select[@test-id='fldDateTypeSelect']";
+		public static String alrtEvents = "//q2-select[@label='Event']//q2-option";
+		public static String alrtsel_dt="//q2-calendar[@test-id='dateAlertDate']";
+		public static String alrtsel_msg="//q2-input[@test-id='fldAlertMessage']";
+		public static String alrtsel_dlvryEmail="//div[@class='fieldset-content']//div[contains(text(),'Email')]";
+		public static String alrtsel_dlvryVoice="//div[@class='fieldset-content']//div[contains(text(),'Voice')]";
+		public static String alrtsel_dlvryText="//div[@class='fieldset-content']//div[contains(text(),'SMS Text Message')]";
+		public static String alrtsel_dlvrymsg="//div[@class='fieldset-content']//div[contains(text(),'Secure Message')]";
+		public static String alrtTermsLink = "//button[@test-id='lnkTermsAndCond']";
+		public static String SMStermsTitle = "//h1[@test-id='lblModalTitle' and text()='SMS Terms and Conditions']";
 		
-		public static String alrtsel_acnt="//div[@test-id='lblAlertSelectedAccount']";
+		
+		public static String alrtsel_acnt="//q2-select[@test-id='fldAccountSelect']";
+		public static String accountList= "//q2-select[@label='Account']//q2-option";
 		public static String alrtsel_fld="//div[@test-id='lblAlertSelectedHade']";
 		public static String alrtsel_trnsctn="//div[@test-id='lblAlertSelectedPostedType']";
-		public static String onlnalrtsel_trnsctn="//div[@test-id='lblAlertSelectedTransType']";
+		public static String onlnalrtsel_trnsctn="//q2-select[@test-id='fldSelectAlertTransType']";
+		public static String transTypes= "//q2-select[@label='Transaction']//q2-option";
 		public static String alrtsel_cmpr="//div[@test-id='lblAlertSelectedOperator']";
-		public static String alrtsel_amnt="//div[@test-id='lblAlertSelectedAmount']";
+		public static String alrtsel_amnt="//q2-input[@test-id='fldAlertAmount']";
 		public static String alrtsel_frqncy="//input[@test-id='cbxFrequency']";
 		public static String onlnalrtsel_frqncy="//div[@test-id='lblAlertSelectedFreq']";
+		public static String alrtStatus = "//q2-select[@test-id='fldOnlineActivityTypeSelect']";
+		public static String statusList= "//q2-select[@label='Status']//q2-option";
 		
-		
+		public static String alrt_backbtn="//button[@test-id='btnGoBack']";
 		public static String alrt_svbtn="//button[@test-id='btnSave']";
 		public static String acntalrt_svbtn="//span[@class='integerInputButtonText' and text()='Save']";
-		public static String alrt_rccryr="//input[@test-id='cbxAnnualAlert']";
-		public static String alrt_msg="//input[@test-id='fldAlertMessage']";
+		public static String alrt_rccryr="//div[@test-id='cbxAnnualAlert']";
+		public static String alrt_msg="//q2-input[@test-id='fldAlertMessage']";
 		public static String alrt_setbtn="//div[@test-id='btnSet']";
 		public static String alrt_dlvrymthd="//select[@test-id='selAlertDelivery']";
-		public static String alrt_cntry="//select[@test-id='selAlertTextCountry']";
+		public static String alrt_cntry="//q2-select[@test-id='selAlertTextCountry']";
+		public static String countryList= "//q2-select[@label='Country']//q2-option";
 		public static String alrtcall_cntry="//select[@test-id='selAlertCallCountry']";
-		public static String alrt_phone="//input[@test-id='fldAlertTextNumber']";
-		public static String alrtcall_phone="//input[@test-id='fldAlertCallNumber']";
+		public static String alrt_phone="//q2-input[@test-id='fldAlertTextNumber']";
+		public static String alrtcall_phone="//q2-input[@test-id='fldAlertCallNumber']";
+		public static String alrtCheckNumLbl = "//q2-input[@label='Check Number']";
 		
 		public static String alrt_sndimdt="//input[@test-id='cbxAlertSendImmediately']";
-		public static String alrt_acpttrms="//input[@test-id='cbxAcceptTerms']";
+		public static String alrt_acpttrms="//q2-checkbox[@test-id='cbxAcceptTerms']";
 		public static String alrt_svsccs="//div[text()='Save Alert']";
 		public static String alrt_clsbtn="//button[@test-id='btnClose']";
 		public static String alrt_email="//input[@test-id='fldAlertEmail']";
@@ -331,19 +355,36 @@ public class ObjectRepository {
 				public static String activityCenterHeader = "//h1[contains(text(),'Activity Center')]";
 				public static String recordOfTable ="(//table[@test-id='txtAccountsTable']//tr)[2]";
 				public static String closeButton = "//button[@test-id='btnClose']";
-				public static String viewInActivityButton = "//button[contains(text(),'View In Activity Center')]";
-				public static String modalTitle = "//div[@class='modal-title']";
-				public static String selectAllButton = "//button[@test-id='btnSelectAll']";
-				public static String confirmationMsg = "//div[@class='modal-msg mrg-A-sm' and @test-id='txtModalText' ]";
+				public static String viewInActivityButton = "//button[text()='View In Activity Center']";
+				public static String modalTitle = "//div[@class='ui-modal-header']";
+				public static String selectAllButton = "//button[text()='Select All']";
+				public static String confirmationMsg = "//div[@class='ui-modal-header']//p";
 				public static String firstRecordInTable = "(//table[@test-id='txtAccountsTable']//td[@test-id='txtHeaderAccount'])[1]";
 				public static String actionsDropdown = "(//table[@test-id='txtAccountsTable']//div[@test-id='drpTransactionActions'])[1]";
 				public static String allOptions ="(//table[@test-id='txtAccountsTable']//div[@test-id='drpTransactionActions'])[1]//li";
 				public static String secureMasgPageTitle = "//h1[@test-id='lblMessagesTitle']";
 				public static String messageArea = "//textarea[@test-id='fldMessageContent']";
 				public static String sendButton = "//button[@test-id='btnSubmit']";
-				public static String modalLableTitle = "//div[@test-id='lblModalTitle']";
-				public static String modalNoButton = "//button[contains(text(),'No')]";
-				public static String modalConfirmButton ="//button[contains(text(),'Confirm')]";
-				public static String modalTxt = "//div[@test-id='txtModalText']";
+				public static String modalLableTitle = "//*[@test-id='lblModalTitle']";
+				public static String modalNoButton = "//button[text()='No']";
+				public static String modalConfirmButton ="//button[text()='Confirm']";
+				public static String modalTxt = "//*[@test-id='txtModalText']";
 				public static String modalCloseButton = "//button[@test-id='btnClose']";
+				public static String modalFundTransferPopUpCloseBtn = "//button[@test-id='btnModalButton2']";
+				public static String applyButtonToScroll = "//button[text()='Apply']";
+				
+		//Retrun shadow root element
+				
+				public static WebElement expandRootElement(WebDriver driver,WebElement element) {
+					WebElement ele = (WebElement) ((JavascriptExecutor)driver)
+				.executeScript("return arguments[0].shadowRoot", element);
+					return ele;
+				}
+				
+	 	//Date option selection
+			public static String dateRangeOption(String value){
+				String locator = "//div[contains(text(),'"+value+"')]";
+				return locator;
+				
+			}
 }

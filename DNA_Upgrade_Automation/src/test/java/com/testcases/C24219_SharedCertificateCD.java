@@ -127,25 +127,15 @@ public class C24219_SharedCertificateCD extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.idnty_ttl);
 					test.log(Status.INFO, "Identity verification page opened");
 					
-					getElement(ObjectRepository.Corporation_Verification).click();
-					test.log(Status.INFO, "corporation verification question answered");
-					Thread.sleep(1000);
-					
-					getElement(ObjectRepository.address_Verification).click();
-					test.log(Status.INFO, "Address verification question answered");
-					Thread.sleep(1000);
-					
-					scrollToElement(ObjectRepository.background_Verification);
-
-					getElement(ObjectRepository.background_Verification).click();
-					test.log(Status.INFO, "Background verification question answered");
-					Thread.sleep(1000);
-					
-					scrollToElement(ObjectRepository.Counties_Verification);
-
-					getElement(ObjectRepository.Counties_Verification).click();
-					test.log(Status.INFO, "Counties verification question answered");
-					Thread.sleep(1000);
+					String[]options = new String[]{"Loudon, MD","Foo Bar, Inc","Roanoke","123 W 14th Street"};
+					for(String eachOption : options){
+						
+						
+						String locator = "//label[text()='"+eachOption+"']";
+						scrollToElement(locator);
+						getElement(locator).click();
+						test.log(Status.INFO, eachOption+" verification question answered");
+					}
 					
 
 					getElement(ObjectRepository.cnfrm_btn).click();

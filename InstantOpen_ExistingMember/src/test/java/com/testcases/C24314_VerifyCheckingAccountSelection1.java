@@ -50,9 +50,6 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
 					String errorMsg1= excl.getCellData(sheetName, 30, startIter);
 					String errorMsg2= excl.getCellData(sheetName, 31, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -91,7 +88,7 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
 					getElement(ObjectRepository.confirmBtn).click();
 					test.log(Status.INFO, "Identity Verification questions answered");
 					//Account Funding
-					verifyElementPresent(ObjectRepository.acctFundTile);
+					verifyElementPresent(ObjectRepository.acctFundTitle);
 					getElement(ObjectRepository.submitBtn).click();
 					verifyText(ObjectRepository.errorMsg1,errorMsg1);
 					verifyText(ObjectRepository.errorMsg2,errorMsg2);

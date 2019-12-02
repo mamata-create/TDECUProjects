@@ -1,9 +1,11 @@
 package Home;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -97,9 +99,17 @@ public class C23644_VerifyActivityCenterInformativeMessage  extends GenericKeywo
 		getElement(ObjectRepository.nickname_cnclbtn).click();
 		test.log(Status.INFO, "Close button clicked for informative message on activity center page");
 		Thread.sleep(3000);
+		List<WebElement>infoMsg= driver.findElements(By.xpath(ObjectRepository.actvtycntr_infmsg));
+		if(infoMsg.size()!=0){
+			Assert.assertTrue(true);
+			test.log(Status.INFO, "Activity Center Informative message disappeared");
+		}else{
+			Assert.assertTrue(false);
+			test.log(Status.INFO, "Activity Center Informative message disappeared");
+		}
 		
 		verifyElementNotPresent(ObjectRepository.actvtycntr_infmsg);
-		test.log(Status.INFO, "Activity Center Informative message disappeared");
+		
 	}
 
 	@AfterMethod

@@ -1,11 +1,15 @@
 package Transfers;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -105,67 +109,135 @@ public class C23414_VerifyRecurringTransactionInActivityCenter extends GenericKe
 					verifyElementPresent(ObjectRepository.fndtrnsfr_ttl);
 					test.log(Status.INFO, "Fund Transfer page opened");
 					
-					selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
+					WebElement root1 = driver.findElement(By.cssSelector("div[test-id='selTransferFrom'] q2-select"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[label='From Account']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver,root2);
+					
+					WebElement fromAccounDropDown = shadowRoot2.findElement(By.cssSelector("button[aria-label=', From Account']"));
+					fromAccounDropDown.click();
+					Thread.sleep(1500);
+					selectDropdownOptForShadowRoot(fromAccounDropDown,frmacnt,"From Account");
+					
 					test.log(Status.INFO, "From Account selected");
 		
-					selectDropdownOptContain(ObjectRepository.toacnt_dropdown, toacnt);
+					WebElement root = driver.findElement(By.cssSelector("div[test-id='selTransferTo'] q2-select"));
+					WebElement shadowRoot = ObjectRepository.expandRootElement(driver,root);
+					WebElement root3 = shadowRoot.findElement(By.cssSelector("q2-input[label='To Account']"));
+					WebElement shadowRoot3 = ObjectRepository.expandRootElement(driver,root3);
+					
+					WebElement toAccounDropDown = shadowRoot3.findElement(By.cssSelector("button[aria-label=', To Account']"));
+					toAccounDropDown.click();
+					Thread.sleep(1500);
+					selectDropdownOptForShadowRoot(toAccounDropDown,toacnt,"To Account");
+					
+				
 					test.log(Status.INFO, "To Account selected");
 					
-					getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+					WebElement amountroot = driver.findElement(By.cssSelector("q2-input[test-id='fldAmount']"));
+					WebElement amountshadowRoot = ObjectRepository.expandRootElement(driver,amountroot);
+					WebElement amountField = amountshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					amountField.sendKeys(amnt);
+					
+					
 					test.log(Status.INFO, "Amount entered");
+					//Updated Steps
 					
-				//Select recurring check box to verify respective fields appears	
-					getElement(ObjectRepository.rccrng_chkbx).click();
-					test.log(Status.INFO, "Recurring checkbox clicked");
-					
-					selectDropdownOptContain(ObjectRepository.frqncy_dropdown, frqncy);
-					test.log(Status.INFO, "Frequency selected");
+					verifyElementPresent(ObjectRepository.frqncy_dropdown);
+					test.log(Status.INFO, "Frequency dropdown appeared");
 					Thread.sleep(2000);
-					scrollToElement(ObjectRepository.clr_btn);
-					verifyElementPresent(ObjectRepository.rptfrever_chk);
-					test.log(Status.INFO, "Repeat Forever check box appeared");
 					
-					getElement(ObjectRepository.stdt_cal).click();
-					Thread.sleep(3000);
-					selectFutureDate(1);
-					test.log(Status.INFO, "Start Date selected");
+					String[] opts=frqncy.split(",");
+					for(int i=0;i<opts.length;i++){
+						Select s=new Select(getElement(ObjectRepository.frqncy_dropdown));
+						
+						List<WebElement> options = s.getOptions();
 
-					getElement(ObjectRepository.enddt_cal).click();
-					Thread.sleep(3000);
-					selectFutureDate(8);
-					test.log(Status.INFO, "End Date selected");
+						for(int j=0;j<options.size();j++){
+							System.out.println(options.get(j).getText());
+							if(options.get(j).getText().contains("Weekly")){
+								s.selectByVisibleText("Weekly");
+							}
+		
+							if(options.get(j).getText().contains(opts[i])){
+								Assert.assertTrue(true);
+								
+							}
+						}
+					}
 					
-					Thread.sleep(3000);					
-					getElement(ObjectRepository.memo_txt).sendKeys(memo);
+					
+					
+					WebElement TransferstrtDateRoot = driver.findElement(By.cssSelector("q2-calendar[test-id='fldStartDate']"));
+					WebElement strtDateshadowRoot = ObjectRepository.expandRootElement(driver,TransferstrtDateRoot);
+					WebElement TransferstrtDateRoot2 = strtDateshadowRoot.findElement(By.cssSelector("q2-input[test-id='inputAndCalendarToggle']"));
+					WebElement transferDateShadow2 = ObjectRepository.expandRootElement(driver,TransferstrtDateRoot2);
+					WebElement TransferDate = transferDateShadow2.findElement(By.cssSelector("button[test-id='inputField']"));
+					
+					
+					JavascriptExecutor js = ((JavascriptExecutor) driver);
+					js.executeScript("arguments[0].scrollIntoView(true);",TransferDate);
+					
+					if(TransferDate.isDisplayed()){
+						test.log(Status.INFO, "Start Date field appeared");
+					}
+					
+					
+					
+					WebElement Memoroot = driver.findElement(By.cssSelector("q2-input[test-id='fldMemo']"));
+					WebElement MemoshadowRoot = ObjectRepository.expandRootElement(driver,Memoroot);
+					WebElement MemoField = MemoshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					MemoField.sendKeys(memo);
+					
 					test.log(Status.INFO, "Memo entered");
-					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);
 					
-					Thread.sleep(2000);
 					getElement(ObjectRepository.trnsfrfnds_btn).click();
 					test.log(Status.INFO, "Transfer Funds button clicked");
-				
-			// Transfer success message screen appearing	
-					verifyElementPresent(ObjectRepository.schdltrnsfrsccs_msg);
-					test.log(Status.INFO, "Recurring Transfer success message appeared");
 					
+					verifyElementPresent(ObjectRepository.schdltrnsfrsccs_msg);
+					test.log(Status.INFO, "Transfer success message appeared");
+					
+					
+					getElement(ObjectRepository.modalFundTransferPopUpCloseBtn).click();
+					test.log(Status.INFO, "Transfer success message disappeared");
+					Thread.sleep(2500);
+					
+					scrollToElement(ObjectRepository.vwactvtycntr_btn);
 					getElement(ObjectRepository.vwactvtycntr_btn).click();
 					test.log(Status.INFO, "View Activity Center button clicked from transfer success page");
 					
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-			//verify recurring transactions tab active
-					WebElement ele=getElement("//span[text()='Recurring Transactions']/parent::*/parent::*");
 					
-					String sngltrnsctn=ele.getAttribute("class");
-					if(sngltrnsctn.contains("active")){
+					WebElement singleAccountRoot = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement singleAccountShadowRoot = ObjectRepository.expandRootElement(driver,singleAccountRoot);
+					WebElement singleAccount = singleAccountShadowRoot.findElement(By.cssSelector("a[value='individual']"));
+					
+					
+					//WebElement ele=getElement("//span[text()='Single Transactions']/parent::*/parent::*");
+					
+					String sngltrnsctn=singleAccount.getAttribute("aria-selected");
+					if(sngltrnsctn.contains("true")){
 						Assert.assertTrue(true);
-						test.log(Status.INFO, "Recurring Transactions tab is selected");
+						test.log(Status.INFO, "Single Transaction tab is selected");
 					}else{
-						test.log(Status.INFO, "Recurring Transactions tab is not selected");
+						test.log(Status.INFO, "Single Transaction tab is not selected");
 					}
 					
+					
 					verifyText(ObjectRepository.actvtycntr_amnt, amnt);
+					test.log(Status.INFO, "Transfer amount appearing correctly in first selected row");
+					getElement(ObjectRepository.actvtycntr_amnt).click();
+					
+					String transactionDetails = getElement("//*[contains(@class,'selected-detail  transaction-detail')]").getAttribute("class");
+					if(transactionDetails.contains("selected-detail")){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Transaction details section  is opened");
+					}
+					
+					
+			
 					
 				 }
 			 }

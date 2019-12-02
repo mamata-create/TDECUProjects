@@ -91,11 +91,17 @@ public class C23624_VerifyColumnsSortingOnActivityCenter extends GenericKeywords
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
-					test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement singleTransactionTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
+					if(singleTransactionTab.isDisplayed()) 
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
 					
-					verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
-					test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					
+					WebElement RecurringTransactionTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+					if(RecurringTransactionTab.isDisplayed()) 
+						test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					
 									
 					getElement(ObjectRepository.crtd_col_srt).click();
 					test.log(Status.INFO, "Created Column sorting applied");
@@ -117,7 +123,7 @@ public class C23624_VerifyColumnsSortingOnActivityCenter extends GenericKeywords
 					test.log(Status.INFO, "Amount Column sorting applied");
 					Thread.sleep(3000);
 
-					getElement(ObjectRepository.rcrngtrnsctn_tab).click();
+					RecurringTransactionTab.click();
 					test.log(Status.INFO, "Recurring transaction tab selected");
 					Thread.sleep(3000);
 					

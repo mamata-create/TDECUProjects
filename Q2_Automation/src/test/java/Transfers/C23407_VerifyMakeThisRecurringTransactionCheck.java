@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -97,7 +99,7 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 					String amnt=randomAmount();
 					String frqncy=excl.getCellData(sheetName, 6, startIter);
 					String memo=excl.getCellData(sheetName, 4, startIter);
-					
+					String dayOfWeek = "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday";
 					getElement(ObjectRepository.trnsctn_menu).click();
 					test.log(Status.INFO, "Transaction menu clicked");
 					
@@ -107,48 +109,69 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 					verifyElementPresent(ObjectRepository.fndtrnsfr_ttl);
 					test.log(Status.INFO, "Fund Transfer page opened");
 					
-					Assert.assertFalse(getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
-					test.log(Status.INFO, "Transfer Funds button disabled");
+					Thread.sleep(6500);
+					/*
+					 * Update: Locator updation of From account, To account and Ammount
+					 */
 					
-					selectDropdownOptContain(ObjectRepository.frmacnt_dropdown, frmacnt);
-					test.log(Status.INFO, "From Account selected");
-		
-					selectDropdownOptContain(ObjectRepository.toacnt_dropdown, toacnt);
-					test.log(Status.INFO, "To Account selected");
+					WebElement root1 = driver.findElement(By.cssSelector("div[test-id='selTransferFrom'] q2-select"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
+					WebElement root2 = shadowRoot1.findElement(By.cssSelector("q2-input[label='From Account']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver,root2);
 					
-					getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+					WebElement fromAccounDropDown = shadowRoot2.findElement(By.cssSelector("button[aria-label=', From Account']"));
+					fromAccounDropDown.click();
+					
+					
+					List<WebElement> allOptions = driver.findElements(By.xpath("//q2-select[@label='From Account']/q2-option"));
+					for(int count=1;count<=allOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='From Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(frmacnt)){
+							String fromAccountLocator = "//q2-select[@label='From Account']/q2-option[contains(@display,'"+frmacnt+"')]";
+							getElement(fromAccountLocator).click();
+						}
+						
+					}
+					
+					
+					WebElement root = driver.findElement(By.cssSelector("div[test-id='selTransferTo'] q2-select"));
+					WebElement shadowRoot = ObjectRepository.expandRootElement(driver,root);
+					WebElement root3 = shadowRoot.findElement(By.cssSelector("q2-input[label='To Account']"));
+					WebElement shadowRoot3 = ObjectRepository.expandRootElement(driver,root3);
+					
+					WebElement toAccounDropDown = shadowRoot3.findElement(By.cssSelector("button[aria-label=', To Account']"));
+					toAccounDropDown.click();
+					
+					
+					List<WebElement> allToOptions = driver.findElements(By.xpath("//q2-select[@label='To Account']/q2-option"));
+					for(int count=1;count<=allToOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='To Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(toacnt)){
+							String toAccountLocator = "//q2-select[@label='To Account']/q2-option[contains(@display,'"+toacnt+"')]";
+							getElement(toAccountLocator).click();
+						}
+						
+					}
+					
+					
+					WebElement amountroot = driver.findElement(By.cssSelector("q2-input[test-id='fldAmount']"));
+					WebElement amountshadowRoot = ObjectRepository.expandRootElement(driver,amountroot);
+					WebElement amountField = amountshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					
+					amountField.click();
+					amountField.sendKeys(amnt);
 					test.log(Status.INFO, "Amount entered");
 					
-				//Select recurring check box to verify respective fields appears	
-					getElement(ObjectRepository.rccrng_chkbx).click();
-					test.log(Status.INFO, "Recurring checkbox clicked");
+					WebElement freqroot1 = driver.findElement(By.cssSelector("q2-select[test-id='selFrequency']"));
+				//	WebElement freqShadowRoot1 = ObjectRepository
+					
 					verifyElementPresent(ObjectRepository.frqncy_dropdown);
 					test.log(Status.INFO, "Frequency dropdown appeared");
-					verifyElementPresent(ObjectRepository.stdt_cal);
-					test.log(Status.INFO, "Start Date field appeared");
-					verifyElementPresent(ObjectRepository.enddt_cal);
-					test.log(Status.INFO, "End Date field appeared");
-					Thread.sleep(2000);
-					scrollToElement(ObjectRepository.clr_btn);
-					verifyElementPresent(ObjectRepository.rptfrever_chk);
-					test.log(Status.INFO, "Repeat Forever check box appeared");
-				//Select recurring check box again to verify respective fields disappear
 					Thread.sleep(2000);
 					scrollToElement(ObjectRepository.fndtrnsfr_ttl);
 					Thread.sleep(2000);
-					getElement(ObjectRepository.rccrng_chkbx).click();
-					test.log(Status.INFO, "Recurring checkbox clicked");
-					verifyElementNotPresent(ObjectRepository.frqncy_dropdown);
-					test.log(Status.INFO, "Frequency dropdown not appeared");
-					verifyElementNotPresent(ObjectRepository.enddt_cal);
-					test.log(Status.INFO, "End Date field not appeared");
-					verifyElementNotPresent(ObjectRepository.rptfrever_chk);
-					test.log(Status.INFO, "Repeat Forever check box not appeared");
-					
-					Thread.sleep(2000);
-					getElement(ObjectRepository.rccrng_chkbx).click();
-					test.log(Status.INFO, "Recurring checkbox clicked");
-					
 					String[] opts=frqncy.split(",");
 					for(int i=0;i<opts.length;i++){
 						Select s=new Select(getElement(ObjectRepository.frqncy_dropdown));
@@ -157,15 +180,68 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 
 						for(int j=0;j<options.size();j++){
 							System.out.println(options.get(j).getText());
+							if(options.get(j).getText().contains("Weekly")){
+								s.selectByVisibleText("Weekly");
+							}
 		
-							if(options.get(i).getText().contains(opts[i])){
+							if(options.get(j).getText().contains(opts[i])){
 								Assert.assertTrue(true);
 								
 							}
 						}
 					}
 					
-					test.log(Status.INFO, "Frequency dropdown options verified");
+					WebElement TransferstrtDateRoot = driver.findElement(By.cssSelector("q2-calendar[test-id='fldStartDate']"));
+					WebElement strtDateshadowRoot = ObjectRepository.expandRootElement(driver,TransferstrtDateRoot);
+					WebElement TransferstrtDateRoot2 = strtDateshadowRoot.findElement(By.cssSelector("q2-input[test-id='inputAndCalendarToggle']"));
+					WebElement transferDateShadow2 = ObjectRepository.expandRootElement(driver,TransferstrtDateRoot2);
+					WebElement TransferDate = transferDateShadow2.findElement(By.cssSelector("button[test-id='inputField']"));
+					
+					
+					JavascriptExecutor js = ((JavascriptExecutor) driver);
+					js.executeScript("arguments[0].scrollIntoView(true);",TransferDate);
+					
+					if(TransferDate.isDisplayed()){
+						test.log(Status.INFO, "Start Date field appeared");
+					}
+					
+					
+					verifyElementPresent(ObjectRepository.dateRangeOption("Until"));
+					test.log(Status.INFO, "Until date option is selected");
+					scrollToElement(ObjectRepository.dateRangeOption("Until"));
+					getElement(ObjectRepository.dateRangeOption("Until")).click();
+					
+					WebElement TransferEndDateRoot = driver.findElement(By.cssSelector("q2-calendar[test-id='fldEndDate']"));
+					WebElement endDateshadowRoot = ObjectRepository.expandRootElement(driver,TransferEndDateRoot);
+					WebElement TransferEndDateRoot2 = endDateshadowRoot.findElement(By.cssSelector("q2-input[test-id='inputAndCalendarToggle']"));
+					WebElement transEndferDateShadow2 = ObjectRepository.expandRootElement(driver,TransferEndDateRoot2);
+					WebElement TransferEndDate = transEndferDateShadow2.findElement(By.cssSelector("button[test-id='inputField']"));
+					
+					
+					if(TransferEndDate.isDisplayed()){
+						test.log(Status.INFO, "Start Date field appeared");
+					}
+					
+					verifyElementPresent(ObjectRepository.dateRangeOption("Forever"));
+					test.log(Status.INFO, "Forever option is selected");
+					getElement(ObjectRepository.dateRangeOption("Forever")).click();
+					
+					try{
+						if(TransferEndDate.isDisplayed()==false){
+							test.log(Status.INFO, "Ended Date field disappeared");
+						}
+					}catch(Exception e){
+						test.log(Status.INFO, "Ended Date field disappeared");
+					}
+					
+					
+					
+				
+					
+					
+					
+					
+					
 	
 				 }
 			 }

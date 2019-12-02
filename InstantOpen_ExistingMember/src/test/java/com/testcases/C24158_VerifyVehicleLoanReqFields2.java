@@ -49,9 +49,6 @@ public class C24158_VerifyVehicleLoanReqFields2 extends GenericKeywords{
 					String loanAmount=excl.getCellData(sheetName, 6, startIter);
 					String purchPrice=excl.getCellData(sheetName, 7, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

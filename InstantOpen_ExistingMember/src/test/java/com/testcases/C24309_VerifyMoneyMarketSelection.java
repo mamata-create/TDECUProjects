@@ -61,9 +61,6 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					String confirmProd2= excl.getCellData(sheetName, 2, startIter);
 					String errorMsg1= excl.getCellData(sheetName, 30, startIter);
 					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -124,7 +121,7 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					getElement(ObjectRepository.confirmBtn).click();
 					test.log(Status.INFO, "Identity Verification questions answered");
 					//Account Funding
-					verifyElementPresent(ObjectRepository.acctFundTile);
+					verifyElementPresent(ObjectRepository.acctFundTitle);
 					getElement(ObjectRepository.submitBtn).click();
 					verifyText(ObjectRepository.errorMsg1,errorMsg1);
 					test.log(Status.INFO, "Select funding method message displayed");

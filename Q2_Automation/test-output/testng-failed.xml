@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="Make_A_Payment.C23527_VerifyCommercialLoanGreaterThanAmountPayment">
+<<<<<<< HEAD
+      <class name="ActivityCenter.C23621_VerifyActivityCenterSearchFilter">
         <methods>
-          <include name="C23527_VerifyCommercialLoanGreaterThanAmountPayment"/>
+          <include name="C23621_VerifyActivityCenterSearchFilter"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="tearDown"/>
         </methods>
-      </class> <!-- Make_A_Payment.C23527_VerifyCommercialLoanGreaterThanAmountPayment -->
+      </class> <!-- ActivityCenter.C23621_VerifyActivityCenterSearchFilter -->
+=======
+      <class name="Alerts.C23469_VerifyAlertsSetup">
+        <methods>
+          <include name="C23469_VerifyAlertsSetup"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- Alerts.C23469_VerifyAlertsSetup -->
+>>>>>>> 1bcc766485c6b288ee882af9e4f1e5dd13c50d23
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

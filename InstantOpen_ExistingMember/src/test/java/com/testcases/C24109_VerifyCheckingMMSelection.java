@@ -55,9 +55,6 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						String courtesyPayTitle= excl.getCellData(sheetName, 5, startIter);
 						String courtesyPayInfo= excl.getCellData(sheetName, 24, startIter);
 						
-						verifyElementPresent(ObjectRepository.app_ttl);
-						test.log(Status.INFO, "Instant Open Title appearing");
-						
 						scrollToElement(ObjectRepository.mmbrstrt_btn);
 						getElement(ObjectRepository.mmbrstrt_btn).click();
 						test.log(Status.INFO, "Members Start Here button clicked");
@@ -97,7 +94,7 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						verifyText(ObjectRepository.mnyMrktDesc1,mmDesc1);
 						verifyText(ObjectRepository.mnyMrktDesc2,mmDesc2);
 						verifyText(ObjectRepository.mnyMrktDesc3,mmDesc3);
-						verifyOtherRatesLink(2);
+						verifyRatesLink(2);
 						
 						//High Yield Checking section					
 						verifyText(ObjectRepository.highYieldTitle,hyTitle);
