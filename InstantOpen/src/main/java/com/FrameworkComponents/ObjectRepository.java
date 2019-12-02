@@ -404,5 +404,14 @@ public class ObjectRepository {
 		public static String confirmBtn="//input[@id='btnNext_SubmitButton']";
 		public static String changeBtn="//input[@id='btnChange_SubmitButton']";
 		
+		public static String pageSection(String sectionName){
+			String sectionLocator = "//div[contains(text(),'"+sectionName+"')]";
+			return sectionLocator;
+		}
+		public static String addJointOwners_CheckBox = "//span[@id='cbAddJointOwners']";
+		public static String addBeneficiaries_CheckBox = "//span[@id='cbAddBene']";
+		public static String footerString = "//span[@id='cbAddJointOwners']/following::p"; 
+		public static String applicantInformation_allfields = "//div[@class='SectionHeaders']/following::span[not(contains(@style,'hidden'))]";
+		
 		
 	}
