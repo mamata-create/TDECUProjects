@@ -742,5 +742,35 @@ public class GenericKeywords extends BaseClass{
 		
 		
 	}
+	
+	public static void verifyTxtValue(String locator, String text){
+		WebElement element=getElement(locator);
+		String actText=element.getAttribute("value");
+		if(actText.equals(text)){
+			Assert.assertTrue(true);
+		}else{
+			Assert.assertTrue(false);
+		}
+	}
+	
+	public static void verifyTxtFieldValue(String locator, String text){
+		WebElement element=getElement(locator);
+		String actText=element.getAttribute("value");
+		if(actText.equals(text)){
+			Assert.assertTrue(true);
+		}else{
+			Assert.assertTrue(false);
+		}
+	}
+	
+	public static void verifyPlaceholder(String locator, String text){
+		WebElement element=getElement(locator);
+		String actText=element.getAttribute("placeholder");
+		if(actText.equals(text)){
+			Assert.assertTrue(true);
+		}else{
+			Assert.assertTrue(false);
+		}
+	}
 
 }
