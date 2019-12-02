@@ -428,6 +428,7 @@ public class ObjectRepository {
 	public static String submitBtn="//input[@id='NextButton2_SubmitButton']";
 	public static String fundProdLbl1 = "(//label[contains(@for,'ProductFund')])[1]";
 	public static String fundProdInput1 = "(//input[contains(@name,'ProductFund')])[1]";
+	public static String fundProdInput2 = "(//input[contains(@name,'ProductFund')])[2]";
 	public static String fundProdError = "//input[contains(@name,'ProductFund')and contains(@style,'LightYellow')]";
 	public static String fundProdRO = "//input[contains(@name,'ProductFund') and @disabled='disabled']";
 	public static String fundAmtPopup = "//div[@class='popover-content']";
@@ -437,7 +438,11 @@ public class ObjectRepository {
 	public static String creditLbl = "//label[@for ='CCFunding_RadioButton']";
 	public static String transferOptn = "//span[@id='TransFunding']//div[@class='iradio_square-grey']";
 	public static String transferSlctd = "//span[@id='TransFunding']//div[contains(@class,'checked')]";
+	public static String accountDdownLbl = "//div[@id='transDiv']";
+	public static String accountDdownError = "//select[@id='AccountDropDownList_DropDownList'and contains(@style,LightYellow)]";
+	public static String accountDdown = "//select[@id='AccountDropDownList_DropDownList']";
 	public static String eleCheckOptn = "//span[@id='ACHFunding']//div[@class='iradio_square-grey']";
+	public static String submitApp = "//h1[text()='Thank You for Your Application!']";	
 	
 	//Error Messages
 	public static String errorMsg1 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[1]";

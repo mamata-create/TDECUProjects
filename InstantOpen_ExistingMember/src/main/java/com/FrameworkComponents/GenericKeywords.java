@@ -597,6 +597,20 @@ public class GenericKeywords extends BaseClass{
 		return newDate;
 	}
 	
+	public static void fundingDropdownContains(String locator, String opt){
+		Select s=new Select(getElement(locator));
+
+		List<WebElement> options = s.getOptions();
+		boolean match = false;
+		for(int i=0;i<options.size();i++){
+			if(options.get(i).getText().contains(opt)){
+				match = true;
+				options.get(i).click();
+			}
+		}
+		Assert.assertTrue(match);
+	}
+	
 	//Select Credit Card based on Excel input
 	public static void selectCreditCard(String cardType){
 		List<WebElement>cards = driver.findElements(By.xpath(ObjectRepository.cardCheckBox));
