@@ -63,8 +63,8 @@ public class C24110_VerifySavingsSelection extends GenericKeywords{
 						verifyElementPresent(ObjectRepository.mmbrVerifyTile);
 						getElement(ObjectRepository.productPageBack).click();	
 						test.log(Status.INFO, "Back button clicked");
-						/*Back button currently going to wrong page
-						verifyElementPresent(ObjectRepository.clubChecked);*/
+						//Back button currently going to wrong page
+						verifyElementPresent(ObjectRepository.clubChecked);
 						
 					}
 				}

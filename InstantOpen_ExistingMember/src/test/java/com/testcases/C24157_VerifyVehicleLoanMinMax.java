@@ -75,40 +75,40 @@ public class C24157_VerifyVehicleLoanMinMax extends GenericKeywords{
 					//1000-100000
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(amount1);
 					verifyElementPresent(ObjectRepository.prodLimIncorrect);
-					verifyText(ObjectRepository.prodLimPopup,popupMsg);
-					getElement(ObjectRepository.prodLimitTextbox).clear();
+					verifyText(ObjectRepository.prodLimPopup,popupMsg);					
 					test.log(Status.INFO, "$1,000-$100,000 popup appeared");
 					//5000-100000
 					selectDropdownOpt(ObjectRepository.prodTypeDropdown,selectRV);
+					getElement(ObjectRepository.prodLimitTextbox).clear();
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(amount2);
 					verifyElementPresent(ObjectRepository.prodLimIncorrect);
 					verifyText(ObjectRepository.prodLimPopup,popupMsg2);
-					getElement(ObjectRepository.prodLimitTextbox).clear();
 					test.log(Status.INFO, "$5,000-$100,000 popup appeared");
 					//1000-125000
 					selectDropdownOpt(ObjectRepository.prodTypeDropdown,selectCycle);
+					getElement(ObjectRepository.prodLimitTextbox).clear();
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(amount3);
 					verifyElementPresent(ObjectRepository.prodLimIncorrect);
 					verifyText(ObjectRepository.prodLimPopup,popupMsg3);
-					getElement(ObjectRepository.prodLimitTextbox).clear();
 					test.log(Status.INFO, "$1,000-$125,000 popup appeared");
 					//5000-150000
 					selectDropdownOpt(ObjectRepository.prodTypeDropdown,selectRefRV);
-					getElement(ObjectRepository.prodLimitTextbox).sendKeys(amount4);
-					verifyElementPresent(ObjectRepository.prodLimIncorrect);
-					getElement(ObjectRepository.prodLimitTextbox).sendKeys(Keys.BACK_SPACE);
-					verifyText(ObjectRepository.prodLimPopup,popupMsg4);
 					getElement(ObjectRepository.prodLimitTextbox).clear();
+					getElement(ObjectRepository.prodLimitTextbox).sendKeys(amount4);
+					getElement(ObjectRepository.prodLimitTextbox).sendKeys(Keys.BACK_SPACE);
+					verifyElementPresent(ObjectRepository.prodLimIncorrect);
+					verifyText(ObjectRepository.prodLimPopup,popupMsg4);
 					test.log(Status.INFO, "$5,000-$150,000 popup appeared");
 					//1000-150000
 					selectDropdownOpt(ObjectRepository.prodTypeDropdown,selectRefBoat);
+					getElement(ObjectRepository.prodLimitTextbox).clear();
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(amount5);
 					verifyElementPresent(ObjectRepository.prodLimIncorrect);
 					verifyText(ObjectRepository.prodLimPopup,popupMsg5);
-					getElement(ObjectRepository.prodLimitTextbox).clear();
 					test.log(Status.INFO, "$1,000-$150,000 popup appeared");
 					//1000-1000000
 					selectDropdownOpt(ObjectRepository.prodTypeDropdown,selectAuto);
+					getElement(ObjectRepository.prodLimitTextbox).clear();
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(amount6);
 					verifyElementPresent(ObjectRepository.prodLimIncorrect);
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(Keys.BACK_SPACE);

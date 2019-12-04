@@ -66,7 +66,7 @@ public class C24031_VerifyValidLoginToSave extends GenericKeywords{
 					
 					getElement(ObjectRepository.cdExpand).click();
 					selectDropdownOpt(ObjectRepository.selectTermDropdown,cdSelection);
-					getElement(ObjectRepository.visibleCD27).click();
+					getElement(ObjectRepository.visibleCD48).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Share Certificate selected");
 					//Member Verification

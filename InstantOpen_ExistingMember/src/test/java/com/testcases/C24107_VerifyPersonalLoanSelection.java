@@ -58,7 +58,6 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					String min1000= excl.getCellData(sheetName, 14, startIter);
 					String homeAdvTitle= excl.getCellData(sheetName, 5, startIter);
 					String cash$tashLOCTitle= excl.getCellData(sheetName, 6, startIter);
-					String cash$tashWrongTitle= excl.getCellData(sheetName, 9, startIter);
 					String cdLoanTitle= excl.getCellData(sheetName, 7, startIter);
 					String ssLoanTitle= excl.getCellData(sheetName, 8, startIter);
 					String ssLoanDesc1= excl.getCellData(sheetName, 21, startIter);
@@ -187,7 +186,7 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Personal Loan Info page
-					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,cash$tashWrongTitle);
+					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,cash$tashLOCTitle);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min1000);
 					//Back to Product Selection Page
 					getElement(ObjectRepository.prodInfoBackButton).click();
@@ -230,7 +229,7 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.shareSecuredCheckedBox);
 					getElement(ObjectRepository.shareSecuredCheckedBox).click();
-					verifyElementPresent(ObjectRepository.shareSecuredCheckBox);
+					//verifyElementPresent(ObjectRepository.shareSecuredCheckBox);
 					test.log(Status.INFO, "Share Secured Loan deselected");
 					getElement(ObjectRepository.myWay6000CheckBox).click();
 					getElement(ObjectRepository.creditCardExpand).click();

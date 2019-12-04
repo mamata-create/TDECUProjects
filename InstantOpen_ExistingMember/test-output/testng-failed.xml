@@ -3,12 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24054_VerifyCDFunding">
+      <class name="com.testcases.C24058_VerifyTransferFundsMethod">
         <methods>
+          <include name="C24058_VerifyTransferFundsMethod"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="C24054_VerifyCDFunding"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- com.testcases.C24054_VerifyCDFunding -->
+      </class> <!-- com.testcases.C24058_VerifyTransferFundsMethod -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

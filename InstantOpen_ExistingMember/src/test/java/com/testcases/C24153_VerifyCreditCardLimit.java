@@ -76,9 +76,10 @@ public class C24153_VerifyCreditCardLimit extends GenericKeywords{
 					//select onyx mastercard
 					selectDropdownOpt(ObjectRepository.prodTypeDropdown,onyxName);
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,onyxName);
-					verifyPlaceholder(ObjectRepository.prodLimitTextbox,onyxLim);
+					//verifyPlaceholder(ObjectRepository.prodLimitTextbox,onyxLim);
 					test.log(Status.INFO, "Onyx MasterCard selected");
 					//verify credit limit requested field
+					getElement(ObjectRepository.prodLimitTextbox).clear();
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(oneNum);
 					verifyElementPresent(ObjectRepository.prodLimIncorrect);
 					verifyText(ObjectRepository.prodLimPopup,otherPopup);

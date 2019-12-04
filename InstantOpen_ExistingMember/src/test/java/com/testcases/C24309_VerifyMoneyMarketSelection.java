@@ -68,12 +68,12 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					getElement(ObjectRepository.checkingExpand).click();
 					getElement(ObjectRepository.mnyMrktCheckBox).click();
 					test.log(Status.INFO, "Money Market account selected");
-					/*currently back button navigation not working
+					//currently back button navigation not working
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					getElement(ObjectRepository.mmbrVerifyBack).click();
 					test.log(Status.INFO, "Back button clicked");
-					verifyElementPresent(ObjectRepository.mnyMrktChecked);*/
+					verifyElementPresent(ObjectRepository.mnyMrktChecked);
 					getElement(ObjectRepository.personalLoanExpand).click();
 					getElement(ObjectRepository.cash$tashCheckBox).click();
 					test.log(Status.INFO, "Personal Loan selected");

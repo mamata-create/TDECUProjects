@@ -141,13 +141,13 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 						getElement(ObjectRepository.visibleCD12).click();
 						test.log(Status.INFO, "12 Month CD selected");
 						
-						/*getElement(ObjectRepository.productPageNext).click();
+						getElement(ObjectRepository.productPageNext).click();
 						test.log(Status.INFO, "Continue button clicked");
 						verifyElementPresent(ObjectRepository.mmbrVerifyTile);
 						getElement(ObjectRepository.productPageBack).click();
-						test.log(Status.INFO, "Back button clicked");*/
+						test.log(Status.INFO, "Back button clicked");
 						//verify CD is still selected, currently back button goes to wrong page
-						//verifyElementPresent(ObjectRepository.visibleCD12);
+						verifyElementPresent(ObjectRepository.visibleCD12);
 						getElement(ObjectRepository.carLoanExpand).click();
 						getElement(ObjectRepository.autoLoanCheckBox).click();
 						getElement(ObjectRepository.productPageNext).click();
