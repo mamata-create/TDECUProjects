@@ -48,7 +48,8 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						String mmTitle= excl.getCellData(sheetName, 2, startIter);
 						String mmDesc1= excl.getCellData(sheetName, 18, startIter);
 						String mmDesc2= excl.getCellData(sheetName, 19, startIter);
-						String mmDesc3= excl.getCellData(sheetName, 20, startIter);
+						String mmDesc3= excl.getCellData(sheetName, 15, startIter);
+						String mmDesc4= excl.getCellData(sheetName, 20, startIter);
 						String hyTitle= excl.getCellData(sheetName, 3, startIter);
 						String overdraftTitle= excl.getCellData(sheetName, 4, startIter);
 						String overdraftInfo= excl.getCellData(sheetName, 23, startIter);
@@ -94,6 +95,7 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						verifyText(ObjectRepository.mnyMrktDesc1,mmDesc1);
 						verifyText(ObjectRepository.mnyMrktDesc2,mmDesc2);
 						verifyText(ObjectRepository.mnyMrktDesc3,mmDesc3);
+						verifyText(ObjectRepository.mnyMrktDesc4,mmDesc4);
 						verifyRatesLink(2);
 						
 						//High Yield Checking section					
@@ -121,7 +123,7 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						verifyElementPresent(ObjectRepository.mmbrVerifyTile);
 						getElement(ObjectRepository.productPageBack).click();	
 						test.log(Status.INFO, "Back button clicked");
-						/*Back button currently going to wrong page
+						//Back button currently going to wrong page
 						verifyElementPresent(ObjectRepository.ccChecked);
 						verifyElementPresent(ObjectRepository.ccDebitCardCheckBox);
 						verifyElementPresent(ObjectRepository.ccOverdraftCheckBox);
@@ -130,7 +132,7 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						verifyElementPresent(ObjectRepository.highYieldChecked);
 						verifyElementPresent(ObjectRepository.hyDebitCardCheckBox);
 						verifyElementPresent(ObjectRepository.hyOverdraftCheckBox);
-						verifyElementPresent(ObjectRepository.hyCourtesyPayChecked);*/
+						verifyElementPresent(ObjectRepository.hyCourtesyPayChecked);
 					}
 					
 				}

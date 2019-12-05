@@ -235,6 +235,7 @@ public class ObjectRepository {
 	public static String mnyMrktDesc1 = "//div[contains(@id,'MoreInfo_716_1')]//ul[@class='fa-ul']/li[1]";
 	public static String mnyMrktDesc2 = "//div[contains(@id,'MoreInfo_716_1')]//ul[@class='fa-ul']/li[2]";
 	public static String mnyMrktDesc3 = "//div[contains(@id,'MoreInfo_716_1')]//ul[@class='fa-ul']/li[3]";
+	public static String mnyMrktDesc4 = "//div[contains(@id,'MoreInfo_716_1')]//ul[@class='fa-ul']/li[4]";
 	public static String highYieldTitle = "//label[@for='Checking_ProductCheckbox_6223_1']";
 	public static String highYieldCheckBox = "(//div[@id='Checking_ProductPanel_6223_1']//div[@class='icheckbox_square-grey'])[1]";
 	public static String highYieldChecked = "(//div[@id='Checking_ProductPanel_6223_1']//div[contains(@class,'checked')])[1]";
@@ -259,6 +260,8 @@ public class ObjectRepository {
 	public static String checkingOpt4 = "(//span[@class='ProductServiceTitle'])[4]";
 	public static String checkingOpt5 = "(//span[@class='ProductServiceTitle'])[5]";
 	public static String checkingOpt6 = "(//span[@class='ProductServiceTitle'])[6]";
+	public static String checkingOpt7 = "(//span[@class='ProductServiceTitle'])[7]";
+	public static String checkingOpt8 = "(//span[@class='ProductServiceTitle'])[8]";
 	
 	//Savings Account
 	public static String savingsExpand = "//h4[contains(text(),'Savings')]/i";
@@ -375,7 +378,7 @@ public class ObjectRepository {
 	public static String eDocsLink= "//a[text()='eDocument Consent']";
 	public static String discCheckBox= "//span[@id='cbDisclosures']//div[@class='icheckbox_square-grey']";
 	public static String discChecked= "//span[@id='cbDisclosures']//div[contains(@class,'checked')]";	
-	public static String disclosuresText= "//div[@class='col-sm-11']";
+	public static String disclosuresText= "(//div[@class='row disclaimer']//p)[1]";
 	public static String courtesyPayTtl= "//h3[text()='Courtesy Pay']";
 	public static String crtsyPayDescOne= "//span[@id='pnlCourtesyPay']/p[1]";
 	public static String crtsyPayDescTwo= "//span[@id='pnlCourtesyPay']/p[2]";
@@ -389,12 +392,12 @@ public class ObjectRepository {
 	public static String FAQtwo= "(//div[@id='accordion']//div[contains(@class,'panel-heading')])[2]";
 	public static String FAQtwoClose= "(//div[@id='accordion']//div[contains(@class,'collapsed')])[2]";
 	public static String FAQtwoInfo= "//div[@id='accordion']//div[@id='collapseQ2']//li";
-	public static String crtsyPayNote= "(//div[@class='col-sm']//p)[3]";
+	public static String crtsyPayNote= "(//div[@class='col-sm']//p)[4]";
 	public static String agreeAndSignTtl= "//h3[text()='Agreement and Signature(s)']";
 	public static String agreeandSignInfo= "//div[@class='col-sm checkCopy']";
 	public static String agreeCheckBox= "//span[@id='Authroization']//div[@class='icheckbox_square-grey']";
 	public static String agreeChecked= "//span[@id='Authroization']//div[contains(@class,'checked')]";
-	public static String agreementNote= "//div[@class='row disclaimer']//div[@class='col-sm']";
+	public static String agreementNote= "(//div[@class='row disclaimer']//p)[2]";
 	public static String declineBtn= "//input[@id='btnDecline_SubmitButton']";
 	public static String saveBtn= "//input[@id='SaveButton_SubmitButton']";
 	//Cannot Process Application

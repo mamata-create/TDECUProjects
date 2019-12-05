@@ -69,10 +69,10 @@ public class C24030_VerifySaveProgressOption extends GenericKeywords{
 					getElement(ObjectRepository.stormCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Personal loan selected");
-					/*Loan info - page not displaying
+					//Loan info - page
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmt);
 					getElement(ObjectRepository.prodInfoNextButton).click();
-					test.log(Status.INFO, "Loan amount entered");*/	
+					test.log(Status.INFO, "Loan amount entered");
 					//Member Verification
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);

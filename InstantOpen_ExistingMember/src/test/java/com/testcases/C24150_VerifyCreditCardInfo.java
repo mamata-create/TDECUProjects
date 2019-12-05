@@ -81,12 +81,12 @@ public class C24150_VerifyCreditCardInfo extends GenericKeywords{
 					test.log(Status.INFO, "Contintue to member verification");
 					getElement(ObjectRepository.mmbrVerifyBack).click();
 					test.log(Status.INFO, "Back to product selection");
-					/*Back button navigation not working
+					//Back button navigation not working
 					verifyElementPresent(ObjectRepository.classicCheckCheckBox);
 					getElement(ObjectRepository.productPageNext).click();
-					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,ccDropdown);
+					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,classicDropdown);
 					verifyTxtFieldValue(ObjectRepository.prodLimitTextbox,amountFormat);
-					test.log(Status.INFO, "Credit card selection and entered amount remains");*/
+					test.log(Status.INFO, "Credit card selection and entered amount remains");
 				 }
 			}
 	  }

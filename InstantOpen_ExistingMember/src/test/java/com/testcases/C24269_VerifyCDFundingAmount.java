@@ -57,7 +57,7 @@ public class C24269_VerifyCDFundingAmount extends GenericKeywords{
 					//Select Products
 					getElement(ObjectRepository.cdExpand).click();
 					selectDropdownOpt(ObjectRepository.selectTermDropdown,cdSelection);
-					getElement(ObjectRepository.visibleCD13).click();
+					getElement(ObjectRepository.visibleCD60).click();
 					getElement(ObjectRepository.enterAmountTxtField).sendKeys(cdAmount);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Certificate of Deposit selected");
@@ -69,7 +69,7 @@ public class C24269_VerifyCDFundingAmount extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Member and Applicant Info Verified");
 					//Confirm Accounts
-					String maturity = cdMaturityDate(13);					
+					String maturity = cdMaturityDate(60);					
 					String concatProd = confirmCD+" "+maturity+")";
 					verifyText(ObjectRepository.prodOne,concatProd);
 					getElement(ObjectRepository.confirmBtn).click();

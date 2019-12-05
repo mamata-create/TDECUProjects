@@ -2,20 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="48288" started-at="2019-12-02T16:52:35Z" finished-at="2019-12-02T16:53:24Z">
+  <suite name="Default suite" duration-ms="48030" started-at="2019-12-04T17:32:47Z" finished-at="2019-12-04T17:33:35Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="48288" started-at="2019-12-02T16:52:35Z" finished-at="2019-12-02T16:53:24Z">
-      <class name="com.testcases.C24269_VerifyCDFundingAmount">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24269_VerifyCDFundingAmount@26be92ad]" name="setUp" is-config="true" duration-ms="15152" started-at="2019-12-02T10:52:35Z" finished-at="2019-12-02T10:52:50Z">
+    <test name="Default test" duration-ms="48030" started-at="2019-12-04T17:32:47Z" finished-at="2019-12-04T17:33:35Z">
+      <class name="com.testcases.C24063_VerifyMaxFundingAmount">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24063_VerifyMaxFundingAmount@523884b2]" name="setUp" is-config="true" duration-ms="15463" started-at="2019-12-04T11:32:47Z" finished-at="2019-12-04T11:33:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24269_VerifyCDFundingAmount()[pri:0, instance:com.testcases.C24269_VerifyCDFundingAmount@26be92ad]" name="C24269_VerifyCDFundingAmount" duration-ms="33115" started-at="2019-12-02T10:52:50Z" finished-at="2019-12-02T10:53:24Z">
+        <test-method status="PASS" signature="C24063_VerifyMaxFundingAmount()[pri:0, instance:com.testcases.C24063_VerifyMaxFundingAmount@523884b2]" name="C24063_VerifyMaxFundingAmount" duration-ms="31271" started-at="2019-12-04T11:33:02Z" finished-at="2019-12-04T11:33:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24269_VerifyCDFundingAmount -->
-      </class> <!-- com.testcases.C24269_VerifyCDFundingAmount -->
+        </test-method> <!-- C24063_VerifyMaxFundingAmount -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24063_VerifyMaxFundingAmount@523884b2]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-12-04T11:33:34Z" finished-at="2019-12-04T11:33:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=C24063_VerifyMaxFundingAmount status=SUCCESS method=C24063_VerifyMaxFundingAmount.C24063_VerifyMaxFundingAmount()[pri:0, instance:com.testcases.C24063_VerifyMaxFundingAmount@523884b2] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24063_VerifyMaxFundingAmount@523884b2]" name="tearDown" is-config="true" duration-ms="1272" started-at="2019-12-04T11:33:34Z" finished-at="2019-12-04T11:33:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.testcases.C24063_VerifyMaxFundingAmount -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

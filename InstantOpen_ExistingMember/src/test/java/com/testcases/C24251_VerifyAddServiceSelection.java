@@ -63,7 +63,7 @@ public class C24251_VerifyAddServiceSelection extends GenericKeywords{
 					Thread.sleep(1000);
 					//Deselect eDocs
 					getElement(ObjectRepository.eDocsChecked).click();
-					verifyElementPresent(ObjectRepository.eDocsCheckBox);
+					//verifyElementPresent(ObjectRepository.eDocsCheckBox);
 	
 				}
 			}

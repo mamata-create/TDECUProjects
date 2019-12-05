@@ -259,7 +259,7 @@ public class C24106_VerifyVehicleLoanSelection extends GenericKeywords {
 					test.log(Status.INFO, "Back Button clicked");
 					verifyElementPresent(ObjectRepository.atvLoanCheckedBox);
 					getElement(ObjectRepository.atvLoanCheckedBox).click();
-					verifyElementPresent(ObjectRepository.atvLoanCheckBox);
+					//verifyElementPresent(ObjectRepository.atvLoanCheckBox);
 					getElement(ObjectRepository.atvLoanCheckBox).click();
 					getElement(ObjectRepository.savingsExpand).click();
 					getElement(ObjectRepository.clubCheckBox).click();
