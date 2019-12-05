@@ -9,6 +9,9 @@ public class ObjectRepository {
 	public static String nochkacnt_rdbtn="//*[@id='rbNoChecking']/label/strong";
 	public static String othrprdctno_rdbtn="//*[@id='rbOtherProdNo']/label";
 	public static String continue_btn="//input[@id='NextButton_SubmitButton']";
+	public static String continue_further = "//span[@id='NextButton']/input";
+	public static String memberShipEligibilityPage = "//*[contains(text(),'Membership Eligibility')]";
+	public static String addressNotVerified_alert = "//span[@id='AddressTextBox_lblVerifying']";
 	
 	public static String fname_txt="//input[@id='tbFirstName_TextBox']";
 	public static String mname_txt="//input[@id='tbMiddleName_TextBox']";

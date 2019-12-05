@@ -66,7 +66,7 @@ public class GenericKeywords extends BaseClass{
 
 	public static void verifyElementNotPresent(String locator){
 		try{
-			WebElement element=getElement(locator);
+			WebElement element=driver.findElement(By.xpath(locator));
 			boolean elementpresent=element.isDisplayed();
 			if(elementpresent){
 				System.out.println(locator +"- element present");
@@ -636,9 +636,9 @@ public class GenericKeywords extends BaseClass{
 	public static boolean checkamountandNavigateNextthenValidate(String cardName){
 		boolean status = false;
 		String limitLocator = "//div[contains(@id,'CreditCard_ProductPanel')]//following::label[contains(text(),'"+cardName+"')]/following::li[2]";
-		String cardLimitFromPage = getElement(limitLocator).getAttribute("inneText").split("$")[1].toString();
+		String cardLimitFromPage = getElement(limitLocator).getAttribute("innerText");
 		getElement(ObjectRepository.continue_btn).click();
-		boolean limitChecked = getElement(ObjectRepository.creditcardLimitTxt).getText().contains(cardLimitFromPage);
+		boolean limitChecked = getElement(ObjectRepository.creditcardLimitTxt).getAttribute("placeholder").contains(cardLimitFromPage.substring(25));
 		if(limitChecked)
 			return status=true;
 		return status;
@@ -830,7 +830,7 @@ public class GenericKeywords extends BaseClass{
 		String firstNameLocator = "//input[@name='tbFirstName_TextBox']";
 		String middleNameLocator = "//input[@name='tbMiddleName_TextBox']";
 		String lstNameLocator = "//input[@name='tbLastName_TextBox']";
-		String nameSuffix = "//input[@name='tbNameSuffix_TextBox']";
+		
 		String popUp_alert = "//div[@class='popover-content']";
 		String numbers = "2306";
 		String spclChar = "!@#$%";
@@ -869,19 +869,7 @@ public class GenericKeywords extends BaseClass{
 			getElement(lstNameLocator).sendKeys(charcters);
 			verifyElementNotPresent(popUp_alert);
 		}
-		else if(fieldName.equalsIgnoreCase("Name Suffix")){
-			getElement(nameSuffix).click();
-			getElement(nameSuffix).sendKeys(numbers);
-			verifyElementNotPresent(popUp_alert);
-			getElement(nameSuffix).clear();
-			getElement(nameSuffix).sendKeys(spclChar);
-			verifyElementNotPresent(popUp_alert);
-			getElement(nameSuffix).clear();
-			getElement(nameSuffix).sendKeys(charcters);
-			verifyElementNotPresent(popUp_alert);
 		
-	}
-
 }
 
 }

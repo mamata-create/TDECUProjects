@@ -6,6 +6,7 @@ import java.util.List;
 import javax.mail.MessagingException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -23,11 +24,11 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends GenericKeywords  {
+public class C23763_AddressShouldVerifiedForNonMemberUser extends GenericKeywords  {
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify Non member user receives popup message for invalid charecter entry
+	 * Verify the Address field values for Non member user 
 	 */
 	@BeforeTest
 	public void setUp() throws InterruptedException, MessagingException, IOException {
@@ -42,7 +43,7 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 	}
 	
 	@Test
-	public void C23762_NonMemberUserReceivesPopupForInvalidCharecters() throws InterruptedException, MessagingException, IOException
+	public void C23763_AddressShouldVerifiedForNonMemberUser() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -55,11 +56,15 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 				 {
 					Faker fk=new Faker();
 					String num=getRandom();
+					String fname=fk.name().firstName();
+					String lname=fk.name().lastName();
 					String informationHeader=excl.getCellData(sheetName, 23, startIter);
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
-					String strtaddress=excl.getCellData(sheetName, 5, startIter);
-					String zipcode=excl.getCellData(sheetName, 6, startIter);
+					String strtaddress="1001 FM 2004 Rd";
+					String zipcode="77566";
+					/*
+					
 					String ssn=excl.getCellData(sheetName, 7, startIter);
 					ssn=ssn+num;
 					String dob=excl.getCellData(sheetName, 8, startIter);
@@ -74,7 +79,7 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 					String phonenmbr=excl.getCellData(sheetName, 16, startIter);
 					String phonetyp=excl.getCellData(sheetName, 17, startIter);
 					String primary_email=excl.getCellData(sheetName, 18, startIter);
-					String hear_opt=excl.getCellData(sheetName, 19, startIter);
+					String hear_opt=excl.getCellData(sheetName, 19, startIter);*/
 					
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
@@ -99,7 +104,57 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 					verifyText(ObjectRepository.pageSection("Applicant Information"),"Applicant Information");
 					verifyText(ObjectRepository.pageSection("Identification Information"),"Identification Information");
 					verifyText(ObjectRepository.pageSection("Contact Information"),"Contact Information");
-					validatePopUpAlertForInvalidCharecterEntry("First Name");
+					
+					getElement(ObjectRepository.fname_txt).sendKeys(fname);
+					test.log(Status.INFO, "First name entered");
+					
+					getElement(ObjectRepository.lname_txt).sendKeys(lname);
+					test.log(Status.INFO, "Last name entered");
+					
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys(strtaddress);
+					test.log(Status.INFO,  "Valid Street Address entered");
+					
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys(Keys.TAB);
+					test.log(Status.INFO,  "Tab pressed");
+					
+					getElement(ObjectRepository.zip_txt).sendKeys(Keys.TAB);
+					test.log(Status.INFO, "Tab button pressed without providing any value in Zip code field");
+					
+					verifyText(ObjectRepository.addressNotVerified_alert,"The address could not be verified. Please check the information and try again.");
+					getElement(ObjectRepository.zip_txt).click();
+					getElement(ObjectRepository.zip_txt).sendKeys(zipcode);
+					getElement(ObjectRepository.zip_txt).sendKeys(Keys.TAB);
+					Thread.sleep(1500);
+					verifyText(ObjectRepository.addressNotVerified_alert,"We have modified your address. Please check to ensure that it is correct.");
+					getElement(ObjectRepository.strtaddrs_txt).clear();
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys(strtaddress);
+					test.log(Status.INFO,  "Valid Street Address entered");
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys(Keys.TAB);
+					getElement(ObjectRepository.zip_txt).sendKeys(Keys.TAB);
+					Thread.sleep(1500);
+					verifyText(ObjectRepository.addressNotVerified_alert,"Verified!");
+					getElement(ObjectRepository.zip_txt).clear();
+					getElement(ObjectRepository.strtaddrs_txt).clear();
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys("423 Winter Show Rd E");
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys(Keys.TAB);
+					getElement(ObjectRepository.zip_txt).sendKeys("58072");
+					getElement(ObjectRepository.zip_txt).sendKeys(Keys.TAB);
+					Thread.sleep(1500);
+					verifyText(ObjectRepository.addressNotVerified_alert,"Multiple addresses were found. Please enter more information and try again.");
+					getElement(ObjectRepository.strtaddrs_txt).clear();
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys("423 Winter Show Rd SE");
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys(Keys.TAB);
+					getElement(ObjectRepository.zip_txt).sendKeys(Keys.TAB);
+					Thread.sleep(1500);
+					verifyText(ObjectRepository.addressNotVerified_alert,"We have modified your address. Please check to ensure that it is correct.");
+					getElement(ObjectRepository.strtaddrs_txt).click();
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys(Keys.TAB);
+					getElement(ObjectRepository.zip_txt).sendKeys(Keys.TAB);
+					Thread.sleep(1500);
+					verifyText(ObjectRepository.addressNotVerified_alert,"Verified!");
+					
+					
+					/*validatePopUpAlertForInvalidCharecterEntry("First Name");
 					validatePopUpAlertForInvalidCharecterEntry("Middle Name");
 					validatePopUpAlertForInvalidCharecterEntry("Last Name");
 					
@@ -187,7 +242,7 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 					test.log(Status.INFO, "Primary email entered");
 					getElement(ObjectRepository.continue_further).click();
 					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
-					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
+					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");*/
 				 }
 			 }
 		}
@@ -200,7 +255,7 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Non member user receives popup message for invalid charecter entry");
+			test.log(Status.PASS, "Verify the Address field values for Non member user");
 		}
 	}
 

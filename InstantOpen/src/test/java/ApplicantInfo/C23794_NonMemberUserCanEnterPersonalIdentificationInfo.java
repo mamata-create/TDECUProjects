@@ -1,11 +1,12 @@
 package ApplicantInfo;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.mail.MessagingException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -23,12 +24,14 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends GenericKeywords  {
+public class C23794_NonMemberUserCanEnterPersonalIdentificationInfo extends GenericKeywords {
+
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify Non member user receives popup message for invalid charecter entry
+	 * Verify that user can enter Personal Identification Information
 	 */
+
 	@BeforeTest
 	public void setUp() throws InterruptedException, MessagingException, IOException {
 		
@@ -39,10 +42,10 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 		executeDriverScript();
 		test.log(Status.INFO, "Application url navigated");
 		
-	}
+	}	
 	
 	@Test
-	public void C23762_NonMemberUserReceivesPopupForInvalidCharecters() throws InterruptedException, MessagingException, IOException
+	public void C23794_NonMemberUserCanEnterPersonalIdentificationInfo() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -51,13 +54,14 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 			int totalRowCount = excl.getRowCount(sheetName);
 			for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
 			 {	
-				if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter)))
+				if(this.getClass().getSimpleName().equals(excl.getCellData("Data", 0, startIter)))
 				 {
 					Faker fk=new Faker();
 					String num=getRandom();
-					String informationHeader=excl.getCellData(sheetName, 23, startIter);
-					String informationContent = excl.getCellData(sheetName, 24, startIter);
-					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
+					String fname=fk.name().firstName();
+					
+					String lname=fk.name().lastName();
+					
 					String strtaddress=excl.getCellData(sheetName, 5, startIter);
 					String zipcode=excl.getCellData(sheetName, 6, startIter);
 					String ssn=excl.getCellData(sheetName, 7, startIter);
@@ -71,11 +75,8 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 					String mothername=excl.getCellData(sheetName, 13, startIter);
 					String crrnt_emplyr=excl.getCellData(sheetName, 14, startIter);
 					String occupation=excl.getCellData(sheetName, 15, startIter);
-					String phonenmbr=excl.getCellData(sheetName, 16, startIter);
-					String phonetyp=excl.getCellData(sheetName, 17, startIter);
-					String primary_email=excl.getCellData(sheetName, 18, startIter);
-					String hear_opt=excl.getCellData(sheetName, 19, startIter);
 					
+					String hear_opt=excl.getCellData(sheetName, 19, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -86,58 +87,30 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 					
 					Thread.sleep(3000);
 					
-					verifyText(ObjectRepository.inforMsgHeader,informationHeader);
-					verifyText(ObjectRepository.inforMsgContent,informationContent);
-					verifyText(ObjectRepository.checkingAccountOptionHeader,checkingAccountOptionHeader);
+					
+					scrollToElement(ObjectRepository.nochkacnt_rdbtn);
+					getElement(ObjectRepository.nochkacnt_rdbtn).click();
+					test.log(Status.INFO, "Dont want checking account radio button clicked");
 					
 					
-					verifyElementPresent(ObjectRepository.dontWantCheckingOption);
-					getElement(ObjectRepository.dontWantCheckingOption).click();
-					getElement(ObjectRepository.selectRadioOption("No")).click();
+					getElement(ObjectRepository.othrprdctno_rdbtn).click();
+					test.log(Status.INFO, "Other products no radio button clicked");
+					
 					getElement(ObjectRepository.continue_btn).click();
-					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
-					verifyText(ObjectRepository.pageSection("Applicant Information"),"Applicant Information");
-					verifyText(ObjectRepository.pageSection("Identification Information"),"Identification Information");
-					verifyText(ObjectRepository.pageSection("Contact Information"),"Contact Information");
-					validatePopUpAlertForInvalidCharecterEntry("First Name");
-					validatePopUpAlertForInvalidCharecterEntry("Middle Name");
-					validatePopUpAlertForInvalidCharecterEntry("Last Name");
+					test.log(Status.INFO, "Continue button clicked");
 					
-					//Steps to validate functionalities from Name Suffix field
+					getElement(ObjectRepository.fname_txt).sendKeys(fname);
+					test.log(Status.INFO, "First name entered");
 					
-					String nameSuffix = "//input[@name='tbNameSuffix_TextBox']";
-					String errorSummaryForInvalidData = "//span[@id='ErrorSummary1']//li[1]";
-					String numbers = "2563";
-					String spclchar = "!@#$";
-					getElement(nameSuffix).sendKeys(numbers);
-					getElement(ObjectRepository.continue_further).click();
+//					getElement(ObjectRepository.mname_txt).sendKeys("");
+//					test.log(Status.INFO, "Middle name entered");
+//					
+					getElement(ObjectRepository.lname_txt).sendKeys(lname);
+					test.log(Status.INFO, "Last name entered");
 					
-					//Steps to validate validation message and if Name suffix field contains invalid data
+//					getElement(ObjectRepository.namesfx_txt).sendKeys("");
+//					test.log(Status.INFO, "Name suffix entered");
 					
-					String fieldBackgroundColor = getElement(nameSuffix).getAttribute("style").trim();
-					if(fieldBackgroundColor.contains("lightyellow")){
-						test.log(Status.INFO, "The field turned as Yellow now");
-						Assert.assertEquals(getElement(errorSummaryForInvalidData).isDisplayed(), true);
-						Assert.assertEquals(getElement(errorSummaryForInvalidData).getText().trim(), "The value entered is not valid. Please try again.");
-						test.log(Status.INFO, "Invalid error summary is displayed on the page");
-						
-					}
-					
-					scrollToElement(nameSuffix);
-					getElement(nameSuffix).clear();
-					getElement(nameSuffix).sendKeys(spclchar);
-					getElement(ObjectRepository.continue_further).click();
-					
-					if(fieldBackgroundColor.contains("lightyellow")){
-						test.log(Status.INFO, "The field turned as Yellow now");
-						Assert.assertEquals(getElement(errorSummaryForInvalidData).isDisplayed(), true);
-						Assert.assertEquals(getElement(errorSummaryForInvalidData).getText().trim(), "The value entered is not valid. Please try again.");
-						test.log(Status.INFO, "Invalid error summary is displayed on the page");
-						
-					}
-					
-					getElement(nameSuffix).clear();
-					getElement(nameSuffix).sendKeys("Jr");
 					getElement(ObjectRepository.strtaddrs_txt).sendKeys(strtaddress);
 					test.log(Status.INFO, "Street Address entered");
 					
@@ -175,24 +148,13 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 					getElement(ObjectRepository.occptn_txt).sendKeys(occupation);
 					test.log(Status.INFO, "Occupation name entered");
 					
-					
-					getElement(ObjectRepository.phonenmbr_txt).sendKeys(phonenmbr);
-					test.log(Status.INFO, "Phone number entered");
-					
-					selectDropdownOptContain(ObjectRepository.phonetyp_drop, phonetyp);
-					test.log(Status.INFO, "Phone type selected");
-					
-					
-					getElement(ObjectRepository.primaryemail_txt).sendKeys(primary_email);
-					test.log(Status.INFO, "Primary email entered");
-					getElement(ObjectRepository.continue_further).click();
-					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
-					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
+
 				 }
 			 }
 		}
 				
 	}
+
 	@AfterMethod
 	public void afterMethod(ITestResult result) throws Throwable {
 		if (result.getStatus() == ITestResult.FAILURE) {
@@ -200,7 +162,7 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Non member user receives popup message for invalid charecter entry");
+			test.log(Status.PASS, "Verify that user can enter Personal Identification Information");
 		}
 	}
 

@@ -23,11 +23,11 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends GenericKeywords  {
+public class C23795_ApplicantInfoShouldDisplayedOnceReturnBackToThePage extends GenericKeywords  {
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify Non member user receives popup message for invalid charecter entry
+	 * Verify that user informationstill displayed once return back to the Applicant Info page
 	 */
 	@BeforeTest
 	public void setUp() throws InterruptedException, MessagingException, IOException {
@@ -42,7 +42,7 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 	}
 	
 	@Test
-	public void C23762_NonMemberUserReceivesPopupForInvalidCharecters() throws InterruptedException, MessagingException, IOException
+	public void C23795_ApplicantInfoShouldDisplayedOnceReturnBackToThePage() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -55,6 +55,8 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 				 {
 					Faker fk=new Faker();
 					String num=getRandom();
+					String fname=fk.name().firstName();
+					String lname=fk.name().lastName();
 					String informationHeader=excl.getCellData(sheetName, 23, startIter);
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
@@ -99,45 +101,15 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 					verifyText(ObjectRepository.pageSection("Applicant Information"),"Applicant Information");
 					verifyText(ObjectRepository.pageSection("Identification Information"),"Identification Information");
 					verifyText(ObjectRepository.pageSection("Contact Information"),"Contact Information");
-					validatePopUpAlertForInvalidCharecterEntry("First Name");
-					validatePopUpAlertForInvalidCharecterEntry("Middle Name");
-					validatePopUpAlertForInvalidCharecterEntry("Last Name");
 					
-					//Steps to validate functionalities from Name Suffix field
 					
-					String nameSuffix = "//input[@name='tbNameSuffix_TextBox']";
-					String errorSummaryForInvalidData = "//span[@id='ErrorSummary1']//li[1]";
-					String numbers = "2563";
-					String spclchar = "!@#$";
-					getElement(nameSuffix).sendKeys(numbers);
-					getElement(ObjectRepository.continue_further).click();
+					getElement(ObjectRepository.fname_txt).sendKeys(fname);
+					test.log(Status.INFO, "First name entered");
 					
-					//Steps to validate validation message and if Name suffix field contains invalid data
-					
-					String fieldBackgroundColor = getElement(nameSuffix).getAttribute("style").trim();
-					if(fieldBackgroundColor.contains("lightyellow")){
-						test.log(Status.INFO, "The field turned as Yellow now");
-						Assert.assertEquals(getElement(errorSummaryForInvalidData).isDisplayed(), true);
-						Assert.assertEquals(getElement(errorSummaryForInvalidData).getText().trim(), "The value entered is not valid. Please try again.");
-						test.log(Status.INFO, "Invalid error summary is displayed on the page");
-						
-					}
-					
-					scrollToElement(nameSuffix);
-					getElement(nameSuffix).clear();
-					getElement(nameSuffix).sendKeys(spclchar);
-					getElement(ObjectRepository.continue_further).click();
-					
-					if(fieldBackgroundColor.contains("lightyellow")){
-						test.log(Status.INFO, "The field turned as Yellow now");
-						Assert.assertEquals(getElement(errorSummaryForInvalidData).isDisplayed(), true);
-						Assert.assertEquals(getElement(errorSummaryForInvalidData).getText().trim(), "The value entered is not valid. Please try again.");
-						test.log(Status.INFO, "Invalid error summary is displayed on the page");
-						
-					}
-					
-					getElement(nameSuffix).clear();
-					getElement(nameSuffix).sendKeys("Jr");
+
+				
+					getElement(ObjectRepository.lname_txt).sendKeys(lname);
+					test.log(Status.INFO, "Last name entered");
 					getElement(ObjectRepository.strtaddrs_txt).sendKeys(strtaddress);
 					test.log(Status.INFO, "Street Address entered");
 					
@@ -147,7 +119,7 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 					getElement(ObjectRepository.ssn_txt).sendKeys(ssn);
 					test.log(Status.INFO, "SSN entered");
 					
-					//dt
+					
 					getElement(ObjectRepository.dob_cal).sendKeys(dob);
 					test.log(Status.INFO, "Date of Birth entered");
 					
@@ -188,6 +160,17 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 					getElement(ObjectRepository.continue_further).click();
 					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
+					getElement(ObjectRepository.backButton).click();
+					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
+					
+					List<WebElement>elements = driver.findElements(By.xpath("//span[contains(@id,'TextBox_cvTextBox')]"));
+					for(int count=1;count<=elements.size();count++){
+						String astrikLocator = "(//span[contains(@id,'TextBox_cvTextBox')])["+count+"]";
+						String attrb = driver.findElement(By.xpath(astrikLocator)).getAttribute("style");
+						if(attrb.contains("visibility: hidden;")){
+							test.log(Status.INFO, "Field: "+count+" is filled with data");
+						}
+					}
 				 }
 			 }
 		}
@@ -200,7 +183,7 @@ public class C23762_NonMemberUserReceivesPopupForInvalidCharecters extends Gener
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Non member user receives popup message for invalid charecter entry");
+			test.log(Status.PASS, "Verify that user informationstill displayed once return back to the Applicant Info page");
 		}
 	}
 
