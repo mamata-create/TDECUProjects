@@ -12,6 +12,11 @@ public class ObjectRepository {
 	public static String continue_further = "//span[@id='NextButton']/input";
 	public static String memberShipEligibilityPage = "//*[contains(text(),'Membership Eligibility')]";
 	public static String addressNotVerified_alert = "//span[@id='AddressTextBox_lblVerifying']";
+	public static String ssnFiled_alert = "//span[@id='SSNTextBox']//following::div[@role='alert']";
+	public static String dobField_alert = "//span[@id='tbBirthDate']//following::div[@role='alert']";
+	public static String issueDate_alert = "//div[@id='issueDateDiv']//following::div[@role='alert']";
+	public static String expirationdate_alert = "//div[@id='expirationDateDiv']//following::div[@role='alert']";
+	public static String phoneNumber_alert = "//span[@id='tbPhone1']//following::div[@role='alert']";
 	
 	public static String fname_txt="//input[@id='tbFirstName_TextBox']";
 	public static String mname_txt="//input[@id='tbMiddleName_TextBox']";
@@ -33,7 +38,10 @@ public class ObjectRepository {
 	
 	public static String phonenmbr_txt="//input[@id='tbPhone1_RadMaskedTextBox']";
 	public static String phonetyp_drop="//select[@id='tbPhone1_ddPhoneNumberType']";
+	public static String addMore_checkBox = "(//div[contains(@class,'icheckbox_square-grey')])[1]";
+	public static String addPhone = "//div[@id='AddPhones']";
 	public static String primaryemail_txt="//input[@id='tbEmail1_RadTextBox']";
+	public static String email_astrick = "//input[@id='tbEmail1_RadTextBox']/following::span[1]";
 	
 	//
 	public static String mstrcrdtcard_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'MasterCard Credit Card')]";
@@ -411,10 +419,15 @@ public class ObjectRepository {
 			String sectionLocator = "//div[contains(text(),'"+sectionName+"')]";
 			return sectionLocator;
 		}
+		public static String informativeMessage_ContactInfo = "//div[@class='SectionHeaders']/following::strong";
 		public static String addJointOwners_CheckBox = "//span[@id='cbAddJointOwners']";
 		public static String addBeneficiaries_CheckBox = "//span[@id='cbAddBene']";
 		public static String footerString = "//span[@id='cbAddJointOwners']/following::p"; 
 		public static String applicantInformation_allfields = "//div[@class='SectionHeaders']/following::span[not(contains(@style,'hidden'))]";
 		
-		
+		public static String checkBoxProp(String locator){
+			String property = null;
+			property = GenericKeywords.getElement(locator).getAttribute("class");
+			return property;
+		}
 	}

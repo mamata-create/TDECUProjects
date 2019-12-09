@@ -34,6 +34,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -130,6 +131,18 @@ public class GenericKeywords extends BaseClass{
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].scrollIntoView(true);",element);
 
+	}
+	
+	public static void mouseHoverOver(WebElement targetElement){
+		try{
+			Thread.sleep(500);
+			Actions action = new Actions(driver);
+			action.moveToElement(targetElement).build().perform();
+			Thread.sleep(2000);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 	}
 
 	public static void robotTab() throws AWTException{
@@ -351,23 +364,23 @@ public class GenericKeywords extends BaseClass{
 	}
 
 
-	/*public static void invokeSikuli(String imageName, String action, String value) throws FindFailed {
-
-		System.out.println("Sikuli invoked!");
-		String filePathValue = System.getProperty("user.dir")+"/imageLocator/"+imageName;
-		Screen screen = new Screen();
-		Pattern imagePath = new Pattern(filePathValue);
-
-		if(action.equalsIgnoreCase("type")){
-			screen.type(imagePath, value);
-
-
-		}else if(action.equalsIgnoreCase("click")){
-			screen.click(imagePath);
-
-		}
-
-	}*/
+//	public static void invokeSikuli(String imageName, String action, String value) throws FindFailed {
+//
+//		System.out.println("Sikuli invoked!");
+//		String filePathValue = System.getProperty("user.dir")+"/imageLocator/"+imageName;
+//		Screen screen = new Screen();
+//		Pattern imagePath = new Pattern(filePathValue);
+//
+//		if(action.equalsIgnoreCase("type")){
+//			screen.type(imagePath, value);
+//
+//
+//		}else if(action.equalsIgnoreCase("click")){
+//			screen.click(imagePath);
+//
+//		}
+//
+//	}
 	
 	public static void validateStopPayment(){
 		String errorMsg = "Stop Payment Failed";
