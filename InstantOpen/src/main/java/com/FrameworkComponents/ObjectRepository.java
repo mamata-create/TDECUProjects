@@ -108,6 +108,8 @@ public class ObjectRepository {
 	
 	//Applicant Information
 	public static String aplcntinfo_ttl="//div[@class='SectionHeaders' and contains(text(),'Applicant Information')]";
+	public static String idntfctninfo_ttl="//div[@class='SectionHeaders' and contains(text(),'Identification Information')]";
+	public static String loaninfo_ttl="//div[@class='SectionHeaders' and contains(text(),'Loan Information')]";
 	
 	//Savings Account
 	
@@ -122,7 +124,7 @@ public class ObjectRepository {
 	
 	
 	//
-	public static String Highyieldchking_opt="//label[contains(text(),'High Yield Checking')]/preceding::div[1]"; 
+	public static String Highyieldchking_opt="//strong[contains(text(),'High Yield Checking')]/.."; 
 	public static String debitCardUnderHyield ="//label[contains(text(),'High Yield Checking')]/following::label[1]";
 	public static String overDraftUnderHyield = "//label[contains(text(),'High Yield Checking')]/following::label[2]";
 	
@@ -175,11 +177,13 @@ public class ObjectRepository {
 		return Option;
 	}
  
+	public static String creditCardInfoPage = "//*[text()='Credit Card Info']";
 	public static String backButton = "//input[@id='BackButton_SubmitButton']";
 	public static String productPageBackBtn = "//input[contains(@id,'Back_SubmitButton')]";
 	public static String vehicleLoanPage = "//strong[contains(text(),'Vehicle Loan Info')]";
 	public static String personalLoanPage = "//strong[contains(text(),'Personal Loan Info')]";
 	public static String errorSummary = "//span[contains(@id,'ErrorSummary')]//li";
+	public static String backButtonFurther = "//span[@id='btnBack']//input";
 	
 	public static String subproductName(String productName){
 		String locator = "//*[contains(text(),'"+productName+"')]/i";
@@ -358,8 +362,11 @@ public class ObjectRepository {
 		public static String productPageNext = "//input[@id='NextButton_SubmitButton']";
 	
 		//Product Info fields
-		public static String prodInfoBackButton = "//input[@id='btnBack_SubmitButton']";
+		public static String prodInfoBackButton = "//input[contains(@name,'Back_SubmitButton')]";
+		public static String appInfoBackButton = "//span[@id='BackButton']/input";
 		public static String prodInfoNextButton = "//input[@id='btnEdit']";
+		public static String appInfoNextButton = "//input[contains(@class,'NextButton')]";
+		
 		public static String prodInfoMsg= "//span[@id='CollateralHandler01']/div";
 		public static String prodTypeLabel = "//label[@for='ProductDropDownList_DropDownList']";
 		public static String prodTypeDropdown = "//select[@name='ProductDropDownList_DropDownList']";
@@ -373,6 +380,7 @@ public class ObjectRepository {
 		
 	//Error Messages
 		public static String errorMsg1 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[1]";
+		public static String errordiv="//div[@class='errors']";
 		public static String errorMsg2 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[2]";
 
 	//Member Verification
