@@ -80,9 +80,11 @@ public class C23838_NonMemberChangeSelectedCreditCardOption extends GenericKeywo
 					
 					getElement(ObjectRepository.selectRadioOption("Yes")).click();
 					productOptions(productOptionsForAllOptions);
+					expandProductsAndValidateEachOptions("Credit Cards","CreditCard");
 					creditCardCheckedUncheckedValidator("Classic",false);
-					checkamountandNavigateNextthenValidate("Classic");
+					getElement(ObjectRepository.continue_btn).click();
 					getElement(ObjectRepository.productPageBackBtn).click();
+					Thread.sleep(1500);
 					creditCardCheckedUncheckedValidator("Onyx",false);
 					checkamountandNavigateNextthenValidate("Onyx");
 					selectDropdownOpt(ObjectRepository.cardType_dropdown,"Buc-ee's MasterCard &reg;");
