@@ -29,10 +29,12 @@ import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -40,6 +42,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;*/
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.ExtentTest;
 
@@ -64,7 +67,7 @@ public class GenericKeywords extends BaseClass{
 
 	public static void verifyElementNotPresent(String locator){
 		try{
-			WebElement element=getElement(locator);
+			WebElement element=driver.findElement(By.xpath(locator));
 			boolean elementpresent=element.isDisplayed();
 			if(elementpresent){
 				System.out.println(locator +"- element present");
@@ -128,6 +131,18 @@ public class GenericKeywords extends BaseClass{
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].scrollIntoView(true);",element);
 
+	}
+	
+	public static void mouseHoverOver(WebElement targetElement){
+		try{
+			Thread.sleep(500);
+			Actions action = new Actions(driver);
+			action.moveToElement(targetElement).build().perform();
+			Thread.sleep(2000);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 	}
 
 	public static void robotTab() throws AWTException{
@@ -349,23 +364,23 @@ public class GenericKeywords extends BaseClass{
 	}
 
 
-	/*public static void invokeSikuli(String imageName, String action, String value) throws FindFailed {
-
-		System.out.println("Sikuli invoked!");
-		String filePathValue = System.getProperty("user.dir")+"/imageLocator/"+imageName;
-		Screen screen = new Screen();
-		Pattern imagePath = new Pattern(filePathValue);
-
-		if(action.equalsIgnoreCase("type")){
-			screen.type(imagePath, value);
-
-
-		}else if(action.equalsIgnoreCase("click")){
-			screen.click(imagePath);
-
-		}
-
-	}*/
+//	public static void invokeSikuli(String imageName, String action, String value) throws FindFailed {
+//
+//		System.out.println("Sikuli invoked!");
+//		String filePathValue = System.getProperty("user.dir")+"/imageLocator/"+imageName;
+//		Screen screen = new Screen();
+//		Pattern imagePath = new Pattern(filePathValue);
+//
+//		if(action.equalsIgnoreCase("type")){
+//			screen.type(imagePath, value);
+//
+//
+//		}else if(action.equalsIgnoreCase("click")){
+//			screen.click(imagePath);
+//
+//		}
+//
+//	}
 	
 	public static void validateStopPayment(){
 		String errorMsg = "Stop Payment Failed";
@@ -634,9 +649,9 @@ public class GenericKeywords extends BaseClass{
 	public static boolean checkamountandNavigateNextthenValidate(String cardName){
 		boolean status = false;
 		String limitLocator = "//div[contains(@id,'CreditCard_ProductPanel')]//following::label[contains(text(),'"+cardName+"')]/following::li[2]";
-		String cardLimitFromPage = getElement(limitLocator).getAttribute("inneText").split("$")[1].toString();
+		String cardLimitFromPage = getElement(limitLocator).getAttribute("innerText");
 		getElement(ObjectRepository.continue_btn).click();
-		boolean limitChecked = getElement(ObjectRepository.creditcardLimitTxt).getText().contains(cardLimitFromPage);
+		boolean limitChecked = getElement(ObjectRepository.creditcardLimitTxt).getAttribute("placeholder").contains(cardLimitFromPage.substring(25));
 		if(limitChecked)
 			return status=true;
 		return status;
@@ -804,5 +819,70 @@ public class GenericKeywords extends BaseClass{
 			Assert.assertTrue(false);
 		}
 	}
+	
+	public static void enteramountbasedonLimitandValidateBhaviour(int minamount,String expectedMinAmt){
+		
+		//	String miniumAmountFromPage = getElement(ObjectRepository.creditcardLimitTxt).getAttribute("placeholder").split(" ")[1];
+		//	String MinamountWithOutSign = miniumAmountFromPage.split(".")[1];
+		//	String minamount_withoutDecimal = MinamountWithOutSign.split(".")[0];
+			String toolTip = "//div[@class='popover-content']";
+			getElement(ObjectRepository.creditcardLimitTxt).sendKeys(String.valueOf(minamount));
+			getElement(ObjectRepository.creditcardLimitTxt).sendKeys(Keys.TAB);
+			if(Integer.parseInt(expectedMinAmt)==minamount){
+				Assert.assertTrue(true);
+				getElement(ObjectRepository.creditcardLimitTxt).clear();
+			}else if(Integer.parseInt(expectedMinAmt)>minamount || Integer.parseInt(expectedMinAmt)<minamount){
+				SoftAssert softassert = new SoftAssert();
+				softassert.assertTrue(getElement(toolTip).isDisplayed(), "Value either less or greater than min amount");
+				getElement(ObjectRepository.creditcardLimitTxt).clear();
+			}
+			
+			
+		}
+	public static void validatePopUpAlertForInvalidCharecterEntry(String fieldName){
+		String firstNameLocator = "//input[@name='tbFirstName_TextBox']";
+		String middleNameLocator = "//input[@name='tbMiddleName_TextBox']";
+		String lstNameLocator = "//input[@name='tbLastName_TextBox']";
+		
+		String popUp_alert = "//div[@class='popover-content']";
+		String numbers = "2306";
+		String spclChar = "!@#$%";
+		String charcters = "Test Char";
+		
+		if(fieldName.equalsIgnoreCase("First Name")){
+			getElement(firstNameLocator).click();
+			getElement(firstNameLocator).sendKeys(numbers);
+			verifyText(popUp_alert,"Please verify the name fields. Some invalid characters were detected.");
+			getElement(firstNameLocator).clear();
+			getElement(firstNameLocator).sendKeys(spclChar);
+			verifyText(popUp_alert,"Please verify the name fields. Some invalid characters were detected.");
+			getElement(firstNameLocator).clear();
+			getElement(firstNameLocator).sendKeys(charcters);
+			verifyElementNotPresent(popUp_alert);
+		}
+		else if(fieldName.equalsIgnoreCase("Middle Name")){
+			getElement(middleNameLocator).click();
+			getElement(middleNameLocator).sendKeys(numbers);
+			verifyText(popUp_alert,"Please verify the name fields. Some invalid characters were detected.");
+			getElement(middleNameLocator).clear();
+			getElement(middleNameLocator).sendKeys(spclChar);
+			verifyText(popUp_alert,"Please verify the name fields. Some invalid characters were detected.");
+			getElement(middleNameLocator).clear();
+			getElement(middleNameLocator).sendKeys(charcters);
+			verifyElementNotPresent(popUp_alert);
+		}
+		else if(fieldName.equalsIgnoreCase("Last Name")){
+			getElement(lstNameLocator).click();
+			getElement(lstNameLocator).sendKeys(numbers);
+			verifyText(popUp_alert,"Please verify the name fields. Some invalid characters were detected.");
+			getElement(lstNameLocator).clear();
+			getElement(lstNameLocator).sendKeys(spclChar);
+			verifyText(popUp_alert,"Please verify the name fields. Some invalid characters were detected.");
+			getElement(lstNameLocator).clear();
+			getElement(lstNameLocator).sendKeys(charcters);
+			verifyElementNotPresent(popUp_alert);
+		}
+		
+}
 
 }
