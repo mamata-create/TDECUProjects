@@ -59,14 +59,19 @@ public class C23882_VerifyVehicleLoanLimit extends GenericKeywords{
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
 					test.log(Status.INFO, "Non Members Start Here button clicked");
-				
+					Thread.sleep(4000);
+					
 				//Dont want to open a checking account option selected	
 					scrollToElement(ObjectRepository.dontWantCheckingOption);
 					getElement(ObjectRepository.dontWantCheckingOption).click();
 					test.log(Status.INFO, "Dont want to open a checking account option selected");
 				
+					Thread.sleep(4000);
+					
 					getElement(ObjectRepository.loancnfrm_yes).click();
 					test.log(Status.INFO, "Yes option selected");
+					
+					Thread.sleep(2000);
 				
 					
 					//select a vehicle loan
@@ -93,8 +98,10 @@ public class C23882_VerifyVehicleLoanLimit extends GenericKeywords{
 					verifyTxtFieldValue(ObjectRepository.carPurchPrice,priceFormat);
 					test.log(Status.INFO, "Loan info entered");
 					getElement(ObjectRepository.prodInfoNextButton).click();
-					verifyElementPresent(ObjectRepository.mmbrVerifyTile);
 					test.log(Status.INFO, "Continue button clicked");
+					verifyElementPresent(ObjectRepository.primaryApplicantInfoPageTitle);
+					test.log(Status.INFO, "Primary Applicant Information page appeared");
+					
 				 }
 			}
 	  }

@@ -76,22 +76,27 @@ public class C23881_VerifyVehicleLoanInfo extends GenericKeywords{
 					String mileage = excl.getCellData(sheetName, 34, startIter);
 					String vin = excl.getCellData(sheetName, 35, startIter);
 					
-					//verifyElementPresent(ObjectRepository.app_ttl);
-				//	test.log(Status.INFO, "Instant Open Title appearing");
+					Thread.sleep(2000);
+					
+					verifyElementPresent(ObjectRepository.app_ttl);
+					test.log(Status.INFO, "Instant Open Title appearing");
 					
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
 					test.log(Status.INFO, "Non Members Start Here button clicked");
-				
+					Thread.sleep(4000);
+					
 				//Dont want to open a checking account option selected	
 					scrollToElement(ObjectRepository.dontWantCheckingOption);
 					getElement(ObjectRepository.dontWantCheckingOption).click();
 					test.log(Status.INFO, "Dont want to open a checking account option selected");
 				
-					Thread.sleep(2000);
+					Thread.sleep(4000);
 					
 					getElement(ObjectRepository.loancnfrm_yes).click();
 					test.log(Status.INFO, "Yes option selected");
+					
+					Thread.sleep(2000);
 					
 					//select loan
 					getElement(ObjectRepository.carLoanExpand).click();
@@ -145,7 +150,22 @@ public class C23881_VerifyVehicleLoanInfo extends GenericKeywords{
 					test.log(Status.INFO, "Vehicle info entered");
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Continue button clicked");
-					verifyElementPresent(ObjectRepository.nonmmbrstrt_btn);
+					verifyElementPresent(ObjectRepository.primaryApplicantInfoPageTitle);
+					test.log(Status.INFO, "Primary Applicant Information page appeared");
+					
+					scrollToElement(ObjectRepository.appInfoBackButton);
+					getElement(ObjectRepository.appInfoBackButton).click();
+					test.log(Status.INFO, "Back button clicked");
+					
+//					verifyElementPresent(ObjectRepository.cycleRefinCheckBox);
+//					test.log(Status.INFO, "Selected Vehicle loan appears");
+					
+					scrollToElement(ObjectRepository.appInfoNextButton);
+					getElement(ObjectRepository.appInfoNextButton).click();
+					test.log(Status.INFO, "Continue button clicked");
+					
+					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,atvDdown);
+					test.log(Status.INFO, "Selected loan type appears correctly");
 				 }
 			}
 	  }
