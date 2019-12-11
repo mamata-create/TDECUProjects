@@ -65,17 +65,24 @@ public class C23855_VerifyPersonalLoanInfo extends GenericKeywords{
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
 					test.log(Status.INFO, "Non Members Start Here button clicked");
-				
-					//Dont want to open a checking account option selected	
+					Thread.sleep(4000);
+					
+				//Dont want to open a checking account option selected	
 					scrollToElement(ObjectRepository.dontWantCheckingOption);
 					getElement(ObjectRepository.dontWantCheckingOption).click();
 					test.log(Status.INFO, "Dont want to open a checking account option selected");
 				
+					Thread.sleep(4000);
+					
 					getElement(ObjectRepository.loancnfrm_yes).click();
 					test.log(Status.INFO, "Yes option selected");
 					
+					Thread.sleep(2000);
+				
+					
 					//select loan
 					getElement(ObjectRepository.personalLoanExpand).click();
+					Thread.sleep(2000);
 					getElement(ObjectRepository.personalCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Personal loan selected");
@@ -103,7 +110,9 @@ public class C23855_VerifyPersonalLoanInfo extends GenericKeywords{
 					verifyTxtFieldValue(ObjectRepository.prodLimitTextbox,loanAmtFormat);
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Amount entered and Continue button clicked");
-					verifyElementPresent(ObjectRepository.mmbrVerifyTile);
+					
+					verifyElementPresent(ObjectRepository.primaryApplicantInfoPageTitle);
+					test.log(Status.INFO, "Primary Applicant Information page appeared");
 				 }
 			}
 	  }

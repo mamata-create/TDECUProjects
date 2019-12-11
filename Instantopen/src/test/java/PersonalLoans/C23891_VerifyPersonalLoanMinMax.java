@@ -68,14 +68,19 @@ public class C23891_VerifyPersonalLoanMinMax extends GenericKeywords{
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
 					test.log(Status.INFO, "Non Members Start Here button clicked");
-				
-					//Dont want to open a checking account option selected	
+					Thread.sleep(4000);
+					
+				//Dont want to open a checking account option selected	
 					scrollToElement(ObjectRepository.dontWantCheckingOption);
 					getElement(ObjectRepository.dontWantCheckingOption).click();
 					test.log(Status.INFO, "Dont want to open a checking account option selected");
 				
+					Thread.sleep(4000);
+					
 					getElement(ObjectRepository.loancnfrm_yes).click();
 					test.log(Status.INFO, "Yes option selected");
+					
+					Thread.sleep(2000);
 					
 					//select loan
 					getElement(ObjectRepository.personalLoanExpand).click();
@@ -146,7 +151,9 @@ public class C23891_VerifyPersonalLoanMinMax extends GenericKeywords{
 					test.log(Status.INFO, "Amount formatted correctly");
 					//click continue
 					getElement(ObjectRepository.prodInfoNextButton).click();
-					verifyElementPresent(ObjectRepository.mmbrVerifyTile);
+					test.log(Status.INFO, "Continue button clicked");
+					verifyElementPresent(ObjectRepository.primaryApplicantInfoPageTitle);
+					test.log(Status.INFO, "Primary Applicant Information page appeared");
 				 }
 			}
 	  }

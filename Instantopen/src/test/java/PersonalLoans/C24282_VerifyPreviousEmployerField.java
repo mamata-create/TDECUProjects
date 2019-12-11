@@ -67,14 +67,20 @@ public class C24282_VerifyPreviousEmployerField extends GenericKeywords{
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
 					test.log(Status.INFO, "Non Members Start Here button clicked");
-				
-					//Dont want to open a checking account option selected	
+					Thread.sleep(4000);
+					
+				//Dont want to open a checking account option selected	
 					scrollToElement(ObjectRepository.dontWantCheckingOption);
 					getElement(ObjectRepository.dontWantCheckingOption).click();
 					test.log(Status.INFO, "Dont want to open a checking account option selected");
 				
+					Thread.sleep(4000);
+					
 					getElement(ObjectRepository.loancnfrm_yes).click();
 					test.log(Status.INFO, "Yes option selected");
+					
+					Thread.sleep(2000);
+					
 					//Select loan and enter amount
 					getElement(ObjectRepository.personalLoanExpand).click();
 					getElement(ObjectRepository.shareSecuredCheckBox).click();
@@ -83,13 +89,13 @@ public class C24282_VerifyPreviousEmployerField extends GenericKeywords{
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmt);
 					test.log(Status.INFO, "Loan amount entered");
 					getElement(ObjectRepository.prodInfoNextButton).click();
-					//Enter member info
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
-					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
-					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
-					getElement(ObjectRepository.mmbrVerifyNext).click();
-					test.log(Status.INFO, "Member verified");
-					//Enter identification information
+					//Primary Applicant info page
+					verifyElementPresent(ObjectRepository.primaryApplicantInfoPageTitle);
+					verifyElementPresent(ObjectRepository.aplcntinfo_ttl);
+					verifyElementPresent(ObjectRepository.idntfctninfo_ttl);
+					verifyElementPresent(ObjectRepository.loaninfo_ttl);
+					test.log(Status.INFO, "Primary Applicant Information page appeared with all sections");
+				//Enter identification information
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);
 					getElement(ObjectRepository.issueDate).sendKeys(issueDt);
@@ -106,14 +112,15 @@ public class C24282_VerifyPreviousEmployerField extends GenericKeywords{
 					getElement(ObjectRepository.prevEmp).sendKeys(Keys.TAB);
 					verifyTxtFieldValue(ObjectRepository.prevEmp,prevEmp);
 					getElement(ObjectRepository.productPageNext).click();
-					verifyText(ObjectRepository.errorMsg1,errorMsg);
+					verifyText(ObjectRepository.errordiv,errorMsg);
 					getElement(ObjectRepository.empMonths).sendKeys(empMonths);
 					getElement(ObjectRepository.prevEmp).clear();
 					getElement(ObjectRepository.prevEmp).sendKeys(oneChar);
 					getElement(ObjectRepository.prevEmp).sendKeys(Keys.TAB);
 					verifyTxtFieldValue(ObjectRepository.prevEmp,oneChar);
+					getElement(ObjectRepository.prevEmp).sendKeys(Keys.TAB);
 					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmTtl);
+					//verifyElementPresent(ObjectRepository.confirmTtl);
 				 }
 			}
 	  }
