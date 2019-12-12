@@ -258,6 +258,30 @@ public class GenericKeywords extends BaseClass{
 		}		
 	}
 	
+	public static void stormLoanInfoValidation(){		
+		String allLoanDescLocator = "//div[contains(@id,'MoreInfo_6449_1')]//ul[@class='fa-ul']/li";
+		String loanDescOne = "Option for Members impacted by Tropical Storm Imelda";
+		String loanDescTwo = "Loan amounts between $500 - $5,000";
+		String loanDescThree = "Loan terms between 24 and 36 months (based on loan amount)";
+		String loanDescFour = "Direct deposit required";
+		String loanDescFive = "Check out the latest rates here";
+		
+		List<WebElement>allLoanDescriptions = driver.findElements(By.xpath(allLoanDescLocator));
+		for(int count=1;count<=allLoanDescriptions.size();count++){
+			
+			String eachDescription = "//div[contains(@id,'MoreInfo_6449_1')]//ul[@class='fa-ul']/li["+count+"]";
+			String eachValueFromPage = driver.findElement(By.xpath(eachDescription)).getText();
+			
+			if(eachValueFromPage.equals(loanDescOne) || eachValueFromPage.equals(loanDescTwo) 
+					|| eachValueFromPage.equals(loanDescThree)|| eachValueFromPage.equals(loanDescFour)|| eachValueFromPage.equals(loanDescFive)){
+				Assert.assertTrue(true, eachValueFromPage);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}
+	}
+	
 	public static void homeAdvLoanInfoValidation(){		
 		String allLoanDescLocator = "//div[contains(@id,'MoreInfo_1420_1')]//ul[@class='fa-ul']/li";
 		String loanDescOne = "Loan amounts between $1,000 - $35,000";
@@ -364,7 +388,7 @@ public class GenericKeywords extends BaseClass{
 		
 		List<WebElement>allCDsList = driver.findElements(By.xpath(allCDsLocator));
 		int count=allCDsList.size();			
-			if(count == 10){
+			if(count == 8){
 				Assert.assertTrue(true);
 			}
 			else{
@@ -376,7 +400,7 @@ public class GenericKeywords extends BaseClass{
 		
 		List<WebElement>allCDsList = driver.findElements(By.xpath(allCDsLocator));
 		int count=allCDsList.size();			
-			if(count == 10){
+			if(count == 8){
 				Assert.assertTrue(true);
 			}
 			else{
@@ -433,7 +457,7 @@ public class GenericKeywords extends BaseClass{
 		}
 	}
 	
-	public static void verifyOverdraftPDF(){
+	public static void verifyCourtesyPayPDF(){
 		String pdfText = "Courtesy-Pay-Opt-In-Form-English.pdf";
 		String parentWindow = driver.getWindowHandle();
 		driver.findElement(By.xpath("//*[@id='modalCourtesyMember']/div/div/div[3]/a/button")).click();		
@@ -609,6 +633,30 @@ public class GenericKeywords extends BaseClass{
 			}
 		}
 		Assert.assertTrue(match);
+	}
+	
+	public static void verifyMobileLink(){
+		String pdfText = "Mobile-Remote-Deposit-Capture-User-Agreement-Terms-and-Conditions.pdf";
+		String parentWindow = driver.getWindowHandle();
+		driver.findElement(By.xpath("//a[text()='Mobile Remote Deposit Capture Terms and Conditions']")).click();
+		int count = driver.getWindowHandles().size();
+		if(count == 2){
+			for(String winHandle : driver.getWindowHandles()){
+			    driver.switchTo().window(winHandle);
+			}
+			String actualPDF = driver.getCurrentUrl();
+			driver.close();
+			driver.switchTo().window(parentWindow);
+			if(actualPDF.contains(pdfText))
+			{
+				Assert.assertTrue(true);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}else{
+			Assert.assertTrue(false);
+		}		
 	}
 	
 	//Select Credit Card based on Excel input

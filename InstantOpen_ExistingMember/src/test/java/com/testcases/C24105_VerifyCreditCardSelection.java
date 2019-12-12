@@ -76,8 +76,7 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 					String curIncome= excl.getCellData(sheetName, 26, startIter);
 					String empYears= excl.getCellData(sheetName, 30, startIter);
 					String empMonths= excl.getCellData(sheetName, 31, startIter);
-					String OnyxName= excl.getCellData(sheetName, 32, startIter);
-					String CDName= excl.getCellData(sheetName, 33, startIter);
+					String CDName= excl.getCellData(sheetName, 32, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -209,8 +208,10 @@ public class C24105_VerifyCreditCardSelection extends GenericKeywords {
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Confirm Accounts
-					verifyText(ObjectRepository.prodOne,OnyxName);
-					verifyText(ObjectRepository.prodTwo,CDName);
+					verifyText(ObjectRepository.prodOne,OnyxCardName);
+					String maturity = cdMaturityDate(24);					
+					String concatProd = CDName+" "+maturity+")";
+					verifyText(ObjectRepository.prodTwo,concatProd);
 				 }
 			 }
 		}

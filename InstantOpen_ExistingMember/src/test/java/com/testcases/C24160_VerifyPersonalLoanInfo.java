@@ -51,6 +51,7 @@ public class C24160_VerifyPersonalLoanInfo extends GenericKeywords{
 					String cashDdown= excl.getCellData(sheetName, 6, startIter);
 					String cdDdown= excl.getCellData(sheetName, 7, startIter);
 					String shareDdown= excl.getCellData(sheetName, 8, startIter);
+					String stormDdown= excl.getCellData(sheetName, 9, startIter);
 					String loanDesc= excl.getCellData(sheetName, 16, startIter);
 					String typeLbl= excl.getCellData(sheetName, 17, startIter);
 					String amountLbl = excl.getCellData(sheetName, 18, startIter);
@@ -76,6 +77,7 @@ public class C24160_VerifyPersonalLoanInfo extends GenericKeywords{
 					verifyTxtFieldValue(ObjectRepository.prodInfoNextButton,continueBtn);
 					test.log(Status.INFO, "Labels verified");
 					//verify dropdowns
+					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,stormDdown);
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,myway4Ddown);
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,myway6Ddown);
 					selectDropdownOptContain(ObjectRepository.prodTypeDropdown,myway7Ddown);

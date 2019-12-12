@@ -148,7 +148,9 @@ public class ObjectRepository {
 	
 	//Personal Loans
 	public static String personalLoanExpand = "//h4[contains(text(),'Personal')]/i";
+	public static String stormTitle = "//label[@for='PersonalLoan_ProductCheckbox_6449_1']";
 	public static String stormCheckBox= "//div[@id='PersonalLoan_ProductPanel_6449_1']//div[@class='icheckbox_square-grey']";
+	public static String stormCheckedBox = "//div[@id='PersonalLoan_ProductPanel_6449_1']//div[contains(@class,'checked')]";
 	public static String myWay4000Title = "//label[@for='PersonalLoan_ProductCheckbox_2089_1']";
 	public static String myWay4000CheckBox = "//div[@id='PersonalLoan_ProductPanel_2089_1']//div[@class='icheckbox_square-grey']";
 	public static String myWay4000CheckedBox = "//div[@id='PersonalLoan_ProductPanel_2089_1']//div[contains(@class,'checked')]";
@@ -223,6 +225,9 @@ public class ObjectRepository {
 	public static String classicCheckDesc2 = "//div[contains(@id,'MoreInfo_2633_1')]//ul[@class='fa-ul']/li[2]";
 	public static String ccDebitCardChecked= "//div[@id='Checking_Panel26335205_1']//div[contains(@class,'checked')]";
 	public static String ccDebitCardCheckBox= "//div[@id='Checking_Panel26335205_1']//div[@class='icheckbox_square-grey']";
+	public static String ccMobileChecked= "//div[@id='Checking_Panel26336120_1']//div[contains(@class,'checked')]";
+	public static String ccMobileCheckBox= "//div[@id='Checking_Panel26336120_1']//div[@class='icheckbox_square-grey']";
+	public static String ccMobileQstion= "//div[contains(@id,'MoreInfo_26336120')]//button";
 	public static String ccOverdraftChecked= "//div[@id='Checking_Panel26335427_1']//div[contains(@class,'checked')]";
 	public static String ccOverdraftCheckBox= "//div[@id='Checking_Panel26335427_1']//div[@class='icheckbox_square-grey']";
 	public static String ccOverdraftQstion= "//div[contains(@id,'MoreInfo_26335427')]//button";
@@ -241,12 +246,18 @@ public class ObjectRepository {
 	public static String highYieldChecked = "(//div[@id='Checking_ProductPanel_6223_1']//div[contains(@class,'checked')])[1]";
 	public static String hyDebitCardChecked= "//div[@id='Checking_Panel62235205_1']//div[contains(@class,'checked')]";
 	public static String hyDebitCardCheckBox= "//div[@id='Checking_Panel62235205_1']//div[@class='icheckbox_square-grey']";
+	public static String hyMobileChecked= "//div[@id='Checking_Panel62236120_1']//div[contains(@class,'checked')]";
+	public static String hyMobileCheckBox= "//div[@id='Checking_Panel62236120_1']//div[@class='icheckbox_square-grey']";
+	public static String hyMobileQstion= "//div[contains(@id,'MoreInfo_62236120')]//button";
 	public static String hyOverdraftChecked= "//div[@id='Checking_Panel62235427_1']//div[contains(@class,'checked')]";
 	public static String hyOverdraftCheckBox= "//div[@id='Checking_Panel62235427_1']//div[@class='icheckbox_square-grey']";
 	public static String hyOverdraftQstion= "//div[contains(@id,'MoreInfo_62235427')]//button";
 	public static String hyCourtesyPayCheckBox= "//div[@id='Checking_Panel62235206_1']//div[@class='icheckbox_square-grey']";
 	public static String hyCourtesyPayChecked= "//div[@id='Checking_Panel62235206_1']//div[contains(@class,'checked')]";
 	public static String hyCourtesyPayQstion= "//div[contains(@id,'MoreInfo_62235206')]//button";
+	public static String mobileTitle= "//h4[@id='modalDeposit2Label']";
+	public static String mobileDesc= "//*[@id='modalDeposit2']/div/div/div[2]";
+	public static String mobileClose= "//*[@id='modalDeposit2']/div/div/div[3]/button";
 	public static String overdraftTitle= "//h4[@id='modalOverdraftMemberLabel']";
 	public static String overdraftDesc= "//*[@id='modalOverdraftMember']/div/div/div[2]";
 	public static String overdraftClose= "//*[@id='modalOverdraftMember']/div/div/div[3]/button";
@@ -361,6 +372,26 @@ public class ObjectRepository {
 	public static String addBeneCheckBox= "//span[@id='cbAddBene']/div";
 	public static String addBeneLbl= "//label[@for='cbAddBene_CheckBox']";
 	
+	//Additional Owners
+	public static String addOwnerTtl = "//strong[text()='Additional Account Owners']";
+	public static String addBeneTtl = "//strong[text()='Your Beneficiary Information']";
+	public static String addFname= "//input[@id='tbFirstName_TextBox']";
+	public static String addMname = "//input[@id='tbMiddleName_TextBox']";
+	public static String addLname= "//input[@id='tbLastName_TextBox']";	
+	public static String sameAddrCbox = "//span[@id='AddressTextBox']/div[contains(@class,'checkbox')]";
+	public static String addStreet= "//input[@id='AddressTextBox_AddressLine1']";
+	public static String addZip= "//input[@id='AddressTextBox_AddressCityStateZip']";
+	public static String addSSN= "//input[@id='SSNTextBox_TextBox']";
+	public static String addMaiden= "//input[@id='MothersMaidenName_TextBox']";
+	public static String addOccupation= "//input[@id='Occupation_TextBox']";
+	public static String addPhone= "//input[@id='tbPhone1_RadMaskedTextBox']";
+	public static String addPhoneType= "//select[@id='tbPhone1_ddPhoneNumberType']";
+	public static String addEmail= "//input[@id='tbEmail1_RadTextBox']";
+	public static String addButton= "//input[@id='btnAdd']";
+	
+	//Confirm Account Roles
+	public static String confirmRolesTtl = "//strong[text()='Confirm Account Roles']";
+	
 	//Confirm Accounts
 	public static String confirmTtl = "//strong[text()='Confirm Account Selections']";
 	public static String prodOne = "(//span[@id='ProductsAndServices']//li[1])[1]";
@@ -368,6 +399,7 @@ public class ObjectRepository {
 	public static String prodWOptions = "(//span[@id='ProductsAndServices']//li[2])[1]";
 	public static String prodWOptionsOne = "(//span[@id='ProductsAndServices']//li[1])[2]";
 	public static String prodWOptionsTwo = "(//span[@id='ProductsAndServices']//li[2])[2]";
+	public static String prodWOptionsThree = "(//span[@id='ProductsAndServices']//li[3])[1]";
 	public static String confirmBtn="//input[@id='btnNext_SubmitButton']";
 	public static String changeBtn="//input[@id='btnChange_SubmitButton']";
 	
@@ -375,6 +407,7 @@ public class ObjectRepository {
 	public static String agreementTtl = "//h2[text()='Account Agreements and Disclosures']";
 	public static String termsAndCondCheckBox = "//span[@id='cbDisclosures']//div[@class='icheckbox_square-grey']";
 	public static String agreeAndSignCheckBox = "//span[@id='Authroization']//div[@class='icheckbox_square-grey']";
+	public static String mobileLink= "//a[text()='Mobile Remote Deposit Capture Terms and Conditions']";
 	public static String eDocsLink= "//a[text()='eDocument Consent']";
 	public static String discCheckBox= "//span[@id='cbDisclosures']//div[@class='icheckbox_square-grey']";
 	public static String discChecked= "//span[@id='cbDisclosures']//div[contains(@class,'checked')]";	
@@ -405,6 +438,7 @@ public class ObjectRepository {
 	
 	//ID Verification
 	public static String IdentityTtl= "//h3[text()='Identity Verification']";
+	public static String IdentityName = "//span[@id='lblIndividualName_Label']";
 	public static String questionOne = "(//span[@id='IDAuthenticationQuestions']//table//tr[4])[1]";
 	public static String qstnOneOptnOne= "(//span[contains(text(),'counties')]//following::div[@class='iradio_square-grey'])[1]";
 	public static String questionTwo = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[1]";
