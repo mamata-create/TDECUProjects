@@ -184,6 +184,7 @@ public class ObjectRepository {
 	public static String personalLoanPage = "//strong[contains(text(),'Personal Loan Info')]";
 	public static String errorSummary = "//span[contains(@id,'ErrorSummary')]//li";
 	public static String backButtonFurther = "//span[@id='btnBack']//input";
+	public static String specificErrorSummary = "//span[contains(@id,'ErrorSummary')]//li[1]";
 	
 	public static String subproductName(String productName){
 		String locator = "//*[contains(text(),'"+productName+"')]/i";

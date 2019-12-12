@@ -210,6 +210,17 @@ public class GenericKeywords extends BaseClass{
 		}
 
 	}
+	
+	public static List<WebElement> retrunElements(String locator){
+		List<WebElement> elements = null;
+		try{
+			elements = driver.findElements(By.xpath(locator));
+			  
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return elements;
+	}
 
 	public static void selectFutureDateAfter45Days() throws InterruptedException{
 		DateFormat dateFormat = new SimpleDateFormat("MMMM/d/yyyy");
