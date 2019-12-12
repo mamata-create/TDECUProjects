@@ -53,6 +53,7 @@ public class C24027_VerifyModifyAccountSelection extends GenericKeywords{
 					String confirmProd4= excl.getCellData(sheetName, 6, startIter);
 					String confirmProd5= excl.getCellData(sheetName, 7, startIter);
 					String confirmProd6= excl.getCellData(sheetName, 8, startIter);
+					String confirmProd7= excl.getCellData(sheetName, 9, startIter);
 					String SSNformat= excl.getCellData(sheetName, 30, startIter);
 					String DOBformat= excl.getCellData(sheetName, 31, startIter);
 					
@@ -76,10 +77,13 @@ public class C24027_VerifyModifyAccountSelection extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Confirm Accounts
-					verifyText(ObjectRepository.prodOne,confirmProd1);
+					String maturity = cdMaturityDate(60);					
+					String concatProd = confirmProd1+" "+maturity+")";
+					verifyText(ObjectRepository.prodOne,concatProd);
 					verifyText(ObjectRepository.prodWOptions,confirmProd2);
 					verifyText(ObjectRepository.prodWOptionsOne,confirmProd3);
 					verifyText(ObjectRepository.prodWOptionsTwo,confirmProd4);
+					verifyText(ObjectRepository.prodWOptionsThree,confirmProd7);
 					getElement(ObjectRepository.changeBtn).click();
 					test.log(Status.INFO, "Change button clicked");
 					//Modify accounts
@@ -88,6 +92,7 @@ public class C24027_VerifyModifyAccountSelection extends GenericKeywords{
 					getElement(ObjectRepository.visibleCD6).click();
 					getElement(ObjectRepository.checkingExpand).click();
 					getElement(ObjectRepository.ccDebitCardChecked).click();
+					getElement(ObjectRepository.ccMobileChecked).click();
 					getElement(ObjectRepository.ccCourtesyPayCheckBox).click();										
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Checking account and CD modified");
@@ -101,7 +106,9 @@ public class C24027_VerifyModifyAccountSelection extends GenericKeywords{
 					test.log(Status.INFO, "Continue button clicked");
 					//Confirm Accounts
 					verifyText(ObjectRepository.prodOne,confirmProd2);
-					verifyText(ObjectRepository.prodWOptionsTwo,confirmProd5);
+					String CDmaturity = cdMaturityDate(6);					
+					String concatCD = confirmProd5+" "+CDmaturity+")";
+					verifyText(ObjectRepository.prodWOptionsTwo,concatCD);
 					verifyText(ObjectRepository.prodWOptionsOne,confirmProd6);
 					verifyText(ObjectRepository.prodWOptions,confirmProd4);
 				}

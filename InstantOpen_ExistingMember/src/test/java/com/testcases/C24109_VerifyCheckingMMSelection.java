@@ -55,6 +55,8 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						String overdraftInfo= excl.getCellData(sheetName, 23, startIter);
 						String courtesyPayTitle= excl.getCellData(sheetName, 5, startIter);
 						String courtesyPayInfo= excl.getCellData(sheetName, 24, startIter);
+						String mobileTitle= excl.getCellData(sheetName, 6, startIter);
+						String mobileInfo= excl.getCellData(sheetName, 25, startIter);
 						
 						scrollToElement(ObjectRepository.mmbrstrt_btn);
 						getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -71,8 +73,14 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						getElement(ObjectRepository.classicCheckCheckBox).click();
 						test.log(Status.INFO, "Classic Checking selected");
 						verifyElementPresent(ObjectRepository.ccDebitCardChecked);
+						verifyElementPresent(ObjectRepository.ccMobileChecked);
 						verifyElementPresent(ObjectRepository.ccOverdraftChecked);
 						verifyElementPresent(ObjectRepository.ccCourtesyPayCheckBox);
+						getElement(ObjectRepository.ccMobileQstion).click();
+						verifyText(ObjectRepository.mobileTitle,mobileTitle);
+						verifyText(ObjectRepository.mobileDesc,mobileInfo);
+						getElement(ObjectRepository.mobileClose).click();
+						Thread.sleep(2000);
 						getElement(ObjectRepository.ccOverdraftQstion).click();
 						verifyText(ObjectRepository.overdraftTitle,overdraftTitle);
 						verifyText(ObjectRepository.overdraftDesc,overdraftInfo);
@@ -81,10 +89,11 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						getElement(ObjectRepository.ccCourtesyPayQstion).click();
 						verifyText(ObjectRepository.courtesyPayTitle,courtesyPayTitle);
 						verifyText(ObjectRepository.courtesyPayDesc,courtesyPayInfo);
-						verifyOverdraftPDF();
+						verifyCourtesyPayPDF();
 						getElement(ObjectRepository.courtesyPayClose).click();
 						Thread.sleep(2000);
 						getElement(ObjectRepository.ccDebitCardChecked).click();
+						getElement(ObjectRepository.ccMobileChecked).click();
 						getElement(ObjectRepository.ccOverdraftChecked).click();
 						getElement(ObjectRepository.ccCourtesyPayCheckBox).click();
 						
@@ -103,18 +112,24 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						highYieldInfoValidation();
 						getElement(ObjectRepository.highYieldCheckBox).click();
 						test.log(Status.INFO, "High Yield Checking selected");
+						getElement(ObjectRepository.hyMobileQstion).click();
+						verifyText(ObjectRepository.mobileTitle,mobileTitle);
+						verifyText(ObjectRepository.mobileDesc,mobileInfo);
+						getElement(ObjectRepository.mobileClose).click();
+						Thread.sleep(1000);
 						getElement(ObjectRepository.hyOverdraftQstion).click();
 						verifyText(ObjectRepository.overdraftTitle,overdraftTitle);
 						verifyText(ObjectRepository.overdraftDesc,overdraftInfo);
-						getElement(ObjectRepository.overdraftClose).click();
+						getElement(ObjectRepository.overdraftClose).click();						
 						Thread.sleep(1000);
 						getElement(ObjectRepository.hyCourtesyPayQstion).click();
 						verifyText(ObjectRepository.courtesyPayTitle,courtesyPayTitle);
 						verifyText(ObjectRepository.courtesyPayDesc,courtesyPayInfo);
-						verifyOverdraftPDF();
+						verifyCourtesyPayPDF();
 						getElement(ObjectRepository.courtesyPayClose).click();
 						Thread.sleep(1000);
 						getElement(ObjectRepository.hyDebitCardChecked).click();
+						getElement(ObjectRepository.hyMobileChecked).click();
 						getElement(ObjectRepository.hyOverdraftChecked).click();
 						getElement(ObjectRepository.hyCourtesyPayCheckBox).click();
 						
@@ -126,11 +141,13 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						//Back button currently going to wrong page
 						verifyElementPresent(ObjectRepository.ccChecked);
 						verifyElementPresent(ObjectRepository.ccDebitCardCheckBox);
+						verifyElementPresent(ObjectRepository.ccMobileCheckBox);
 						verifyElementPresent(ObjectRepository.ccOverdraftCheckBox);
 						verifyElementPresent(ObjectRepository.ccCourtesyPayChecked);
 						verifyElementPresent(ObjectRepository.mnyMrktChecked);
 						verifyElementPresent(ObjectRepository.highYieldChecked);
 						verifyElementPresent(ObjectRepository.hyDebitCardCheckBox);
+						verifyElementPresent(ObjectRepository.hyMobileCheckBox);
 						verifyElementPresent(ObjectRepository.hyOverdraftCheckBox);
 						verifyElementPresent(ObjectRepository.hyCourtesyPayChecked);
 					}

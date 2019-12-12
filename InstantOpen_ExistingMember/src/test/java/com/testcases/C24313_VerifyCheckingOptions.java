@@ -43,6 +43,7 @@ public class C24313_VerifyCheckingOptions extends GenericKeywords{
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				 {
 					String option1=excl.getCellData(sheetName, 5, startIter);
+					String option2=excl.getCellData(sheetName, 6, startIter);
 					String option3=excl.getCellData(sheetName, 7, startIter);
 					String option4=excl.getCellData(sheetName, 8, startIter);
 					
@@ -53,6 +54,7 @@ public class C24313_VerifyCheckingOptions extends GenericKeywords{
 					getElement(ObjectRepository.checkingExpand).click();
 					getElement(ObjectRepository.classicCheckCheckBox).click();
 					verifyText(ObjectRepository.checkingOpt1,option1);
+					verifyText(ObjectRepository.checkingOpt2,option2);
 					verifyText(ObjectRepository.checkingOpt3,option3);
 					verifyText(ObjectRepository.checkingOpt4,option4);
 					test.log(Status.INFO, "Classic Checking Options in correct order");
@@ -66,6 +68,7 @@ public class C24313_VerifyCheckingOptions extends GenericKeywords{
 					scrollToElement(ObjectRepository.highYieldCheckBox);
 					getElement(ObjectRepository.highYieldCheckBox).click();
 					verifyText(ObjectRepository.checkingOpt5,option1);
+					verifyText(ObjectRepository.checkingOpt6,option2);
 					verifyText(ObjectRepository.checkingOpt7,option3);
 					verifyText(ObjectRepository.checkingOpt8,option4);
 					test.log(Status.INFO, "High Yield Checking Options in correct order");

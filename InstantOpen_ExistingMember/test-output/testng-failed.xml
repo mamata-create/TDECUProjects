@@ -3,14 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24058_VerifyTransferFundsMethod">
+      <class name="com.testcases.C24300_VerifyModifyJointOwner">
         <methods>
-          <include name="C24058_VerifyTransferFundsMethod"/>
-          <include name="tearDown"/>
+          <include name="C24300_VerifyModifyJointOwner"/>
           <include name="setUp"/>
-          <include name="afterMethod"/>
         </methods>
-      </class> <!-- com.testcases.C24058_VerifyTransferFundsMethod -->
+      </class> <!-- com.testcases.C24300_VerifyModifyJointOwner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

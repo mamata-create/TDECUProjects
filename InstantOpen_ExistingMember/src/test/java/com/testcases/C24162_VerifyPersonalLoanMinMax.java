@@ -43,13 +43,14 @@ public class C24162_VerifyPersonalLoanMinMax extends GenericKeywords{
 			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				 {
-					String selectMyway6=excl.getCellData(sheetName, 1, startIter);
-					String selectMyway7=excl.getCellData(sheetName, 2, startIter);
-					String selectPersonal=excl.getCellData(sheetName, 3, startIter);
-					String selectHomeAdv=excl.getCellData(sheetName, 4, startIter);
-					String selectCashLOC=excl.getCellData(sheetName, 5, startIter);
-					String selectCD=excl.getCellData(sheetName, 6, startIter);
-					String selectShare=excl.getCellData(sheetName, 7, startIter);
+					String selectMyway4=excl.getCellData(sheetName, 1, startIter);
+					String selectMyway6=excl.getCellData(sheetName, 2, startIter);
+					String selectMyway7=excl.getCellData(sheetName, 3, startIter);
+					String selectPersonal=excl.getCellData(sheetName, 4, startIter);
+					String selectHomeAdv=excl.getCellData(sheetName, 5, startIter);
+					String selectCashLOC=excl.getCellData(sheetName, 6, startIter);
+					String selectCD=excl.getCellData(sheetName, 7, startIter);
+					String selectShare=excl.getCellData(sheetName, 8, startIter);
 					String oneDigit=excl.getCellData(sheetName, 11, startIter);
 					String popup1=excl.getCellData(sheetName, 23, startIter);
 					String popup2=excl.getCellData(sheetName, 24, startIter);
@@ -59,6 +60,7 @@ public class C24162_VerifyPersonalLoanMinMax extends GenericKeywords{
 					String popup6=excl.getCellData(sheetName, 31, startIter);
 					String popup7=excl.getCellData(sheetName, 32, startIter);
 					String popup8=excl.getCellData(sheetName, 33, startIter);
+					String popup9=excl.getCellData(sheetName, 34, startIter);
 					String loanAmt=excl.getCellData(sheetName, 12, startIter);
 					String loanAmtFormat=excl.getCellData(sheetName, 13, startIter);
 					
@@ -67,10 +69,17 @@ public class C24162_VerifyPersonalLoanMinMax extends GenericKeywords{
 					test.log(Status.INFO, "Members Start Here button clicked");
 					//select loan
 					getElement(ObjectRepository.personalLoanExpand).click();
-					getElement(ObjectRepository.myWay4000CheckBox).click();
+					//Storm Relief					
+					getElement(ObjectRepository.stormCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Personal loan selected");
+					getElement(ObjectRepository.prodLimitTextbox).sendKeys(oneDigit);
+					verifyElementPresent(ObjectRepository.prodLimIncorrect);
+					verifyText(ObjectRepository.prodLimPopup,popup9);
+					getElement(ObjectRepository.prodLimitTextbox).clear();
+					test.log(Status.INFO, "$500-$5,000 popup appeared");
 					//4000
+					selectDropdownOpt(ObjectRepository.prodTypeDropdown,selectMyway4);
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(oneDigit);
 					verifyElementPresent(ObjectRepository.prodLimIncorrect);
 					verifyText(ObjectRepository.prodLimPopup,popup1);

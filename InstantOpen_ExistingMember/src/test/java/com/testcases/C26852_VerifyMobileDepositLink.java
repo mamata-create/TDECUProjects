@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24029_VerifyIdentityQuestions extends GenericKeywords{
+public class C26852_VerifyMobileDepositLink extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +33,7 @@ public class C24029_VerifyIdentityQuestions extends GenericKeywords{
   }
 	
   @Test
-  public void C24029_VerifyIdentityQuestions() throws InterruptedException, MessagingException, IOException {
+  public void C26852_VerifyMobileDepositLink() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -42,59 +42,39 @@ public class C24029_VerifyIdentityQuestions extends GenericKeywords{
 			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
-					String selectCD= excl.getCellData(sheetName, 1, startIter);
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
-					String confirmProd= excl.getCellData(sheetName, 2, startIter);
-					String errorMsg1= excl.getCellData(sheetName, 6, startIter);
-					String errorMsg2= excl.getCellData(sheetName, 7, startIter);
-					String errorMsg3= excl.getCellData(sheetName, 8, startIter);
-					String errorMsg4= excl.getCellData(sheetName, 9, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
 					//Select Products
-					getElement(ObjectRepository.cdExpand).click();
-					selectDropdownOpt(ObjectRepository.selectTermDropdown,selectCD);
-					getElement(ObjectRepository.visibleCD36).click();					
+					getElement(ObjectRepository.checkingExpand).click();
+					getElement(ObjectRepository.classicCheckCheckBox).click();
+					test.log(Status.INFO, "Classic Checking selected");
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "36 Month CD selected");
-					//Member Verification/Applicant Info
+					//Member Verification
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
+					test.log(Status.INFO, "Member Verified");
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Member and Applicant Info Verified");
-					//Confirm Accounts
-					String maturity = cdMaturityDate(36);					
-					String concatProd = confirmProd+" "+maturity+")";
-					verifyText(ObjectRepository.prodOne,concatProd);
+					test.log(Status.INFO, "Continue button clicked");
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Account selection confirmed");
-					//Agreements and Disclosures
-					getElement(ObjectRepository.discCheckBox).click();
-					getElement(ObjectRepository.agreeCheckBox).click();
+					test.log(Status.INFO, "Account selections confirmed");
+					verifyMobileLink();
+					test.log(Status.INFO, "Mobile Check Deposit link verified");
+					getElement(ObjectRepository.prodInfoBackButton).click();
+					getElement(ObjectRepository.productPageBack).click();
+					getElement(ObjectRepository.ccMobileChecked).click();
+					test.log(Status.INFO, "Mobile Check Deposit deselected");
+					getElement(ObjectRepository.productPageNext).click();
+					getElement(ObjectRepository.mmbrVerifyNext).click();
+					getElement(ObjectRepository.productPageNext).click();
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Agreements and Disclosures accepted");
-					//Identity Questions
-					getElement(ObjectRepository.confirmBtn).click();
-					verifyText(ObjectRepository.errorMsg,errorMsg1);
-					getElement(ObjectRepository.qstnOneOptnOne).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					verifyText(ObjectRepository.errorMsg,errorMsg2);
-					getElement(ObjectRepository.qstnTwoOptnTwo).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					verifyText(ObjectRepository.errorMsg,errorMsg3);
-					getElement(ObjectRepository.qstnThreeOptnThree).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					verifyText(ObjectRepository.errorMsg,errorMsg4);
-					getElement(ObjectRepository.qstnFourOptnFour).click();
-					test.log(Status.INFO, "Identity answers selected");
-					getElement(ObjectRepository.confirmBtn).click();
-					verifyElementPresent(ObjectRepository.acctFundTitle);
+					verifyElementNotPresent(ObjectRepository.mobileLink);
 				}
 			}
 	  }
@@ -106,7 +86,7 @@ public class C24029_VerifyIdentityQuestions extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify identity questions for existing member");
+			test.log(Status.PASS, "Verify mobile check deposit terms and conditions link for existing member");
 		}
 	}
 

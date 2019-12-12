@@ -42,6 +42,7 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
+					String stormTitle = excl.getCellData(sheetName, 9, startIter);
 					String my4000Title= excl.getCellData(sheetName, 1, startIter);
 					String termNum;
 					String monthTerm= excl.getCellData(sheetName, 16, startIter);
@@ -87,6 +88,22 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					
 					getElement(ObjectRepository.personalLoanExpand).click();
 					test.log(Status.INFO, "Personal Loan section expanded");
+					
+					//Verify Storm Relief section					
+					verifyText(ObjectRepository.stormTitle,stormTitle);
+					getElement(ObjectRepository.stormCheckBox).click();
+					test.log(Status.INFO, "Storm Relief loan selected");
+					stormLoanInfoValidation();
+					verifyHereLink(11);
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Continue button clicked");
+					//Personal Loan Info page
+					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,stormTitle);
+					verifyPlaceholder(ObjectRepository.prodLimitTextbox,min500);
+					//Back to Product Selection Page
+					getElement(ObjectRepository.prodInfoBackButton).click();
+					test.log(Status.INFO, "Back Button clicked");
+					verifyElementPresent(ObjectRepository.stormCheckedBox);
 					
 					//Verify My Way Loan:$4,000 section					
 					verifyText(ObjectRepository.myWay4000Title,my4000Title);
