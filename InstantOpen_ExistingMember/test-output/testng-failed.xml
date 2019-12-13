@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24300_VerifyModifyJointOwner">
+      <class name="com.testcases.C24322_VerifyBeneficiaryRoles">
         <methods>
-          <include name="C24300_VerifyModifyJointOwner"/>
+          <include name="C24322_VerifyBeneficiaryRoles"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.testcases.C24300_VerifyModifyJointOwner -->
+      </class> <!-- com.testcases.C24322_VerifyBeneficiaryRoles -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

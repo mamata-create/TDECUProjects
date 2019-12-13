@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24300_VerifyModifyJointOwner extends GenericKeywords{
+public class C24305_VerifyDeleteJointOwner extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +33,7 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
   }
 	
   @Test
-  public void C24300_VerifyModifyJointOwner() throws InterruptedException, MessagingException, IOException {
+  public void C24305_VerifyDeleteJointOwner() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -46,31 +46,19 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
-					String joFname= excl.getCellData(sheetName, 6, startIter);
-					String joLname= excl.getCellData(sheetName, 7, startIter);
-					String joDOB= excl.getCellData(sheetName, 8, startIter);
-					String joSSN= excl.getCellData(sheetName, 9, startIter);
-					String joIdType= excl.getCellData(sheetName, 10, startIter);
-					String joIdNum= excl.getCellData(sheetName, 11, startIter);
-					String joIssueDt= excl.getCellData(sheetName, 12, startIter);
-					String joExpDt= excl.getCellData(sheetName, 13, startIter);
-					String joMaiden= excl.getCellData(sheetName, 14, startIter);
-					String joOccupation= excl.getCellData(sheetName, 15, startIter);
-					String joPhone= excl.getCellData(sheetName, 16, startIter);
-					String joPhoneType= excl.getCellData(sheetName, 17, startIter);
-					String joEmail= excl.getCellData(sheetName, 18, startIter);
-					String joStreet= excl.getCellData(sheetName, 19, startIter);
-					String joZip= excl.getCellData(sheetName, 20, startIter);
-					String dobFormat= excl.getCellData(sheetName, 21, startIter);
-					String ssnFormat= excl.getCellData(sheetName, 22, startIter);
-					String issueDtFormat= excl.getCellData(sheetName, 23, startIter);
-					String expDtFormat= excl.getCellData(sheetName, 24, startIter);
-					String phoneFormat= excl.getCellData(sheetName, 25, startIter);
-					String joMname= excl.getCellData(sheetName, 30, startIter);
-					String joIdType2= excl.getCellData(sheetName, 31, startIter);
-					String joIdNum2= excl.getCellData(sheetName, 32, startIter);
-					String joExpDt2= excl.getCellData(sheetName, 33, startIter);
-					String joEmail2= excl.getCellData(sheetName, 34, startIter);
+					String joFname= excl.getCellData(sheetName, 11, startIter);
+					String joLname= excl.getCellData(sheetName, 12, startIter);
+					String joDOB= excl.getCellData(sheetName, 13, startIter);
+					String joSSN= excl.getCellData(sheetName, 14, startIter);
+					String joIdType= excl.getCellData(sheetName, 15, startIter);
+					String joIdNum= excl.getCellData(sheetName, 16, startIter);
+					String joIssueDt= excl.getCellData(sheetName, 17, startIter);
+					String joExpDt= excl.getCellData(sheetName, 18, startIter);
+					String joMaiden= excl.getCellData(sheetName, 19, startIter);
+					String joOccupation= excl.getCellData(sheetName, 20, startIter);
+					String joPhone= excl.getCellData(sheetName, 21, startIter);
+					String joPhoneType= excl.getCellData(sheetName, 22, startIter);
+					String joEmail= excl.getCellData(sheetName, 23, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -78,11 +66,11 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
 					//Select Products
 					getElement(ObjectRepository.cdExpand).click();
 					selectDropdownOpt(ObjectRepository.selectTermDropdown,cdSelection);
-					getElement(ObjectRepository.visibleCD36).click();
+					getElement(ObjectRepository.visibleCD24).click();
 					getElement(ObjectRepository.checkingExpand).click();
 					getElement(ObjectRepository.classicCheckCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Classic Checking account and CD selected");
+					test.log(Status.INFO, "High Yield Checking account and CD selected");
 					//Member Verification
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
@@ -115,34 +103,28 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					verifyElementPresent(ObjectRepository.addOwnerTtl);
 					test.log(Status.INFO, "Navigated back to Additional Account Owners Page");
-					//Verify JO info is correct
-					verifyTxtFieldValue(ObjectRepository.addFname,joFname);
-					verifyTxtFieldValue(ObjectRepository.addLname,joLname);
-					verifyTxtFieldValue(ObjectRepository.addStreet,joStreet);
-					verifyTxtFieldValue(ObjectRepository.addZip,joZip);
-					verifyTxtFieldValue(ObjectRepository.mmbrVerifyDOB,dobFormat);
-					verifyTxtFieldValue(ObjectRepository.addSSN,ssnFormat);
-					verifyDropdownSelection(ObjectRepository.idType,joIdType);
-					verifyTxtFieldValue(ObjectRepository.idNum,joIdNum);
-					verifyTxtFieldValue(ObjectRepository.issueDate,issueDtFormat);
-					verifyTxtFieldValue(ObjectRepository.expDate,expDtFormat);
-					verifyTxtFieldValue(ObjectRepository.addMaiden,joMaiden);
-					verifyTxtFieldValue(ObjectRepository.addOccupation,joOccupation);
-					verifyTxtFieldValue(ObjectRepository.addPhone,phoneFormat);
-					verifyDropdownSelection(ObjectRepository.addPhoneType,joPhoneType);
-					verifyTxtFieldValue(ObjectRepository.addEmail,joEmail);
-					test.log(Status.INFO, "Joint Owner information is correct");
-					//Modify JO Info
-					getElement(ObjectRepository.addMname).sendKeys(joMname);
-					selectDropdownOpt(ObjectRepository.idType,joIdType2);
-					getElement(ObjectRepository.idNum).clear();
-					getElement(ObjectRepository.idNum).sendKeys(joIdNum2);
-					getElement(ObjectRepository.expDate).clear();
-					getElement(ObjectRepository.expDate).sendKeys(joExpDt2);
-					getElement(ObjectRepository.addEmail).clear();
-					getElement(ObjectRepository.addEmail).sendKeys(joEmail2);
-					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmRolesTtl);
+					verifyElementPresent(ObjectRepository.ownersAddTtl);
+					String addFullName = joFname+" "+joLname;
+					verifyText(ObjectRepository.addOwnersLink,addFullName);
+					getElement(ObjectRepository.removeAddOwners).click();
+					test.log(Status.INFO, "Joint Owner removed");
+					Thread.sleep(1000);
+					verifyElementPresent(ObjectRepository.addOwnerTtl);
+					verifyEmptyFieldValue(ObjectRepository.addFname);
+					verifyEmptyFieldValue(ObjectRepository.addLname);
+					verifyEmptyFieldValue(ObjectRepository.addStreet);
+					verifyEmptyFieldValue(ObjectRepository.addZip);
+					verifyEmptyFieldValue(ObjectRepository.mmbrVerifyDOB);
+					verifyEmptyFieldValue(ObjectRepository.addSSN);
+					verifyDropdownSelection(ObjectRepository.idType,"");
+					verifyEmptyFieldValue(ObjectRepository.idNum);
+					verifyEmptyFieldValue(ObjectRepository.issueDate);
+					verifyEmptyFieldValue(ObjectRepository.expDate);
+					verifyEmptyFieldValue(ObjectRepository.addMaiden);
+					verifyEmptyFieldValue(ObjectRepository.addOccupation);
+					verifyEmptyFieldValue(ObjectRepository.addPhone);
+					verifyDropdownSelection(ObjectRepository.addPhoneType,"Phone Type");
+					verifyEmptyFieldValue(ObjectRepository.addEmail);
 				}
 			}
 	  }
@@ -154,7 +136,7 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify joint owner modified for existing member");
+			test.log(Status.PASS, "Verify joint owner removed for existing member");
 		}
 	}
 

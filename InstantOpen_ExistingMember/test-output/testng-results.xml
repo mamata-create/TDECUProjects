@@ -1,60 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="44038" started-at="2019-12-11T21:48:57Z" finished-at="2019-12-11T21:49:41Z">
+  <suite name="Default suite" duration-ms="68461" started-at="2019-12-13T21:37:49Z" finished-at="2019-12-13T21:38:57Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="44038" started-at="2019-12-11T21:48:57Z" finished-at="2019-12-11T21:49:41Z">
-      <class name="com.testcases.C24300_VerifyModifyJointOwner">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24300_VerifyModifyJointOwner@26be92ad]" name="setUp" is-config="true" duration-ms="14936" started-at="2019-12-11T15:48:57Z" finished-at="2019-12-11T15:49:12Z">
+    <test name="Default test" duration-ms="68461" started-at="2019-12-13T21:37:49Z" finished-at="2019-12-13T21:38:57Z">
+      <class name="com.testcases.C24322_VerifyBeneficiaryRoles">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2]" name="setUp" is-config="true" duration-ms="16101" started-at="2019-12-13T15:37:49Z" finished-at="2019-12-13T15:38:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="C24300_VerifyModifyJointOwner()[pri:0, instance:com.testcases.C24300_VerifyModifyJointOwner@26be92ad]" name="C24300_VerifyModifyJointOwner" duration-ms="29073" started-at="2019-12-11T15:49:12Z" finished-at="2019-12-11T15:49:41Z">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at com.FrameworkComponents.GenericKeywords.verifyTxtFieldValue(GenericKeywords.java:178)
-	at com.testcases.C24300_VerifyModifyJointOwner.C24300_VerifyModifyJointOwner(C24300_VerifyModifyJointOwner.java:131)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:236)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:81)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method status="PASS" signature="C24322_VerifyBeneficiaryRoles()[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2]" name="C24322_VerifyBeneficiaryRoles" duration-ms="51027" started-at="2019-12-13T15:38:05Z" finished-at="2019-12-13T15:38:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24300_VerifyModifyJointOwner -->
-      </class> <!-- com.testcases.C24300_VerifyModifyJointOwner -->
+        </test-method> <!-- C24322_VerifyBeneficiaryRoles -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-12-13T15:38:56Z" finished-at="2019-12-13T15:38:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=C24322_VerifyBeneficiaryRoles status=SUCCESS method=C24322_VerifyBeneficiaryRoles.C24322_VerifyBeneficiaryRoles()[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2]" name="tearDown" is-config="true" duration-ms="1303" started-at="2019-12-13T15:38:56Z" finished-at="2019-12-13T15:38:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.testcases.C24322_VerifyBeneficiaryRoles -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

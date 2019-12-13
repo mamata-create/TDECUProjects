@@ -179,6 +179,17 @@ public class GenericKeywords extends BaseClass{
 		}
 	}
 	
+	public static void verifyEmptyFieldValue(String locator){
+		WebElement element=getElement(locator);
+		Boolean emptyField=element.getAttribute("value").isEmpty();
+		System.out.println(emptyField);
+		if(emptyField = true){
+			Assert.assertTrue(true);
+		}else{
+			Assert.assertTrue(false);
+		}
+	}
+	
 	public static void autoLoanInfoValidation(){
 		
 		String allLoanDescLocator = "//div[contains(@id,'MoreInfo_1004_1')]//ul[@class='fa-ul']/li";

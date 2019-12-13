@@ -388,9 +388,32 @@ public class ObjectRepository {
 	public static String addPhoneType= "//select[@id='tbPhone1_ddPhoneNumberType']";
 	public static String addEmail= "//input[@id='tbEmail1_RadTextBox']";
 	public static String addButton= "//input[@id='btnAdd']";
+	public static String ownersAddTtl = "//strong[text()='Joint Owners Added']";
+	public static String beneAddTtl = "//strong[contains(text(),'Beneficiaries')]";
+	public static String addOwnersLink = "//a[contains(@href,'HyperlinkList')][1]";
+	public static String removeAddOwners = "//a[contains(@href,'HyperlinkList')][2]";
 	
 	//Confirm Account Roles
 	public static String confirmRolesTtl = "//strong[text()='Confirm Account Roles']";
+	public static String rolesProdOne = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])[1]";
+	public static String primaryRoleOne ="(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])[1]";
+	public static String jointRoleChecked ="(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey checked'])[1]";
+	public static String jointRoleNotChecked= "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey'])[1]";
+	public static String roleDisabledOne= "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey disabled'])[1]";
+	public static String rolesProdTwo = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])[2]";
+	public static String primaryRoleTwo ="(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])[2]";
+	public static String roleDisabledTwo= "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey disabled'])[2]";
+	public static String rolesProdThree = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])[3]";
+	public static String primaryRoleThree ="(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])[3]";
+	public static String roleDisabledThree= "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey disabled'])[3]";
+	public static String rolesProdFour = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])[4]";
+	public static String primaryRoleFour ="(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])[4]";
+	public static String rolesProdFive = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])[5]";
+	public static String primaryRoleFive ="(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])[5]";
+	public static String rolesProdSix = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])[6]";
+	public static String primaryRoleSix ="(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])[6]";
+	public static String rolesProdSeven = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])[7]";
+	public static String primaryRoleSeven ="(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])[7]";
 	
 	//Confirm Accounts
 	public static String confirmTtl = "//strong[text()='Confirm Account Selections']";
@@ -400,8 +423,12 @@ public class ObjectRepository {
 	public static String prodWOptionsOne = "(//span[@id='ProductsAndServices']//li[1])[2]";
 	public static String prodWOptionsTwo = "(//span[@id='ProductsAndServices']//li[2])[2]";
 	public static String prodWOptionsThree = "(//span[@id='ProductsAndServices']//li[3])[1]";
+	public static String prodFour = "//span[@id='ProductsAndServices']//li[4]";
 	public static String confirmBtn="//input[@id='btnNext_SubmitButton']";
 	public static String changeBtn="//input[@id='btnChange_SubmitButton']";
+	public static String prodFive = "//span[@id='ProductsAndServices']//li[5]";
+	public static String prodSix = "//span[@id='ProductsAndServices']//li[6]";
+	public static String prodSeven = "//span[@id='ProductsAndServices']//li[7]";
 	
 	//Agreements and Disclosures
 	public static String agreementTtl = "//h2[text()='Account Agreements and Disclosures']";
