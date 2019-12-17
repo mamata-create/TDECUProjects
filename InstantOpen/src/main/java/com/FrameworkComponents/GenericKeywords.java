@@ -895,5 +895,18 @@ public class GenericKeywords extends BaseClass{
 		}
 		
 }
+	
+	public static void idenficationOptions(String[]option){
+		List<WebElement>allOptions = retrunElements("//span[@id='IDAuthenticationQuestions']//following::label");
+		for(WebElement element : allOptions){
+			String optionValue = element.getText();
+			
+			for(int index=0;index<option.length;index++){
+				if(option[index].contains(optionValue)){
+					element.click();
+				}
+			}
+		}
+	}
 
 }

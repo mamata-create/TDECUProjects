@@ -18,6 +18,13 @@ public class ObjectRepository {
 	public static String expirationdate_alert = "//div[@id='expirationDateDiv']//following::div[@role='alert']";
 	public static String phoneNumber_alert = "//span[@id='tbPhone1']//following::div[@role='alert']";
 	
+	public static String membership_page_option(int option){
+		String pageOption = "//*[contains(text(),'Membership Eligibility')]/following::div[@class='iradio_square-grey']["+option+"]";
+		return pageOption;
+	}
+	public static String confirm_account_selections_page = "//*[contains(text(),'Confirm Account Selections')]";
+	public static String change_button = "//span[@id='btnChange']/input";
+	
 	public static String fname_txt="//input[@id='tbFirstName_TextBox']";
 	public static String mname_txt="//input[@id='tbMiddleName_TextBox']";
 	public static String lname_txt="//input[@id='tbLastName_TextBox']";
@@ -202,6 +209,9 @@ public class ObjectRepository {
 		return locator;
 	}
 	
+	public static String CD_amount_field = "//label[contains(text(),'Enter an Amount')]/following::input";
+	public static String CD_term_field = "//label[contains(text(),'Select a term (in months)')]/following::select";
+	
 	public static String modalHelpIcon = "//label[contains(text(),'E-Documents')]/following::div[@class='Service_MoreInfo']//button";
 	public static String eDocumentHeader = "//*[@id='modalEdocumentsLabel']";
 	public static String eDocumentModalBody = "//*[@id='modalEdocumentsLabel']/following::p";
@@ -211,7 +221,8 @@ public class ObjectRepository {
 	public static String loanTerm = "//select[contains(@id,'Term')]";
 	
 	public static String getTermCertificateLocator(String term){
-		String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+" Month Share Certificate')]";
+	//	String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+" Month Share Certificate')]";
+		String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+"')]";
 		return termLocator;
 	}
 	public static String creditCardProduct ="(//label[contains(@for,'CreditCard_ProductCheckbox')])[1]";
@@ -423,6 +434,9 @@ public class ObjectRepository {
 		public static String prodWOptionsTwo = "(//span[@id='ProductsAndServices']//li[2])[2]";
 		public static String confirmBtn="//input[@id='btnNext_SubmitButton']";
 		public static String changeBtn="//input[@id='btnChange_SubmitButton']";
+		public static String mobileRemoteDepositCaptureLink = "//a[text()='Mobile Remote Deposit Capture Terms and Conditions']";
+		public static String courtesyPay = "//span[@id='pnlCourtesyPay']//h3";
+		public static String freqAskQuestions = "//span[@id='pnlCourtesyPay']//h3";
 		
 		public static String pageSection(String sectionName){
 			String sectionLocator = "//div[contains(text(),'"+sectionName+"')]";
@@ -439,4 +453,7 @@ public class ObjectRepository {
 			property = GenericKeywords.getElement(locator).getAttribute("class");
 			return property;
 		}
+		
+		public static String checkingAccount_prop = "//span[@id='rbLevelUpChecking']/div";
+		public static String otheOption_prop = "//span[@id='rbOtherProdYes']/div";
 	}
