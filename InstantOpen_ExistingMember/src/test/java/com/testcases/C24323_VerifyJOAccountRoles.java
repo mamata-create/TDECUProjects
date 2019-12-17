@@ -4,6 +4,10 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -18,7 +22,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24300_VerifyModifyJointOwner extends GenericKeywords{
+public class C24323_VerifyJOAccountRoles extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +37,7 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
   }
 	
   @Test
-  public void C24300_VerifyModifyJointOwner() throws InterruptedException, MessagingException, IOException {
+  public void C24323_VerifyJOAccountRoles() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -43,34 +47,28 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
 					String cdSelection= excl.getCellData(sheetName, 1, startIter);
+					String cdTitle= excl.getCellData(sheetName, 2, startIter);
+					String cdConfirm= excl.getCellData(sheetName, 3, startIter);
+					String checkingTitle= excl.getCellData(sheetName, 4, startIter);
+					String moneyMarketTitle= excl.getCellData(sheetName, 5, startIter);
+					String savingsTitle= excl.getCellData(sheetName, 6, startIter);
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
-					String joFname= excl.getCellData(sheetName, 6, startIter);
-					String joLname= excl.getCellData(sheetName, 7, startIter);
-					String joDOB= excl.getCellData(sheetName, 8, startIter);
-					String joSSN= excl.getCellData(sheetName, 9, startIter);
-					String joIdType= excl.getCellData(sheetName, 10, startIter);
-					String joIdNum= excl.getCellData(sheetName, 11, startIter);
-					String joIssueDt= excl.getCellData(sheetName, 12, startIter);
-					String joExpDt= excl.getCellData(sheetName, 13, startIter);
-					String joMaiden= excl.getCellData(sheetName, 14, startIter);
-					String joOccupation= excl.getCellData(sheetName, 15, startIter);
-					String joPhone= excl.getCellData(sheetName, 16, startIter);
-					String joPhoneType= excl.getCellData(sheetName, 17, startIter);
-					String joEmail= excl.getCellData(sheetName, 18, startIter);
-					String joStreet= excl.getCellData(sheetName, 19, startIter);
-					String joZip= excl.getCellData(sheetName, 20, startIter);
-					String dobFormat= excl.getCellData(sheetName, 21, startIter);
-					String ssnFormat= excl.getCellData(sheetName, 22, startIter);
-					String issueDtFormat= excl.getCellData(sheetName, 23, startIter);
-					String expDtFormat= excl.getCellData(sheetName, 24, startIter);
-					String phoneFormat= excl.getCellData(sheetName, 25, startIter);
-					String joMname= excl.getCellData(sheetName, 30, startIter);
-					String joIdType2= excl.getCellData(sheetName, 31, startIter);
-					String joIdNum2= excl.getCellData(sheetName, 32, startIter);
-					String joExpDt2= excl.getCellData(sheetName, 33, startIter);
-					String joEmail2= excl.getCellData(sheetName, 34, startIter);
+					String joFname= excl.getCellData(sheetName, 11, startIter);
+					String joLname= excl.getCellData(sheetName, 12, startIter);
+					String joDOB= excl.getCellData(sheetName, 13, startIter);
+					String joSSN= excl.getCellData(sheetName, 14, startIter);
+					String joIdType= excl.getCellData(sheetName, 15, startIter);
+					String joIdNum= excl.getCellData(sheetName, 16, startIter);
+					String joIssueDt= excl.getCellData(sheetName, 17, startIter);
+					String joExpDt= excl.getCellData(sheetName, 18, startIter);
+					String joMaiden= excl.getCellData(sheetName, 19, startIter);
+					String joOccupation= excl.getCellData(sheetName, 20, startIter);
+					String joPhone= excl.getCellData(sheetName, 21, startIter);
+					String joPhoneType= excl.getCellData(sheetName, 22, startIter);
+					String joEmail= excl.getCellData(sheetName, 23, startIter);
+					String rolesText= excl.getCellData(sheetName, 30, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -78,11 +76,14 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
 					//Select Products
 					getElement(ObjectRepository.cdExpand).click();
 					selectDropdownOpt(ObjectRepository.selectTermDropdown,cdSelection);
-					getElement(ObjectRepository.visibleCD36).click();
+					getElement(ObjectRepository.visibleCD12).click();
 					getElement(ObjectRepository.checkingExpand).click();
 					getElement(ObjectRepository.classicCheckCheckBox).click();
+					getElement(ObjectRepository.mnyMrktCheckBox).click();
+					getElement(ObjectRepository.savingsExpand).click();
+					getElement(ObjectRepository.clubCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Classic Checking account and CD selected");
+					test.log(Status.INFO, "CD, checking account and savings account selected");
 					//Member Verification
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
@@ -109,40 +110,45 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
 					getElement(ObjectRepository.addEmail).sendKeys(joEmail);
 					test.log(Status.INFO, "Joint Owner information entered");
 					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmRolesTtl);
-					getElement(ObjectRepository.productPageBack).click();
-					verifyElementPresent(ObjectRepository.yourInfoTtl);
+					//Account Roles	
+					WebElement ele=driver.findElement(By.xpath("//span[@id='progBarSmall']//following::span[1]"));
+					JavascriptExecutor executor = (JavascriptExecutor)driver;
+					Object text = executor.executeScript("var nodes = arguments[0].childNodes;" +
+					"var text = '';"+
+					"text += nodes[5].textContent;" +
+					"return text;"
+		            , ele);
+					String rolesInfo = text.toString();
+					if(rolesInfo.contains(rolesText)){
+						Assert.assertTrue(true);
+					}
+					test.log(Status.INFO, "Confirm Account Roles info displayed");
+					verifyText(ObjectRepository.rolesProdOne,cdTitle);
+					verifyElementPresent(ObjectRepository.primaryRoleOne);
+					getElement(ObjectRepository.jointRoleChecked).click();
+					verifyText(ObjectRepository.rolesProdTwo,moneyMarketTitle);
+					verifyElementPresent(ObjectRepository.primaryRoleTwo);
+					getElement(ObjectRepository.jointRoleChecked).click();
+					verifyText(ObjectRepository.rolesProdThree,checkingTitle);
+					verifyElementPresent(ObjectRepository.primaryRoleThree);
+					getElement(ObjectRepository.jointRoleChecked).click();
+					verifyText(ObjectRepository.rolesProdFour,savingsTitle);
+					verifyElementPresent(ObjectRepository.primaryRoleFour);
+					getElement(ObjectRepository.jointRoleChecked).click();					
+					test.log(Status.INFO, "Account Roles deselected");
+					getElement(ObjectRepository.jointRoleNotChecked).click();
+					getElement(ObjectRepository.jointRoleNotChecked).click();
+					getElement(ObjectRepository.jointRoleNotChecked).click();
+					getElement(ObjectRepository.jointRoleNotChecked).click();
 					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.addOwnerTtl);
-					test.log(Status.INFO, "Navigated back to Additional Account Owners Page");
-					//Verify JO info is correct
-					verifyTxtFieldValue(ObjectRepository.addFname,joFname);
-					verifyTxtFieldValue(ObjectRepository.addLname,joLname);
-					verifyTxtFieldValue(ObjectRepository.addStreet,joStreet);
-					verifyTxtFieldValue(ObjectRepository.addZip,joZip);
-					verifyTxtFieldValue(ObjectRepository.mmbrVerifyDOB,dobFormat);
-					verifyTxtFieldValue(ObjectRepository.addSSN,ssnFormat);
-					verifyDropdownSelection(ObjectRepository.idType,joIdType);
-					verifyTxtFieldValue(ObjectRepository.idNum,joIdNum);
-					verifyTxtFieldValue(ObjectRepository.issueDate,issueDtFormat);
-					verifyTxtFieldValue(ObjectRepository.expDate,expDtFormat);
-					verifyTxtFieldValue(ObjectRepository.addMaiden,joMaiden);
-					verifyTxtFieldValue(ObjectRepository.addOccupation,joOccupation);
-					verifyTxtFieldValue(ObjectRepository.addPhone,phoneFormat);
-					verifyDropdownSelection(ObjectRepository.addPhoneType,joPhoneType);
-					verifyTxtFieldValue(ObjectRepository.addEmail,joEmail);
-					test.log(Status.INFO, "Joint Owner information is correct");
-					//Modify JO Info
-					getElement(ObjectRepository.addMname).sendKeys(joMname);
-					selectDropdownOpt(ObjectRepository.idType,joIdType2);
-					getElement(ObjectRepository.idNum).clear();
-					getElement(ObjectRepository.idNum).sendKeys(joIdNum2);
-					getElement(ObjectRepository.expDate).clear();
-					getElement(ObjectRepository.expDate).sendKeys(joExpDt2);
-					getElement(ObjectRepository.addEmail).clear();
-					getElement(ObjectRepository.addEmail).sendKeys(joEmail2);
-					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmRolesTtl);
+					test.log(Status.INFO, "Account Roles selected");
+					//Confirm Accounts
+					String maturity = cdMaturityDate(12);					
+					String concatProd = cdConfirm+" "+maturity+")";
+					verifyText(ObjectRepository.prodOne,concatProd);
+					verifyText(ObjectRepository.prodTwo,moneyMarketTitle);
+					verifyText(ObjectRepository.prodWOptionsThree,checkingTitle);
+					verifyText(ObjectRepository.prodFour,savingsTitle);
 				}
 			}
 	  }
@@ -154,7 +160,7 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify joint owner modified for existing member");
+			test.log(Status.PASS, "Verify joint owner checking, savings and CD roles for existing member");
 		}
 	}
 

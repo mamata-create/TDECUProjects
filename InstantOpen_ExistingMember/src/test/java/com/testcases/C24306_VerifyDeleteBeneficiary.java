@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24296_VerifyMultipleBeneficiaries extends GenericKeywords{
+public class C24306_VerifyDeleteBeneficiary extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +33,7 @@ public class C24296_VerifyMultipleBeneficiaries extends GenericKeywords{
   }
 	
   @Test
-  public void C24296_VerifyMultipleBeneficiaries() throws InterruptedException, MessagingException, IOException {
+  public void C24306_VerifyDeleteBeneficiary() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -45,33 +45,23 @@ public class C24296_VerifyMultipleBeneficiaries extends GenericKeywords{
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
-					String beneFname= excl.getCellData(sheetName, 6, startIter);
-					String beneLname= excl.getCellData(sheetName, 7, startIter);
-					String beneDOB= excl.getCellData(sheetName, 8, startIter);
-					String beneSSN= excl.getCellData(sheetName, 9, startIter);
-					String benePhone= excl.getCellData(sheetName, 10, startIter);
-					String benePhoneType= excl.getCellData(sheetName, 11, startIter);
-					String beneEmail= excl.getCellData(sheetName, 12, startIter);
-					String bene2Fname= excl.getCellData(sheetName, 13, startIter);
-					String bene2Mname= excl.getCellData(sheetName, 14, startIter);
-					String bene2Street= excl.getCellData(sheetName, 15, startIter);
-					String bene2Zip= excl.getCellData(sheetName, 16, startIter);
-					String bene2DOB= excl.getCellData(sheetName, 17, startIter);
-					String bene2SSN= excl.getCellData(sheetName, 18, startIter);
-					String bene2IdType= excl.getCellData(sheetName, 19, startIter);
-					String bene2IdNum= excl.getCellData(sheetName, 20, startIter);
-					String bene2IssueDt= excl.getCellData(sheetName, 21, startIter);
-					String bene2ExpDt= excl.getCellData(sheetName, 22, startIter);
-					String bene2Email= excl.getCellData(sheetName, 23, startIter);
+					String beneFname= excl.getCellData(sheetName, 11, startIter);
+					String beneLname= excl.getCellData(sheetName, 12, startIter);
+					String beneDOB= excl.getCellData(sheetName, 13, startIter);
+					String beneSSN= excl.getCellData(sheetName, 14, startIter);
+					String benePhone= excl.getCellData(sheetName, 15, startIter);
+					String benePhoneType= excl.getCellData(sheetName, 16, startIter);
+					String beneEmail= excl.getCellData(sheetName, 17, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
 					//Select Products
-					getElement(ObjectRepository.savingsExpand).click();
-					getElement(ObjectRepository.clubCheckBox).click();
+					getElement(ObjectRepository.checkingExpand).click();
+					getElement(ObjectRepository.classicCheckCheckBox).click();
+					getElement(ObjectRepository.mnyMrktCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Club account selected");
+					test.log(Status.INFO, "Classic Checking and Money Market account selected");
 					//Member Verification
 					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
@@ -82,7 +72,6 @@ public class C24296_VerifyMultipleBeneficiaries extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Add Beneficiaries checkbox selected");
 					//Beneficiary
-					verifyElementPresent(ObjectRepository.addBeneTtl);
 					getElement(ObjectRepository.addFname).sendKeys(beneFname);
 					getElement(ObjectRepository.addLname).sendKeys(beneLname);
 					getElement(ObjectRepository.sameAddrCbox).click();
@@ -92,28 +81,29 @@ public class C24296_VerifyMultipleBeneficiaries extends GenericKeywords{
 					selectDropdownOpt(ObjectRepository.addPhoneType,benePhoneType);
 					getElement(ObjectRepository.addEmail).sendKeys(beneEmail);
 					test.log(Status.INFO, "Beneficiary information entered");
-					getElement(ObjectRepository.addButton).click();
-					test.log(Status.INFO, "Add Another Beneficiary button clicked");
-					//Second Beneficiary
-					getElement(ObjectRepository.addFname).sendKeys(bene2Fname);
-					getElement(ObjectRepository.addMname).sendKeys(bene2Mname);
-					getElement(ObjectRepository.addLname).sendKeys(beneLname);
-					getElement(ObjectRepository.addStreet).sendKeys(bene2Street);
-					getElement(ObjectRepository.addZip).sendKeys(bene2Zip);
-					test.log(Status.INFO, "Applicant Information entered for second Beneficiary");
-					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(bene2DOB);
-					getElement(ObjectRepository.addSSN).sendKeys(bene2SSN);
-					selectDropdownOpt(ObjectRepository.idType,bene2IdType);
-					getElement(ObjectRepository.idNum).sendKeys(bene2IdNum);
-					getElement(ObjectRepository.issueDate).sendKeys(bene2IssueDt);
-					getElement(ObjectRepository.expDate).sendKeys(bene2ExpDt);
-					test.log(Status.INFO, "Identification Information entered for second Beneficiary");
-					getElement(ObjectRepository.addPhone).sendKeys(benePhone);
-					selectDropdownOpt(ObjectRepository.addPhoneType,benePhoneType);
-					getElement(ObjectRepository.addEmail).sendKeys(bene2Email);
-					test.log(Status.INFO, "Contact Information entered for second Beneficiary");
 					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmTtl);
+					verifyElementPresent(ObjectRepository.confirmRolesTtl);
+					getElement(ObjectRepository.productPageBack).click();
+					verifyElementPresent(ObjectRepository.yourInfoTtl);
+					getElement(ObjectRepository.productPageNext).click();
+					verifyElementPresent(ObjectRepository.addBeneTtl);
+					test.log(Status.INFO, "Navigated back to Beneficiary Information Page");
+					verifyElementPresent(ObjectRepository.beneAddTtl);
+					String beneFullName = beneFname+" "+beneLname;
+					verifyText(ObjectRepository.addOwnersLink,beneFullName);
+					getElement(ObjectRepository.removeAddOwners).click();
+					test.log(Status.INFO, "Joint Owner removed");
+					Thread.sleep(1000);
+					verifyElementPresent(ObjectRepository.addBeneTtl);
+					verifyEmptyFieldValue(ObjectRepository.addFname);
+					verifyEmptyFieldValue(ObjectRepository.addLname);
+					verifyEmptyFieldValue(ObjectRepository.addStreet);
+					verifyEmptyFieldValue(ObjectRepository.addZip);
+					verifyEmptyFieldValue(ObjectRepository.mmbrVerifyDOB);
+					verifyEmptyFieldValue(ObjectRepository.addSSN);
+					verifyEmptyFieldValue(ObjectRepository.addPhone);
+					verifyDropdownSelection(ObjectRepository.addPhoneType,"Phone Type");
+					verifyEmptyFieldValue(ObjectRepository.addEmail);
 				}
 			}
 	  }
@@ -125,7 +115,7 @@ public class C24296_VerifyMultipleBeneficiaries extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify multiple beneficiaries added for existing member");
+			test.log(Status.PASS, "Verify beneficiary removed for existing member");
 		}
 	}
 
