@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
-import org.apache.poi.util.SystemOutLogger;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;

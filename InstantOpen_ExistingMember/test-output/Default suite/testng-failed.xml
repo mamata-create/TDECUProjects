@@ -3,12 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.C24322_VerifyBeneficiaryRoles">
+      <class name="com.testcases.C24052_VerifyAccountFundingOption">
         <methods>
-          <include name="C24322_VerifyBeneficiaryRoles"/>
+          <include name="C24052_VerifyAccountFundingOption"/>
           <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.testcases.C24322_VerifyBeneficiaryRoles -->
+      </class> <!-- com.testcases.C24052_VerifyAccountFundingOption -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

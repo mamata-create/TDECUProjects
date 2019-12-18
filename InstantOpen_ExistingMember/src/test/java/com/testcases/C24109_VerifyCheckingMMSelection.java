@@ -138,7 +138,7 @@ public class C24109_VerifyCheckingMMSelection extends GenericKeywords{
 						verifyElementPresent(ObjectRepository.mmbrVerifyTile);
 						getElement(ObjectRepository.productPageBack).click();	
 						test.log(Status.INFO, "Back button clicked");
-						//Back button currently going to wrong page
+						//Back button verification
 						verifyElementPresent(ObjectRepository.ccChecked);
 						verifyElementPresent(ObjectRepository.ccDebitCardCheckBox);
 						verifyElementPresent(ObjectRepository.ccMobileCheckBox);

@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="68461" started-at="2019-12-13T21:37:49Z" finished-at="2019-12-13T21:38:57Z">
+  <suite name="Default suite" duration-ms="49069" started-at="2019-12-18T16:30:46Z" finished-at="2019-12-18T16:31:35Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="68461" started-at="2019-12-13T21:37:49Z" finished-at="2019-12-13T21:38:57Z">
-      <class name="com.testcases.C24322_VerifyBeneficiaryRoles">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2]" name="setUp" is-config="true" duration-ms="16101" started-at="2019-12-13T15:37:49Z" finished-at="2019-12-13T15:38:05Z">
+    <test name="Default test" duration-ms="49069" started-at="2019-12-18T16:30:46Z" finished-at="2019-12-18T16:31:35Z">
+      <class name="com.testcases.C24052_VerifyAccountFundingOption">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.C24052_VerifyAccountFundingOption@523884b2]" name="setUp" is-config="true" duration-ms="16314" started-at="2019-12-18T10:30:46Z" finished-at="2019-12-18T10:31:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24322_VerifyBeneficiaryRoles()[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2]" name="C24322_VerifyBeneficiaryRoles" duration-ms="51027" started-at="2019-12-13T15:38:05Z" finished-at="2019-12-13T15:38:56Z">
+        <test-method status="PASS" signature="C24052_VerifyAccountFundingOption()[pri:0, instance:com.testcases.C24052_VerifyAccountFundingOption@523884b2]" name="C24052_VerifyAccountFundingOption" duration-ms="31454" started-at="2019-12-18T10:31:02Z" finished-at="2019-12-18T10:31:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24322_VerifyBeneficiaryRoles -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-12-13T15:38:56Z" finished-at="2019-12-13T15:38:56Z">
+        </test-method> <!-- C24052_VerifyAccountFundingOption -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.testcases.C24052_VerifyAccountFundingOption@523884b2]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-12-18T10:31:33Z" finished-at="2019-12-18T10:31:33Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C24322_VerifyBeneficiaryRoles status=SUCCESS method=C24322_VerifyBeneficiaryRoles.C24322_VerifyBeneficiaryRoles()[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2] output={null}]]]>
+                <![CDATA[[TestResult name=C24052_VerifyAccountFundingOption status=SUCCESS method=C24052_VerifyAccountFundingOption.C24052_VerifyAccountFundingOption()[pri:0, instance:com.testcases.C24052_VerifyAccountFundingOption@523884b2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24322_VerifyBeneficiaryRoles@523884b2]" name="tearDown" is-config="true" duration-ms="1303" started-at="2019-12-13T15:38:56Z" finished-at="2019-12-13T15:38:57Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24052_VerifyAccountFundingOption@523884b2]" name="tearDown" is-config="true" duration-ms="1269" started-at="2019-12-18T10:31:33Z" finished-at="2019-12-18T10:31:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.testcases.C24322_VerifyBeneficiaryRoles -->
+      </class> <!-- com.testcases.C24052_VerifyAccountFundingOption -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

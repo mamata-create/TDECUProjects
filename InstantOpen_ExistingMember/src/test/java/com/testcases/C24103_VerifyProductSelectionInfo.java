@@ -14,7 +14,6 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
-import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
@@ -37,7 +36,7 @@ public class C24103_VerifyProductSelectionInfo extends GenericKeywords{
 	  }
 	
   @Test
-  public void C23835_VerifyProductSelectionInfo() {
+  public void C24103_VerifyProductSelectionInfo() {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";

@@ -18,7 +18,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24300_VerifyModifyJointOwner extends GenericKeywords{
+public class C24303_VerifyModifyJointOwner extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -33,7 +33,7 @@ public class C24300_VerifyModifyJointOwner extends GenericKeywords{
   }
 	
   @Test
-  public void C24300_VerifyModifyJointOwner() throws InterruptedException, MessagingException, IOException {
+  public void C24303_VerifyModifyJointOwner() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";

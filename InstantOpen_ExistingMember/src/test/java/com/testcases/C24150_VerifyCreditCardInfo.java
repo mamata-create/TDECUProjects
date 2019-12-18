@@ -81,7 +81,7 @@ public class C24150_VerifyCreditCardInfo extends GenericKeywords{
 					test.log(Status.INFO, "Contintue to member verification");
 					getElement(ObjectRepository.mmbrVerifyBack).click();
 					test.log(Status.INFO, "Back to product selection");
-					//Back button navigation not working
+					//Back button navigation
 					verifyElementPresent(ObjectRepository.classicCheckCheckBox);
 					getElement(ObjectRepository.productPageNext).click();
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,classicDropdown);

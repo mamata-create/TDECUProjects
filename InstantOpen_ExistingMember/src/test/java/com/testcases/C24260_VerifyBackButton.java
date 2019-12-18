@@ -67,7 +67,7 @@ public class C24260_VerifyBackButton extends GenericKeywords{
 					verifyElementPresent(ObjectRepository.mmbrVerifyTile);
 					getElement(ObjectRepository.mmbrVerifyBack).click();
 					test.log(Status.INFO, "Back button clicked");
-					//Back button navigation currently not working
+					//Back button navigation
 					verifyElementPresent(ObjectRepository.crdtcrdinf_ttl);
 					getElement(ObjectRepository.prodInfoBackButton).click();
 					test.log(Status.INFO, "Back button clicked");
