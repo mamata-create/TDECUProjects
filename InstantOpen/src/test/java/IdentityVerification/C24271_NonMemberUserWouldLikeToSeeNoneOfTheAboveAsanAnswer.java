@@ -1,4 +1,4 @@
-package ConfirmAccounts;
+package IdentityVerification;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,11 +23,11 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23862_NonMemberUserCanVerifyTheIdentity extends GenericKeywords  {
+public class C24271_NonMemberUserWouldLikeToSeeNoneOfTheAboveAsanAnswer extends GenericKeywords  {
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify Non member user can verify the identity
+	 * Verify Non member user can see None of the above is one of the answers
 	 */
 	@BeforeTest
 	public void setUp() throws InterruptedException, MessagingException, IOException {
@@ -42,7 +42,7 @@ public class C23862_NonMemberUserCanVerifyTheIdentity extends GenericKeywords  {
 	}
 	
 	@Test
-	public void C23862_NonMemberUserCanVerifyTheIdentity() throws InterruptedException, MessagingException, IOException
+	public void C24271_NonMemberUserWouldLikeToSeeNoneOfTheAboveAsanAnswer() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -195,7 +195,6 @@ public class C23862_NonMemberUserCanVerifyTheIdentity extends GenericKeywords  {
 					idenficationOptions(arrayOfOptions);
 					getElement(ObjectRepository.confirmBtn).click();
 					verifyText(ObjectRepository.accountFundingPage,"Account Funding");
-				
 					
 //					try{
 //						List<WebElement>accountSelections = retrunElements("//span[@id='ProductsAndServices']//following::li");
@@ -226,7 +225,7 @@ public class C23862_NonMemberUserCanVerifyTheIdentity extends GenericKeywords  {
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Non member user can verify the identity");
+			test.log(Status.PASS, "Verify Non member user can see None of the above is one of the answers");
 		}
 	}
 

@@ -211,8 +211,27 @@ public class C23859_NonMemberUserWouldLikeToRemovePreSelectedOption extends Gene
 					
 					//Deselect other option and continue
 					getElement(ObjectRepository.getTermCertificateLocator(("6"))).click();
+					
+					//Select some other option (Here credit card)
+					productOptions(productOptionsForAllOptions);
+					expandProductsAndValidateEachOptions("Credit Cards","CreditCard");
+					creditCardCheckedUncheckedValidator("Classic",false);
 					getElement(ObjectRepository.continue_btn).click();
-					}
+					verifyElementPresent(ObjectRepository.cardType_dropdown);
+					verifyElementPresent(ObjectRepository.creditcardLimitTxt);
+					getElement(ObjectRepository.creditcardLimitTxt).sendKeys("1000");
+					getElement(ObjectRepository.edt_btn).click();
+					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
+					getElement(ObjectRepository.housingPayment).sendKeys("1000");
+					getElement(ObjectRepository.addressYearBox).sendKeys("17");
+					getElement(ObjectRepository.addressMonthBox).sendKeys("06");
+					getElement(ObjectRepository.monthlySal).sendKeys("2500");
+					getElement(ObjectRepository.employeeDurationYear).sendKeys("18");
+					getElement(ObjectRepository.employeeDurationMonth).sendKeys("06");
+					getElement(ObjectRepository.continue_btn).click();
+					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
+					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
+				 }
 				 }
 			 }
 		
