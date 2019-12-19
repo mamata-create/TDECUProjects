@@ -1,4 +1,4 @@
-package com.testcases;
+package SelectAccounts;
 
 import org.testng.annotations.Test;
 

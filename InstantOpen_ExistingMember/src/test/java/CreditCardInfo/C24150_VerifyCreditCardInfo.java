@@ -1,4 +1,4 @@
-package com.testcases;
+package CreditCardInfo;
 
 import java.io.IOException;
 
