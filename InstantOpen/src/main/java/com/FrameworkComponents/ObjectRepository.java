@@ -219,6 +219,7 @@ public class ObjectRepository {
 	
 	public static String loanAmountTxt = "//input[contains(@id,'LoanAmount')]";
 	public static String loanTerm = "//select[contains(@id,'Term')]";
+	public static String eDocumentLink = "//a[text()='eDocument Consent']";
 	
 	public static String getTermCertificateLocator(String term){
 	//	String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+" Month Share Certificate')]";
@@ -394,6 +395,7 @@ public class ObjectRepository {
 		public static String errorMsg1 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[1]";
 		public static String errordiv="//div[@class='errors']";
 		public static String errorMsg2 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[2]";
+		public static String allErrors = "//span[@id='ErrorSummary1']//li";
 
 	//Member Verification
 		public static String mmbrVerifyTile = "//strong[text()='Member Verification']";
@@ -456,4 +458,9 @@ public class ObjectRepository {
 		
 		public static String checkingAccount_prop = "//span[@id='rbLevelUpChecking']/div";
 		public static String otheOption_prop = "//span[@id='rbOtherProdYes']/div";
+		
+		//Additional Account Owners Page
+		public static String additionaliAccountOwnerPageTitle = "//strong[text()='Additional Account Owners']";
+		//Confirm Account Role
+		public static String confirmAccountRole_title="//strong[text()='Confirm Account Roles']";
 	}
