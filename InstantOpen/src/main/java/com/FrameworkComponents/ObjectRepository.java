@@ -463,4 +463,43 @@ public class ObjectRepository {
 		public static String additionaliAccountOwnerPageTitle = "//strong[text()='Additional Account Owners']";
 		//Confirm Account Role
 		public static String confirmAccountRole_title="//strong[text()='Confirm Account Roles']";
+		
+		//Product Selection
+		public static String classicCheck = "//span[@id='rbClassicChecking']";
+		public static String optInCrtsyPay = "//span[@id='cbCourtPayOptIn']";
+		
+		//Agreements and Disclosures
+		public static String agreementTtl = "//h2[text()='Account Agreements and Disclosures']";
+		public static String discCheckBox = "//span[@id='cbDisclosures']";
+		public static String disclosuresText = "//div[@class='discCopy']//p";
+		public static String backupWithQstn = "//i[@class='fas fa-question-circle']";
+		public static String backupWithTtl = "//h4[text()='Am I subject to backup withholding?']";
+		public static String closeBackupWith = "//button[text()='Okay!']";
+		public static String disclosures_page_option(int option){
+			String locator = "(//div[@class='col-sm checkCopy']//p)["+option+"]";
+			return locator;
+		}
+		public static String TINchkbx = "//span[@id='CheckBox01']";
+		public static String withHldngChkbx = "//span[@id='CheckBox02']";
+		public static String exemptChkbx = "//span[@id='CheckBox03']";
+		public static String citizenChkbx = "//span[@id='CheckBox04']";
+		public static String alienChkbx = "//span[@id='CheckBox05']";
+		public static String agreeChkbx = "//span[@id='Authroization']";
+		public static String acceptText= "(//div[@class='row disclaimer']//p)[2]";
+		public static String courtesyPayTtl= "//h3[text()='Courtesy Pay']";
+		public static String crtsyPayDescOne= "//span[@id='pnlCourtesyPay']/p[1]";
+		public static String crtsyPayDescTwo= "//span[@id='pnlCourtesyPay']/p[2]";
+		public static String crtsyPayInfoOne= "//span[@id='pnlCourtesyPay']/ol/li[1]";
+		public static String crtsyPayInfoTwo= "//span[@id='pnlCourtesyPay']/ol/li[2]";
+		public static String crtsyPayInfoThree= "//span[@id='pnlCourtesyPay']/ol/li[3]";
+		public static String FAQtitle= "//h4[text()='Frequently Asked Questions']";
+		public static String belowFAQ= "//p[text()='Below are frequently asked questions about Courtesy Pay. ']";
+		public static String FAQone= "(//div[@id='accordion']//div[contains(@class,'panel-heading')])[1]";
+		public static String FAQoneClose= "(//div[@id='accordion']//div[contains(@class,'collapsed')])[1]";
+		public static String FAQtwo= "(//div[@id='accordion']//div[contains(@class,'panel-heading')])[2]";
+		public static String FAQtwoClose= "(//div[@id='accordion']//div[contains(@class,'collapsed')])[2]";
+		public static String FAQtwoInfo= "//div[@id='accordion']//div[@id='collapseQ2']//li";
+		public static String crtsyPayNote= "(//div[@class='col-sm']//p)[4]";
+		public static String declineBtn= "//span[@id='btnDecline']//input";
+		public static String declineTxt= "//strong[text()='We Cannot Process Your Application']";
 	}

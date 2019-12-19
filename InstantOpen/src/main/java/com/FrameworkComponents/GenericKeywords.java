@@ -908,5 +908,34 @@ public class GenericKeywords extends BaseClass{
 			}
 		}
 	}
+	
+	public static void verifyFAQanswer(){	
+		String allAnswersEle = "(//div[@id='accordion']//div[@id='collapseQ1']//li)";
+		String answer1 = "We will authorize and pay overdrafts for the following types of transactions:";
+		String bulletPt1 = "Checks and other transactions made using your checking account number";
+		String bulletPt2 = "Automatic bill payments";
+		String answer2 = "We will not authorize and pay overdrafts for the following types of transactions unless you ask us to:";
+		String bulletPt3 = "ATM transactions";
+		String bulletPt4 = "One-time (everyday) debit card transactions";
+		String answer3 = "We pay overdrafts at our discretion, which means we do not guarantee we will always authorize "
+				+ "and pay any type of transaction. If we do not authorize and pay an overdraft, your transaction will be declined.";
+		
+		List<WebElement>allAnswers = driver.findElements(By.xpath(allAnswersEle));
+		
+		for(int count=1;count<=allAnswers.size();count++){			
+			String eachAnswer = "(//div[@id='accordion']//div[@id='collapseQ1']//li)["+count+"]";
+			String eachAnswerText = driver.findElement(By.xpath(eachAnswer)).getText();
+			
+			if(eachAnswerText.equals(answer1) || eachAnswerText.equals(bulletPt1) || eachAnswerText.equals(bulletPt2)
+					|| eachAnswerText.equals(answer2)|| eachAnswerText.equals(bulletPt3)
+					|| eachAnswerText.equals(bulletPt4)|| eachAnswerText.equals(answer3)){
+				Assert.assertTrue(true);
+			}
+			else{
+				Assert.assertTrue(false);
+			}
+		}
+				
+	}
 
 }
