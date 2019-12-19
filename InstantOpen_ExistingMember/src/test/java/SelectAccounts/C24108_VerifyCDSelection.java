@@ -1,6 +1,7 @@
 package com.testcases;
 
 import java.io.IOException;
+
 import javax.mail.MessagingException;
 
 import org.openqa.selenium.Keys;
@@ -18,7 +19,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C24108_VerifyCDSelection extends GenericKeywords {
+public class C24108_VerifyCDSelection extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -218,3 +219,4 @@ public class C24108_VerifyCDSelection extends GenericKeywords {
 	  }
 
 }
+	
