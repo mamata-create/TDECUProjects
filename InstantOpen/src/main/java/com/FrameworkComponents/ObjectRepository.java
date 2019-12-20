@@ -51,9 +51,10 @@ public class ObjectRepository {
 	public static String email_astrick = "//input[@id='tbEmail1_RadTextBox']/following::span[1]";
 	
 	//
-	public static String mstrcrdtcard_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'MasterCard Credit Card')]";
-	public static String classicmstrcrd_opt="//lable[contains(text(),'Classic MasterCard')]";
-	public static String chkingmoneymrkt_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Checking & Money Market Accounts')]";
+	public static String mstrcrdtcard_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Credit Cards')]";
+	public static String classicmstrcrd_opt="//label[contains(text(),'Classic MasterCard')]";
+	public static String chkingmoneymrkt_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Money Market Accounts')]";
+	public static String moneymarket_opt="//label[contains(text(),'Money Market')]";
 	public static String clscchking_opt="//label[contains(text(),'Classic Checking')]";
 	public static String dbtcrd_opt="//label[contains(text(),'Debit Card')]";
 	public static String ovrdrftprtctn_opt="//label[contains(text(),'Overdraft Protection Plan')]";
@@ -97,6 +98,7 @@ public class ObjectRepository {
 	public static String uscitizenapply_chkbx="//*[@id='CheckBox01']/div";
 	public static String backupholding_chkbx="//*[@id='CheckBox02']/div";
 	
+	public static String checking_amount_2 = "//label[contains(text(),'Share')]/following::input[1]";
 	public static String shareamnt_txt="//input[contains(@id,'ProductFunding_FormProductID')]";
 	public static String clubamntprnt_txt="//label[contains(@for,'ProductFunding_FormProductID') and contains(text(),'Club')]/parent::*/parent::*";
 	public static String fnd_opt="//label[text()='Transfer Funds']";
@@ -111,7 +113,8 @@ public class ObjectRepository {
 	
 	public static String sbmtupload_btn="//input[@id='DocumentList02_rbdocuments']";
 	
-	
+	public static String addAnotherJointOwner = "//input[@value=' Add Another Joint Owner']";
+	public static String addAnotherBeneficiary = "//input[@value=' Add Another Beneficiary']";
 	
 	//Applicant Information
 	public static String aplcntinfo_ttl="//div[@class='SectionHeaders' and contains(text(),'Applicant Information')]";
@@ -461,12 +464,35 @@ public class ObjectRepository {
 		
 		//Additional Account Owners Page
 		public static String additionaliAccountOwnerPageTitle = "//strong[text()='Additional Account Owners']";
+		public static String additional_beneficiaryPageTitle = "//strong[text()='Your Beneficiary Information']";
 		//Confirm Account Role
 		public static String confirmAccountRole_title="//strong[text()='Confirm Account Roles']";
 		
 		//Product Selection
 		public static String classicCheck = "//span[@id='rbClassicChecking']";
 		public static String optInCrtsyPay = "//span[@id='cbCourtPayOptIn']";
+		
+		//Account Roles
+		public static String rolesProduct(int option){
+			String locator = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])["+option+"]";
+			return locator;
+		}
+		public static String primaryRole(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])["+option+"]";
+			return locator;
+		}
+		public static String jointRoleChecked(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey checked'])["+option+"]";
+			return locator;
+		}
+		public static String jointRoleNotChecked(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey'])["+option+"]";
+			return locator;
+		}
+		public static String jointRoleDisabled(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey disabled'])["+option+"]";
+			return locator;
+		}
 		
 		//Agreements and Disclosures
 		public static String agreementTtl = "//h2[text()='Account Agreements and Disclosures']";
