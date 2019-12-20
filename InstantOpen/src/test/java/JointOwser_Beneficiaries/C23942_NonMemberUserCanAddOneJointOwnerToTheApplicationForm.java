@@ -30,7 +30,7 @@ public class C23942_NonMemberUserCanAddOneJointOwnerToTheApplicationForm extends
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify that Non member user should complete the Applicant Form before checking Add Beneficiaries checkbox
+	 * Verify that Non member user can add One Joint Owner to the application form
 	 */
 
 	@BeforeTest
@@ -218,12 +218,27 @@ public class C23942_NonMemberUserCanAddOneJointOwnerToTheApplicationForm extends
 					getElement(ObjectRepository.productPageNext).click();
 					verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
 					getElement(ObjectRepository.confirmBtn).click();
+					getElement(ObjectRepository.tnc_chkbx).click();
+					getElement(ObjectRepository.taxpayerIdentificationNumber).click();
+					getElement(ObjectRepository.backupWithholding).click();
+					getElement(ObjectRepository.citizenshipCheckbox).click();
+					getElement(ObjectRepository.agreementAndSignature).click();
+					getElement(ObjectRepository.confirmBtn).click();
 					String arrayOfOptions[] = new String[]{"Fairfax, VA","None of the above","None of the above","None of the above"};
 					idenficationOptions(arrayOfOptions);
 					getElement(ObjectRepository.confirmBtn).click();
+					
+					
+					idenficationOptions(arrayOfOptions);
+					getElement(ObjectRepository.confirmBtn).click();
 					verifyText(ObjectRepository.accountFundingPage,"Account Funding");
-				
-
+					getElement(ObjectRepository.shareamnt_txt).sendKeys("1000");
+					getElement(ObjectRepository.checking_amount_2).sendKeys("500");
+					getElement(ObjectRepository.elctrnc_opt).click();
+					getElement(ObjectRepository.rtngnmbr_txt).sendKeys("895645123");
+					getElement(ObjectRepository.acntnmbr_txt).sendKeys("5648794521");
+					getElement(ObjectRepository.vrfyacnt_btn).click();
+					verifyText(ObjectRepository.thnku_ttl,"Thank You for Your Application!");
 					
 				
 				 }
@@ -240,7 +255,7 @@ public class C23942_NonMemberUserCanAddOneJointOwnerToTheApplicationForm extends
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify that Non member user can add one Joint Owner to the application form");
+			test.log(Status.PASS, "Verify that Non member user can add One Joint Owner to the application form");
 		}
 	}
 

@@ -97,6 +97,7 @@ public class ObjectRepository {
 	public static String uscitizenapply_chkbx="//*[@id='CheckBox01']/div";
 	public static String backupholding_chkbx="//*[@id='CheckBox02']/div";
 	
+	public static String checking_amount_2 = "//label[contains(text(),'Share')]/following::input[1]";
 	public static String shareamnt_txt="//input[contains(@id,'ProductFunding_FormProductID')]";
 	public static String clubamntprnt_txt="//label[contains(@for,'ProductFunding_FormProductID') and contains(text(),'Club')]/parent::*/parent::*";
 	public static String fnd_opt="//label[text()='Transfer Funds']";
@@ -111,7 +112,8 @@ public class ObjectRepository {
 	
 	public static String sbmtupload_btn="//input[@id='DocumentList02_rbdocuments']";
 	
-	
+	public static String addAnotherJointOwner = "//input[@value=' Add Another Joint Owner']";
+	public static String addAnotherBeneficiary = "//input[@value=' Add Another Beneficiary']";
 	
 	//Applicant Information
 	public static String aplcntinfo_ttl="//div[@class='SectionHeaders' and contains(text(),'Applicant Information')]";
@@ -461,6 +463,7 @@ public class ObjectRepository {
 		
 		//Additional Account Owners Page
 		public static String additionaliAccountOwnerPageTitle = "//strong[text()='Additional Account Owners']";
+		public static String additional_beneficiaryPageTitle = "//strong[text()='Your Beneficiary Information']";
 		//Confirm Account Role
 		public static String confirmAccountRole_title="//strong[text()='Confirm Account Roles']";
 		
