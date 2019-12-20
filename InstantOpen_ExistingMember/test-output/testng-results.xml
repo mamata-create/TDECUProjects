@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="23448" started-at="2019-12-19T21:22:01Z" finished-at="2019-12-19T21:22:24Z">
+  <suite name="Default suite" duration-ms="22555" started-at="2019-12-19T21:37:07Z" finished-at="2019-12-19T21:37:30Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="23448" started-at="2019-12-19T21:22:01Z" finished-at="2019-12-19T21:22:24Z">
-      <class name="SelectAccounts.C24103_VerifyProductSelectionInfo">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:SelectAccounts.C24103_VerifyProductSelectionInfo@523884b2]" name="setUp" is-config="true" duration-ms="14782" started-at="2019-12-19T15:22:01Z" finished-at="2019-12-19T15:22:16Z">
+    <test name="Default test" duration-ms="22555" started-at="2019-12-19T21:37:07Z" finished-at="2019-12-19T21:37:30Z">
+      <class name="SelectAccounts.C24313_VerifyCheckingOptions">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2]" name="setUp" is-config="true" duration-ms="15786" started-at="2019-12-19T15:37:07Z" finished-at="2019-12-19T15:37:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24103_VerifyProductSelectionInfo()[pri:0, instance:SelectAccounts.C24103_VerifyProductSelectionInfo@523884b2]" name="C24103_VerifyProductSelectionInfo" duration-ms="7553" started-at="2019-12-19T15:22:16Z" finished-at="2019-12-19T15:22:23Z">
+        <test-method status="PASS" signature="C24313_VerifyCheckingOptions()[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2]" name="C24313_VerifyCheckingOptions" duration-ms="5433" started-at="2019-12-19T15:37:23Z" finished-at="2019-12-19T15:37:28Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24103_VerifyProductSelectionInfo -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:SelectAccounts.C24103_VerifyProductSelectionInfo@523884b2]" name="tearDown" is-config="true" duration-ms="1097" started-at="2019-12-19T15:22:23Z" finished-at="2019-12-19T15:22:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:SelectAccounts.C24103_VerifyProductSelectionInfo@523884b2]" name="afterMethod" is-config="true" duration-ms="0" started-at="2019-12-19T15:22:23Z" finished-at="2019-12-19T15:22:23Z">
+        </test-method> <!-- C24313_VerifyCheckingOptions -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-12-19T15:37:28Z" finished-at="2019-12-19T15:37:28Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C24103_VerifyProductSelectionInfo status=SUCCESS method=C24103_VerifyProductSelectionInfo.C24103_VerifyProductSelectionInfo()[pri:0, instance:SelectAccounts.C24103_VerifyProductSelectionInfo@523884b2] output={null}]]]>
+                <![CDATA[[TestResult name=C24313_VerifyCheckingOptions status=SUCCESS method=C24313_VerifyCheckingOptions.C24313_VerifyCheckingOptions()[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-      </class> <!-- SelectAccounts.C24103_VerifyProductSelectionInfo -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2]" name="tearDown" is-config="true" duration-ms="1308" started-at="2019-12-19T15:37:28Z" finished-at="2019-12-19T15:37:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- SelectAccounts.C24313_VerifyCheckingOptions -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
