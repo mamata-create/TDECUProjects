@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="76975" started-at="2019-11-22T19:30:55Z" finished-at="2019-11-22T19:32:12Z">
+  <suite name="Default suite" duration-ms="40975" started-at="2019-12-19T19:38:34Z" finished-at="2019-12-19T19:39:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="76975" started-at="2019-11-22T19:30:55Z" finished-at="2019-11-22T19:32:12Z">
-      <class name="CreditCard.C23843_NonMemberCreditCardtLimit">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28]" name="setUp" is-config="true" duration-ms="10135" started-at="2019-11-22T19:30:55Z" finished-at="2019-11-22T19:31:06Z">
+    <test name="Default test" duration-ms="40975" started-at="2019-12-19T19:38:34Z" finished-at="2019-12-19T19:39:15Z">
+      <class name="JointOwser_Beneficiaries.C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:JointOwser_Beneficiaries.C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries@fd02e5]" name="setUp" is-config="true" duration-ms="11688" started-at="2019-12-19T19:38:34Z" finished-at="2019-12-19T19:38:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23843_VerifyUserCanEnterAmmountToRequestCreditLimit()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28]" name="C23843_VerifyUserCanEnterAmmountToRequestCreditLimit" duration-ms="65443" started-at="2019-11-22T19:31:06Z" finished-at="2019-11-22T19:32:11Z">
+        <test-method status="PASS" signature="C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries()[pri:0, instance:JointOwser_Beneficiaries.C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries@fd02e5]" name="C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries" duration-ms="27795" started-at="2019-12-19T19:38:46Z" finished-at="2019-12-19T19:39:14Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C23843_VerifyUserCanEnterAmmountToRequestCreditLimit -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28]" name="afterMethod" is-config="true" duration-ms="3" started-at="2019-11-22T19:32:11Z" finished-at="2019-11-22T19:32:11Z">
+        </test-method> <!-- C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:JointOwser_Beneficiaries.C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries@fd02e5]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-12-19T19:39:14Z" finished-at="2019-12-19T19:39:14Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23843_VerifyUserCanEnterAmmountToRequestCreditLimit status=SUCCESS method=C23843_NonMemberCreditCardtLimit.C23843_VerifyUserCanEnterAmmountToRequestCreditLimit()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28] output={null}]]]>
+                <![CDATA[[TestResult name=C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries status=SUCCESS method=C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries.C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries()[pri:0, instance:JointOwser_Beneficiaries.C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries@fd02e5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@17caf28]" name="tearDown" is-config="true" duration-ms="1350" started-at="2019-11-22T19:32:11Z" finished-at="2019-11-22T19:32:12Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:JointOwser_Beneficiaries.C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries@fd02e5]" name="tearDown" is-config="true" duration-ms="1465" started-at="2019-12-19T19:39:14Z" finished-at="2019-12-19T19:39:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- CreditCard.C23843_NonMemberCreditCardtLimit -->
+      </class> <!-- JointOwser_Beneficiaries.C23941_NonMemberUserShouldFillEntireApplicantFormMustBeCompletedBeforeProccedWithAddBeneFiciaries -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

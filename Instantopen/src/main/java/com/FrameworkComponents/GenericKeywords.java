@@ -210,6 +210,17 @@ public class GenericKeywords extends BaseClass{
 		}
 
 	}
+	
+	public static List<WebElement> retrunElements(String locator){
+		List<WebElement> elements = null;
+		try{
+			elements = driver.findElements(By.xpath(locator));
+			  
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return elements;
+	}
 
 	public static void selectFutureDateAfter45Days() throws InterruptedException{
 		DateFormat dateFormat = new SimpleDateFormat("MMMM/d/yyyy");
@@ -884,5 +895,18 @@ public class GenericKeywords extends BaseClass{
 		}
 		
 }
+	
+	public static void idenficationOptions(String[]option){
+		List<WebElement>allOptions = retrunElements("//span[@id='IDAuthenticationQuestions']//following::label");
+		for(WebElement element : allOptions){
+			String optionValue = element.getText();
+			
+			for(int index=0;index<option.length;index++){
+				if(option[index].contains(optionValue)){
+					element.click();
+				}
+			}
+		}
+	}
 
 }

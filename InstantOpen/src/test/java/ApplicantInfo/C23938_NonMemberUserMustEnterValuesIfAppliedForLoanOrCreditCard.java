@@ -237,8 +237,8 @@ public class C23938_NonMemberUserMustEnterValuesIfAppliedForLoanOrCreditCard ext
 					getElement(ObjectRepository.empYears).sendKeys("19");
 					getElement(ObjectRepository.empMonths).sendKeys("10");
 					getElement(ObjectRepository.continue_btn).click();
-				//	verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
-				//	test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
+					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
+					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
 							
 				 }
 			 }
