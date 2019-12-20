@@ -2,6 +2,7 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
   <suite name="Default suite" duration-ms="50271" started-at="2019-12-18T18:26:31Z" finished-at="2019-12-18T18:27:21Z">
     <groups>
     </groups>
@@ -20,17 +21,45 @@
             <param index="0">
               <value>
                 <![CDATA[[TestResult name=C24024_VerifyAccountSelections status=SUCCESS method=C24024_VerifyAccountSelections.C24024_VerifyAccountSelections()[pri:0, instance:com.testcases.C24024_VerifyAccountSelections@a3ffec] output={null}]]]>
+=======
+  <suite name="Default suite" duration-ms="22555" started-at="2019-12-19T21:37:07Z" finished-at="2019-12-19T21:37:30Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="22555" started-at="2019-12-19T21:37:07Z" finished-at="2019-12-19T21:37:30Z">
+      <class name="SelectAccounts.C24313_VerifyCheckingOptions">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2]" name="setUp" is-config="true" duration-ms="15786" started-at="2019-12-19T15:37:07Z" finished-at="2019-12-19T15:37:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="C24313_VerifyCheckingOptions()[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2]" name="C24313_VerifyCheckingOptions" duration-ms="5433" started-at="2019-12-19T15:37:23Z" finished-at="2019-12-19T15:37:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- C24313_VerifyCheckingOptions -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-12-19T15:37:28Z" finished-at="2019-12-19T15:37:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=C24313_VerifyCheckingOptions status=SUCCESS method=C24313_VerifyCheckingOptions.C24313_VerifyCheckingOptions()[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2] output={null}]]]>
+>>>>>>> f2a085086f0952f5c74fc31fdf496bdebcb04566
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
+<<<<<<< HEAD
         <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.C24024_VerifyAccountSelections@a3ffec]" name="tearDown" is-config="true" duration-ms="5745" started-at="2019-12-18T13:27:16Z" finished-at="2019-12-18T13:27:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.testcases.C24024_VerifyAccountSelections -->
+=======
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:SelectAccounts.C24313_VerifyCheckingOptions@523884b2]" name="tearDown" is-config="true" duration-ms="1308" started-at="2019-12-19T15:37:28Z" finished-at="2019-12-19T15:37:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- SelectAccounts.C24313_VerifyCheckingOptions -->
+>>>>>>> f2a085086f0952f5c74fc31fdf496bdebcb04566
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -56,40 +56,30 @@ public class C24277_VerifyEmpStatusField extends GenericKeywords{
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
 					test.log(Status.INFO, "Non Members Start Here button clicked");
-					Thread.sleep(4000);
-					
-				//Dont want to open a checking account option selected	
+				
+					//Dont want to open a checking account option selected	
 					scrollToElement(ObjectRepository.dontWantCheckingOption);
 					getElement(ObjectRepository.dontWantCheckingOption).click();
 					test.log(Status.INFO, "Dont want to open a checking account option selected");
 				
-					Thread.sleep(4000);
-					
 					getElement(ObjectRepository.loancnfrm_yes).click();
 					test.log(Status.INFO, "Yes option selected");
-					
-					Thread.sleep(2000);
-				
 				
 					//Select loan and enter amount
 					getElement(ObjectRepository.personalLoanExpand).click();
-					Thread.sleep(2000);
 					getElement(ObjectRepository.personalCheckBox).click();
 					test.log(Status.INFO, "Personal loan selected");
 					getElement(ObjectRepository.productPageNext).click();
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmt);
 					test.log(Status.INFO, "Loan amount entered");
 					getElement(ObjectRepository.prodInfoNextButton).click();
-					//Primary Applicant info page
-					verifyElementPresent(ObjectRepository.primaryApplicantInfoPageTitle);
-					verifyElementPresent(ObjectRepository.aplcntinfo_ttl);
-					verifyElementPresent(ObjectRepository.idntfctninfo_ttl);
-					verifyElementPresent(ObjectRepository.loaninfo_ttl);
-					test.log(Status.INFO, "Primary Applicant Information page appeared with all sections");
-					
+					//Enter member info
+					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
+					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
+					getElement(ObjectRepository.mmbrVerifyNext).click();
+					test.log(Status.INFO, "Member verified");
 					//verify Employment Status field
-					scrollToElement(ObjectRepository.empStatus);
-					Thread.sleep(2000);
 					verifyDropdownSelection(ObjectRepository.empStatus,fullTime);
 					selectDropdownOptContain(ObjectRepository.empStatus,nullSelect);
 					selectDropdownOptContain(ObjectRepository.empStatus,fullTime);
