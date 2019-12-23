@@ -51,9 +51,10 @@ public class ObjectRepository {
 	public static String email_astrick = "//input[@id='tbEmail1_RadTextBox']/following::span[1]";
 	
 	//
-	public static String mstrcrdtcard_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'MasterCard Credit Card')]";
-	public static String classicmstrcrd_opt="//lable[contains(text(),'Classic MasterCard')]";
-	public static String chkingmoneymrkt_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Checking & Money Market Accounts')]";
+	public static String mstrcrdtcard_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Credit Cards')]";
+	public static String classicmstrcrd_opt="//label[contains(text(),'Classic MasterCard')]";
+	public static String chkingmoneymrkt_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Money Market Accounts')]";
+	public static String moneymarket_opt="//label[contains(text(),'Money Market')]";
 	public static String clscchking_opt="//label[contains(text(),'Classic Checking')]";
 	public static String dbtcrd_opt="//label[contains(text(),'Debit Card')]";
 	public static String ovrdrftprtctn_opt="//label[contains(text(),'Overdraft Protection Plan')]";
@@ -470,6 +471,28 @@ public class ObjectRepository {
 		//Product Selection
 		public static String classicCheck = "//span[@id='rbClassicChecking']";
 		public static String optInCrtsyPay = "//span[@id='cbCourtPayOptIn']";
+		
+		//Account Roles
+		public static String rolesProduct(int option){
+			String locator = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])["+option+"]";
+			return locator;
+		}
+		public static String primaryRole(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])["+option+"]";
+			return locator;
+		}
+		public static String jointRoleChecked(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey checked'])["+option+"]";
+			return locator;
+		}
+		public static String jointRoleNotChecked(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey'])["+option+"]";
+			return locator;
+		}
+		public static String jointRoleDisabled(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey disabled'])["+option+"]";
+			return locator;
+		}
 		
 		//Agreements and Disclosures
 		public static String agreementTtl = "//h2[text()='Account Agreements and Disclosures']";
