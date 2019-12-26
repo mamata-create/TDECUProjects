@@ -1,6 +1,7 @@
-package SelectAccounts;
+package JointOwser_Beneficiaries;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
@@ -24,12 +25,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeywords {
+public class C23948_VerifyTheRequiredFieldsArePopulatedForBeneficiaryApplicantForm extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify User is able to view Vehicle loans and Refinance details
+	 * Verify that Non member user can verify the required fields are populated correctly for Beneficiary form
 	 */
 
 	@BeforeTest
@@ -45,7 +46,7 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 	}	
 	
 	@Test
-	public void C23721_VerifyVehicleLoansAndRefinanceOptions() throws InterruptedException, MessagingException, IOException
+	public void C23948_VerifyTheRequiredFieldsArePopulatedForBeneficiaryApplicantForm() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -60,10 +61,8 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 					String informationHeader=excl.getCellData(sheetName, 23, startIter);
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
-					String productOptionsForAllOptions =  "Credit Cards; Vehicle Loans and Refinance Options (Auto, Boat, Motorcycle, RV/Camper); Personal Loans;Certificates of Deposit (CDs);Money Market Accounts;Savings Account;Additional Services and Features";
-					
 					String serviceOption = " Debit Card, Mobile Check Deposit, Overdraft Protection Plan, Opt into Courtesy Pay";
-					String toolTipHeaderID = "modalDepositLabel,modalOverdraftLabel,modalCourtesyLabel";
+					
 					Faker fk=new Faker();
 					String num=getRandom();
 					String fname=fk.name().firstName();
@@ -103,25 +102,11 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 					verifyText(ObjectRepository.checkingAccountOptionHeader,checkingAccountOptionHeader);
 					checkingOptionValidation("High Yield Checking");
 					serviceOptionValidation("High Yield Checking",serviceOption);
-					checkBoxCheckedAndUncheck("checked");
-					test.log(Status.INFO, "All options are checked");
-					Thread.sleep(2000);
 					
+					getElement(ObjectRepository.selectRadioOption("No")).click();
+					test.log(Status.INFO, "Other option selected as No");
 					
-					getElement(ObjectRepository.selectRadioOption("Yes")).click();
-					productOptions(productOptionsForAllOptions);
-					expandProductsAndValidateEachOptions("Vehicle Loans and Refinance Options ","Vehicle");
 					getElement(ObjectRepository.continue_btn).click();
-					getElement(ObjectRepository.productPageBackBtn).click();
-					expandProductsAndValidateEachOptions("Personal Loans","PersonalLoan");
-					getElement(ObjectRepository.continue_btn).click();
-					verifyText(ObjectRepository.vehicleLoanPage,"Vehicle Loan Info");
-					getElement(ObjectRepository.vehicleLoanAmt).sendKeys("1000");
-					getElement(ObjectRepository.vehiclePurchesPrice).sendKeys("3500");
-					getElement(ObjectRepository.edt_btn).click();
-					verifyText(ObjectRepository.personalLoanPage,"Personal Loan Info");
-					getElement(ObjectRepository.creditcardLimitTxt).sendKeys("1000");
-					getElement(ObjectRepository.edt_btn).click();
 					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
 					
 					getElement(ObjectRepository.fname_txt).sendKeys(fname);
@@ -170,19 +155,44 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 					selectDropdownOptContain(ObjectRepository.phonetyp_drop, phonetyp);
 					getElement(ObjectRepository.primaryemail_txt).sendKeys(primary_email);
 					
-					getElement(ObjectRepository.housingPayment).sendKeys("1000");
-					getElement(ObjectRepository.addressYearBox).sendKeys("90");
-					getElement(ObjectRepository.addressMonthBox).sendKeys("2");
 					
-					getElement(ObjectRepository.monthlySal).sendKeys("4000");
-					getElement(ObjectRepository.employeeDurationYear).sendKeys("99");
-					getElement(ObjectRepository.employeeDurationMonth).sendKeys("3");
+					scrollToElement(ObjectRepository.addBeneficiaries_CheckBox);
+					getElement(ObjectRepository.addBeneficiaries_CheckBox).click();
 					getElement(ObjectRepository.continue_btn).click();
-					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
-					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
-					getElement(ObjectRepository.membership_page_option(1)).click();
-					getElement(ObjectRepository.productPageNext).click();
-					verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
+					
+					//Beneficiary page
+					verifyText(ObjectRepository.additional_beneficiaryPageTitle,"Your Beneficiary Information");
+					getElement(ObjectRepository.fname_txt).sendKeys(fname);
+					test.log(Status.INFO, "First name entered");
+										
+					getElement(ObjectRepository.lname_txt).sendKeys(lname);
+					test.log(Status.INFO, "Last name entered");
+					
+					getElement(ObjectRepository.continue_btn).click();
+					
+					//Error message validation
+					String[]arrayOfMessgaes = new String[]{"Please Enter a valid Address.","Please enter the date of birth.","Please enter some text.","Please Enter a Phone Number.","The email address cannot be verified. Please check and retry."};
+					
+					List<WebElement>allErrorMsgs = retrunElements(ObjectRepository.errorSummary);
+					for(int index=1;index<=allErrorMsgs.size();index++){
+						System.out.println(getElement("(//span[contains(@id,'ErrorSummary')]//li)["+index+"]").getText());
+						String ExpectedeachMsgFrom = arrayOfMessgaes[index-1];
+						verifyText("(//span[contains(@id,'ErrorSummary')]//li)["+index+"]",ExpectedeachMsgFrom);
+						
+					}
+					
+					//Click on Add another Beneficiary and check error summary
+					getElement(ObjectRepository.addAnotherBeneficiary).click();
+					for(int index=1;index<=allErrorMsgs.size();index++){
+						System.out.println(getElement("(//span[contains(@id,'ErrorSummary')]//li)["+index+"]").getText());
+						String ExpectedeachMsgFrom = arrayOfMessgaes[index-1];
+						verifyText("(//span[contains(@id,'ErrorSummary')]//li)["+index+"]",ExpectedeachMsgFrom);
+						
+					}
+					
+					
+					
+//					
 					
 				
 				 }
@@ -190,6 +200,7 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 		}
 				
 	}
+	
 
 	@AfterMethod
 	public void afterMethod(ITestResult result) throws Throwable {
@@ -198,7 +209,7 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify User is able to view vehicle loans and refinance options");
+			test.log(Status.PASS, "Verify that Non member user can verify the required fields are populated correctly for Joint owner form");
 		}
 	}
 

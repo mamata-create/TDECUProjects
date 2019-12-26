@@ -238,6 +238,8 @@ public class ObjectRepository {
 	public static String employeeDurationYear ="//input[@id='EmploymentDuration_YearTextBox']";
 	public static String employeeDurationMonth ="//input[@id='EmploymentDuration_MonthTextBox']";
 	public static String cardType_dropdown = "//select[@name='ProductDropDownList_DropDownList']";
+	public static String vehicleLoanAmt = "(//input[contains(@id,'MoneyTextBox')])[1]";
+	public static String vehiclePurchesPrice = "(//input[contains(@id,'MoneyTextBox')])[2]";
 	
 	public static String getLocatorBasedOnOption(String option){
 		String locator = "//*[contains(text(),'"+option+"')]";
@@ -465,6 +467,8 @@ public class ObjectRepository {
 		//Additional Account Owners Page
 		public static String additionaliAccountOwnerPageTitle = "//strong[text()='Additional Account Owners']";
 		public static String additional_beneficiaryPageTitle = "//strong[text()='Your Beneficiary Information']";
+		public static String addedUserName = "//span[contains(@id,'IndividualHyperlinkList')]//a[1]";
+		public static String addedUser_removeLink = "//span[contains(@id,'IndividualHyperlinkList')]//a[2]";
 		//Confirm Account Role
 		public static String confirmAccountRole_title="//strong[text()='Confirm Account Roles']";
 		

@@ -1,6 +1,7 @@
-package SelectAccounts;
+package JointOwser_Beneficiaries;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
@@ -24,12 +25,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeywords {
+public class C24331_NonMemberUserCanSeeTheRoleAssignPageWhileSelectingVehicleLoan extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify User is able to view Vehicle loans and Refinance details
+	 * Verify that Non member user can see role assign page when select Vehicle Loan as a option
 	 */
 
 	@BeforeTest
@@ -45,7 +46,7 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 	}	
 	
 	@Test
-	public void C23721_VerifyVehicleLoansAndRefinanceOptions() throws InterruptedException, MessagingException, IOException
+	public void C24331_NonMemberUserCanSeeTheRoleAssignPageWhileSelectingVehicleLoan() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -60,10 +61,8 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 					String informationHeader=excl.getCellData(sheetName, 23, startIter);
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
-					String productOptionsForAllOptions =  "Credit Cards; Vehicle Loans and Refinance Options (Auto, Boat, Motorcycle, RV/Camper); Personal Loans;Certificates of Deposit (CDs);Money Market Accounts;Savings Account;Additional Services and Features";
-					
 					String serviceOption = " Debit Card, Mobile Check Deposit, Overdraft Protection Plan, Opt into Courtesy Pay";
-					String toolTipHeaderID = "modalDepositLabel,modalOverdraftLabel,modalCourtesyLabel";
+					String productOptionsForAllOptions =  "Credit Cards; Vehicle Loans and Refinance Options (Auto, Boat, Motorcycle, RV/Camper); Personal Loans;Certificates of Deposit (CDs);Money Market Accounts;Savings Account;Additional Services and Features";
 					Faker fk=new Faker();
 					String num=getRandom();
 					String fname=fk.name().firstName();
@@ -101,26 +100,22 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 					verifyText(ObjectRepository.inforMsgHeader,informationHeader);
 					verifyText(ObjectRepository.inforMsgContent,informationContent);
 					verifyText(ObjectRepository.checkingAccountOptionHeader,checkingAccountOptionHeader);
-					checkingOptionValidation("High Yield Checking");
-					serviceOptionValidation("High Yield Checking",serviceOption);
-					checkBoxCheckedAndUncheck("checked");
-					test.log(Status.INFO, "All options are checked");
-					Thread.sleep(2000);
-					
+					getElement(ObjectRepository.dontWantCheckingOption).click();
+				
 					
 					getElement(ObjectRepository.selectRadioOption("Yes")).click();
+					test.log(Status.INFO, "Other option selected as Yes");
+					
 					productOptions(productOptionsForAllOptions);
 					expandProductsAndValidateEachOptions("Vehicle Loans and Refinance Options ","Vehicle");
+					creditCardCheckedUncheckedValidator("Auto Loan",true);
+					
 					getElement(ObjectRepository.continue_btn).click();
-					getElement(ObjectRepository.productPageBackBtn).click();
-					expandProductsAndValidateEachOptions("Personal Loans","PersonalLoan");
-					getElement(ObjectRepository.continue_btn).click();
+					
 					verifyText(ObjectRepository.vehicleLoanPage,"Vehicle Loan Info");
+					
 					getElement(ObjectRepository.vehicleLoanAmt).sendKeys("1000");
 					getElement(ObjectRepository.vehiclePurchesPrice).sendKeys("3500");
-					getElement(ObjectRepository.edt_btn).click();
-					verifyText(ObjectRepository.personalLoanPage,"Personal Loan Info");
-					getElement(ObjectRepository.creditcardLimitTxt).sendKeys("1000");
 					getElement(ObjectRepository.edt_btn).click();
 					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
 					
@@ -177,19 +172,65 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 					getElement(ObjectRepository.monthlySal).sendKeys("4000");
 					getElement(ObjectRepository.employeeDurationYear).sendKeys("99");
 					getElement(ObjectRepository.employeeDurationMonth).sendKeys("3");
-					getElement(ObjectRepository.continue_btn).click();
-					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
-					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
-					getElement(ObjectRepository.membership_page_option(1)).click();
-					getElement(ObjectRepository.productPageNext).click();
-					verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
 					
-				
+					
+					scrollToElement(ObjectRepository.addBeneficiaries_CheckBox);
+					getElement(ObjectRepository.addBeneficiaries_CheckBox).click();
+					getElement(ObjectRepository.continue_btn).click();
+					
+					//Beneficiary Page
+					verifyText(ObjectRepository.additional_beneficiaryPageTitle,"Your Beneficiary Information");
+					getElement(ObjectRepository.fname_txt).sendKeys(fname);
+					test.log(Status.INFO, "First name entered");
+										
+					getElement(ObjectRepository.lname_txt).sendKeys(lname);
+					test.log(Status.INFO, "Last name entered");
+										
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys(strtaddress);
+					test.log(Status.INFO, "Street Address entered");
+					
+					getElement(ObjectRepository.zip_txt).sendKeys(zipcode);
+					test.log(Status.INFO, "Zip code entered");
+					String Newssn = excl.getCellData(sheetName, 20, startIter);
+					Newssn = Newssn+num;
+					getElement(ObjectRepository.ssn_txt).sendKeys(Newssn);
+					test.log(Status.INFO, "SSN entered");
+					
+					
+					getElement(ObjectRepository.dob_cal).sendKeys(dob);
+					test.log(Status.INFO, "Date of Birth entered");
+					
+					selectDropdownOptContain(ObjectRepository.idtyp_drop, idtyp);
+					test.log(Status.INFO, "ID type selected");
+					
+					getElement(ObjectRepository.idnmbr_txt).sendKeys(idnumber);
+					test.log(Status.INFO, "ID number entered");
+					
+					getElement(ObjectRepository.issuedt_cal).sendKeys(issue_dt);
+					test.log(Status.INFO, "Issue date entered");
+					
+					getElement(ObjectRepository.expdt_cal).sendKeys(expr_dt);
+					test.log(Status.INFO, "Expiry date entered");
+
+					getElement(ObjectRepository.phonenmbr_txt).sendKeys(phonenmbr);
+					selectDropdownOptContain(ObjectRepository.phonetyp_drop, phonetyp);
+					getElement(ObjectRepository.primaryemail_txt).sendKeys(primary_email);	
+					getElement(ObjectRepository.continue_btn).click();
+					
+					
+					verifyText(ObjectRepository.confirmAccountRole_title,"Confirm Account Roles");
+					
+					//Check the toggle option based on credi card is disabled
+					
+					String toggelCheckBoxLocator = "//td[contains(text(),'Auto Loan')]/following::span[2]";
+					String disabledFlag = getElement(toggelCheckBoxLocator).getAttribute("disabled");
+					Assert.assertEquals(disabledFlag.equals("true"), true);
 				 }
 			 }
 		}
 				
 	}
+	
 
 	@AfterMethod
 	public void afterMethod(ITestResult result) throws Throwable {
@@ -198,7 +239,7 @@ public class C23721_VerifyVehicleLoansAndRefinanceOptions extends GenericKeyword
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify User is able to view vehicle loans and refinance options");
+			test.log(Status.PASS, "Verify that Non member user can see role assign page when select Vehicle Loan as a option");
 		}
 	}
 

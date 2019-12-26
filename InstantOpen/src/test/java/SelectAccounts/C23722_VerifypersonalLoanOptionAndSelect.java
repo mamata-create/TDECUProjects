@@ -61,6 +61,29 @@ public class C23722_VerifypersonalLoanOptionAndSelect extends GenericKeywords {
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
 					String serviceOption = " Debit Card, Mobile Check Deposit, Overdraft Protection Plan, Opt into Courtesy Pay";
+					Faker fk=new Faker();
+					String num=getRandom();
+					String fname=fk.name().firstName();
+					
+					String lname=fk.name().lastName();
+					
+					String strtaddress=excl.getCellData(sheetName, 5, startIter);
+					String zipcode=excl.getCellData(sheetName, 6, startIter);
+					String ssn=excl.getCellData(sheetName, 7, startIter);
+					ssn=ssn+num;
+					String dob=excl.getCellData(sheetName, 8, startIter);
+					dob=dob+num;
+					String idtyp=excl.getCellData(sheetName, 9, startIter);
+					String idnumber=excl.getCellData(sheetName, 10, startIter);
+					String issue_dt=excl.getCellData(sheetName, 11, startIter);
+					String expr_dt=excl.getCellData(sheetName, 12, startIter);
+					String mothername=excl.getCellData(sheetName, 13, startIter);
+					String crrnt_emplyr=excl.getCellData(sheetName, 14, startIter);
+					String occupation=excl.getCellData(sheetName, 15, startIter);
+					String phonenmbr=excl.getCellData(sheetName, 16, startIter);
+					String phonetyp=excl.getCellData(sheetName, 17, startIter);
+					String primary_email=excl.getCellData(sheetName, 18, startIter);
+					String hear_opt=excl.getCellData(sheetName, 19, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -91,7 +114,75 @@ public class C23722_VerifypersonalLoanOptionAndSelect extends GenericKeywords {
 					checkMultipleLoanOptionAndContinueOtherOption("CreditCard","Classic MasterCard");
 					verifyText(ObjectRepository.crdtcrdinf_ttl,"Credit Card Info");
 					getElement(ObjectRepository.productPageBackBtn).click();
+					getElement(ObjectRepository.continue_btn).click();
+					verifyText(ObjectRepository.creditCardInfoPage,"Credit Card Info");
+					verifyElementPresent(ObjectRepository.cardType_dropdown);
+					verifyElementPresent(ObjectRepository.creditcardLimitTxt);
+					getElement(ObjectRepository.creditcardLimitTxt).sendKeys("1000");
+					getElement(ObjectRepository.edt_btn).click();
+					verifyText(ObjectRepository.personalLoanPage,"Personal Loan Info");
+					getElement(ObjectRepository.creditcardLimitTxt).sendKeys("1000");
+					getElement(ObjectRepository.edt_btn).click();
+					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
+					getElement(ObjectRepository.fname_txt).sendKeys(fname);
+					test.log(Status.INFO, "First name entered");
+										
+					getElement(ObjectRepository.lname_txt).sendKeys(lname);
+					test.log(Status.INFO, "Last name entered");
+										
+					getElement(ObjectRepository.strtaddrs_txt).sendKeys(strtaddress);
+					test.log(Status.INFO, "Street Address entered");
 					
+					getElement(ObjectRepository.zip_txt).sendKeys(zipcode);
+					test.log(Status.INFO, "Zip code entered");
+					
+					getElement(ObjectRepository.ssn_txt).sendKeys(ssn);
+					test.log(Status.INFO, "SSN entered");
+					
+					
+					getElement(ObjectRepository.dob_cal).sendKeys(dob);
+					test.log(Status.INFO, "Date of Birth entered");
+					
+					selectDropdownOptContain(ObjectRepository.idtyp_drop, idtyp);
+					test.log(Status.INFO, "ID type selected");
+					
+					getElement(ObjectRepository.idnmbr_txt).sendKeys(idnumber);
+					test.log(Status.INFO, "ID number entered");
+					
+					getElement(ObjectRepository.issuedt_cal).sendKeys(issue_dt);
+					test.log(Status.INFO, "Issue date entered");
+					
+					getElement(ObjectRepository.expdt_cal).sendKeys(expr_dt);
+					test.log(Status.INFO, "Expiry date entered");
+					
+					selectDropdownOptContain(ObjectRepository.hrabttdecu_drop, hear_opt);
+					test.log(Status.INFO, "How did you hear about TDECU option selected");
+					
+					getElement(ObjectRepository.mothername_txt).sendKeys(mothername);
+					test.log(Status.INFO, "Mother name entered");
+					
+					getElement(ObjectRepository.crrntemplyr_txt).sendKeys(crrnt_emplyr);
+					test.log(Status.INFO, "Current Employer name entered");
+					
+					getElement(ObjectRepository.occptn_txt).sendKeys(occupation);
+					test.log(Status.INFO, "Occupation name entered");
+					getElement(ObjectRepository.phonenmbr_txt).sendKeys(phonenmbr);
+					selectDropdownOptContain(ObjectRepository.phonetyp_drop, phonetyp);
+					getElement(ObjectRepository.primaryemail_txt).sendKeys(primary_email);
+					
+					getElement(ObjectRepository.housingPayment).sendKeys("1000");
+					getElement(ObjectRepository.addressYearBox).sendKeys("90");
+					getElement(ObjectRepository.addressMonthBox).sendKeys("2");
+					
+					getElement(ObjectRepository.monthlySal).sendKeys("4000");
+					getElement(ObjectRepository.employeeDurationYear).sendKeys("99");
+					getElement(ObjectRepository.employeeDurationMonth).sendKeys("3");
+					getElement(ObjectRepository.continue_btn).click();
+					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
+					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
+					getElement(ObjectRepository.membership_page_option(1)).click();
+					getElement(ObjectRepository.productPageNext).click();
+					verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
 				
 				 }
 			 }
