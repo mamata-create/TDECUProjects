@@ -18,6 +18,13 @@ public class ObjectRepository {
 	public static String expirationdate_alert = "//div[@id='expirationDateDiv']//following::div[@role='alert']";
 	public static String phoneNumber_alert = "//span[@id='tbPhone1']//following::div[@role='alert']";
 	
+	public static String membership_page_option(int option){
+		String pageOption = "//*[contains(text(),'Membership Eligibility')]/following::div[@class='iradio_square-grey']["+option+"]";
+		return pageOption;
+	}
+	public static String confirm_account_selections_page = "//*[contains(text(),'Confirm Account Selections')]";
+	public static String change_button = "//span[@id='btnChange']/input";
+	
 	public static String fname_txt="//input[@id='tbFirstName_TextBox']";
 	public static String mname_txt="//input[@id='tbMiddleName_TextBox']";
 	public static String lname_txt="//input[@id='tbLastName_TextBox']";
@@ -44,9 +51,10 @@ public class ObjectRepository {
 	public static String email_astrick = "//input[@id='tbEmail1_RadTextBox']/following::span[1]";
 	
 	//
-	public static String mstrcrdtcard_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'MasterCard Credit Card')]";
-	public static String classicmstrcrd_opt="//lable[contains(text(),'Classic MasterCard')]";
-	public static String chkingmoneymrkt_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Checking & Money Market Accounts')]";
+	public static String mstrcrdtcard_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Credit Cards')]";
+	public static String classicmstrcrd_opt="//label[contains(text(),'Classic MasterCard')]";
+	public static String chkingmoneymrkt_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Money Market Accounts')]";
+	public static String moneymarket_opt="//label[contains(text(),'Money Market')]";
 	public static String clscchking_opt="//label[contains(text(),'Classic Checking')]";
 	public static String dbtcrd_opt="//label[contains(text(),'Debit Card')]";
 	public static String ovrdrftprtctn_opt="//label[contains(text(),'Overdraft Protection Plan')]";
@@ -90,6 +98,7 @@ public class ObjectRepository {
 	public static String uscitizenapply_chkbx="//*[@id='CheckBox01']/div";
 	public static String backupholding_chkbx="//*[@id='CheckBox02']/div";
 	
+	public static String checking_amount_2 = "//label[contains(text(),'Share')]/following::input[1]";
 	public static String shareamnt_txt="//input[contains(@id,'ProductFunding_FormProductID')]";
 	public static String clubamntprnt_txt="//label[contains(@for,'ProductFunding_FormProductID') and contains(text(),'Club')]/parent::*/parent::*";
 	public static String fnd_opt="//label[text()='Transfer Funds']";
@@ -104,7 +113,8 @@ public class ObjectRepository {
 	
 	public static String sbmtupload_btn="//input[@id='DocumentList02_rbdocuments']";
 	
-	
+	public static String addAnotherJointOwner = "//input[@value=' Add Another Joint Owner']";
+	public static String addAnotherBeneficiary = "//input[@value=' Add Another Beneficiary']";
 	
 	//Applicant Information
 	public static String aplcntinfo_ttl="//div[@class='SectionHeaders' and contains(text(),'Applicant Information')]";
@@ -202,6 +212,9 @@ public class ObjectRepository {
 		return locator;
 	}
 	
+	public static String CD_amount_field = "//label[contains(text(),'Enter an Amount')]/following::input";
+	public static String CD_term_field = "//label[contains(text(),'Select a term (in months)')]/following::select";
+	
 	public static String modalHelpIcon = "//label[contains(text(),'E-Documents')]/following::div[@class='Service_MoreInfo']//button";
 	public static String eDocumentHeader = "//*[@id='modalEdocumentsLabel']";
 	public static String eDocumentModalBody = "//*[@id='modalEdocumentsLabel']/following::p";
@@ -209,9 +222,11 @@ public class ObjectRepository {
 	
 	public static String loanAmountTxt = "//input[contains(@id,'LoanAmount')]";
 	public static String loanTerm = "//select[contains(@id,'Term')]";
+	public static String eDocumentLink = "//a[text()='eDocument Consent']";
 	
 	public static String getTermCertificateLocator(String term){
-		String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+" Month Share Certificate')]";
+	//	String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+" Month Share Certificate')]";
+		String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+"')]";
 		return termLocator;
 	}
 	public static String creditCardProduct ="(//label[contains(@for,'CreditCard_ProductCheckbox')])[1]";
@@ -223,6 +238,8 @@ public class ObjectRepository {
 	public static String employeeDurationYear ="//input[@id='EmploymentDuration_YearTextBox']";
 	public static String employeeDurationMonth ="//input[@id='EmploymentDuration_MonthTextBox']";
 	public static String cardType_dropdown = "//select[@name='ProductDropDownList_DropDownList']";
+	public static String vehicleLoanAmt = "(//input[contains(@id,'MoneyTextBox')])[1]";
+	public static String vehiclePurchesPrice = "(//input[contains(@id,'MoneyTextBox')])[2]";
 	
 	public static String getLocatorBasedOnOption(String option){
 		String locator = "//*[contains(text(),'"+option+"')]";
@@ -383,6 +400,7 @@ public class ObjectRepository {
 		public static String errorMsg1 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[1]";
 		public static String errordiv="//div[@class='errors']";
 		public static String errorMsg2 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[2]";
+		public static String allErrors = "//span[@id='ErrorSummary1']//li";
 
 	//Member Verification
 		public static String mmbrVerifyTile = "//strong[text()='Member Verification']";
@@ -423,6 +441,9 @@ public class ObjectRepository {
 		public static String prodWOptionsTwo = "(//span[@id='ProductsAndServices']//li[2])[2]";
 		public static String confirmBtn="//input[@id='btnNext_SubmitButton']";
 		public static String changeBtn="//input[@id='btnChange_SubmitButton']";
+		public static String mobileRemoteDepositCaptureLink = "//a[text()='Mobile Remote Deposit Capture Terms and Conditions']";
+		public static String courtesyPay = "//span[@id='pnlCourtesyPay']//h3";
+		public static String freqAskQuestions = "//span[@id='pnlCourtesyPay']//h3";
 		
 		public static String pageSection(String sectionName){
 			String sectionLocator = "//div[contains(text(),'"+sectionName+"')]";
@@ -439,4 +460,76 @@ public class ObjectRepository {
 			property = GenericKeywords.getElement(locator).getAttribute("class");
 			return property;
 		}
+		
+		public static String checkingAccount_prop = "//span[@id='rbLevelUpChecking']/div";
+		public static String otheOption_prop = "//span[@id='rbOtherProdYes']/div";
+		
+		//Additional Account Owners Page
+		public static String additionaliAccountOwnerPageTitle = "//strong[text()='Additional Account Owners']";
+		public static String additional_beneficiaryPageTitle = "//strong[text()='Your Beneficiary Information']";
+		public static String addedUserName = "//span[contains(@id,'IndividualHyperlinkList')]//a[1]";
+		public static String addedUser_removeLink = "//span[contains(@id,'IndividualHyperlinkList')]//a[2]";
+		//Confirm Account Role
+		public static String confirmAccountRole_title="//strong[text()='Confirm Account Roles']";
+		
+		//Product Selection
+		public static String classicCheck = "//span[@id='rbClassicChecking']";
+		public static String optInCrtsyPay = "//span[@id='cbCourtPayOptIn']";
+		
+		//Account Roles
+		public static String rolesProduct(int option){
+			String locator = "(//span[@id='ProductRelationships']//td[contains(@id,'Name')])["+option+"]";
+			return locator;
+		}
+		public static String primaryRole(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[contains(@class,'checked disabled')])["+option+"]";
+			return locator;
+		}
+		public static String jointRoleChecked(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey checked'])["+option+"]";
+			return locator;
+		}
+		public static String jointRoleNotChecked(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey'])["+option+"]";
+			return locator;
+		}
+		public static String jointRoleDisabled(int option){
+			String locator = "(//span[@id='ProductRelationships']//div[@class='icheckbox_square-grey disabled'])["+option+"]";
+			return locator;
+		}
+		
+		//Agreements and Disclosures
+		public static String agreementTtl = "//h2[text()='Account Agreements and Disclosures']";
+		public static String discCheckBox = "//span[@id='cbDisclosures']";
+		public static String disclosuresText = "//div[@class='discCopy']//p";
+		public static String backupWithQstn = "//i[@class='fas fa-question-circle']";
+		public static String backupWithTtl = "//h4[text()='Am I subject to backup withholding?']";
+		public static String closeBackupWith = "//button[text()='Okay!']";
+		public static String disclosures_page_option(int option){
+			String locator = "(//div[@class='col-sm checkCopy']//p)["+option+"]";
+			return locator;
+		}
+		public static String TINchkbx = "//span[@id='CheckBox01']";
+		public static String withHldngChkbx = "//span[@id='CheckBox02']";
+		public static String exemptChkbx = "//span[@id='CheckBox03']";
+		public static String citizenChkbx = "//span[@id='CheckBox04']";
+		public static String alienChkbx = "//span[@id='CheckBox05']";
+		public static String agreeChkbx = "//span[@id='Authroization']";
+		public static String acceptText= "(//div[@class='row disclaimer']//p)[2]";
+		public static String courtesyPayTtl= "//h3[text()='Courtesy Pay']";
+		public static String crtsyPayDescOne= "//span[@id='pnlCourtesyPay']/p[1]";
+		public static String crtsyPayDescTwo= "//span[@id='pnlCourtesyPay']/p[2]";
+		public static String crtsyPayInfoOne= "//span[@id='pnlCourtesyPay']/ol/li[1]";
+		public static String crtsyPayInfoTwo= "//span[@id='pnlCourtesyPay']/ol/li[2]";
+		public static String crtsyPayInfoThree= "//span[@id='pnlCourtesyPay']/ol/li[3]";
+		public static String FAQtitle= "//h4[text()='Frequently Asked Questions']";
+		public static String belowFAQ= "//p[text()='Below are frequently asked questions about Courtesy Pay. ']";
+		public static String FAQone= "(//div[@id='accordion']//div[contains(@class,'panel-heading')])[1]";
+		public static String FAQoneClose= "(//div[@id='accordion']//div[contains(@class,'collapsed')])[1]";
+		public static String FAQtwo= "(//div[@id='accordion']//div[contains(@class,'panel-heading')])[2]";
+		public static String FAQtwoClose= "(//div[@id='accordion']//div[contains(@class,'collapsed')])[2]";
+		public static String FAQtwoInfo= "//div[@id='accordion']//div[@id='collapseQ2']//li";
+		public static String crtsyPayNote= "(//div[@class='col-sm']//p)[4]";
+		public static String declineBtn= "//span[@id='btnDecline']//input";
+		public static String declineTxt= "//strong[text()='We Cannot Process Your Application']";
 	}

@@ -62,19 +62,14 @@ public class C24284_VerifyLengthofPrevEmpFields  extends GenericKeywords{
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
 					test.log(Status.INFO, "Non Members Start Here button clicked");
-					Thread.sleep(4000);
-					
-				//Dont want to open a checking account option selected	
+				
+					//Dont want to open a checking account option selected	
 					scrollToElement(ObjectRepository.dontWantCheckingOption);
 					getElement(ObjectRepository.dontWantCheckingOption).click();
 					test.log(Status.INFO, "Dont want to open a checking account option selected");
 				
-					Thread.sleep(4000);
-					
 					getElement(ObjectRepository.loancnfrm_yes).click();
 					test.log(Status.INFO, "Yes option selected");
-					
-					Thread.sleep(2000);
 				
 					
 					//Select loan and enter amount
@@ -86,14 +81,14 @@ public class C24284_VerifyLengthofPrevEmpFields  extends GenericKeywords{
 					test.log(Status.INFO, "Loan amount entered");
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					
-					//Primary Applicant info page
-					verifyElementPresent(ObjectRepository.primaryApplicantInfoPageTitle);
-					verifyElementPresent(ObjectRepository.aplcntinfo_ttl);
-					verifyElementPresent(ObjectRepository.idntfctninfo_ttl);
-					verifyElementPresent(ObjectRepository.loaninfo_ttl);
-					test.log(Status.INFO, "Primary Applicant Information page appeared with all sections");
-					scrollToElement(ObjectRepository.loaninfo_ttl);
-					Thread.sleep(2000);
+					//Enter member info
+					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
+					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
+					getElement(ObjectRepository.mmbrVerifyNext).click();
+					test.log(Status.INFO, "Member verified");
+					scrollToElement(ObjectRepository.loanHdr);
+					
 					//verify previous length of employment fields
 					getElement(ObjectRepository.prevYears).sendKeys(yearsMax);
 					verifyText(ObjectRepository.appInfoPopup,popupMsg);
