@@ -1,13 +1,10 @@
-package SaveProgress;
+package MembershipEligibility;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Set;
 
 import javax.mail.MessagingException;
 
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import org.openqa.selenium.Keys;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -23,7 +20,9 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23863_VerifySaveProgressOption  extends GenericKeywords{
+import junit.framework.Assert;
+
+public class C23828_VerifyMembershipElibilitySelection extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -38,7 +37,7 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
   }
 	
   @Test
-  public void C23832_VerifyMembershipEligibilityLiveWorkOptionSelection() throws InterruptedException, MessagingException, IOException {
+  public void C23828_VerifyMembershipElibilitySelection() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "Data";
@@ -84,10 +83,10 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 					test.log(Status.INFO, "Non Members Start Here button clicked");
 					Thread.sleep(4000);
 					
-				//checking account option selected	
-					scrollToElement(ObjectRepository.clscchking_rdbtn);
-					getElement(ObjectRepository.clscchking_rdbtn).click();
-					test.log(Status.INFO, "Classic checking account option selected");
+				//Dont want to open a checking account option selected	
+					scrollToElement(ObjectRepository.dontWantCheckingOption);
+					getElement(ObjectRepository.dontWantCheckingOption).click();
+					test.log(Status.INFO, "Dont want to open a checking account option selected");
 				
 					Thread.sleep(4000);
 					
@@ -161,66 +160,43 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 					getElement(ObjectRepository.continue_further).click();
 					Thread.sleep(5000);
 					test.log(Status.INFO, "Continue button clicked from primary applicant page");
-			//Membership Eligibility page		
+					
 					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
-//					
-//					List<WebElement>memberShipRadioButtons = retrunElements(ObjectRepository.membershipElegibilityRadioButton);
-//					for(WebElement eachRadioButton:memberShipRadioButtons){
-//						boolean radioButtonPresentFlag= eachRadioButton.isDisplayed();
-//						Assert.assertEquals(radioButtonPresentFlag, true);
-//							
-//						
-//					}
+					
+					getElement(ObjectRepository.backButton).click();
+					test.log(Status.INFO, "back button clicked from membership eligibility page");
+					
+					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
+					test.log(Status.INFO, "primary applicant page opened again");
+					
+					getElement(ObjectRepository.continue_further).click();
+					Thread.sleep(5000);
+					test.log(Status.INFO, "Continue button clicked from primary applicant page");
 					
 					verifyElementPresent(ObjectRepository.mmbrtdecu_opt);
 					verifyElementPresent(ObjectRepository.mmbremploy_opt);
 					verifyElementPresent(ObjectRepository.mmbrship_opt);
-					scrollToElement(ObjectRepository.livework_opt);
 					verifyElementPresent(ObjectRepository.livework_opt);
 					test.log(Status.INFO, "All four options appear on Membership eligibility page");
 					
-					getElement(ObjectRepository.livework_opt).click();
-					test.log(Status.INFO, "Membership eligibility- Live work option selected");
-					
-					verifyElementPresent(ObjectRepository.communitieslist_lnk);
-					test.log(Status.INFO, "View List of communities link appearing under Live work option");
-			
-			        getElement(ObjectRepository.productPageNext).click();
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked from membership eligibility page");
-						
-					 verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
-					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
-			
-					getElement(ObjectRepository.svfinish_btn).click();
-					test.log(Status.INFO, "Save and finish button clicked from confirm account selection page");
 					
-				//Save Progress
-					 verifyElementPresent(ObjectRepository.svprgrs_ttl);
-					 test.log(Status.INFO, "Save Progress page opened");
+					verifyText(ObjectRepository.mmbr_error,"Please select a radio button");
+					test.log(Status.INFO, "Error message appears ");
+					
+					getElement(ObjectRepository.mmbrtdecu_chk).click();
+					test.log(Status.INFO, "Membership eligibility- TDECU option selected");
+					
+					getElement(ObjectRepository.mmbremploy_chk).click();
+					test.log(Status.INFO, "Membership eligibility- Employee option selected");
+					
+					Assert.assertFalse(getElement(ObjectRepository.mmbrtdecu_chk).getAttribute("class").contains("checked"));
+					test.log(Status.INFO, "Membership eligibility- TDECU option got unselected");
+					
+					
 				
-					 verifyElementPresent(ObjectRepository.svprgrs_info);
-					 test.log(Status.INFO, "Save Progress info appearing");
-					 
-					 verifyElementPresent(ObjectRepository.svprgrs_emltxt);
-					 test.log(Status.INFO, "Email address field appearing");
-					 
-					 verifyElementPresent(ObjectRepository.svprgrs_pswrd);
-					 test.log(Status.INFO, "Password field appearing");
-					 
-					 getElement(ObjectRepository.cancel_btn).click();
-					 test.log(Status.INFO, "Cancel button clicked");
-					 
-				// 	 
-						getElement(ObjectRepository.svfinish_btn).click();
-						test.log(Status.INFO, "Save and finish button clicked from confirm account selection page");
-						
-						 getElement(ObjectRepository.sttscntr_lnk).click();
-						 test.log(Status.INFO, "Status Center link clicked");
-						
-						 verifyElementPresent(ObjectRepository.sttscntr_ttl);
-						 test.log(Status.INFO, "Status Center title appearing");
-						
 				 }
 			}
 	  }
@@ -232,7 +208,7 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Save Progress option for TDECU account");
+			test.log(Status.PASS, "Verify Membership elgibility selection for TDECU account");
 		}
 	}
 

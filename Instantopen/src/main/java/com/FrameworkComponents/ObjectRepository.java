@@ -533,12 +533,13 @@ public class ObjectRepository {
 		public static String declineBtn= "//span[@id='btnDecline']//input";
 		public static String declineTxt= "//strong[text()='We Cannot Process Your Application']";
 		
+		public static String membershipElegibilityRadioButton = "//strong[contains(text(),'Membership Eligibility')]/following::input[@type='radio']";
 		public static String clscchking_rdbtn="//label[@for='rbClassicChecking_RadioButton']";
 		public static String loancnfrm_no="//span[@id='rbOtherProdNo']";
 		public static String mmbrtdecu_opt="//td[contains(text(),'I am related to a current')]";
 		public static String mmbremploy_opt="//td[contains(text(),'I am an employee')]";
 		public static String mmbrship_opt="//td[contains(text(),'I am a member of a membership')]";
-		public static String livework_opt="//strong[contains(text(),'4')]/following-sibling::span[@id='rbTown']//input";
+		public static String livework_opt="//td[contains(text(),'I live')]/preceding::div[1]";
 		public static String mmbr_error="//div[@class='errors']";
 		public static String communitieslist_lnk="//a[contains(text(),'View list of communities we serve')]";
 		public static String cnfrmacntslctn_ttl="//strong[text()='Confirm Account Selections']";
