@@ -103,6 +103,7 @@ public class ObjectRepository {
 	public static String clubamntprnt_txt="//label[contains(@for,'ProductFunding_FormProductID') and contains(text(),'Club')]/parent::*/parent::*";
 	public static String fnd_opt="//label[text()='Transfer Funds']";
 	public static String elctrnc_opt="//label[text()='Electronic Check']";
+	public static String _opt="//label[text()='Electronic Check']";
 	public static String sbmt_btn="//input[@id='NextButton2_SubmitButton']";
 	
 	public static String rtngnmbr_txt="//input[@id='ACHFundingAccountVerification_tbRoutingNumber_NumericTextBox']";
@@ -536,9 +537,13 @@ public class ObjectRepository {
 		public static String clscchking_rdbtn="//label[@for='rbClassicChecking_RadioButton']";
 		public static String loancnfrm_no="//span[@id='rbOtherProdNo']";
 		public static String mmbrtdecu_opt="//td[contains(text(),'I am related to a current')]";
+		public static String mmbrtdecu_btn="//td[contains(text(),'I am related to a current')]/parent::tr//input[@id='rbFamily_RadioButton']";
 		public static String mmbremploy_opt="//td[contains(text(),'I am an employee')]";
+		public static String mmbremploy_btn="//td[contains(text(),'I am an employee')]/parent::tr//input[@id='rbFamily_RadioButton']";
 		public static String mmbrship_opt="//td[contains(text(),'I am a member of a membership')]";
-		public static String livework_opt="//strong[contains(text(),'4')]/following-sibling::span[@id='rbTown']//input";
+		public static String mmbrship_btn="//td[contains(text(),'I am a member of a membership')]/parent::tr//input[@id='rbFamily_RadioButton']";
+		public static String livework_opt="//td[contains(text(),'I live, work, worship')]";
+		public static String livework_btn="//input[@id='rbTown_RadioButton']";
 		public static String mmbr_error="//div[@class='errors']";
 		public static String communitieslist_lnk="//a[contains(text(),'View list of communities we serve')]";
 		public static String cnfrmacntslctn_ttl="//strong[text()='Confirm Account Selections']";
@@ -564,7 +569,18 @@ public class ObjectRepository {
 		public static String idntvrf_ans4="//label[contains(text(),'Union Street')]";
 		public static String acntfnd_ttl="//strong[text()='Account Funding']";
 		public static String elctrnchk_opt="//label[text()='Electronic Check']";
+		public static String elctrnc_rtngnmbr_txt="//input[@id='ACHFundingAccountVerification_tbRoutingNumber_NumericTextBox']";
+		public static String elctrnc_acntnmbr_txt="//input[@id='ACHFundingAccountVerification_tbAccountNumber_TextBox']";
+		public static String elctrnc_svng_btn="//input[@id='ACHFundingAccountVerification_rbSavingsAccountType_RadioButton']";
+		
 		public static String dbtcreditcrd_opt="//label[text()='Debit/Credit Card']";
+		public static String crdnmbr_txt="//input[@id='CreditCard_CardNumber']";
+		public static String crdmonth_drop="//select[@id='CreditCard_Month']";
+		public static String crdyr_drop="//select[@id='CreditCard_Year']";
+		public static String crdcvv_txt="//input[@id='CreditCard_CVV']";
+		public static String crdfrstname_txt="//input[@id='fiVISION_CreditCardV2_FirstNameOnCard']";
+		public static String crdlstname_txt="//input[@id='fiVISION_CreditCardV2_LastNameOnCard']";
+		
 		public static String sbmtapp_info1="//p[contains(text(),'By clicking the Submit Application button below')]";
 		public static String sbmtapp_info2="//p[contains(text(),'Certify that all the other information on this')]";
 		public static String crtfctdpst_opt="//h4[contains(text(),'Certificates of Deposit')]";
