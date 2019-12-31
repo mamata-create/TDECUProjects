@@ -55,7 +55,7 @@ public class ObjectRepository {
 	public static String classicmstrcrd_opt="//label[contains(text(),'Classic MasterCard')]";
 	public static String chkingmoneymrkt_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Money Market Accounts')]";
 	public static String moneymarket_opt="//label[contains(text(),'Money Market')]";
-	public static String clscchking_opt="//label[contains(text(),'Classic Checking')]";
+	public static String clscchking_opt="//*[contains(text(),'Classic Checking')]/..";
 	public static String dbtcrd_opt="//label[contains(text(),'Debit Card')]";
 	public static String ovrdrftprtctn_opt="//label[contains(text(),'Overdraft Protection Plan')]";
 	public static String svngacnt_exp="//h4[@class='panel-title CursorPointer' and contains(text(),'Savings Account')]";
@@ -107,6 +107,7 @@ public class ObjectRepository {
 	
 	public static String rtngnmbr_txt="//input[@id='ACHFundingAccountVerification_tbRoutingNumber_NumericTextBox']";
 	public static String acntnmbr_txt="//input[@id='ACHFundingAccountVerification_tbAccountNumber_TextBox']";
+	public static String elctrnc_svng_btn = "//label[contains(text(),'Savings')]/preceding::div[1]";
 	public static String vrfyacnt_btn="//button[@id='DeferredInputSubmit']";
 	
 	public static String thnku_ttl="//h1[text()='Thank You for Your Application!']";
@@ -566,6 +567,13 @@ public class ObjectRepository {
 		public static String acntfnd_ttl="//strong[text()='Account Funding']";
 		public static String elctrnchk_opt="//label[text()='Electronic Check']";
 		public static String dbtcreditcrd_opt="//label[text()='Debit/Credit Card']";
+		public static String crdnmbr_txt = "//input[@name='CreditCard_CardNumber']";
+		public static String crdmonth_drop = "//select[@name='CreditCard_Month']";
+		public static String crdyr_drop = "//select[@name='CreditCard_Year']";
+		public static String crdcvv_txt = "//input[@name='CreditCard_CVV']";
+		public static String crdfrstname_txt = "//input[@name='fiVISION_CreditCardV2_FirstNameOnCard']";
+		public static String crdlstname_txt = "//input[@name='fiVISION_CreditCardV2_LastNameOnCard']";
+		
 		public static String sbmtapp_info1="//p[contains(text(),'By clicking the Submit Application button below')]";
 		public static String sbmtapp_info2="//p[contains(text(),'Certify that all the other information on this')]";
 		public static String crtfctdpst_opt="//h4[contains(text(),'Certificates of Deposit')]";
