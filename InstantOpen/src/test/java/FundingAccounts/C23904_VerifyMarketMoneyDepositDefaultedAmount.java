@@ -1,13 +1,9 @@
-package SaveProgress;
+package FundingAccounts;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Set;
 
 import javax.mail.MessagingException;
 
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -23,7 +19,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23863_VerifySaveProgressOption  extends GenericKeywords{
+public class C23904_VerifyMarketMoneyDepositDefaultedAmount  extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -38,7 +34,7 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
   }
 	
   @Test
-  public void C23832_VerifyMembershipEligibilityLiveWorkOptionSelection() throws InterruptedException, MessagingException, IOException {
+  public void C23904_VerifyMarketMoneyDepositDefaultedAmount() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "Data";
@@ -48,7 +44,7 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 				if(this.getClass().getSimpleName().equals(excl.getCellData("Data", 0, startIter)))
 				 {
 					Faker fk=new Faker();
-					String num=getRandom();
+					String num=getRandomFourDigit();
 					String fname=fk.name().firstName();
 					
 					String lname=fk.name().lastName();
@@ -85,14 +81,22 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 					Thread.sleep(4000);
 					
 				//checking account option selected	
-					scrollToElement(ObjectRepository.clscchking_rdbtn);
-					getElement(ObjectRepository.clscchking_rdbtn).click();
-					test.log(Status.INFO, "Classic checking account option selected");
+					scrollToElement(ObjectRepository.dontWantCheckingOption);
+					getElement(ObjectRepository.dontWantCheckingOption).click();
+					test.log(Status.INFO, "Dont want to open Classic checking account option selected");
 				
 					Thread.sleep(4000);
 					
-					getElement(ObjectRepository.loancnfrm_no).click();
-					test.log(Status.INFO, "No option selected");
+					getElement(ObjectRepository.loancnfrm_yes).click();
+					test.log(Status.INFO, "Yes option selected");
+					
+				//Market Money Deposit
+					getElement(ObjectRepository.mrktmnydpst_opt).click();
+					test.log(Status.INFO, "Market Money Deposit panel expanded");
+					
+								
+					getElement(ObjectRepository.mrktmnydpst_chk).click();
+					test.log(Status.INFO, "Market Money Deposit check box selected");
 					
 					Thread.sleep(2000);
 					getElement(ObjectRepository.productPageNext).click();
@@ -164,19 +168,11 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 			//Membership Eligibility page		
 					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
-//					
-//					List<WebElement>memberShipRadioButtons = retrunElements(ObjectRepository.membershipElegibilityRadioButton);
-//					for(WebElement eachRadioButton:memberShipRadioButtons){
-//						boolean radioButtonPresentFlag= eachRadioButton.isDisplayed();
-//						Assert.assertEquals(radioButtonPresentFlag, true);
-//							
-//						
-//					}
+					
 					
 					verifyElementPresent(ObjectRepository.mmbrtdecu_opt);
 					verifyElementPresent(ObjectRepository.mmbremploy_opt);
 					verifyElementPresent(ObjectRepository.mmbrship_opt);
-					scrollToElement(ObjectRepository.livework_opt);
 					verifyElementPresent(ObjectRepository.livework_opt);
 					test.log(Status.INFO, "All four options appear on Membership eligibility page");
 					
@@ -189,38 +185,91 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 			        getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked from membership eligibility page");
 						
-					 verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
+					verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
 					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
 			
-					getElement(ObjectRepository.svfinish_btn).click();
-					test.log(Status.INFO, "Save and finish button clicked from confirm account selection page");
+					getElement(ObjectRepository.svcontinue_btn).click();
+					test.log(Status.INFO, "Confirm button clicked from confirm account selection page");
 					
-				//Save Progress
-					 verifyElementPresent(ObjectRepository.svprgrs_ttl);
-					 test.log(Status.INFO, "Save Progress page opened");
+				//Agreement and disclosure 
+					verifyElementPresent(ObjectRepository.acntagrmnt_ttl);
+					test.log(Status.INFO, "Account Agreement page title appearing correctly");
+			
+					
+					//selecting disclosure check box
+					getElement(ObjectRepository.dsclsr_chkbx).click();
+					test.log(Status.INFO, "Disclosure check box selected");
+					
 				
-					 verifyElementPresent(ObjectRepository.svprgrs_info);
-					 test.log(Status.INFO, "Save Progress info appearing");
-					 
-					 verifyElementPresent(ObjectRepository.svprgrs_emltxt);
-					 test.log(Status.INFO, "Email address field appearing");
-					 
-					 verifyElementPresent(ObjectRepository.svprgrs_pswrd);
-					 test.log(Status.INFO, "Password field appearing");
-					 
-					 getElement(ObjectRepository.cancel_btn).click();
-					 test.log(Status.INFO, "Cancel button clicked");
-					 
-				// 	 
-						getElement(ObjectRepository.svfinish_btn).click();
-						test.log(Status.INFO, "Save and finish button clicked from confirm account selection page");
 						
-						 getElement(ObjectRepository.sttscntr_lnk).click();
-						 test.log(Status.INFO, "Status Center link clicked");
+					getElement(ObjectRepository.tin_chkbx).click();
+					test.log(Status.INFO, "TIN Check box selected");
+					
+				
+				//	Please select options
+					verifyElementPresent(ObjectRepository.backupwithold_opt);
+					test.log(Status.INFO, "Back up withholding option  appearing correctly");
+			
+					verifyElementPresent(ObjectRepository.exmpt_opt);
+					test.log(Status.INFO, "Exempt option appearing correctly");
+			
+					getElement(ObjectRepository.backupwithold_chkbx).click();
+					test.log(Status.INFO, "backup withholding Check box selected");
+					
+				//Citizen options
+					verifyElementPresent(ObjectRepository.uscitizen_opt);
+					test.log(Status.INFO, "US Citizen option appearing correctly");
+			
+					verifyElementPresent(ObjectRepository.aliens_opt);
+					test.log(Status.INFO, "Aliens option appearing correctly");
+			
+					getElement(ObjectRepository.uscitizen_chkbx).click();
+					test.log(Status.INFO, "US Citizen Check box selected");
 						
-						 verifyElementPresent(ObjectRepository.sttscntr_ttl);
-						 test.log(Status.INFO, "Status Center title appearing");
-						
+				// Agreement option
+					getElement(ObjectRepository.aggrmnt_chkbx).click();
+					test.log(Status.INFO, "Agreement Check box selected");
+					
+					getElement(ObjectRepository.svcontinue_btn).click();
+					test.log(Status.INFO, "Accept button clicked from agreement and disclosure page");
+					
+				// Identity Verification
+					verifyElementPresent(ObjectRepository.idntvrf_ttl);
+					test.log(Status.INFO, "Identity Verification page title appearing correctly");
+					
+					getElement(ObjectRepository.idntvrf_ans1).click();
+					test.log(Status.INFO, "Identity verification question1 answer selected");
+					
+					getElement(ObjectRepository.idntvrf_ans2).click();
+					test.log(Status.INFO, "Identity verification question2 answer selected");
+					
+					getElement(ObjectRepository.idntvrf_ans3).click();
+					test.log(Status.INFO, "Identity verification question3 answer selected");
+					
+					getElement(ObjectRepository.idntvrf_ans4).click();
+					test.log(Status.INFO, "Identity verification question4 answer selected");
+					
+					getElement(ObjectRepository.svcontinue_btn).click();
+					test.log(Status.INFO, "Continue button clicked from Identity Verification page");
+					
+				//Account Funding
+					verifyElementPresent(ObjectRepository.acntfnd_ttl);
+					test.log(Status.INFO, "Account Funding page title appearing correctly");
+					
+					
+					
+					
+					verifyElementPresent(ObjectRepository.elctrnchk_opt);
+					verifyElementPresent(ObjectRepository.dbtcreditcrd_opt);
+					test.log(Status.INFO, "Electronic check and Debit Card options appearing correctly");
+					
+					getElement(ObjectRepository.elctrnchk_opt).click();
+					test.log(Status.INFO, "Electronic Check option selected");
+					
+					verifyElementPresent(ObjectRepository.sbmtapp_info1);
+					verifyElementPresent(ObjectRepository.sbmtapp_info2);
+					test.log(Status.INFO, "Submit Application information appearing correctly");
+					
 				 }
 			}
 	  }
@@ -232,7 +281,7 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Save Progress option for TDECU account");
+			test.log(Status.PASS, "Verify Market Money Deposit defauted amount scenario working fine");
 		}
 	}
 

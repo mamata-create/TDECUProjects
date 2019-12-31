@@ -1,13 +1,9 @@
 package SaveProgress;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Set;
 
 import javax.mail.MessagingException;
 
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -23,7 +19,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23863_VerifySaveProgressOption  extends GenericKeywords{
+public class C23864_VerifyEnteringEmailPasswordOnSaveProgress  extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -38,7 +34,7 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
   }
 	
   @Test
-  public void C23832_VerifyMembershipEligibilityLiveWorkOptionSelection() throws InterruptedException, MessagingException, IOException {
+  public void C23864_VerifyEnteringEmailPasswordOnSaveProgress() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "Data";
@@ -48,7 +44,7 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 				if(this.getClass().getSimpleName().equals(excl.getCellData("Data", 0, startIter)))
 				 {
 					Faker fk=new Faker();
-					String num=getRandom();
+					String num=getRandomFourDigit();
 					String fname=fk.name().firstName();
 					
 					String lname=fk.name().lastName();
@@ -164,19 +160,11 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 			//Membership Eligibility page		
 					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
-//					
-//					List<WebElement>memberShipRadioButtons = retrunElements(ObjectRepository.membershipElegibilityRadioButton);
-//					for(WebElement eachRadioButton:memberShipRadioButtons){
-//						boolean radioButtonPresentFlag= eachRadioButton.isDisplayed();
-//						Assert.assertEquals(radioButtonPresentFlag, true);
-//							
-//						
-//					}
+					
 					
 					verifyElementPresent(ObjectRepository.mmbrtdecu_opt);
 					verifyElementPresent(ObjectRepository.mmbremploy_opt);
 					verifyElementPresent(ObjectRepository.mmbrship_opt);
-					scrollToElement(ObjectRepository.livework_opt);
 					verifyElementPresent(ObjectRepository.livework_opt);
 					test.log(Status.INFO, "All four options appear on Membership eligibility page");
 					
@@ -207,19 +195,50 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 					 
 					 verifyElementPresent(ObjectRepository.svprgrs_pswrd);
 					 test.log(Status.INFO, "Password field appearing");
+			//Verifying email validations		 
+					 getElement(ObjectRepository.svprgrs_emltxt).clear();
+					 getElement(ObjectRepository.svprgrs_emltxt).sendKeys("sravya");
+					 test.log(Status.INFO, "Email entered without @ symbol");
 					 
-					 getElement(ObjectRepository.cancel_btn).click();
-					 test.log(Status.INFO, "Cancel button clicked");
+					 getElement(ObjectRepository.svcontinue_btn).click();
+					 test.log(Status.INFO, "Save and Continue button clicked");
 					 
-				// 	 
-						getElement(ObjectRepository.svfinish_btn).click();
-						test.log(Status.INFO, "Save and finish button clicked from confirm account selection page");
-						
-						 getElement(ObjectRepository.sttscntr_lnk).click();
-						 test.log(Status.INFO, "Status Center link clicked");
-						
-						 verifyElementPresent(ObjectRepository.sttscntr_ttl);
-						 test.log(Status.INFO, "Status Center title appearing");
+					 verifyText(ObjectRepository.errordiv,"Please enter a valid email address");
+					 test.log(Status.INFO, "Error message appeared for not entering valid email address");
+					
+					 getElement(ObjectRepository.svprgrs_emltxt).clear();
+					 getElement(ObjectRepository.svprgrs_emltxt).sendKeys("sravya@gmail");
+					 test.log(Status.INFO, "Email entered without domain");
+					 
+					 verifyText(ObjectRepository.errordiv,"Please enter a valid email address");
+					 test.log(Status.INFO, "Error message appeared for not entering valid email address");
+					
+					 getElement(ObjectRepository.svprgrs_emltxt).clear();
+					 getElement(ObjectRepository.svprgrs_emltxt).sendKeys(primary_email);
+					 test.log(Status.INFO, "Email entered without domain");
+					 
+				//Verifying password
+					 getElement(ObjectRepository.svprgrs_pswrd).sendKeys("Short#1");
+					 test.log(Status.INFO, "Password entered");
+					 
+					 getElement(ObjectRepository.svcontinue_btn).click();
+					 test.log(Status.INFO, "Save and Continue button clicked");
+					
+					 
+					 verifyText(ObjectRepository.errordiv,"Please create a stronger password");
+					 test.log(Status.INFO, "Error message appeared for not entering strong password");
+					 
+					 getElement(ObjectRepository.svprgrs_pswrd).clear();
+					 getElement(ObjectRepository.svprgrs_pswrd).sendKeys("Short#1");
+					 test.log(Status.INFO, "Password entered");
+					 
+					 getElement(ObjectRepository.svcontinue_btn).click();
+					 test.log(Status.INFO, "Save and Continue button clicked");
+					
+					 
+					 verifyText(ObjectRepository.errordiv,"Please create a stronger password");
+					 test.log(Status.INFO, "Error message appeared for not entering strong password");
+					
 						
 				 }
 			}
@@ -232,7 +251,7 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Save Progress option for TDECU account");
+			test.log(Status.PASS, "Verify entering email and password on Save Progress page for TDECU account");
 		}
 	}
 

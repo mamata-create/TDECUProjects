@@ -532,4 +532,71 @@ public class ObjectRepository {
 		public static String crtsyPayNote= "(//div[@class='col-sm']//p)[4]";
 		public static String declineBtn= "//span[@id='btnDecline']//input";
 		public static String declineTxt= "//strong[text()='We Cannot Process Your Application']";
+		
+		public static String membershipElegibilityRadioButton = "//strong[contains(text(),'Membership Eligibility')]/following::input[@type='radio']";
+		public static String clscchking_rdbtn="//label[@for='rbClassicChecking_RadioButton']";
+		public static String loancnfrm_no="//span[@id='rbOtherProdNo']";
+		public static String mmbrtdecu_opt="//td[contains(text(),'I am related to a current')]";
+		public static String mmbremploy_opt="//td[contains(text(),'I am an employee')]";
+		public static String mmbrship_opt="//td[contains(text(),'I am a member of a membership')]";
+		public static String livework_opt="//td[contains(text(),'I live')]/preceding::div[1]";
+		public static String mmbr_error="//div[@class='errors']";
+		public static String communitieslist_lnk="//a[contains(text(),'View list of communities we serve')]";
+		public static String cnfrmacntslctn_ttl="//strong[text()='Confirm Account Selections']";
+		public static String svcontinue_btn="//span[@id='btnNext']/input";
+		public static String acntagrmnt_ttl="//h2[text()='Account Agreements and Disclosures']";
+		public static String dsclsr_chkbx="//input[@id='cbDisclosures_CheckBox']";
+		public static String backupwithold_hlp="//button[contains(@data-target,'modalBackupWH')]";
+		public static String backupwithold_info="//p[contains(text(),'You will not be subject to backup withholding on interest payments')]";
+		public static String ok_btn="//button[contains(text(),'Okay')]";
+		public static String tin_chkbx="//input[@id='CheckBox01_CheckBox']";
+		public static String backupwithold_opt="//strong[contains(text(),'Backup Withholding:')]";
+		public static String exmpt_opt="//strong[contains(text(),'Exempt Recipients:')]";
+		public static String backupwithold_chkbx="//input[@id='CheckBox02_CheckBox']";
+		public static String uscitizen_opt="//h4[contains(text(),'U.S. Citizens')]";
+		public static String aliens_opt="//h4[contains(text(),'Non-Resident Aliens Only')]";
+		public static String uscitizen_chkbx="//input[@id='CheckBox04_CheckBox']";
+		public static String aggrmnt_opt="//p[contains(text(),'I authorize TDECU to investigate my credit and employment history')]";
+		public static String aggrmnt_chkbx="//input[@id='Authroization_CheckBox']";
+		public static String idntvrf_ttl="//h3[text()='Identity Verification']";
+		public static String idntvrf_ans1="//label[contains(text(),'Fairfax')]";
+		public static String idntvrf_ans2="//label[contains(text(),'Verid')]";
+		public static String idntvrf_ans3="//label[contains(text(),'Reston')]";
+		public static String idntvrf_ans4="//label[contains(text(),'Union Street')]";
+		public static String acntfnd_ttl="//strong[text()='Account Funding']";
+		public static String elctrnchk_opt="//label[text()='Electronic Check']";
+		public static String dbtcreditcrd_opt="//label[text()='Debit/Credit Card']";
+		public static String sbmtapp_info1="//p[contains(text(),'By clicking the Submit Application button below')]";
+		public static String sbmtapp_info2="//p[contains(text(),'Certify that all the other information on this')]";
+		public static String crtfctdpst_opt="//h4[contains(text(),'Certificates of Deposit')]";
+		public static String crtfctdpst_amnttxt="//input[@id='tbFilterLoanAmount_CDWizard']";
+		public static String crtfctdpst_trmopt3="//label[contains(text(),'3 Month Share Certificate')]";
+		public static String mrktmnydpst_opt="//h4[contains(text(),'Money Market Accounts')]";
+		public static String mrktmnydpst_chk="//label[text()=' Money Market']";
+		
+		public static String needloan_yes="//label[@for='rbOtherProdYes_RadioButton']";
+		public static String needloan_no="//label[@for='rbOtherProdNo_RadioButton']";
+		public static String sbmtapp_btn="//input[@id='NextButton2_SubmitButton']";
+		public static String clscchkng_txt="//label[contains(text(),'Classic Checking')]/parent::*/following-sibling::div[contains(@class,'accountAmounts')]/input";
+		public static String share_txt="//label[text()='Share']/parent::*/following-sibling::div[contains(@class,'accountAmounts')]/input";
+		public static String crtfctdpst_trm="//select[@id='ddlFilterTerm_CDWizard']";
+		public static String shrcrtfct_txt="//label[contains(text(),'3 Month Share')]/parent::*/following-sibling::div[contains(@class,'accountAmounts')]/input";
+		public static String mmbrtdecu_chk="//span[@id='rbFamily']/div";
+		public static String mmbremploy_chk="//span[@id='rbCompany']/div";
+		public static String cmpnylist_lnk="//a[text()='View list of companies we serve']";
+		public static String cmpnypage_ttl="//h1[text()='Field of Membership by Company and Organization']";
+		public static String emplyr_txt="//input[@id='Employer_TextBox']";
+		public static String orglist_lnk="//a[text()='View list of membership organizations we support']";
+		
+		public static String communitiespage_ttl="//h1[text()='Membership']";
+		
+		public static String svprgrs_emltxt="//input[@id='EmailTextBox_RadTextBox']";
+		public static String svprgrs_pswrd="//input[@id='tbASCPassword_TextBox']";
+		public static String sttscntr_lnk="//a[text()='Status Center']";
+		public static String sttscntr_ttl="//span[contains(text(),'Status Center')]";
+		public static String svfinish_btn="//span[@id='SaveButton']/input";
+		public static String svprgrs_ttl="//strong[text()='Save Your Progress']";
+		public static String svprgrs_info="//p[contains(text(),'You can save your application to finish later')]";
+		public static String cancel_btn="//span[@id='btnCancel']/input";
+		
 	}
