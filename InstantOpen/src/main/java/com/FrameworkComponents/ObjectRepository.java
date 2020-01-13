@@ -505,7 +505,7 @@ public class ObjectRepository {
 		public static String disclosuresText = "//div[@class='discCopy']//p";
 		public static String backupWithQstn = "//i[@class='fas fa-question-circle']";
 		public static String backupWithTtl = "//h4[text()='Am I subject to backup withholding?']";
-		public static String closeBackupWith = "//button[text()='Okay!']";
+		public static String closeBackupWith = "//button[text()='Close']";
 		public static String disclosures_page_option(int option){
 			String locator = "(//div[@class='col-sm checkCopy']//p)["+option+"]";
 			return locator;

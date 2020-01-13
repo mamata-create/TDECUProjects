@@ -85,7 +85,10 @@ public class GenericKeywords extends BaseClass{
 
 		}
 	}
-
+	public static String getRandomFourDigit(){
+		int num=(int)(Math.random()*10000);
+		return Integer.toString(num);
+	}
 
 	public static void verifyText(String locator, String text){
 		WebElement element=getElement(locator);
