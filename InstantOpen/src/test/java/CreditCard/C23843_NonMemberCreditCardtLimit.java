@@ -84,6 +84,7 @@ public class C23843_NonMemberCreditCardtLimit extends GenericKeywords  {
 					creditCardCheckedUncheckedValidator("Classic",false);
 					getElement(ObjectRepository.continue_btn).click();
 					getElement(ObjectRepository.creditcardLimitTxt).sendKeys(creditAmount);
+					Thread.sleep(2000);
 					getElement(ObjectRepository.productPageBackBtn).click();
 					Assert.assertTrue(creditCardCheckedUncheckedValidator("Classic",true), "Credit card option still selected");
 					

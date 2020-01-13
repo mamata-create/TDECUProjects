@@ -88,12 +88,13 @@ public class C23838_NonMemberChangeSelectedCreditCardOption extends GenericKeywo
 					creditCardCheckedUncheckedValidator("Onyx",false);
 					checkamountandNavigateNextthenValidate("Onyx");
 					selectDropdownOpt(ObjectRepository.cardType_dropdown,"Buc-ee's MasterCard &reg;");
-					getElement(ObjectRepository.continue_btn).click();
+					getElement(ObjectRepository.edt_btn).click();
 					verifyElementPresent(ObjectRepository.crdtcrdinf_ttl);
 					getElement(ObjectRepository.productPageBackBtn).click();
-					getElement(ObjectRepository.creditcardLimitTxt).sendKeys(creditAmount);
+					getElement(ObjectRepository.continue_btn).click();
+					
 					getElement(ObjectRepository.productPageBackBtn).click();
-					Assert.assertTrue(creditCardCheckedUncheckedValidator("Classic",true), "Credit card option still selected");
+					Assert.assertTrue(creditCardCheckedUncheckedValidator("Onyx",true), "Credit card option still selected");
 					
 					
 					

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Credit Card]">
+  <test thread-count="5" name="C23843_NonMemberCreditCardtLimit(failed)">
+    <classes>
+      <class name="CreditCard.C23843_NonMemberCreditCardtLimit">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="C23843_VerifyUserCanEnterAmmountToRequestCreditLimit"/>
+        </methods>
+      </class> <!-- CreditCard.C23843_NonMemberCreditCardtLimit -->
+    </classes>
+  </test> <!-- C23843_NonMemberCreditCardtLimit(failed) -->
+</suite> <!-- Failed suite [Credit Card] -->

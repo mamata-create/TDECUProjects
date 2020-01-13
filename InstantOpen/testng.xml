@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <suite-files>
+		<suite-file path="./IO_AgreementsDisclousres_TestSuite.xml" />
+		<suite-file path="./IO_CreditCard_TestSuite.xml" />
+</suite-files>
+</suite> <!-- Suite -->
