@@ -1,260 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="9" passed="9">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="0" started-at="2020-01-10T18:55:08Z" finished-at="2020-01-10T18:55:08Z">
+  <suite name="Credit Card" duration-ms="196768" started-at="2020-01-13T17:49:53Z" finished-at="2020-01-13T17:53:10Z">
     <groups>
     </groups>
-  </suite> <!-- Suite -->
-  <suite name="Credit Card" duration-ms="181526" started-at="2020-01-10T18:52:07Z" finished-at="2020-01-10T18:55:08Z">
-    <groups>
-    </groups>
-    <test name="C24265_VerifyAgreementsandDisclosures" duration-ms="63021" started-at="2020-01-10T18:52:07Z" finished-at="2020-01-10T18:53:10Z">
+    <test name="C24265_VerifyAgreementsandDisclosures" duration-ms="82487" started-at="2020-01-13T17:49:53Z" finished-at="2020-01-13T17:51:16Z">
       <class name="CreditCard.C23838_NonMemberChangeSelectedCreditCardOption">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@1a5fe33]" name="setUp" is-config="true" duration-ms="9795" started-at="2020-01-10T18:52:07Z" finished-at="2020-01-10T18:52:16Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@13ad2d6]" name="setUp" is-config="true" duration-ms="17334" started-at="2020-01-13T17:49:53Z" finished-at="2020-01-13T17:50:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23838_NonMemberChangeSelectedCreditCardOption()[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@1a5fe33]" name="C23838_NonMemberChangeSelectedCreditCardOption" duration-ms="52105" started-at="2020-01-10T18:52:16Z" finished-at="2020-01-10T18:53:08Z">
+        <test-method status="PASS" signature="C23838_NonMemberChangeSelectedCreditCardOption()[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@13ad2d6]" name="C23838_NonMemberChangeSelectedCreditCardOption" duration-ms="63712" started-at="2020-01-13T17:50:10Z" finished-at="2020-01-13T17:51:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- C23838_NonMemberChangeSelectedCreditCardOption -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@1a5fe33]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-01-10T18:53:08Z" finished-at="2020-01-10T18:53:08Z">
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@13ad2d6]" name="afterMethod" is-config="true" duration-ms="3" started-at="2020-01-13T17:51:14Z" finished-at="2020-01-13T17:51:14Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23838_NonMemberChangeSelectedCreditCardOption status=SUCCESS method=C23838_NonMemberChangeSelectedCreditCardOption.C23838_NonMemberChangeSelectedCreditCardOption()[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@1a5fe33] output={null}]]]>
+                <![CDATA[[TestResult name=C23838_NonMemberChangeSelectedCreditCardOption status=SUCCESS method=C23838_NonMemberChangeSelectedCreditCardOption.C23838_NonMemberChangeSelectedCreditCardOption()[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@13ad2d6] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@1a5fe33]" name="tearDown" is-config="true" duration-ms="1113" started-at="2020-01-10T18:53:08Z" finished-at="2020-01-10T18:53:10Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23838_NonMemberChangeSelectedCreditCardOption@13ad2d6]" name="tearDown" is-config="true" duration-ms="1387" started-at="2020-01-13T17:51:14Z" finished-at="2020-01-13T17:51:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- CreditCard.C23838_NonMemberChangeSelectedCreditCardOption -->
     </test> <!-- C24265_VerifyAgreementsandDisclosures -->
-    <test name="C23843_NonMemberCreditCardtLimit" duration-ms="40727" started-at="2020-01-10T18:53:10Z" finished-at="2020-01-10T18:53:50Z">
+    <test name="C23843_NonMemberCreditCardtLimit" duration-ms="35894" started-at="2020-01-13T17:51:16Z" finished-at="2020-01-13T17:51:51Z">
       <class name="CreditCard.C23843_NonMemberCreditCardtLimit">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@9b1010]" name="setUp" is-config="true" duration-ms="12925" started-at="2020-01-10T18:53:10Z" finished-at="2020-01-10T18:53:23Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@8080bb]" name="setUp" is-config="true" duration-ms="9484" started-at="2020-01-13T17:51:16Z" finished-at="2020-01-13T17:51:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23843_VerifyUserCanEnterAmmountToRequestCreditLimit()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@9b1010]" name="C23843_VerifyUserCanEnterAmmountToRequestCreditLimit" duration-ms="26674" started-at="2020-01-10T18:53:23Z" finished-at="2020-01-10T18:53:49Z">
+        <test-method status="PASS" signature="C23843_VerifyUserCanEnterAmmountToRequestCreditLimit()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@8080bb]" name="C23843_VerifyUserCanEnterAmmountToRequestCreditLimit" duration-ms="25303" started-at="2020-01-13T17:51:25Z" finished-at="2020-01-13T17:51:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- C23843_VerifyUserCanEnterAmmountToRequestCreditLimit -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@9b1010]" name="afterMethod" is-config="true" duration-ms="0" started-at="2020-01-10T18:53:49Z" finished-at="2020-01-10T18:53:49Z">
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@8080bb]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-01-13T17:51:50Z" finished-at="2020-01-13T17:51:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23843_VerifyUserCanEnterAmmountToRequestCreditLimit status=SUCCESS method=C23843_NonMemberCreditCardtLimit.C23843_VerifyUserCanEnterAmmountToRequestCreditLimit()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@9b1010] output={null}]]]>
+                <![CDATA[[TestResult name=C23843_VerifyUserCanEnterAmmountToRequestCreditLimit status=SUCCESS method=C23843_NonMemberCreditCardtLimit.C23843_VerifyUserCanEnterAmmountToRequestCreditLimit()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@8080bb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@9b1010]" name="tearDown" is-config="true" duration-ms="1125" started-at="2020-01-10T18:53:49Z" finished-at="2020-01-10T18:53:50Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23843_NonMemberCreditCardtLimit@8080bb]" name="tearDown" is-config="true" duration-ms="1104" started-at="2020-01-13T17:51:50Z" finished-at="2020-01-13T17:51:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- CreditCard.C23843_NonMemberCreditCardtLimit -->
     </test> <!-- C23843_NonMemberCreditCardtLimit -->
-    <test name="C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit" duration-ms="37204" started-at="2020-01-10T18:53:50Z" finished-at="2020-01-10T18:54:28Z">
+    <test name="C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit" duration-ms="33933" started-at="2020-01-13T17:51:52Z" finished-at="2020-01-13T17:52:25Z">
       <class name="CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@8e6209]" name="setUp" is-config="true" duration-ms="10229" started-at="2020-01-10T18:53:50Z" finished-at="2020-01-10T18:54:01Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@38ae61]" name="setUp" is-config="true" duration-ms="8051" started-at="2020-01-13T17:51:52Z" finished-at="2020-01-13T17:52:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit()[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@8e6209]" name="C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit" duration-ms="25825" started-at="2020-01-10T18:54:01Z" finished-at="2020-01-10T18:54:26Z">
+        <test-method status="PASS" signature="C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit()[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@38ae61]" name="C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit" duration-ms="24805" started-at="2020-01-13T17:52:00Z" finished-at="2020-01-13T17:52:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@8e6209]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-01-10T18:54:26Z" finished-at="2020-01-10T18:54:26Z">
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@38ae61]" name="afterMethod" is-config="true" duration-ms="0" started-at="2020-01-13T17:52:24Z" finished-at="2020-01-13T17:52:24Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit status=SUCCESS method=C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit()[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@8e6209] output={null}]]]>
+                <![CDATA[[TestResult name=C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit status=SUCCESS method=C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit()[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@38ae61] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@8e6209]" name="tearDown" is-config="true" duration-ms="1143" started-at="2020-01-10T18:54:26Z" finished-at="2020-01-10T18:54:28Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit@38ae61]" name="tearDown" is-config="true" duration-ms="1072" started-at="2020-01-13T17:52:24Z" finished-at="2020-01-13T17:52:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- CreditCard.C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit -->
     </test> <!-- C23889_NonMemberUserNeedToKnowMaxAndMinCreditLimit -->
-    <test name="C23890_NonMemberUserMustEnterTypeAndLimit" duration-ms="40436" started-at="2020-01-10T18:54:28Z" finished-at="2020-01-10T18:55:08Z">
+    <test name="C23890_NonMemberUserMustEnterTypeAndLimit" duration-ms="44357" started-at="2020-01-13T17:52:25Z" finished-at="2020-01-13T17:53:10Z">
       <class name="CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@125a3ee]" name="setUp" is-config="true" duration-ms="7854" started-at="2020-01-10T18:54:28Z" finished-at="2020-01-10T18:54:36Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@127bd23]" name="setUp" is-config="true" duration-ms="10174" started-at="2020-01-13T17:52:25Z" finished-at="2020-01-13T17:52:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23890_NonMemberUserMustEnterTypeAndLimit()[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@125a3ee]" name="C23890_NonMemberUserMustEnterTypeAndLimit" duration-ms="31490" started-at="2020-01-10T18:54:36Z" finished-at="2020-01-10T18:55:07Z">
+        <test-method status="PASS" signature="C23890_NonMemberUserMustEnterTypeAndLimit()[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@127bd23]" name="C23890_NonMemberUserMustEnterTypeAndLimit" duration-ms="33038" started-at="2020-01-13T17:52:36Z" finished-at="2020-01-13T17:53:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- C23890_NonMemberUserMustEnterTypeAndLimit -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@125a3ee]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-01-10T18:55:07Z" finished-at="2020-01-10T18:55:07Z">
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@127bd23]" name="afterMethod" is-config="true" duration-ms="0" started-at="2020-01-13T17:53:09Z" finished-at="2020-01-13T17:53:09Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23890_NonMemberUserMustEnterTypeAndLimit status=SUCCESS method=C23890_NonMemberUserMustEnterTypeAndLimit.C23890_NonMemberUserMustEnterTypeAndLimit()[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@125a3ee] output={null}]]]>
+                <![CDATA[[TestResult name=C23890_NonMemberUserMustEnterTypeAndLimit status=SUCCESS method=C23890_NonMemberUserMustEnterTypeAndLimit.C23890_NonMemberUserMustEnterTypeAndLimit()[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@127bd23] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@125a3ee]" name="tearDown" is-config="true" duration-ms="1084" started-at="2020-01-10T18:55:07Z" finished-at="2020-01-10T18:55:08Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit@127bd23]" name="tearDown" is-config="true" duration-ms="1142" started-at="2020-01-13T17:53:09Z" finished-at="2020-01-13T17:53:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- CreditCard.C23890_NonMemberUserMustEnterTypeAndLimit -->
     </test> <!-- C23890_NonMemberUserMustEnterTypeAndLimit -->
   </suite> <!-- Credit Card -->
-  <suite name="Agreements Disclosures" duration-ms="231200" started-at="2020-01-10T18:48:15Z" finished-at="2020-01-10T18:52:07Z">
-    <groups>
-    </groups>
-    <test name="C24265_VerifyAgreementsandDisclosures" duration-ms="74394" started-at="2020-01-10T18:48:15Z" finished-at="2020-01-10T18:49:30Z">
-      <class name="AgreementsDisclosures.C24265_VerifyAgreementsandDisclosures">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:AgreementsDisclosures.C24265_VerifyAgreementsandDisclosures@fd02e5]" name="setUp" is-config="true" duration-ms="10854" started-at="2020-01-10T18:48:15Z" finished-at="2020-01-10T18:48:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24265_VerifyAgreementsandDisclosures()[pri:0, instance:AgreementsDisclosures.C24265_VerifyAgreementsandDisclosures@fd02e5]" name="C24265_VerifyAgreementsandDisclosures" duration-ms="62027" started-at="2020-01-10T18:48:26Z" finished-at="2020-01-10T18:49:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- C24265_VerifyAgreementsandDisclosures -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:AgreementsDisclosures.C24265_VerifyAgreementsandDisclosures@fd02e5]" name="afterMethod" is-config="true" duration-ms="2" started-at="2020-01-10T18:49:28Z" finished-at="2020-01-10T18:49:28Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=C24265_VerifyAgreementsandDisclosures status=SUCCESS method=C24265_VerifyAgreementsandDisclosures.C24265_VerifyAgreementsandDisclosures()[pri:0, instance:AgreementsDisclosures.C24265_VerifyAgreementsandDisclosures@fd02e5] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:AgreementsDisclosures.C24265_VerifyAgreementsandDisclosures@fd02e5]" name="tearDown" is-config="true" duration-ms="1485" started-at="2020-01-10T18:49:28Z" finished-at="2020-01-10T18:49:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- AgreementsDisclosures.C24265_VerifyAgreementsandDisclosures -->
-    </test> <!-- C24265_VerifyAgreementsandDisclosures -->
-    <test name="C24266_VerifyDeclineAgreements" duration-ms="43464" started-at="2020-01-10T18:49:30Z" finished-at="2020-01-10T18:50:13Z">
-      <class name="AgreementsDisclosures.C24266_VerifyDeclineAgreements">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:AgreementsDisclosures.C24266_VerifyDeclineAgreements@b0338]" name="setUp" is-config="true" duration-ms="9207" started-at="2020-01-10T18:49:30Z" finished-at="2020-01-10T18:49:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24266_VerifyDeclineAgreements()[pri:0, instance:AgreementsDisclosures.C24266_VerifyDeclineAgreements@b0338]" name="C24266_VerifyDeclineAgreements" duration-ms="33115" started-at="2020-01-10T18:49:39Z" finished-at="2020-01-10T18:50:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- C24266_VerifyDeclineAgreements -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:AgreementsDisclosures.C24266_VerifyDeclineAgreements@b0338]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-01-10T18:50:12Z" finished-at="2020-01-10T18:50:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=C24266_VerifyDeclineAgreements status=SUCCESS method=C24266_VerifyDeclineAgreements.C24266_VerifyDeclineAgreements()[pri:0, instance:AgreementsDisclosures.C24266_VerifyDeclineAgreements@b0338] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:AgreementsDisclosures.C24266_VerifyDeclineAgreements@b0338]" name="tearDown" is-config="true" duration-ms="1139" started-at="2020-01-10T18:50:12Z" finished-at="2020-01-10T18:50:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- AgreementsDisclosures.C24266_VerifyDeclineAgreements -->
-    </test> <!-- C24266_VerifyDeclineAgreements -->
-    <test name="C24290_VerifyCourtesyPayAgreements" duration-ms="36956" started-at="2020-01-10T18:50:13Z" finished-at="2020-01-10T18:50:50Z">
-      <class name="AgreementsDisclosures.C24290_VerifyCourtesyPayAgreements">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:AgreementsDisclosures.C24290_VerifyCourtesyPayAgreements@1610302]" name="setUp" is-config="true" duration-ms="10515" started-at="2020-01-10T18:50:13Z" finished-at="2020-01-10T18:50:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24290_VerifyCourtesyPayAgreements()[pri:0, instance:AgreementsDisclosures.C24290_VerifyCourtesyPayAgreements@1610302]" name="C24290_VerifyCourtesyPayAgreements" duration-ms="25338" started-at="2020-01-10T18:50:24Z" finished-at="2020-01-10T18:50:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- C24290_VerifyCourtesyPayAgreements -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:AgreementsDisclosures.C24290_VerifyCourtesyPayAgreements@1610302]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-01-10T18:50:49Z" finished-at="2020-01-10T18:50:49Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=C24290_VerifyCourtesyPayAgreements status=SUCCESS method=C24290_VerifyCourtesyPayAgreements.C24290_VerifyCourtesyPayAgreements()[pri:0, instance:AgreementsDisclosures.C24290_VerifyCourtesyPayAgreements@1610302] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:AgreementsDisclosures.C24290_VerifyCourtesyPayAgreements@1610302]" name="tearDown" is-config="true" duration-ms="1096" started-at="2020-01-10T18:50:49Z" finished-at="2020-01-10T18:50:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- AgreementsDisclosures.C24290_VerifyCourtesyPayAgreements -->
-    </test> <!-- C24290_VerifyCourtesyPayAgreements -->
-    <test name="C24297_VerifySelectOneTaxOption" duration-ms="39891" started-at="2020-01-10T18:50:50Z" finished-at="2020-01-10T18:51:30Z">
-      <class name="AgreementsDisclosures.C24297_VerifySelectOneTaxOption">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:AgreementsDisclosures.C24297_VerifySelectOneTaxOption@e81285]" name="setUp" is-config="true" duration-ms="12572" started-at="2020-01-10T18:50:50Z" finished-at="2020-01-10T18:51:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24297_VerifySelectOneTaxOption()[pri:0, instance:AgreementsDisclosures.C24297_VerifySelectOneTaxOption@e81285]" name="C24297_VerifySelectOneTaxOption" duration-ms="26084" started-at="2020-01-10T18:51:03Z" finished-at="2020-01-10T18:51:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- C24297_VerifySelectOneTaxOption -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:AgreementsDisclosures.C24297_VerifySelectOneTaxOption@e81285]" name="afterMethod" is-config="true" duration-ms="0" started-at="2020-01-10T18:51:29Z" finished-at="2020-01-10T18:51:29Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=C24297_VerifySelectOneTaxOption status=SUCCESS method=C24297_VerifySelectOneTaxOption.C24297_VerifySelectOneTaxOption()[pri:0, instance:AgreementsDisclosures.C24297_VerifySelectOneTaxOption@e81285] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:AgreementsDisclosures.C24297_VerifySelectOneTaxOption@e81285]" name="tearDown" is-config="true" duration-ms="1230" started-at="2020-01-10T18:51:29Z" finished-at="2020-01-10T18:51:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- AgreementsDisclosures.C24297_VerifySelectOneTaxOption -->
-    </test> <!-- C24297_VerifySelectOneTaxOption -->
-    <test name="C24298_VerifySelectOneResidentOption" duration-ms="36207" started-at="2020-01-10T18:51:30Z" finished-at="2020-01-10T18:52:07Z">
-      <class name="AgreementsDisclosures.C24298_VerifySelectOneResidentOption">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:AgreementsDisclosures.C24298_VerifySelectOneResidentOption@1c6f14e]" name="setUp" is-config="true" duration-ms="9965" started-at="2020-01-10T18:51:30Z" finished-at="2020-01-10T18:51:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24298_VerifySelectOneResidentOption()[pri:0, instance:AgreementsDisclosures.C24298_VerifySelectOneResidentOption@1c6f14e]" name="C24298_VerifySelectOneResidentOption" duration-ms="25040" started-at="2020-01-10T18:51:40Z" finished-at="2020-01-10T18:52:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- C24298_VerifySelectOneResidentOption -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:AgreementsDisclosures.C24298_VerifySelectOneResidentOption@1c6f14e]" name="afterMethod" is-config="true" duration-ms="0" started-at="2020-01-10T18:52:05Z" finished-at="2020-01-10T18:52:05Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=C24298_VerifySelectOneResidentOption status=SUCCESS method=C24298_VerifySelectOneResidentOption.C24298_VerifySelectOneResidentOption()[pri:0, instance:AgreementsDisclosures.C24298_VerifySelectOneResidentOption@1c6f14e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:AgreementsDisclosures.C24298_VerifySelectOneResidentOption@1c6f14e]" name="tearDown" is-config="true" duration-ms="1199" started-at="2020-01-10T18:52:05Z" finished-at="2020-01-10T18:52:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- AgreementsDisclosures.C24298_VerifySelectOneResidentOption -->
-    </test> <!-- C24298_VerifySelectOneResidentOption -->
-  </suite> <!-- Agreements Disclosures -->
 </testng-results>
