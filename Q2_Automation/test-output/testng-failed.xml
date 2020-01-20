@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Fund Transfers]">
+  <test thread-count="5" name="C23685_VerifyOneTimeFundTransfer(failed)">
     <classes>
       <class name="Transfers.C23685_VerifyOneTimeFundTransfer">
         <methods>
@@ -12,5 +12,5 @@
         </methods>
       </class> <!-- Transfers.C23685_VerifyOneTimeFundTransfer -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- C23685_VerifyOneTimeFundTransfer(failed) -->
+</suite> <!-- Failed suite [Fund Transfers] -->

@@ -148,6 +148,8 @@ public class C23413_VerifySingleTransactionInActivityCenter extends GenericKeywo
 					
 					test.log(Status.INFO, "Memo entered");
 				
+					getElement(ObjectRepository.trnsfrfnds_btn).click();
+					test.log(Status.INFO, "Approve button clicked");
 					
 					getElement(ObjectRepository.trnsfrfnds_btn).click();
 					test.log(Status.INFO, "Transfer Funds button clicked");
@@ -160,7 +162,7 @@ public class C23413_VerifySingleTransactionInActivityCenter extends GenericKeywo
 					test.log(Status.INFO, "Transfer success message disappeared");
 					
 					scrollToElement(ObjectRepository.vwactvtycntr_btn);
-					getElement(ObjectRepository.vwactvtycntr_btn).click();
+					jsClick(ObjectRepository.vwactvtycntr_btn);
 					test.log(Status.INFO, "View Activity Center button clicked from transfer success page");
 					
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);

@@ -142,29 +142,50 @@ public class C23414_VerifyRecurringTransactionInActivityCenter extends GenericKe
 					
 					test.log(Status.INFO, "Amount entered");
 					//Updated Steps
+					WebElement freqRoot1 = driver.findElement(By.cssSelector("q2-select[test-id='selFrequency']"));
+					WebElement freqshadowRoot1 = ObjectRepository.expandRootElement(driver,freqRoot1);
+					WebElement freqRoot2 = freqshadowRoot1.findElement(By.cssSelector("q2-input[label='Frequency']"));
+					WebElement freqshadowRoot2 = ObjectRepository.expandRootElement(driver,freqRoot2);
+					WebElement frequencyDropDown_OneTime = freqshadowRoot2.findElement(By.cssSelector("button[value='One time transfer']"));
+					frequencyDropDown_OneTime.click();
 					
-					verifyElementPresent(ObjectRepository.frqncy_dropdown);
-					test.log(Status.INFO, "Frequency dropdown appeared");
-					Thread.sleep(2000);
-					
-					String[] opts=frqncy.split(",");
-					for(int i=0;i<opts.length;i++){
-						Select s=new Select(getElement(ObjectRepository.frqncy_dropdown));
+					List<WebElement> frequencyValues = driver.findElements(By.xpath("//q2-select[@label='Frequency']/q2-option"));
+					for(int count=1;count<=frequencyValues.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='Frequency']/q2-option)["+count+"]")).getAttribute("display");
 						
-						List<WebElement> options = s.getOptions();
-
-						for(int j=0;j<options.size();j++){
-							System.out.println(options.get(j).getText());
-							if(options.get(j).getText().contains("Weekly")){
-								s.selectByVisibleText("Weekly");
-							}
-		
-							if(options.get(j).getText().contains(opts[i])){
-								Assert.assertTrue(true);
-								
-							}
+						if(option.contains(frqncy)){
+							String frequency = "//q2-select[@label='Frequency']/q2-option[contains(@display,'"+frqncy+"')]";
+							JavascriptExecutor js = ((JavascriptExecutor) driver);
+							js.executeScript("arguments[0].scrollIntoView(true);",getElement(frequency));
+							jsClick(frequency);
+							//getElement(frequency).click();
 						}
+						
 					}
+					
+					
+//					verifyElementPresent(ObjectRepository.frqncy_dropdown);
+//					test.log(Status.INFO, "Frequency dropdown appeared");
+//					Thread.sleep(2000);
+//					
+//					String[] opts=frqncy.split(",");
+//					for(int i=0;i<opts.length;i++){
+//						Select s=new Select(getElement(ObjectRepository.frqncy_dropdown));
+//						
+//						List<WebElement> options = s.getOptions();
+//
+//						for(int j=0;j<options.size();j++){
+//							System.out.println(options.get(j).getText());
+//							if(options.get(j).getText().contains("Weekly")){
+//								s.selectByVisibleText("Weekly");
+//							}
+//		
+//							if(options.get(j).getText().contains(opts[i])){
+//								Assert.assertTrue(true);
+//								
+//							}
+//						}
+//					}
 					
 					
 					
@@ -191,8 +212,8 @@ public class C23414_VerifyRecurringTransactionInActivityCenter extends GenericKe
 					
 					test.log(Status.INFO, "Memo entered");
 					
-					getElement(ObjectRepository.trnsfrfnds_btn).click();
-					test.log(Status.INFO, "Transfer Funds button clicked");
+					getElement(ObjectRepository.approve_button).click();
+					test.log(Status.INFO, "Approve button clicked");
 					
 					verifyElementPresent(ObjectRepository.schdltrnsfrsccs_msg);
 					test.log(Status.INFO, "Transfer success message appeared");
@@ -202,8 +223,14 @@ public class C23414_VerifyRecurringTransactionInActivityCenter extends GenericKe
 					test.log(Status.INFO, "Transfer success message disappeared");
 					Thread.sleep(2500);
 					
+				//	getElement(ObjectRepository.cls_btn).click();
+				//	test.log(Status.INFO, "Success modal message popup closed");
+				
+					
 					scrollToElement(ObjectRepository.vwactvtycntr_btn);
-					getElement(ObjectRepository.vwactvtycntr_btn).click();
+					jsClick(ObjectRepository.vwactvtycntr_btn);
+					//scrollToElement(ObjectRepository.vwactvtycntr_btn);
+					//getElement(ObjectRepository.vwactvtycntr_btn).click();
 					test.log(Status.INFO, "View Activity Center button clicked from transfer success page");
 					
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);

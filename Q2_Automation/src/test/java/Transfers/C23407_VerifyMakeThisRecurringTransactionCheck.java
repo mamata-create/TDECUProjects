@@ -181,7 +181,7 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 							String frequency = "//q2-select[@label='Frequency']/q2-option[contains(@display,'"+frqncy+"')]";
 							JavascriptExecutor js = ((JavascriptExecutor) driver);
 							js.executeScript("arguments[0].scrollIntoView(true);",getElement(frequency));
-							
+							jsClick(frequency);
 							//getElement(frequency).click();
 						}
 						

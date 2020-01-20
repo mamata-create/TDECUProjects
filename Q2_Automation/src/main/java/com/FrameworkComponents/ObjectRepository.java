@@ -50,7 +50,7 @@ public class ObjectRepository {
 	public static String schdltrnsfrsccs_msg="//*[text()='Transaction Authorized']";
 	public static String vwactvtycntr_btn="//div[text()='Activity Center']";
 	public static String cls_btn="//button[text()='Close']";
-	
+	public static String approve_button = "//button[@test-id='btnApproveFunds']";	
 	public static String fndtrnsfrerr="//div[@test-id='ui-modal-dialog']";
 	public static String fndtrnsfrerr_msg="//div[@class='ui-modal-header']";
 	

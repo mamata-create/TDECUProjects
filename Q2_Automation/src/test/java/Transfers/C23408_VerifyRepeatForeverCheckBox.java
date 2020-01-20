@@ -173,19 +173,26 @@ public class C23408_VerifyRepeatForeverCheckBox extends GenericKeywords {
 				//Select recurring check box to verify respective fields appears	
 				//	getElement(ObjectRepository.rccrng_chkbx).click();
 				//	test.log(Status.INFO, "Recurring checkbox clicked");
-					WebElement freqRoot1 = driver.findElement(By.cssSelector("q2-select[label='Frequency']"));
-					WebElement shadowFreqRoot1 = ObjectRepository.expandRootElement(driver, freqRoot1);
-					WebElement freqRoot2 = shadowFreqRoot1.findElement(By.cssSelector("q2-input[label='Frequency']"));
-					WebElement shadowFreqRoot2 = ObjectRepository.expandRootElement(driver, freqRoot2);
-					WebElement frequencyDropdown = shadowFreqRoot2.findElement(By.cssSelector("button[test-id='inputFiel']"));
-					boolean flag = frequencyDropdown.isDisplayed();
-					if(flag)
-						test.log(Status.INFO, "Frequency dropdown present");
+					WebElement freqRoot1 = driver.findElement(By.cssSelector("q2-select[test-id='selFrequency']"));
+					WebElement freqshadowRoot1 = ObjectRepository.expandRootElement(driver,freqRoot1);
+					WebElement freqRoot2 = freqshadowRoot1.findElement(By.cssSelector("q2-input[label='Frequency']"));
+					WebElement freqshadowRoot2 = ObjectRepository.expandRootElement(driver,freqRoot2);
+					WebElement frequencyDropDown_OneTime = freqshadowRoot2.findElement(By.cssSelector("button[value='One time transfer']"));
+					frequencyDropDown_OneTime.click();
 					
-					Thread.sleep(2000);
-					frequencyDropdown.click();
-					WebElement frequencyOptions = shadowFreqRoot2.findElement(By.cssSelector("q2-option[display='"+frequencyOption+"']"));
-					frequencyOptions.click();
+					List<WebElement> frequencyValues = driver.findElements(By.xpath("//q2-select[@label='Frequency']/q2-option"));
+					for(int count=1;count<=frequencyValues.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='Frequency']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(frqncy)){
+							String frequency = "//q2-select[@label='Frequency']/q2-option[contains(@display,'"+frqncy+"')]";
+							JavascriptExecutor js = ((JavascriptExecutor) driver);
+							js.executeScript("arguments[0].scrollIntoView(true);",getElement(frequency));
+							jsClick(frequency);
+							//getElement(frequency).click();
+						}
+						
+					}
 					
 					
 					

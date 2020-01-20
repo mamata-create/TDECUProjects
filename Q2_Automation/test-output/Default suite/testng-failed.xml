@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Transfers.C23685_VerifyOneTimeFundTransfer">
+      <class name="Transfers.C23408_VerifyRepeatForeverCheckBox">
         <methods>
+          <include name="C23408_VerifyRepeatForeverCheckBox"/>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="VerifyOneTimeFundTransfer"/>
         </methods>
-      </class> <!-- Transfers.C23685_VerifyOneTimeFundTransfer -->
+      </class> <!-- Transfers.C23408_VerifyRepeatForeverCheckBox -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

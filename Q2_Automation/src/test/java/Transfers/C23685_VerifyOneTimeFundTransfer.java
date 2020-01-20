@@ -94,7 +94,7 @@ public class C23685_VerifyOneTimeFundTransfer extends GenericKeywords {
 				 {
 					String frmacnt=excl.getCellData(sheetName, 1, startIter);
 					String toacnt=excl.getCellData(sheetName, 2, startIter);
-					String amnt=randomAmount();
+					String amnt="0.26";
 					String memo=excl.getCellData(sheetName, 4, startIter);
 					
 					if(j==1){
