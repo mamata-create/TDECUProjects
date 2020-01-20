@@ -142,7 +142,7 @@ public class C23627_VerifyCreateFavoriteSearchTemplate  extends GenericKeywords 
 					test.log(Status.INFO, "Favorite dropdown clicked");
 					Thread.sleep(2000);
 					
-					verifyElementPresent("//div[text()='"+favnickname+"']");
+					verifyElementPresent("//a[text()='"+favnickname+"']");
 					test.log(Status.INFO, "Added Search favorite appearing");
 				
 				 }

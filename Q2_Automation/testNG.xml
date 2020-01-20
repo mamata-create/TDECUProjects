@@ -1,60 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" > 
-<suite name="OLB Test Suite" >
-  <test name="C23402_VerifyInSufficientFundTransferValidation Test Cases" >
-    <classes>
-       <class name="com.testcases.C23402_VerifyInSufficientFundTransferValidation"/> 
-    </classes>
-</test>
-
- <test name="C23403_VerifyMemoFieldLimit Test Cases" >
-  <classes>
-     
-       <class name="com.testcases.C23403_VerifyMemoFieldLimit"/>
-        </classes>
-</test>
-
- <test name="C23413_VerifySingleTransactionInActivityCenter Test Cases" >
-  <classes>
-     
-       <class name="com.testcases.C23413_VerifySingleTransactionInActivityCenter"/>
-        </classes>
-</test>
-
- <test name="C23496_VerifyMoreThanLineOfCreditAmountTransfer Test Cases" >
-  <classes>
-     
-       <class name="com.testcases.C23496_VerifyMoreThanLineOfCreditAmountTransfer"/>
-        </classes>
-</test>
-
-<test name="C23414_VerifyRecurringTransactionInActivityCenter Test Cases" >
-  <classes>
-     
-       <class name="com.testcases.C23414_VerifyRecurringTransactionInActivityCenter"/>
-        </classes>
-</test>
-
-<test name="C23614_VerifyActivityCenterTransactions Test Cases" >
-  <classes>
-     
-       <class name="com.testcases.C23614_VerifyActivityCenterTransactions"/>
-        </classes>
-</test>
-
-<test name="C23621_VerifyActivityCenterSearchFilter Test Cases" >
-  <classes>
-     
-       <class name="com.testcases.C23621_VerifyActivityCenterSearchFilter"/>
-        </classes>
-</test>
-
-
-<test name="C23624_VerifyColumnsSortingOnActivityCenter Test Cases" >
-  <classes>
-     
-       <class name="com.testcases.C23624_VerifyColumnsSortingOnActivityCenter"/>
-        </classes>
-</test>
-
-</suite>
+<suite name="Suite">
+  <suite-files>
+		<suite-file path="./Activity_Center_Suite.xml" />
+		<suite-file path="./" />
+</suite-files>
+</suite> <!-- Suite -->

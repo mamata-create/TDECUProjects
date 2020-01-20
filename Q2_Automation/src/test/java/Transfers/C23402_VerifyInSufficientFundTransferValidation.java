@@ -96,7 +96,7 @@ public class C23402_VerifyInSufficientFundTransferValidation extends GenericKeyw
 				 {
 					String frmacnt=excl.getCellData(sheetName, 1, startIter);
 					String toacnt=excl.getCellData(sheetName, 2, startIter);
-					String amnt=randomAmount();
+					String amnt="3000.00";
 					String memo=excl.getCellData(sheetName, 4, startIter);
 					
 					getElement(ObjectRepository.trnsctn_menu).click();
@@ -134,41 +134,71 @@ public class C23402_VerifyInSufficientFundTransferValidation extends GenericKeyw
 					test.log(Status.INFO, "From Account selected");
 					Thread.sleep(2000);
 					
-					WebElement frm=getElement(ObjectRepository.frmacnt_dropdown);					
-					Select slct=new Select(frm);
-					WebElement a=slct.getFirstSelectedOption();
-					System.out.println("FRMFIRS "+a.getText());
+//					WebElement frm=getElement(ObjectRepository.frmacnt_dropdown);					
+//					Select slct=new Select(frm);
+//					WebElement a=slct.getFirstSelectedOption();
+//					System.out.println("FRMFIRS "+a.getText());
+//					
+//					String frmacnttxt=a.getText();
+//					System.out.println("FRM ACCNT - "+frmacnttxt);
+//					if(!frmacnttxt.contains("$")){
+//						amnt="100";
+//					}else{
+//					String actfrmamnttxt=frmacnttxt.substring(frmacnttxt.lastIndexOf("$")+1, frmacnttxt.length()-1);
+//					System.out.println("ACT AMNT- "+actfrmamnttxt);
+//					if(actfrmamnttxt.contains(",")){
+//						actfrmamnttxt=actfrmamnttxt.replace(",", "");
+//					}
+//					Double d=Double.parseDouble(actfrmamnttxt);
+//					d=d+100;
+//					amnt=Double.toString(d);
+//					if(amnt.contains(".0")){
+//						amnt=amnt+0;
+//					}
+//					}
 					
-					String frmacnttxt=a.getText();
-					System.out.println("FRM ACCNT - "+frmacnttxt);
-					if(!frmacnttxt.contains("$")){
-						amnt="100";
-					}else{
-					String actfrmamnttxt=frmacnttxt.substring(frmacnttxt.lastIndexOf("$")+1, frmacnttxt.length()-1);
-					System.out.println("ACT AMNT- "+actfrmamnttxt);
-					if(actfrmamnttxt.contains(",")){
-						actfrmamnttxt=actfrmamnttxt.replace(",", "");
-					}
-					Double d=Double.parseDouble(actfrmamnttxt);
-					d=d+100;
-					amnt=Double.toString(d);
-					if(amnt.contains(".0")){
-						amnt=amnt+0;
-					}
-					}
-		
-					selectDropdownOptContain(ObjectRepository.toacnt_dropdown, toacnt);
-					test.log(Status.INFO, "To Account selected");
 					
-					getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
+					WebElement root = driver.findElement(By.cssSelector("div[test-id='selTransferTo'] q2-select"));
+					WebElement shadowRoot = ObjectRepository.expandRootElement(driver,root);
+					WebElement root3 = shadowRoot.findElement(By.cssSelector("q2-input[label='To Account']"));
+					WebElement shadowRoot3 = ObjectRepository.expandRootElement(driver,root3);
+					
+					WebElement toAccounDropDown = shadowRoot3.findElement(By.cssSelector("button[aria-label=', To Account']"));
+					toAccounDropDown.click();
+					
+					
+					List<WebElement> allToOptions = driver.findElements(By.xpath("//q2-select[@label='To Account']/q2-option"));
+					for(int count=1;count<=allToOptions.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='To Account']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(toacnt)){
+							String toAccountLocator = "//q2-select[@label='To Account']/q2-option[contains(@display,'"+toacnt+"')]";
+							getElement(toAccountLocator).click();
+						}
+						
+					}
+					
+					WebElement amountroot = driver.findElement(By.cssSelector("q2-input[test-id='fldAmount']"));
+					WebElement amountshadowRoot = ObjectRepository.expandRootElement(driver,amountroot);
+					WebElement amountField = amountshadowRoot.findElement(By.cssSelector("input[test-id='inputField']"));
+					
+					amountField.click();
+					amountField.sendKeys(amnt);
+					
+				//	getElement(ObjectRepository.amnt_txt).sendKeys(amnt);
 					test.log(Status.INFO, "Amount entered");
 					
-					getElement(ObjectRepository.memo_txt).sendKeys(memo);
-					test.log(Status.INFO, "Memo entered");
-					getElement(ObjectRepository.memo_txt).sendKeys(Keys.TAB);
+					Assert.assertTrue(getElement(ObjectRepository.trnsfrfnds_btn).isEnabled());
+					test.log(Status.INFO, "Fund Transfer button enabled even when memo field blank");
+					
+					WebElement MemoRoot1 = driver.findElement(By.cssSelector("q2-input[label='Memo']"));
+					WebElement shadowRootMemo1 = ObjectRepository.expandRootElement(driver, MemoRoot1);
+					WebElement memoTxt = shadowRootMemo1.findElement(By.cssSelector("input[test-id='inputField']"));
+					memoTxt.sendKeys("Transfer");
+					memoTxt.sendKeys(Keys.TAB);
 					
 					getElement(ObjectRepository.trnsfrfnds_btn).click();
-					test.log(Status.INFO, "Transfer Funds button clicked");
+		
 					Thread.sleep(4000);
 					
 					verifyElementPresent(ObjectRepository.fndtrnsfrerr);

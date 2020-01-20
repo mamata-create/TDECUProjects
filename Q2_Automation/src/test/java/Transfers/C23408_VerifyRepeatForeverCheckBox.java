@@ -226,10 +226,10 @@ public class C23408_VerifyRepeatForeverCheckBox extends GenericKeywords {
 					}
 					
 					
-					verifyElementPresent(ObjectRepository.dateRangeOption("Until"));
+					verifyElementPresent(ObjectRepository.dateRangeOption("Until date"));
 					test.log(Status.INFO, "Until date option is selected");
-					scrollToElement(ObjectRepository.dateRangeOption("Until"));
-					getElement(ObjectRepository.dateRangeOption("Until")).click();
+					scrollToElement(ObjectRepository.dateRangeOption("Until date"));
+					getElement(ObjectRepository.dateRangeOption("Until date")).click();
 					
 					WebElement TransferEndDateRoot = driver.findElement(By.cssSelector("q2-calendar[test-id='fldEndDate']"));
 					WebElement endDateshadowRoot = ObjectRepository.expandRootElement(driver,TransferEndDateRoot);

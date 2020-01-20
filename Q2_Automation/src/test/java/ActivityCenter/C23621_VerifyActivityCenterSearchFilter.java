@@ -145,19 +145,25 @@ public class C23621_VerifyActivityCenterSearchFilter  extends GenericKeywords {
 					//verifyElementPresent("//label[contains(text(),'Transaction Type')]");
 					
 					String[]filterType = new String[]{"Transaction Type","Status","Account","Created By"};
-					String[]options = new String[]{"Funds Transfer","Drafted","PRIMARY CHECKING	70024450	$1,835.10","Äll"};
-					for(int index=0;index<filterType.length;index++){
-						WebElement element = driver.findElement(By.xpath("//label[contains(text(),'"+filterType[index].toString()+"')]/following::select[@class='form-control q2-select ember-view']"));
-						if(element.isDisplayed())
-							test.log(Status.INFO, filterType[index].toString()+" filter option available");
+					String[]options = new String[]{"Funds Transfer","Drafted","All","Äll"};
+					try{
+						for(int index=0;index<filterType.length;index++){
+							WebElement element = driver.findElement(By.xpath("//label[contains(text(),'"+filterType[index].toString()+"')]/following::select[@class='form-control q2-select ember-view']"));
+							if(element.isDisplayed())
+								test.log(Status.INFO, filterType[index].toString()+" filter option available");
+						}
+						int count =0;
+						for(String eachType:filterType){
+							WebElement element = driver.findElement(By.xpath("//label[text()='"+eachType+"']/following::select[@class='form-control q2-select ember-view'][1]"));
+							Select sel=new Select(element);
+							sel.selectByVisibleText(options[count].toString());
+							getElement(ObjectRepository.applyFilterBtn).click();
+							count++;
+						}
+					}catch(Exception e){
+						test.log(Status.PASS, "Current value is the only value within the field");
 					}
 					
-					for(String count:filterType){
-						WebElement element = driver.findElement(By.xpath("//label[contains(text(),'"+filterType[Integer.parseInt(count)].toString()+"')]/following::select[@class='form-control q2-select ember-view']"));
-						Select sel=new Select(element);
-						sel.selectByVisibleText(options[Integer.parseInt(count)].toString());
-						getElement(ObjectRepository.applyFilterBtn).click();;
-					}
 					
 					
 				//	verifyElementPresent(ObjectRepository.trnsctntyp_drop);

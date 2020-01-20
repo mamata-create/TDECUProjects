@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.mail.MessagingException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -108,15 +109,18 @@ public class C23614_VerifyActivityCenterTransactions extends GenericKeywords {
 		RecurringTab.click();
 		
 		Thread.sleep(3000);
-		String recurringTransaction=RecurringTab.getAttribute("aria-selected");
-		if(recurringTransaction.contains("true")){
-			Assert.assertTrue(true);
-			test.log(Status.INFO, "Recurring Transaction tab is selected");
-		}else{
-			test.log(Status.INFO, "Recurring Transaction tab is not selected");
-		}
-	
 		
+			WebElement root2 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+			WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver, root2);
+			WebElement recurringTab = shadowRoot2.findElement(By.cssSelector("a[value='recurring']"));
+			String recurringTransaction=recurringTab.getAttribute("aria-selected");
+			if(recurringTransaction.contains("true")){
+				Assert.assertTrue(true);
+				test.log(Status.INFO, "Recurring Transaction tab is selected");
+			}else{
+				test.log(Status.INFO, "Recurring Transaction tab is not selected");
+			}
+	
 	}
 
 	@AfterMethod

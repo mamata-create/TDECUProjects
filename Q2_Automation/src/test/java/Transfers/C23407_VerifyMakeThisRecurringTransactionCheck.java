@@ -97,7 +97,7 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 					String frmacnt=excl.getCellData(sheetName, 1, startIter);
 					String toacnt=excl.getCellData(sheetName, 2, startIter);
 					String amnt=randomAmount();
-					String frqncy=excl.getCellData(sheetName, 6, startIter);
+					String frqncy="Weekly";
 					String memo=excl.getCellData(sheetName, 4, startIter);
 					String dayOfWeek = "Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday";
 					getElement(ObjectRepository.trnsctn_menu).click();
@@ -164,32 +164,57 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 					amountField.sendKeys(amnt);
 					test.log(Status.INFO, "Amount entered");
 					
-					WebElement freqroot1 = driver.findElement(By.cssSelector("q2-select[test-id='selFrequency']"));
+					
+					WebElement freqRoot1 = driver.findElement(By.cssSelector("q2-select[test-id='selFrequency']"));
+					WebElement freqshadowRoot1 = ObjectRepository.expandRootElement(driver,freqRoot1);
+					WebElement freqRoot2 = freqshadowRoot1.findElement(By.cssSelector("q2-input[label='Frequency']"));
+					WebElement freqshadowRoot2 = ObjectRepository.expandRootElement(driver,freqRoot2);
+					WebElement frequencyDropDown_OneTime = freqshadowRoot2.findElement(By.cssSelector("button[value='One time transfer']"));
+					frequencyDropDown_OneTime.click();
+					
+					
+					List<WebElement> frequencyValues = driver.findElements(By.xpath("//q2-select[@label='Frequency']/q2-option"));
+					for(int count=1;count<=frequencyValues.size();count++){
+						String option= driver.findElement(By.xpath("(//q2-select[@label='Frequency']/q2-option)["+count+"]")).getAttribute("display");
+						
+						if(option.contains(frqncy)){
+							String frequency = "//q2-select[@label='Frequency']/q2-option[contains(@display,'"+frqncy+"')]";
+							JavascriptExecutor js = ((JavascriptExecutor) driver);
+							js.executeScript("arguments[0].scrollIntoView(true);",getElement(frequency));
+							
+							//getElement(frequency).click();
+						}
+						
+					}
+					
+					
+					
+				//	WebElement freqroot1 = driver.findElement(By.cssSelector("q2-select[test-id='selFrequency']"));
 				//	WebElement freqShadowRoot1 = ObjectRepository
 					
-					verifyElementPresent(ObjectRepository.frqncy_dropdown);
-					test.log(Status.INFO, "Frequency dropdown appeared");
-					Thread.sleep(2000);
-					scrollToElement(ObjectRepository.fndtrnsfr_ttl);
-					Thread.sleep(2000);
-					String[] opts=frqncy.split(",");
-					for(int i=0;i<opts.length;i++){
-						Select s=new Select(getElement(ObjectRepository.frqncy_dropdown));
-						
-						List<WebElement> options = s.getOptions();
-
-						for(int j=0;j<options.size();j++){
-							System.out.println(options.get(j).getText());
-							if(options.get(j).getText().contains("Weekly")){
-								s.selectByVisibleText("Weekly");
-							}
-		
-							if(options.get(j).getText().contains(opts[i])){
-								Assert.assertTrue(true);
-								
-							}
-						}
-					}
+				//	verifyElementPresent(ObjectRepository.frqncy_dropdown);
+				//	test.log(Status.INFO, "Frequency dropdown appeared");
+				//	Thread.sleep(2000);
+				//	scrollToElement(ObjectRepository.fndtrnsfr_ttl);
+				//	Thread.sleep(2000);
+//					String[] opts=frqncy.split(",");
+//					for(int i=0;i<opts.length;i++){
+//						Select s=new Select(getElement(ObjectRepository.frqncy_dropdown));
+//						
+//						List<WebElement> options = s.getOptions();
+//
+//						for(int j=0;j<options.size();j++){
+//							System.out.println(options.get(j).getText());
+//							if(options.get(j).getText().contains("Weekly")){
+//								s.selectByVisibleText("Weekly");
+//							}
+//		
+//							if(options.get(j).getText().contains(opts[i])){
+//								Assert.assertTrue(true);
+//								
+//							}
+//						}
+//					}
 					
 					WebElement TransferstrtDateRoot = driver.findElement(By.cssSelector("q2-calendar[test-id='fldStartDate']"));
 					WebElement strtDateshadowRoot = ObjectRepository.expandRootElement(driver,TransferstrtDateRoot);
@@ -208,8 +233,8 @@ public class C23407_VerifyMakeThisRecurringTransactionCheck extends GenericKeywo
 					
 					verifyElementPresent(ObjectRepository.dateRangeOption("Until"));
 					test.log(Status.INFO, "Until date option is selected");
-					scrollToElement(ObjectRepository.dateRangeOption("Until"));
-					getElement(ObjectRepository.dateRangeOption("Until")).click();
+					scrollToElement(ObjectRepository.dateRangeOption("Until date"));
+					getElement(ObjectRepository.dateRangeOption("Until date")).click();
 					
 					WebElement TransferEndDateRoot = driver.findElement(By.cssSelector("q2-calendar[test-id='fldEndDate']"));
 					WebElement endDateshadowRoot = ObjectRepository.expandRootElement(driver,TransferEndDateRoot);

@@ -157,21 +157,40 @@ public class C23685_VerifyOneTimeFundTransfer extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.trnsfrsccs_msg);
 					test.log(Status.INFO, "Transfer success message appeared");
 					
-					getElement(ObjectRepository.vwactvtycntr_btn).click();
+					getElement(ObjectRepository.cls_btn).click();
+					test.log(Status.INFO, "Success modal message popup closed");
+				
+					
+					scrollToElement(ObjectRepository.vwactvtycntr_btn);
+					jsClick(ObjectRepository.vwactvtycntr_btn);
+					//getElement(ObjectRepository.vwactvtycntr_btn).click();
 					test.log(Status.INFO, "View Activity Center button clicked from transfer success page");
 					
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					WebElement ele=getElement("//span[text()='Single Transactions']/parent::*/parent::*");
+				//	WebElement ele=getElement("//span[text()='Single Transactions']/parent::*/parent::*");
 					
-					String sngltrnsctn=ele.getAttribute("class");
-					if(sngltrnsctn.contains("active")){
+					WebElement SingleTransactionTabroot1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement SingleTransactionshadowRoot1 = ObjectRepository.expandRootElement(driver, SingleTransactionTabroot1);
+					WebElement SingleTransactionsTab = SingleTransactionshadowRoot1.findElement(By.cssSelector("a[value='individual']"));
+					
+					
+					String sngltrnsctn=SingleTransactionsTab.getAttribute("aria-selected");
+					if(sngltrnsctn.contains("true")){
 						Assert.assertTrue(true);
 						test.log(Status.INFO, "Single Transaction tab is selected");
 					}else{
 						test.log(Status.INFO, "Single Transaction tab is not selected");
 					}
+					
+//					String sngltrnsctn=ele.getAttribute("class");
+//					if(sngltrnsctn.contains("active")){
+//						Assert.assertTrue(true);
+//						test.log(Status.INFO, "Single Transaction tab is selected");
+//					}else{
+//						test.log(Status.INFO, "Single Transaction tab is not selected");
+//					}
 					
 					String amntVal=getElement(ObjectRepository.actvtycntr_amnt).getText();
 					if(amntVal.contains(amnt)){

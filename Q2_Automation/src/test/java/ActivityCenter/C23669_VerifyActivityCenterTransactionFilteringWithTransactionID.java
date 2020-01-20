@@ -48,9 +48,9 @@ public class C23669_VerifyActivityCenterTransactionFilteringWithTransactionID ex
 				test.log(Status.INFO, "Password entered");
 				
 				//click login button
-				/*getElement(ObjectRepository.login_btn).click();
+				getElement(ObjectRepository.login_btn).click();
 				test.log(Status.INFO, "Login button clicked");
-				
+				/*
 				//click login button
 				getElement(ObjectRepository.otpemail_btn).click();
 				test.log(Status.INFO, "Send OTP to email button clicked");
@@ -103,11 +103,26 @@ public class C23669_VerifyActivityCenterTransactionFilteringWithTransactionID ex
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
-					test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
 					
-					verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
-					test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					if(SingleTransactionsTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
+					}
+					
+					WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+					
+					Thread.sleep(1500);
+					if(RecurringTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Recurring Transaction tab is not available on Activity Center page");
+					}
 					
 										
 					getElement(ObjectRepository.fltr_lnk).click();

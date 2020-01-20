@@ -1,6 +1,7 @@
 package ActivityCenter;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
@@ -91,11 +92,26 @@ public class C23641_VerifyActivityCenterTransactionActions extends GenericKeywor
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
-					test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
 					
-					verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
-					test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					if(SingleTransactionsTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
+					}
+					
+					WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+					
+					Thread.sleep(1500);
+					if(RecurringTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
+					}
 					
 					verifyElementPresent(ObjectRepository.srchtrnsctn_txt);
 					test.log(Status.INFO, "Search transaction field available on Activity Center page");
@@ -103,12 +119,20 @@ public class C23641_VerifyActivityCenterTransactionActions extends GenericKeywor
 					getElement(ObjectRepository.srchtrnsctn_txt).sendKeys("Authorized");
 					
 					Thread.sleep(2000);
-					getElement(ObjectRepository.actn_lnk).click();
+					getElement(ObjectRepository.actns_lnk).click();
 					Thread.sleep(1000);
 					
-					verifyElementPresent("//*[contains(text(),'Cancel')]");
-					verifyElementPresent("//*[contains(text(),'Inquire')]");
-					test.log(Status.INFO, "Search transaction field available on Activity Center page");
+					//verifyElementPresent("//*[contains(text(),'Cancel')]");
+					List<WebElement>action_subMenu = driver.findElements(By.xpath("(//button[@aria-label='Actions']/following::ul)[1]//li"));
+					for(WebElement element:action_subMenu){
+						String value = element.getAttribute("innerText");
+						System.out.println(value);
+						if(value.equalsIgnoreCase("Inquire")){
+							Assert.assertEquals("Inquire", value);
+						}
+					}
+					
+					
 					
 	}
 

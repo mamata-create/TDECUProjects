@@ -86,7 +86,7 @@ public class ObjectRepository {
 	public static String acnt_parent="//div[@class='col-xs-12']/div[1]/div[3]//select[@class='ember-view ember-select form-control']";
 	public static String crtd_parent="//div[@class='col-xs-12']/div[1]/div[4]//select[@class='ember-view ember-select form-control']";
 	public static String amnt_parent="//div[@class='col-xs-12']/div[1]/div[5]//select[@class='ember-view ember-select form-control']";
-	public static String trnsctnID_txt="//div[@class='col-xs-12']/div[2]/div[2]//input";
+	public static String trnsctnID_txt="//label[text()='Transaction ID']/following::input[1]";
 	public static String srchamnt_txt="//input[contains(@class,'currency') and @test-id='fldAmtRangeFrom']";
 	public static String crtd_col_srt="//table[@test-id='txtAccountsTable']//th[@test-id='lblDate']//span[contains(@class,'sort-icon')]";
 	public static String stts_col_srt="//table[@test-id='txtAccountsTable']//th[@test-id='lblStatus']//span[contains(@class,'sort-icon')]";
@@ -95,8 +95,8 @@ public class ObjectRepository {
 	public static String amnt_col_srt="//table[@test-id='txtAccountsTable']//th[@test-id='lblAmount']//span[contains(@class,'sort-icon')]";
 	public static String actns_lnk="(//button[@aria-label='Actions']//span)[1]";
 	public static String recactns_lnk="//div[@class='content-wrapper grid-column']//tbody[@class='scrollable']/tr[5]//div[@test-id='drpTransactionActions']";
-	public static String fav_drop="//a[@test-id='btnACFavorites']";
-	public static String addfav="//div[@test-id='btnAddFavorite']";
+	public static String fav_drop="//button[@test-id='btnACFavorites']";
+	public static String addfav="//a[@test-id='btnAddFavorite']";
 	public static String favnickname_txt="//input[@test-id='fldFavoriteNickname']";
 	public static String favsave_btn="//button[@test-id='btnSaveFavorite']";
 	public static String favcncl_btn="//button[@test-id='btnCloseNewFavoriteModal']";
@@ -259,7 +259,7 @@ public class ObjectRepository {
 	//Services
 		public static String service_menu="//div[@class='menu-text' and contains(text(),'Services')]";
 		public static String wiretrnsfr_menu="//div[@class='menu-text' and contains(text(),'Wire Transfer')]";
-		public static String wiretrnsfr_ttl="//div[@class='page-metaheader inner-metaheader']/h1";
+		public static String wiretrnsfr_ttl="//div[@class='payment-content']//h1";
 		public static String rcpnt_chkbx="//input[@type='checkbox']";
 		public static String wiretrnsfr_amnt="//td[@test-id='txtPrimaryAmount']/input[@test-id='fldAmount']";
 		

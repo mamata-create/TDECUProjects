@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Activity Center">
+  <test name="C23614_VerifyActivityCenterTransactions">
+		<classes>
+			<class name="ActivityCenter.C23614_VerifyActivityCenterTransactions" />
+		</classes>
+	</test>
+	<test name="C23616_VerifyActivityCenterTransactionSorting">
+		<classes>
+			<class name="ActivityCenter.C23616_VerifyActivityCenterTransactionSorting" />
+		</classes>
+	</test>
+	<test name="C23621_VerifyActivityCenterSearchFilter">
+		<classes>
+			<class name="ActivityCenter.C23621_VerifyActivityCenterSearchFilter" />
+		</classes>
+	</test>
+	<test name="C23624_VerifyColumnsSortingOnActivityCenter">
+		<classes>
+			<class name="ActivityCenter.C23624_VerifyColumnsSortingOnActivityCenter" />
+		</classes>
+	</test>
+	<test name="C23625_VerifyTransactionActionsLinkOnActivityCenter">
+		<classes>
+			<class name="ActivityCenter.C23625_VerifyTransactionActionsLinkOnActivityCenter" />
+		</classes>
+	</test>
+	<test name="C23626_VerifyActivityCenterAdvanceFilters">
+		<classes>
+			<class name="ActivityCenter.C23626_VerifyActivityCenterAdvanceFilters" />
+		</classes>
+	</test>
+	<test name="C23627_VerifyCreateFavoriteSearchTemplate">
+		<classes>
+			<class name="ActivityCenter.C23627_VerifyCreateFavoriteSearchTemplate" />
+		</classes>
+	</test>
+	<test name="C23628_VerifyDeleteFavoriteSearchTemplate">
+		<classes>
+			<class name="ActivityCenter.C23628_VerifyDeleteFavoriteSearchTemplate" />
+		</classes>
+	</test>
+	<test name="C23641_VerifyActivityCenterTransactionActions">
+		<classes>
+			<class name="ActivityCenter.C23641_VerifyActivityCenterTransactionActions" />
+		</classes>
+	</test>
+	<test name="C23642_VerifyActivityCenterTransactionDetails">
+		<classes>
+			<class name="ActivityCenter.C23642_VerifyActivityCenterTransactionDetails" />
+		</classes>
+	</test>
+	<test name="C23669_VerifyActivityCenterTransactionFilteringWithTransactionID">
+		<classes>
+			<class name="ActivityCenter.C23669_VerifyActivityCenterTransactionFilteringWithTransactionID" />
+		</classes>
+	</test>
+	
+</suite> <!-- Suite -->

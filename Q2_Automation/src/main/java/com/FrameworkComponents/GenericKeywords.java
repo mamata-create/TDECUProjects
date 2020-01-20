@@ -154,6 +154,13 @@ public class GenericKeywords extends BaseClass{
 		js.executeScript("arguments[0].scrollIntoView(true);",element);
 
 	}
+	
+	public static void jsClick(String locator){
+		WebElement element=getElement(locator);
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].click();",element);
+
+	}
 
 	public static void selectFutureDate(int noofdays) throws InterruptedException{
 		Thread.sleep(2000);

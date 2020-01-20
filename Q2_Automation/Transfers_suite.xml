@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Fund Transfers">
+  <test name="C23400_VerifyTransferFundsButton">
+		<classes>
+			<class name="Transfers.C23400_VerifyTransferFundsButton" />
+		</classes>
+	</test>
+	<test name="C23401_VerifySelectedFromAccountNotInToAccount">
+		<classes>
+			<class name="Transfers.C23401_VerifySelectedFromAccountNotInToAccount" />
+		</classes>
+	</test>
+	<test name="C23402_VerifyInSufficientFundTransferValidation">
+		<classes>
+			<class name="Transfers.C23402_VerifyInSufficientFundTransferValidation" />
+		</classes>
+	</test>
+	<test name="C23403_VerifyMemoFieldLimitr">
+		<classes>
+			<class name="Transfers.C23403_VerifyMemoFieldLimit" />
+		</classes>
+	</test>
+	<test name="C23407_VerifyMakeThisRecurringTransactionCheck">
+		<classes>
+			<class name="Transfers.C23407_VerifyMakeThisRecurringTransactionCheck" />
+		</classes>
+	</test>
+	<test name="C23408_VerifyRepeatForeverCheckBox">
+		<classes>
+			<class name="Transfers.C23408_VerifyRepeatForeverCheckBox" />
+		</classes>
+	</test>
+	<test name="C23413_VerifySingleTransactionInActivityCenter">
+		<classes>
+			<class name="Transfers.C23413_VerifySingleTransactionInActivityCenter" />
+		</classes>
+	</test>
+	<test name="C23414_VerifyRecurringTransactionInActivityCenter">
+		<classes>
+			<class name="Transfers.C23414_VerifyRecurringTransactionInActivityCenter" />
+		</classes>
+	</test>
+	<test name="C23496_VerifyMoreThanLineOfCreditAmountTransfer">
+		<classes>
+			<class name="Transfers.C23496_VerifyMoreThanLineOfCreditAmountTransfer" />
+		</classes>
+	</test>
+	<test name="C23685_VerifyOneTimeFundTransfer">
+		<classes>
+		<class name="Transfers.C23685_VerifyOneTimeFundTransfer" />
+	
+</classes>
+</test>
+</suite>
+		
+	
+
