@@ -4,11 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
+import java.util.Set;
 
 import javax.mail.BodyPart;
 import javax.mail.Flags;
@@ -572,6 +574,21 @@ public class GenericKeywords extends BaseClass{
 		}
 		return elementToReturn;
 	}
+	
+	public static WebElement selectOptionShadowRootDropDown(WebElement shadowelement,String optionToClick) throws Exception{
+		WebElement elementToReturn = null;
+		try{
+			
+			boolean displayed = shadowelement.isDisplayed();
+			if(displayed)
+				elementToReturn = driver.findElement(By.cssSelector("q2-option[display='"+optionToClick+"']"));
+			
+			
+		}catch(Exception e){
+			throw new Exception(e);
+		}
+		return elementToReturn;
+	}
 	public static void verifyAlrtErrMsg(String missingField1, String missingField2){	
 		String errorMsg = driver.findElement(By.xpath("//q2-message[@type='danger']/p")).getAttribute("innerText");
 		String allMissingFields = "//q2-message[@type='danger']//li";
@@ -711,6 +728,31 @@ public class GenericKeywords extends BaseClass{
 			System.out.println("Exception caught");
 		}
 
+	}
+	
+	public static void openWindow(){
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("window.open();");
+	}
+	
+	public static void closeWindow(){
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("window.close();");
+	}
+	
+	public static void handleMultipleWindow(int index,String url){
+		Set<String>allWindow = driver.getWindowHandles();
+		System.out.println("Total window present: "+allWindow);
+		ArrayList<String>tab = new ArrayList<String>(allWindow);
+		driver.switchTo().window(tab.get(index));
+		if(!url.isEmpty()){
+			driver.get(url);
+			String title = driver.getTitle();
+			System.out.println("Window title: "+title);
+		}else{
+			System.out.println("No url provided");
+		}
+		
 	}
 	
 }

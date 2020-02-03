@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -98,8 +100,12 @@ public class C23452_VerifyAccountDetailTransactionSearchByAmountRange extends Ge
 					
 					getElement(ObjectRepository.acntdtl_shwfltr).click();
 					test.log(Status.INFO, "Filter icon clicked to show filter options");
-				//Min Amount	
-					getElement(ObjectRepository.acntdtl_minamnttxt).sendKeys(minamnt);
+					
+					WebElement minAmount_root1 = driver.findElement(By.cssSelector("q2-input[label='Min Amount']"));
+					WebElement shadow_minAmount_root1 = ObjectRepository.expandRootElement(driver, minAmount_root1);
+					WebElement min_amount_field = shadow_minAmount_root1.findElement(By.cssSelector("input[class='input-field']"));
+					min_amount_field.sendKeys(minamnt);
+					
 					test.log(Status.INFO, "Min Amount entered");
 					
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
@@ -110,7 +116,12 @@ public class C23452_VerifyAccountDetailTransactionSearchByAmountRange extends Ge
 					getElement(ObjectRepository.acntdtl_resetfltr).click();
 					Thread.sleep(3000);
 				//Max amount	
-					getElement(ObjectRepository.acntdtl_maxamnttxt).sendKeys(maxamnt);
+					
+					WebElement maxAmount_root1 = driver.findElement(By.cssSelector("q2-input[label='Max Amount']"));
+					WebElement shadow_maxAmount_root1 = ObjectRepository.expandRootElement(driver, maxAmount_root1);
+					WebElement max_amount_field = shadow_maxAmount_root1.findElement(By.cssSelector("input[class='input-field']"));
+					max_amount_field.sendKeys(minamnt);
+					
 					test.log(Status.INFO, "Max Amount entered");
 					
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
@@ -121,9 +132,9 @@ public class C23452_VerifyAccountDetailTransactionSearchByAmountRange extends Ge
 					getElement(ObjectRepository.acntdtl_resetfltr).click();
 					Thread.sleep(3000);
 				//Amount range	
-					getElement(ObjectRepository.acntdtl_minamnttxt).sendKeys(minamnt);
-					getElement(ObjectRepository.acntdtl_maxamnttxt).sendKeys(maxamnt);
-					test.log(Status.INFO, "Max Amount entered");
+					min_amount_field.sendKeys(minamnt);
+					max_amount_field.sendKeys(maxamnt);
+					test.log(Status.INFO, "Min-Max range Amount entered");
 					
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");

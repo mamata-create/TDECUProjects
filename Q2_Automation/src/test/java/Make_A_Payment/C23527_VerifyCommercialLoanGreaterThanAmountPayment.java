@@ -111,6 +111,7 @@ public class C23527_VerifyCommercialLoanGreaterThanAmountPayment  extends Generi
 		
 					selectDropdownOptContain(ObjectRepository.mkpymnt_toacnt, toacnt);
 					test.log(Status.INFO, "To Account selected");
+
 					
 					JavascriptExecutor js = (JavascriptExecutor)driver;
 					js.executeScript("arguments[0].value='"+amnt+"';", getElement(ObjectRepository.mkpymnt_amnt));
@@ -123,7 +124,7 @@ public class C23527_VerifyCommercialLoanGreaterThanAmountPayment  extends Generi
 					WebElement calStartDate = shadowRoot2.findElement(By.cssSelector("button[test-id='inputField']"));
 					calStartDate.click();
 					Thread.sleep(3000);
-					selectDateofShadowRootElement(1,"Select Date");
+					selectDateofShadowRootElement(0,"Select Date");
 					test.log(Status.INFO, "Date selected");
 					
 					getElement(ObjectRepository.mkpymnt_memo).sendKeys(memo);

@@ -114,7 +114,8 @@ public class C23451_VerifyAccountDetailTransactionSearchByTransactionType extend
 					WebElement transactionType_root2 = shadow_TransactionType_root1.findElement(By.cssSelector("q2-input[label='Transaction Type']"));
 					WebElement transactionType_shadow_Root2 = ObjectRepository.expandRootElement(driver, transactionType_root2);
 					WebElement transactionTypeDropdown = transactionType_shadow_Root2.findElement(By.cssSelector("button[test-id='inputField']"));
-					selectOptionShadowRoot(transactionTypeDropdown,"Pending").click();
+					transactionTypeDropdown.click();
+					selectOptionShadowRootDropDown(transactionTypeDropdown,"Pending").click();
 					
 					test.log(Status.INFO, "Pending selected from transaction type dropdown");
 					
@@ -123,14 +124,16 @@ public class C23451_VerifyAccountDetailTransactionSearchByTransactionType extend
 					Thread.sleep(3000);
 					test.log(Status.INFO, "Pending transactions searched");
 					
-					selectOptionShadowRoot(transactionTypeDropdown,"Posted").click();
+					transactionTypeDropdown.click();
+					selectOptionShadowRootDropDown(transactionTypeDropdown,"Posted").click();
 					test.log(Status.INFO, "Posted selected from transaction type dropdown");
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");
 					Thread.sleep(3000);
 					test.log(Status.INFO, "Posted transactions searched");
 					
-					selectOptionShadowRoot(transactionTypeDropdown,"Debits").click();
+					transactionTypeDropdown.click();
+					selectOptionShadowRootDropDown(transactionTypeDropdown,"Debits").click();
 					test.log(Status.INFO, "Debits selected from transaction type dropdown");
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");
@@ -138,7 +141,8 @@ public class C23451_VerifyAccountDetailTransactionSearchByTransactionType extend
 			
 					test.log(Status.INFO, "Debits transactions searched");
 					
-					selectOptionShadowRoot(transactionTypeDropdown,"Credits").click();
+					transactionTypeDropdown.click();
+					selectOptionShadowRootDropDown(transactionTypeDropdown,"Credits").click();
 					test.log(Status.INFO, "Credits selected from transaction type dropdown");
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");

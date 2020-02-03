@@ -113,7 +113,7 @@ public class C23415_VerifySingleTransfer extends GenericKeywords {
 		
 		scrollToElement(ObjectRepository.mtm_amnt_txt);
 		
-		if(getElement(ObjectRepository.mtm_amnt_txt).getAttribute("class").contains("invalid")){
+		if(getElement(ObjectRepository.mtm_amnt_txt).getAttribute("class").contains("text-danger error")){
 			Assert.assertTrue(true);
 			test.log(Status.INFO, "Amount field validation appeared");
 		}

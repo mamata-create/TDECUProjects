@@ -152,6 +152,7 @@ public class C23601_VerifyM2MTransferSavingAccountLinking   extends GenericKeywo
 			
 			if(option.contains(acntnumber)){
 				Assert.assertTrue(true, "Provided account number is present in the displayed options");
+				return;
 			}else if(count >= allOptions.size() && !option.contains(acntnumber) ){
 				Assert.assertTrue(false, "Provided account number is not present in the displayed options");
 			}

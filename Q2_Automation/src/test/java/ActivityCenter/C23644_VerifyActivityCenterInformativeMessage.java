@@ -1,10 +1,9 @@
-package Home;
+package ActivityCenter;
 
 import java.io.IOException;
 
 import javax.mail.MessagingException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -21,12 +20,12 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C23643_VerifyActivityCenterTransactionsPerPage  extends GenericKeywords {
+public class C23644_VerifyActivityCenterInformativeMessage  extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify Activity Center Transactions per page
+	 * Verify Activity Center Informative Message
 	 */
 
 	@BeforeTest
@@ -70,8 +69,8 @@ public class C23643_VerifyActivityCenterTransactionsPerPage  extends GenericKeyw
 					}
 					}catch(Exception e){
 						test.log(Status.INFO, "Register device button not available to be clicked");
-					}*/
-				
+					}
+				*/
 				//Verify log off link available after login
 				verifyElementPresent(ObjectRepository.logoff_lnk);
 				test.log(Status.INFO, "User successfully logged in as Logoff link available");
@@ -79,7 +78,7 @@ public class C23643_VerifyActivityCenterTransactionsPerPage  extends GenericKeyw
 	}
 
 	@Test
-	public void C23643_VerifyActivityCenterTransactionsPerPage() throws InterruptedException, MessagingException, IOException
+	public void C23644_VerifyActivityCenterInformativeMessage() throws InterruptedException, MessagingException, IOException
 	{
 		
 		getElement(ObjectRepository.trnsctn_menu).click();
@@ -92,31 +91,15 @@ public class C23643_VerifyActivityCenterTransactionsPerPage  extends GenericKeyw
 		verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 		test.log(Status.INFO, "Activity Center page opened");
 		
-		WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
-		WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
-		WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
+		verifyElementPresent(ObjectRepository.actvtycntr_infmsg);
+		test.log(Status.INFO, "Activity Center Informative message appeared");
 		
-		
-		String sngltrnsctn=SingleTransactionsTab.getAttribute("aria-selected");
-		if(sngltrnsctn.contains("true")){
-			Assert.assertTrue(true);
-			test.log(Status.INFO, "Single Transaction tab is selected");
-		}else{
-			test.log(Status.INFO, "Single Transaction tab is not selected");
-		}
-		
-		WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
-		RecurringTab.click();
-		
+		getElement(ObjectRepository.nickname_cnclbtn).click();
+		test.log(Status.INFO, "Close button clicked for informative message on activity center page");
 		Thread.sleep(3000);
-		String recurringTransaction=RecurringTab.getAttribute("aria-selected");
-		if(recurringTransaction.contains("true")){
-			Assert.assertTrue(true);
-			test.log(Status.INFO, "Recurring Transaction tab is selected");
-		}else{
-			test.log(Status.INFO, "Recurring Transaction tab is not selected");
-		}
 		
+		verifyElementNotPresent(ObjectRepository.actvtycntr_infmsg);
+		test.log(Status.INFO, "Activity Center Informative message disappeared");
 	}
 
 	@AfterMethod
@@ -126,7 +109,7 @@ public class C23643_VerifyActivityCenterTransactionsPerPage  extends GenericKeyw
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Activity Center Transactions per page scenario working fine");
+			test.log(Status.PASS, "Verify Activity Center Informative Message scenario working fine");
 		}
 	}
 

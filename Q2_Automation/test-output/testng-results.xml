@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="58475" started-at="2020-01-20T19:42:13Z" finished-at="2020-01-20T19:43:11Z">
+  <suite name="Default suite" duration-ms="36023" started-at="2020-01-30T18:19:20Z" finished-at="2020-01-30T18:19:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="58475" started-at="2020-01-20T19:42:13Z" finished-at="2020-01-20T19:43:11Z">
-      <class name="Transfers.C23685_VerifyOneTimeFundTransfer">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:Transfers.C23685_VerifyOneTimeFundTransfer@100d6b1]" name="setUp" is-config="true" duration-ms="16828" started-at="2020-01-20T19:42:13Z" finished-at="2020-01-20T19:42:29Z">
+    <test name="Default test" duration-ms="36023" started-at="2020-01-30T18:19:20Z" finished-at="2020-01-30T18:19:56Z">
+      <class name="Make_A_Payment.C23528_VerifyMortageLoanGreaterThanAmountPayment">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:Make_A_Payment.C23528_VerifyMortageLoanGreaterThanAmountPayment@100d6b1]" name="setUp" is-config="true" duration-ms="18999" started-at="2020-01-30T18:19:20Z" finished-at="2020-01-30T18:19:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="VerifyOneTimeFundTransfer()[pri:0, instance:Transfers.C23685_VerifyOneTimeFundTransfer@100d6b1]" name="VerifyOneTimeFundTransfer" duration-ms="40287" started-at="2020-01-20T19:42:29Z" finished-at="2020-01-20T19:43:10Z">
+        <test-method status="PASS" signature="C23528_VerifyMortageLoanGreaterThanAmountPayment()[pri:0, instance:Make_A_Payment.C23528_VerifyMortageLoanGreaterThanAmountPayment@100d6b1]" name="C23528_VerifyMortageLoanGreaterThanAmountPayment" duration-ms="15583" started-at="2020-01-30T18:19:39Z" finished-at="2020-01-30T18:19:55Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyOneTimeFundTransfer -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Transfers.C23685_VerifyOneTimeFundTransfer@100d6b1]" name="afterMethod" is-config="true" duration-ms="2" started-at="2020-01-20T19:43:10Z" finished-at="2020-01-20T19:43:10Z">
+        </test-method> <!-- C23528_VerifyMortageLoanGreaterThanAmountPayment -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Make_A_Payment.C23528_VerifyMortageLoanGreaterThanAmountPayment@100d6b1]" name="afterMethod" is-config="true" duration-ms="3" started-at="2020-01-30T18:19:55Z" finished-at="2020-01-30T18:19:55Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyOneTimeFundTransfer status=SUCCESS method=C23685_VerifyOneTimeFundTransfer.VerifyOneTimeFundTransfer()[pri:0, instance:Transfers.C23685_VerifyOneTimeFundTransfer@100d6b1] output={null}]]]>
+                <![CDATA[[TestResult name=C23528_VerifyMortageLoanGreaterThanAmountPayment status=SUCCESS method=C23528_VerifyMortageLoanGreaterThanAmountPayment.C23528_VerifyMortageLoanGreaterThanAmountPayment()[pri:0, instance:Make_A_Payment.C23528_VerifyMortageLoanGreaterThanAmountPayment@100d6b1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Transfers.C23685_VerifyOneTimeFundTransfer@100d6b1]" name="tearDown" is-config="true" duration-ms="1326" started-at="2020-01-20T19:43:10Z" finished-at="2020-01-20T19:43:11Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Make_A_Payment.C23528_VerifyMortageLoanGreaterThanAmountPayment@100d6b1]" name="tearDown" is-config="true" duration-ms="1402" started-at="2020-01-30T18:19:55Z" finished-at="2020-01-30T18:19:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- Transfers.C23685_VerifyOneTimeFundTransfer -->
+      </class> <!-- Make_A_Payment.C23528_VerifyMortageLoanGreaterThanAmountPayment -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

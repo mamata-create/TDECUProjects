@@ -52,28 +52,28 @@ public class C23665_VerifyActivityCenterTransactionFilteringWithStatus extends G
 				test.log(Status.INFO, "Login button clicked");
 				
 				//click login button
-				getElement(ObjectRepository.otpemail_btn).click();
-				test.log(Status.INFO, "Send OTP to email button clicked");
-				Thread.sleep(15000);
-				
-				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-				test.log(Status.INFO, "Login ID entered");
-				
-				
-				getElement(ObjectRepository.submit_btn).click();
-				test.log(Status.INFO, "Send OTP to email button clicked");
-				Thread.sleep(7000);
-				
-				try{
-					if(getElement(ObjectRepository.register_btn).isDisplayed()){
-						getElement(ObjectRepository.register_btn).click();
-						test.log(Status.INFO, "Register device button clicked");
-						Thread.sleep(7000);
-					}
-					}catch(Exception e){
-						test.log(Status.INFO, "Register device button not available to be clicked");
-					}
-				
+//				getElement(ObjectRepository.otpemail_btn).click();
+//				test.log(Status.INFO, "Send OTP to email button clicked");
+//				Thread.sleep(15000);
+//				
+//				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
+//				test.log(Status.INFO, "Login ID entered");
+//				
+//				
+//				getElement(ObjectRepository.submit_btn).click();
+//				test.log(Status.INFO, "Send OTP to email button clicked");
+//				Thread.sleep(7000);
+//				
+//				try{
+//					if(getElement(ObjectRepository.register_btn).isDisplayed()){
+//						getElement(ObjectRepository.register_btn).click();
+//						test.log(Status.INFO, "Register device button clicked");
+//						Thread.sleep(7000);
+//					}
+//					}catch(Exception e){
+//						test.log(Status.INFO, "Register device button not available to be clicked");
+//					}
+//				
 				//Verify log off link available after login
 				verifyElementPresent(ObjectRepository.logoff_lnk);
 				test.log(Status.INFO, "User successfully logged in as Logoff link available");
@@ -94,11 +94,26 @@ public class C23665_VerifyActivityCenterTransactionFilteringWithStatus extends G
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
-					test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
 					
-					verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
-					test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					if(SingleTransactionsTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
+					}
+					
+					WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+					
+					Thread.sleep(1500);
+					if(RecurringTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Recurring Transaction tab is not available on Activity Center page");
+					}
 					
 										
 					getElement(ObjectRepository.fltr_lnk).click();
@@ -124,8 +139,9 @@ public class C23665_VerifyActivityCenterTransactionFilteringWithStatus extends G
 					String val=getElement(ObjectRepository.actvty_stts_col).getText();
 					Assert.assertTrue(val.contains("Cancelled"));
 					test.log(Status.INFO, "Cancelled transactions filtered correctly");
-					
-					sel.selectByVisibleText("Drafted");
+					//WebElement stts_ele1=getElement(ObjectRepository.stts_parent);
+					Select sel_drafted=new Select(getElement(ObjectRepository.stts_parent));
+					sel_drafted.selectByVisibleText("Drafted");
 					test.log(Status.INFO, "Status as Drafted selected");
 					Thread.sleep(2000);
 					
@@ -137,7 +153,8 @@ public class C23665_VerifyActivityCenterTransactionFilteringWithStatus extends G
 					Assert.assertTrue(val.contains("Drafted"));
 					test.log(Status.INFO, "Drafted transactions filtered correctly");
 					
-					sel.selectByVisibleText("Failed");
+					Select sel_failed=new Select(getElement(ObjectRepository.stts_parent));
+					sel_failed.selectByVisibleText("Failed");
 					test.log(Status.INFO, "Status as Failed selected");
 					Thread.sleep(2000);
 					
@@ -149,7 +166,8 @@ public class C23665_VerifyActivityCenterTransactionFilteringWithStatus extends G
 					Assert.assertTrue(val.contains("Failed"));
 					test.log(Status.INFO, "Failed transactions filtered correctly");
 					
-					sel.selectByVisibleText("On Hold");
+					Select sel_OnHold=new Select(getElement(ObjectRepository.stts_parent));
+					sel_OnHold.selectByVisibleText("On Hold");
 					test.log(Status.INFO, "Status as On Hold selected");
 					Thread.sleep(2000);
 					
@@ -157,7 +175,12 @@ public class C23665_VerifyActivityCenterTransactionFilteringWithStatus extends G
 					test.log(Status.INFO, "Apply filter button clicked");
 					Thread.sleep(4000);
 					
-					sel.selectByVisibleText("Pending");
+					val=getElement(ObjectRepository.actvty_stts_col).getText();
+					Assert.assertTrue(val.contains("On Hold"));
+					test.log(Status.INFO, "On Hold transactions filtered correctly");
+					
+					Select sel_pending=new Select(getElement(ObjectRepository.stts_parent));
+					sel_pending.selectByVisibleText("Pending");
 					test.log(Status.INFO, "Status as Pending selected");
 					Thread.sleep(2000);
 					
@@ -165,13 +188,23 @@ public class C23665_VerifyActivityCenterTransactionFilteringWithStatus extends G
 					test.log(Status.INFO, "Apply filter button clicked");
 					Thread.sleep(4000);
 					
-					sel.selectByVisibleText("Processed");
+					val=getElement(ObjectRepository.actvty_stts_col).getText();
+					Assert.assertTrue(val.contains("Pending"));
+					test.log(Status.INFO, "Pending transactions filtered correctly");
+					
+					Select sel_processed=new Select(getElement(ObjectRepository.stts_parent));
+					sel_processed.selectByVisibleText("Processed");
 					test.log(Status.INFO, "Status as Processed selected");
 					Thread.sleep(2000);
 					
 					getElement(ObjectRepository.aplyfltr_btn).click();
 					test.log(Status.INFO, "Apply filter button clicked");
 					Thread.sleep(4000);
+					
+					val=getElement(ObjectRepository.actvty_stts_col).getText();
+					
+					Assert.assertTrue(val.contains("Processed"));
+					test.log(Status.INFO, "Processed transactions filtered correctly");
 				
 	}
 

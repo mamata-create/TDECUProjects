@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Member to Member Transfers">
+  <test name="C23415_VerifySingleTransfer">
+		<classes>
+			<class name="M_M_Transfer.C23415_VerifySingleTransfer" />
+		</classes>
+	</test>
+	<test name="C23416_VerifyLinkAccount">
+		<classes>
+			<class name="M_M_Transfer.C23416_VerifyLinkAccount" />
+		</classes>
+	</test>
+	<test name="C23600_VerifyLinkInValidAccountValidation">
+		<classes>
+			<class name="M_M_Transfer.C23600_VerifyLinkInValidAccountValidation" />
+		</classes>
+	</test>
+	<test name="C23601_VerifyM2MTransferSavingAccountLinking">
+		<classes>
+			<class name="M_M_Transfer.C23601_VerifyM2MTransferSavingAccountLinking" />
+		</classes>
+	</test>
+	<test name="C23602_VerifyM2MTransferCheckingAccountLinking">
+		<classes>
+			<class name="M_M_Transfer.C23602_VerifyM2MTransferCheckingAccountLinking" />
+		</classes>
+	</test> 
+	<test name="C23603_VerifySavingAccountM2MSingleTransfer">
+		<classes>
+			<class name="M_M_Transfer.C23603_VerifySavingAccountM2MSingleTransfer" />
+		</classes>
+	</test>
+	<test name="C23604_VerifyCheckingAccountM2MSingleTransfer">
+		<classes>
+			<class name="M_M_Transfer.C23604_VerifyCheckingAccountM2MSingleTransfer" />
+		</classes>
+	</test>
+	
+</suite>
+		
+	
+

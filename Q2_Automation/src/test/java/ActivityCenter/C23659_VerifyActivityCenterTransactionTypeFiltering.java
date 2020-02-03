@@ -1,4 +1,4 @@
-package Home;
+package ActivityCenter;
 
 import java.io.IOException;
 
@@ -23,12 +23,12 @@ import com.aventstack.extentreports.Status;
 
 import junit.framework.Assert;
 
-public class C23660_VerifyActivityCenterTransactionFilteringWithTransactionType extends GenericKeywords {
+public class C23659_VerifyActivityCenterTransactionTypeFiltering extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify Activity Center Transaction filtering with transaction type
+	 * Verify Activity Center Transaction Type filtering
 	 */
 
 	@BeforeTest
@@ -52,7 +52,7 @@ public class C23660_VerifyActivityCenterTransactionFilteringWithTransactionType 
 				test.log(Status.INFO, "Login button clicked");
 				
 				//click login button
-			/*	getElement(ObjectRepository.otpemail_btn).click();
+				/*getElement(ObjectRepository.otpemail_btn).click();
 				test.log(Status.INFO, "Send OTP to email button clicked");
 				Thread.sleep(15000);
 				
@@ -72,8 +72,8 @@ public class C23660_VerifyActivityCenterTransactionFilteringWithTransactionType 
 					}
 					}catch(Exception e){
 						test.log(Status.INFO, "Register device button not available to be clicked");
-					}*/
-				
+					}
+				*/
 				//Verify log off link available after login
 				verifyElementPresent(ObjectRepository.logoff_lnk);
 				test.log(Status.INFO, "User successfully logged in as Logoff link available");
@@ -81,7 +81,7 @@ public class C23660_VerifyActivityCenterTransactionFilteringWithTransactionType 
 	}
 
 	@Test
-	public void C23660_VerifyActivityCenterTransactionFilteringWithTransactionType() throws InterruptedException, MessagingException, IOException
+	public void C23659_VerifyActivityCenterTransactionTypeFiltering() throws InterruptedException, MessagingException, IOException
 	{			
 					
 					getElement(ObjectRepository.trnsctn_menu).click();
@@ -94,11 +94,26 @@ public class C23660_VerifyActivityCenterTransactionFilteringWithTransactionType 
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
-					test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
 					
-					verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
-					test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					if(SingleTransactionsTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
+					}
+					
+					WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+					
+					Thread.sleep(1500);
+					if(RecurringTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Recurring Transaction tab is not available on Activity Center page");
+					}
 					
 										
 					getElement(ObjectRepository.fltr_lnk).click();
@@ -106,81 +121,48 @@ public class C23660_VerifyActivityCenterTransactionFilteringWithTransactionType 
 					Thread.sleep(5000);
 					
 				//Search filter options
-					WebElement trnsctntyp_ele=getElement(ObjectRepository.trnsctntyp_parent).findElement(By.xpath(ObjectRepository.trnsctntyp_drop));
+					//verifyElementPresent("//label[contains(text(),'Transaction Type')]");
+					WebElement trnsctntyp_ele=getElement(ObjectRepository.trnsctntyp_parent);
 					Assert.assertTrue(trnsctntyp_ele.isDisplayed());
 					test.log(Status.INFO, "Transaction type filter option available");
-			//Fund transfer transactions searching		
+					
 					Select sel=new Select(trnsctntyp_ele);
 					sel.selectByVisibleText("Funds Transfer");
 					test.log(Status.INFO, "Transaction type as Funds Transfer selected");
 					Thread.sleep(2000);
 					
-					getElement(ObjectRepository.prcssdt_chkbx).click();
-					test.log(Status.INFO, "Process Date check box selected");
-					
 					getElement(ObjectRepository.aplyfltr_btn).click();
 					test.log(Status.INFO, "Apply filter button clicked");
 					Thread.sleep(4000);
-					
-					verifyElementPresent(ObjectRepository.prcssdt_col);
-					test.log(Status.INFO, "Process Date column appearing in grid");
 					
 					String val=getElement(ObjectRepository.actvty_trnsctntyp_col).getText();
 					Assert.assertTrue(val.contains("Funds Transfer"));
 					test.log(Status.INFO, "Fund transfer transactions filtered correctly");
 					
-					getElement(ObjectRepository.resetfltr_btn).click();
-					test.log(Status.INFO, "Reset filter button clicked");
-					Thread.sleep(4000);
-			//Stop Payment transactions searching		
+					
 					sel.selectByVisibleText("Stop Payment");
 					test.log(Status.INFO, "Transaction type as stop payment selected");
-					Thread.sleep(3000);
-					
-					getElement(ObjectRepository.prcssdt_chkbx).click();
-					test.log(Status.INFO, "Process Date check box selected");
+					Thread.sleep(2000);
 					
 					getElement(ObjectRepository.aplyfltr_btn).click();
 					test.log(Status.INFO, "Apply filter button clicked");
 					Thread.sleep(4000);
-					
-					verifyElementPresent(ObjectRepository.prcssdt_col);
-					test.log(Status.INFO, "Process Date column appearing in grid");
-					
 					
 					val=getElement(ObjectRepository.actvty_trnsctntyp_col).getText();
 					Assert.assertTrue(val.contains("Stop Payment"));
 					test.log(Status.INFO, "Stop Payment transactions filtered correctly");
 					
-					getElement(ObjectRepository.resetfltr_btn).click();
-					test.log(Status.INFO, "Reset filter button clicked");
-					Thread.sleep(4000);
-					
-			//Domestic wire transactions searching
 					sel.selectByVisibleText("Domestic Wire");
 					test.log(Status.INFO, "Transaction type as Domestic wire selected");
 					Thread.sleep(2000);
-					
-					getElement(ObjectRepository.prcssdt_chkbx).click();
-					test.log(Status.INFO, "Process Date check box selected");
-					
 					
 					getElement(ObjectRepository.aplyfltr_btn).click();
 					test.log(Status.INFO, "Apply filter button clicked");
 					Thread.sleep(4000);
 					
-					verifyElementPresent(ObjectRepository.prcssdt_col);
-					test.log(Status.INFO, "Process Date column appearing in grid");
-					
-					
 					val=getElement(ObjectRepository.actvty_trnsctntyp_col).getText();
 					Assert.assertTrue(val.contains("Domestic Wire"));
 					test.log(Status.INFO, "Domestic Wire transactions filtered correctly");
-					
-					getElement(ObjectRepository.resetfltr_btn).click();
-					test.log(Status.INFO, "Reset filter button clicked");
-					Thread.sleep(4000);
-				//External transactions searching	
 					
 					sel.selectByVisibleText("External Transfer");
 					test.log(Status.INFO, "Transaction type as external transfer selected");
@@ -189,6 +171,8 @@ public class C23660_VerifyActivityCenterTransactionFilteringWithTransactionType 
 					getElement(ObjectRepository.aplyfltr_btn).click();
 					test.log(Status.INFO, "Apply filter button clicked");
 					Thread.sleep(4000);
+					
+					
 				
 	}
 
@@ -199,7 +183,7 @@ public class C23660_VerifyActivityCenterTransactionFilteringWithTransactionType 
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify Activity Center Transaction filtering with transaction type scenario working fine");
+			test.log(Status.PASS, "Verify Activity Center Transaction type filtering scenario working fine");
 		}
 	}
 

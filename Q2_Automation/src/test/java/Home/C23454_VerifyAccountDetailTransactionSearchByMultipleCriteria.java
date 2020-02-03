@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -76,7 +78,7 @@ public class C23454_VerifyAccountDetailTransactionSearchByMultipleCriteria exten
 	}
 
 	@Test
-	public void C23454_VerifyAccountDetailTransactionSearchByMultipleCriteria() throws InterruptedException, MessagingException, IOException
+	public void C23454_VerifyAccountDetailTransactionSearchByMultipleCriteria() throws Exception
 	{
 		if(continuetestcase==true)
 		{
@@ -99,11 +101,28 @@ public class C23454_VerifyAccountDetailTransactionSearchByMultipleCriteria exten
 					getElement(ObjectRepository.acntdtl_shwfltr).click();
 					test.log(Status.INFO, "Filter icon clicked to show filter options");
 					
-					selectDropdownOptContain(ObjectRepository.acntdtl_trnsctntyp_dropdown, "Posted");
+					WebElement transactionType_root1 = driver.findElement(By.cssSelector("q2-select[label='Transaction Type']"));
+					WebElement shadow_TransactionType_root1 = ObjectRepository.expandRootElement(driver, transactionType_root1);
+					WebElement transactionType_root2 = shadow_TransactionType_root1.findElement(By.cssSelector("q2-input[label='Transaction Type']"));
+					WebElement transactionType_shadow_Root2 = ObjectRepository.expandRootElement(driver, transactionType_root2);
+					WebElement transactionTypeDropdown = transactionType_shadow_Root2.findElement(By.cssSelector("button[test-id='inputField']"));
+					transactionTypeDropdown.click();
+					
+					selectOptionShadowRootDropDown(transactionTypeDropdown,"Posted").click();
+					
 					test.log(Status.INFO, "Posted selected from transaction type dropdown");
 					
-					selectDropdownOptContain(ObjectRepository.acntdtl_timeprd_dropdown, "This Month");
+					WebElement timePerd_root1 = driver.findElement(By.cssSelector("q2-select[label='Time Period']"));
+					WebElement shadow_timePerd_root1 = ObjectRepository.expandRootElement(driver, timePerd_root1);
+					WebElement timePerd_root2 = shadow_timePerd_root1.findElement(By.cssSelector("q2-input[label='Time Period']"));
+					WebElement timePerd_shadow_Root2 = ObjectRepository.expandRootElement(driver, timePerd_root2);
+					WebElement timePerdDropdown = timePerd_shadow_Root2.findElement(By.cssSelector("button[test-id='inputField']"));
+					timePerdDropdown.click();
+					
+					selectOptionShadowRootDropDown(timePerdDropdown,"This month").click();
 					test.log(Status.INFO, "This month selected from time period dropdown");
+					
+					
 					
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");

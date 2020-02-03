@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Make A Payment ">
+  <test name="C23498_VerifyMakeConsumerLoanPayment">
+		<classes>
+			<class name="Make_A_Payment.C23498_VerifyMakeConsumerLoanPayment" />
+		</classes>
+	</test>
+	<test name="C23445_VerifyAccountDetailTransactionSearch">
+		<classes>
+			<class name="Home.C23445_VerifyAccountDetailTransactionSearch" />
+		</classes>
+	</test>
+	<test name="C23446_VerifyAccountDetailTransactionSearchByTime">
+		<classes>
+			<class name="Home.C23446_VerifyAccountDetailTransactionSearchByTime" />
+		</classes>
+	</test>
+	<test name="C23450_VerifyWelcomePageOnHomePage">
+		<classes>
+			<class name="Home.C23450_VerifyWelcomePageOnHomePage" />
+		</classes>
+	</test>
+	<test name="C23451_VerifyAccountDetailTransactionSearchByTransactionType">
+		<classes>
+			<class name="Home.C23451_VerifyAccountDetailTransactionSearchByTransactionType" />
+		</classes>
+	</test>
+	<test name="C23452_VerifyAccountDetailTransactionSearchByAmountRange">
+		<classes>
+			<class name="Home.C23452_VerifyAccountDetailTransactionSearchByAmountRange" />
+		</classes>
+	</test>
+	<test name="C23453_VerifyAccountDetailTransactionSearchByCheckNumber">
+		<classes>
+			<class name="Home.C23453_VerifyAccountDetailTransactionSearchByCheckNumber" />
+		</classes>
+	</test>
+	<test name="C23454_VerifyAccountDetailTransactionSearchByMultipleCriteria">
+		<classes>
+			<class name="Home.C23454_VerifyAccountDetailTransactionSearchByMultipleCriteria" />
+		</classes>
+	</test>
+	<test name="C23509_VerifyMoreInfoAboutCompany">
+		<classes>
+			<class name="Home.C23509_VerifyMoreInfoAboutCompany" />
+		</classes>
+	</test>
+	<test name="VerifyTransferMoneyNowOptionOnHomepagee">
+		<classes>
+			<class name="Home.VerifyTransferMoneyNowOptionOnHomepage" />
+		</classes>
+	</test>
+</suite>		
+		
+

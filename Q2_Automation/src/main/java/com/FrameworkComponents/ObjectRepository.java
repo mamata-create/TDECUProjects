@@ -80,10 +80,10 @@ public class ObjectRepository {
 	public static String rcrngtrnsctn_tab="//span[text()='Recurring Transactions']";
 	public static String srchtrnsctn_txt="//div[@class='searchbox']//input[@placeholder='Search transactions']";
 	public static String fltr_lnk="//button[@test-id='lnkShowClassic']";
-	public static String trnsctntyp_parent="//div[@class='col-xs-12']/div[1]/div[1]";
+	public static String trnsctntyp_parent="//label[text()='Transaction Type']/following::select[1]";
 	public static String trnsctntyp_drop="//select[@test-id='selTranType']";
-	public static String stts_parent="//div[@class='col-xs-12']/div[1]/div[2]//select[@class='ember-view ember-select form-control']";
-	public static String acnt_parent="//div[@class='col-xs-12']/div[1]/div[3]//select[@class='ember-view ember-select form-control']";
+	public static String stts_parent="//label[text()='Status']/following::select[1]";
+	public static String acnt_parent="//label[text()='Account']/following::select[1]";
 	public static String crtd_parent="//div[@class='col-xs-12']/div[1]/div[4]//select[@class='ember-view ember-select form-control']";
 	public static String amnt_parent="//div[@class='col-xs-12']/div[1]/div[5]//select[@class='ember-view ember-select form-control']";
 	public static String trnsctnID_txt="//label[text()='Transaction ID']/following::input[1]";
@@ -106,14 +106,14 @@ public class ObjectRepository {
 	public static String actn_cncl="//button[@aria-label='Actions']/following::ul[1]//li[2]";
 	public static String actn_inqr="//button[@aria-label='Actions']/following::ul[1]//li[3]";
 	public static String applyFilterBtn = "//button[@test-id='lnkSearch']";
-	public static String trnsfrmnynow_lnk="//div[@test-id='btnQuickTransfer']";
+	public static String trnsfrmnynow_lnk="//div/a[@test-id='btnQuickTransfer']";
 	
 	public static String fundtransfer_ttl="//h1[text()='Funds Transfer']";
 	public static String wlcmmsg="//div[@class='customer-name']";
 	public static String timeStamp = "//div[@test-id='lblLastLogin']";
 	
 	public static String accntgrp_expnd="//div[contains(@class,'account-group')]//a[@aria-label='Expand Group']";
-	public static String accn_lbl="//span[@class='account-label']";
+	public static String accn_lbl="//div[@class='account-header-title']//h1";
 	public static String dtls_lnk="//*[text()='Details']";
 	
 	public static String cntctus_menu="//div[@class='menu-text' and text()='Contact Us']";
@@ -125,13 +125,14 @@ public class ObjectRepository {
 	public static String inqr_ttl="//h2[text()='Transaction Inquiry']";
 	public static String inqr_msg="//textarea[@test-id='fldMessageContent']";
 	public static String inqr_sccs="//div[text()='Message Sent']";
-	public static String actvty_trnsctntyp_col="//div[@class='content-wrapper grid-column']//tbody[@class='scrollable']/tr[1]//td[@test-id='lnkActivityID']";
-	public static String actvty_stts_col="//div[@class='content-wrapper grid-column']//tbody[@class='scrollable']/tr[1]//td[@class='status']";
+	public static String actvty_trnsctntyp_col="(//tbody[@class='scrollable']//td[@test-id='lnkActivityID'])[1]";
+	public static String actvty_stts_col="(//tbody[@class='scrollable']//span[@test-id='txtHeaderStatus'])[1]";
 	public static String toacnt_chkbx="//input[@name='toAccount']";
 	public static String prcssdt_chkbx="//input[@name='processDate']";
 	public static String toacnt_col="//th[@test-id='lblToAccount']";
 	public static String prcssdt_col="//th[@test-id='lblProcessDate']";
-	public static String acnt_col="//div[@class='content-wrapper grid-column']//tbody[@class='scrollable']/tr[1]//td[@class='account']";
+	public static String created_date_col = "//th[@test-id='lblDate']";
+	public static String acnt_col="//tbody[@class='scrollable']//td[4]";
 	
 	
 	//Member to Member Transfer
@@ -143,7 +144,7 @@ public class ObjectRepository {
 	public static String mtm_sngltrnsfr_ttl="//h2[text()='Transfer Funds to Another Member']";
 	public static String mtm_lnkacnt_ttl="//h2[text()='Link An Account']";
 	public static String mtm_frmacnt_dropdown="//select[@id='fromAccountSelect']";
-	public static String mtm_amnt_txt="//input[@id='TransactionAmount']";
+	public static String mtm_amnt_txt="//label[@for='TransactionAmount']//following::input[1]";
 	public static String mtm_desc_txt="//input[@id='Description']";
 	public static String mtm_toacntnmbr_txt="//input[@id='ToAccountNumber']";
 	public static String mtm_acnttyp_dropdown="//select[@id='ToAccountType']";
@@ -186,7 +187,7 @@ public class ObjectRepository {
 		public static String home_menu="//div[@class='menu-text' and contains(text(),'Home')]";
 		public static String acntdtl_shwfltr="//button[@test-id='btnShowFilter']";
 		public static String acntdtl_aplyfltr="//q2-btn[@test-id='btnApplyFilter']";
-		public static String acntdtl_resetfltr="//span[@test-id='btnClearFilter']";
+		public static String acntdtl_resetfltr="//q2-btn[@test-id='btnClearFilter']";
 		public static String acntdtl_timeprd_dropdown="//select[@test-id='selTimePeriod']";
 		public static String acntdtl_trnsctntyp_dropdown="//select[@test-id='selTransType']";
 		public static String acntdtl_minamnttxt="//input[@test-id='fldMinAmount']";

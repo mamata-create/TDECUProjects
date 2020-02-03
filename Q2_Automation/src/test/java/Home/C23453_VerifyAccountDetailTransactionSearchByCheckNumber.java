@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -98,8 +100,13 @@ public class C23453_VerifyAccountDetailTransactionSearchByCheckNumber extends Ge
 					
 					getElement(ObjectRepository.acntdtl_shwfltr).click();
 					test.log(Status.INFO, "Filter icon clicked to show filter options");
-				//Min Amount	
-					getElement(ObjectRepository.acntdtl_checknofrom).sendKeys(checknofrom);
+				//Min Amount
+					
+					WebElement startingCheck_root1 = driver.findElement(By.cssSelector("q2-input[label='Starting Check #']"));
+					WebElement shadow_startChecking_root1 = ObjectRepository.expandRootElement(driver, startingCheck_root1);
+					WebElement start_checking_field = shadow_startChecking_root1.findElement(By.cssSelector("input[class='input-field']"));
+					start_checking_field.sendKeys(checknofrom);
+					
 					test.log(Status.INFO, "From Check no  entered");
 					
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
@@ -110,7 +117,12 @@ public class C23453_VerifyAccountDetailTransactionSearchByCheckNumber extends Ge
 					getElement(ObjectRepository.acntdtl_resetfltr).click();
 					Thread.sleep(3000);
 				//Max amount	
-					getElement(ObjectRepository.acntdtl_checknoto).sendKeys(checknoto);
+					
+					WebElement EndingCheck_root1 = driver.findElement(By.cssSelector("q2-input[label='Ending Check #']"));
+					WebElement shadow_endingChecking_root1 = ObjectRepository.expandRootElement(driver, EndingCheck_root1);
+					WebElement ending_checking_field = shadow_endingChecking_root1.findElement(By.cssSelector("input[class='input-field']"));
+					ending_checking_field.sendKeys(checknofrom);
+					
 					test.log(Status.INFO, "To Check no entered");
 					
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
@@ -121,8 +133,8 @@ public class C23453_VerifyAccountDetailTransactionSearchByCheckNumber extends Ge
 					getElement(ObjectRepository.acntdtl_resetfltr).click();
 					Thread.sleep(3000);
 				//Amount range	
-					getElement(ObjectRepository.acntdtl_checknofrom).sendKeys(checknofrom);
-					getElement(ObjectRepository.acntdtl_checknoto).sendKeys(checknoto);
+					start_checking_field.sendKeys(checknofrom);
+					ending_checking_field.sendKeys(checknoto);
 					test.log(Status.INFO, "From and To Check no entered");
 					
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();

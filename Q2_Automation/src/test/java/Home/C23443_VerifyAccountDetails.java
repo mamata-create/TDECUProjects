@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -95,7 +97,11 @@ public class C23443_VerifyAccountDetails extends GenericKeywords {
 					verifyText(ObjectRepository.accn_lbl, acntName);
 					test.log(Status.INFO, "Account Info verified on account details page");
 					
-					verifyElementPresent(ObjectRepository.dtls_lnk);
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='account-details-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1); 
+					WebElement detailsTaLink = shadowRoot1.findElement(By.cssSelector("a[value='details']"));
+					
+					detailsTaLink.isDisplayed();
 					test.log(Status.INFO, "Details link available on account details page");
 					
 				 }

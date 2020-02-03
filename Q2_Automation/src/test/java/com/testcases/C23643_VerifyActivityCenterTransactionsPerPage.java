@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -49,7 +50,7 @@ public class C23643_VerifyActivityCenterTransactionsPerPage  extends GenericKeyw
 				test.log(Status.INFO, "Login button clicked");
 				
 				//click login button
-				getElement(ObjectRepository.otpemail_btn).click();
+				/*getElement(ObjectRepository.otpemail_btn).click();
 				test.log(Status.INFO, "Send OTP to email button clicked");
 				Thread.sleep(15000);
 				
@@ -70,7 +71,7 @@ public class C23643_VerifyActivityCenterTransactionsPerPage  extends GenericKeyw
 					}catch(Exception e){
 						test.log(Status.INFO, "Register device button not available to be clicked");
 					}
-				
+				*/
 				//Verify log off link available after login
 				verifyElementPresent(ObjectRepository.logoff_lnk);
 				test.log(Status.INFO, "User successfully logged in as Logoff link available");
@@ -91,28 +92,25 @@ public class C23643_VerifyActivityCenterTransactionsPerPage  extends GenericKeyw
 		verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 		test.log(Status.INFO, "Activity Center page opened");
 		
-		WebElement ele=getElement("//span[text()='Single Transactions']/parent::*/parent::*");
+		WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+		WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+		WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
 		
-		String sngltrnsctn=ele.getAttribute("class");
-		if(sngltrnsctn.contains("active")){
+		if(SingleTransactionsTab.isDisplayed()){
 			Assert.assertTrue(true);
-			test.log(Status.INFO, "Single Transaction tab is selected");
+			test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
 		}else{
-			test.log(Status.INFO, "Single Transaction tab is not selected");
+			test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
 		}
 		
-		getElement(ObjectRepository.rcrngtrnsctn_tab).click();
-		test.log(Status.INFO, "Recurring transaction tab clicked");
-		Thread.sleep(3000);
+		WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
 		
-		WebElement rele=getElement("//span[text()='Recurring Transactions']/parent::*/parent::*");
-		
-		String rcrngtrnsctn=rele.getAttribute("class");
-		if(rcrngtrnsctn.contains("active")){
+		Thread.sleep(1500);
+		if(RecurringTab.isDisplayed()){
 			Assert.assertTrue(true);
-			test.log(Status.INFO, "Recurring Transaction tab is selected");
+			test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
 		}else{
-			test.log(Status.INFO, "Recurring Transaction tab is not selected");
+			test.log(Status.INFO, "Recurring Transaction tab is not available on Activity Center page");
 		}
 		
 	}

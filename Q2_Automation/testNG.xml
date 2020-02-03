@@ -3,6 +3,6 @@
 <suite name="Suite">
   <suite-files>
 		<suite-file path="./Activity_Center_Suite.xml" />
-		<suite-file path="./" />
+		<suite-file path="./Transfers_suite.xml" />
 </suite-files>
 </suite> <!-- Suite -->

@@ -1,4 +1,4 @@
-package Home;
+package ActivityCenter;
 
 import java.io.IOException;
 
@@ -71,8 +71,8 @@ public class C23645_VerifyActivityCenterCancelTransaction   extends GenericKeywo
 					}
 					}catch(Exception e){
 						test.log(Status.INFO, "Register device button not available to be clicked");
-					}*/
-				
+					}
+				*/
 				//Verify log off link available after login
 				verifyElementPresent(ObjectRepository.logoff_lnk);
 				test.log(Status.INFO, "User successfully logged in as Logoff link available");
@@ -94,24 +94,28 @@ public class C23645_VerifyActivityCenterCancelTransaction   extends GenericKeywo
 					Thread.sleep(3000);
 					
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
-					test.log(Status.INFO, "Activity Center page opened");	
+					test.log(Status.INFO, "Activity Center page opened");
 					
-					
-					//Modified steps. Added elemnts of ShadowRoot
 					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
-					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver,root1);
-					WebElement singleTransactionTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
-					if(singleTransactionTab.isDisplayed()) 
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
+					
+					if(SingleTransactionsTab.isDisplayed()){
+						Assert.assertTrue(true);
 						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
-					//verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
-					//test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
+					}
 					
-					WebElement RecurringTransactionTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
-					if(RecurringTransactionTab.isDisplayed()) 
+					WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+					
+					Thread.sleep(1500);
+					if(RecurringTab.isDisplayed()){
+						Assert.assertTrue(true);
 						test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
-					
-				//	verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
-				//	test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Recurring Transaction tab is not available on Activity Center page");
+					}
 					
 					verifyElementPresent(ObjectRepository.srchtrnsctn_txt);
 					test.log(Status.INFO, "Search transaction field available on Activity Center page");

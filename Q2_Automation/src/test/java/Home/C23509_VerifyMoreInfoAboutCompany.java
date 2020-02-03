@@ -83,55 +83,39 @@ public class C23509_VerifyMoreInfoAboutCompany extends GenericKeywords {
 		scrollToElement(ObjectRepository.crprt_lnk);
 		getElement(ObjectRepository.crprt_lnk).click();
 		test.log(Status.INFO, "Corporate link clicked");
-		
+		handleMultipleWindow(1,"");
 		Thread.sleep(3000);
-		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
-	    driver.switchTo().window(tabs2.get(1));
-	    test.log(Status.INFO, "Switched to newly opened corporate tab");
-	    driver.close();
-	    Thread.sleep(3000);
-	    driver.switchTo().defaultContent();
-	    
-//		verifyElementPresent(ObjectRepository.cntctus_h1);
-//		test.log(Status.INFO, "Contact us page first label verified");
+		closeWindow();
+		handleMultipleWindow(0,"");
+		verifyElementPresent(ObjectRepository.cntctus_h1);
+		test.log(Status.INFO, "Contact us page first label verified");
+		
+		
 	    scrollToElement(ObjectRepository.crprt_lnk);
 	    getElement(ObjectRepository.lrnmr_lnk).click();
 		test.log(Status.INFO, "Learn More link clicked");
-		
+		handleMultipleWindow(1,"");
 		Thread.sleep(3000);
-		 tabs2 = new ArrayList<String> (driver.getWindowHandles());
-	    driver.switchTo().window(tabs2.get(1));
-	    test.log(Status.INFO, "Switched to newly opened Learn More tab");
-	    driver.close();
-	    Thread.sleep(3000);
-	    driver.switchTo().defaultContent();
-	    
-	    
+		closeWindow();
+		handleMultipleWindow(0,"");
+		    
 	    scrollToElement(ObjectRepository.crprt_lnk);
 	    getElement(ObjectRepository.cntctus_lnk).click();
 		test.log(Status.INFO, "Contact Us link clicked");
-		
+		handleMultipleWindow(1,"");
 		Thread.sleep(3000);
-		 tabs2 = new ArrayList<String> (driver.getWindowHandles());
-	    driver.switchTo().window(tabs2.get(1));
-	    test.log(Status.INFO, "Switched to newly opened Contact Us tab");
-	    driver.close();
-	    Thread.sleep(3000);
-	    driver.switchTo().defaultContent();
+		closeWindow();
+		handleMultipleWindow(0,"");
 	    
 	    
 	    scrollToElement(ObjectRepository.crprt_lnk);
 	    getElement(ObjectRepository.ourblg_lnk).click();
 		test.log(Status.INFO, "Our Blog link clicked");
-		
+		handleMultipleWindow(1,"");
 		Thread.sleep(3000);
-		 tabs2 = new ArrayList<String> (driver.getWindowHandles());
-	    driver.switchTo().window(tabs2.get(1));
-	    test.log(Status.INFO, "Switched to newly opened Our Blog tab");
-	    driver.close();
-	    Thread.sleep(3000);
-	    driver.switchTo().defaultContent();
-	    
+		closeWindow();
+		handleMultipleWindow(0,"");
+    
 	}
 
 	@AfterMethod

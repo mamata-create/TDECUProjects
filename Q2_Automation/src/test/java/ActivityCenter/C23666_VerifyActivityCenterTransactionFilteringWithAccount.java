@@ -1,4 +1,4 @@
-package Home;
+package ActivityCenter;
 
 import java.io.IOException;
 
@@ -52,28 +52,28 @@ public class C23666_VerifyActivityCenterTransactionFilteringWithAccount extends 
 				test.log(Status.INFO, "Login button clicked");
 				
 				//click login button
-				/*getElement(ObjectRepository.otpemail_btn).click();
-				test.log(Status.INFO, "Send OTP to email button clicked");
-				Thread.sleep(15000);
-				
-				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-				test.log(Status.INFO, "Login ID entered");
-				
-				
-				getElement(ObjectRepository.submit_btn).click();
-				test.log(Status.INFO, "Send OTP to email button clicked");
-				Thread.sleep(7000);
-				
-				try{
-					if(getElement(ObjectRepository.register_btn).isDisplayed()){
-						getElement(ObjectRepository.register_btn).click();
-						test.log(Status.INFO, "Register device button clicked");
-						Thread.sleep(7000);
-					}
-					}catch(Exception e){
-						test.log(Status.INFO, "Register device button not available to be clicked");
-					}*/
-				
+//				getElement(ObjectRepository.otpemail_btn).click();
+//				test.log(Status.INFO, "Send OTP to email button clicked");
+//				Thread.sleep(15000);
+//				
+//				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
+//				test.log(Status.INFO, "Login ID entered");
+//				
+//				
+//				getElement(ObjectRepository.submit_btn).click();
+//				test.log(Status.INFO, "Send OTP to email button clicked");
+//				Thread.sleep(7000);
+//				
+//				try{
+//					if(getElement(ObjectRepository.register_btn).isDisplayed()){
+//						getElement(ObjectRepository.register_btn).click();
+//						test.log(Status.INFO, "Register device button clicked");
+//						Thread.sleep(7000);
+//					}
+//					}catch(Exception e){
+//						test.log(Status.INFO, "Register device button not available to be clicked");
+//					}
+//				
 				//Verify log off link available after login
 				verifyElementPresent(ObjectRepository.logoff_lnk);
 				test.log(Status.INFO, "User successfully logged in as Logoff link available");
@@ -84,6 +84,15 @@ public class C23666_VerifyActivityCenterTransactionFilteringWithAccount extends 
 	public void C23666_VerifyActivityCenterTransactionFilteringWithAccount() throws InterruptedException, MessagingException, IOException
 	{			
 					
+		if(continuetestcase==true)
+		{
+			sheetName = "Data";
+			int totalRowCount = excl.getRowCount(sheetName);
+			for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
+			 {	
+				if(this.getClass().getSimpleName().equals(excl.getCellData("Data", 0, startIter)))
+				 {
+					String id=excl.getCellData(sheetName, 1, startIter);
 					getElement(ObjectRepository.trnsctn_menu).click();
 					test.log(Status.INFO, "transaction menu clicked");
 					
@@ -94,11 +103,27 @@ public class C23666_VerifyActivityCenterTransactionFilteringWithAccount extends 
 					verifyElementPresent(ObjectRepository.actvtycntr_ttl);
 					test.log(Status.INFO, "Activity Center page opened");
 					
-					verifyElementPresent(ObjectRepository.sngltrnsctn_tab);
-					test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					WebElement root1 = driver.findElement(By.cssSelector("q2-tab-container[name='ac-tabs']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
+					WebElement SingleTransactionsTab = shadowRoot1.findElement(By.cssSelector("a[value='individual']"));
 					
-					verifyElementPresent(ObjectRepository.rcrngtrnsctn_tab);
-					test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					if(SingleTransactionsTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Single Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Single Transaction tab is not available on Activity Center page");
+					}
+					
+					WebElement RecurringTab = shadowRoot1.findElement(By.cssSelector("a[value='recurring']"));
+					
+					Thread.sleep(1500);
+					if(RecurringTab.isDisplayed()){
+						Assert.assertTrue(true);
+						test.log(Status.INFO, "Recurring Transaction tab available on Activity Center page");
+					}else{
+						test.log(Status.INFO, "Recurring Transaction tab is not available on Activity Center page");
+					}
+					
 					
 										
 					getElement(ObjectRepository.fltr_lnk).click();
@@ -110,7 +135,7 @@ public class C23666_VerifyActivityCenterTransactionFilteringWithAccount extends 
 					Assert.assertTrue(trnsctntyp_ele.isDisplayed());
 					test.log(Status.INFO, "Transaction type filter option available");
 					
-					selectDropdownOptContain(ObjectRepository.acnt_parent, "1403410100");
+					selectDropdownOptContain(ObjectRepository.acnt_parent, id);
 					test.log(Status.INFO, "Transaction Account selected");
 					Thread.sleep(2000);
 					
@@ -119,8 +144,16 @@ public class C23666_VerifyActivityCenterTransactionFilteringWithAccount extends 
 					Thread.sleep(4000);
 					
 					String val=getElement(ObjectRepository.acnt_col).getText();
-					Assert.assertTrue(val.contains("1403410100"));
+					Assert.assertTrue(val.contains(id));
 					test.log(Status.INFO, "Account transactions filtered correctly");
+				 
+				 }
+			 }
+		}
+		
+		
+		
+					
 					
 				
 	}

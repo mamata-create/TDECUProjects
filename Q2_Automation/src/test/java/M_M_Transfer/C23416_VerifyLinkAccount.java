@@ -113,7 +113,7 @@ public class C23416_VerifyLinkAccount  extends GenericKeywords {
 		
 		scrollToElement(ObjectRepository.mtm_toacntnmbr_txt);
 		
-		if(getElement(ObjectRepository.mtm_toacntnmbr_txt).getAttribute("class").contains("invalid")){
+		if(getElement(ObjectRepository.mtm_toacntnmbr_txt).getAttribute("class").contains("text-danger error")){
 			Assert.assertTrue(true);
 			test.log(Status.INFO, "To Account Number field validation appeared");
 		}

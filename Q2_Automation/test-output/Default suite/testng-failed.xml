@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Transfers.C23408_VerifyRepeatForeverCheckBox">
+      <class name="Make_A_Payment.C23527_VerifyCommercialLoanGreaterThanAmountPayment">
         <methods>
-          <include name="C23408_VerifyRepeatForeverCheckBox"/>
-          <include name="tearDown"/>
+          <include name="C23527_VerifyCommercialLoanGreaterThanAmountPayment"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- Transfers.C23408_VerifyRepeatForeverCheckBox -->
+      </class> <!-- Make_A_Payment.C23527_VerifyCommercialLoanGreaterThanAmountPayment -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -124,7 +124,7 @@ public class C23526_VerifyConsumerLoanGreaterThanAmountPayment  extends GenericK
 					WebElement calStartDate = shadowRoot2.findElement(By.cssSelector("button[test-id='inputField']"));
 					calStartDate.click();
 					Thread.sleep(3000);
-					selectDateofShadowRootElement(1,"Select Date");
+					selectDateofShadowRootElement(0,"Select Date");
 					test.log(Status.INFO, "Date selected");
 					
 					getElement(ObjectRepository.mkpymnt_memo).sendKeys(memo);

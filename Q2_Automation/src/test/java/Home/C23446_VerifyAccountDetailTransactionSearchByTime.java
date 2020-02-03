@@ -115,7 +115,9 @@ public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericK
 					WebElement timePerd_root2 = shadow_timePerd_root1.findElement(By.cssSelector("q2-input[label='Time Period']"));
 					WebElement timePerd_shadow_Root2 = ObjectRepository.expandRootElement(driver, timePerd_root2);
 					WebElement timePerdDropdown = timePerd_shadow_Root2.findElement(By.cssSelector("button[test-id='inputField']"));
-					selectOptionShadowRoot(timePerdDropdown,"Today").click();
+					timePerdDropdown.click();
+				
+					selectOptionShadowRootDropDown(timePerdDropdown,"Today").click();
 						
 					test.log(Status.INFO, "Today selected from time period dropdown");
 					
@@ -124,14 +126,16 @@ public class C23446_VerifyAccountDetailTransactionSearchByTime  extends GenericK
 					Thread.sleep(3000);
 					test.log(Status.INFO, "Today transactions searched");
 					
-					selectOptionShadowRoot(timePerdDropdown,"Yesterday").click();
+					timePerdDropdown.click();
+					selectOptionShadowRootDropDown(timePerdDropdown,"Yesterday").click();
 					test.log(Status.INFO, "Yesterday selected from time period dropdown");
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");
 					Thread.sleep(3000);
 					test.log(Status.INFO, "Yesterday transactions searched");
 					
-					selectOptionShadowRoot(timePerdDropdown,"This month").click();
+					timePerdDropdown.click();
+					selectOptionShadowRootDropDown(timePerdDropdown,"This month").click();
 					test.log(Status.INFO, "This month selected from time period dropdown");
 					getElement(ObjectRepository.acntdtl_aplyfltr).click();
 					test.log(Status.INFO, "Apply Filter button clicked");
