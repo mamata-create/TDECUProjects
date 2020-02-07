@@ -374,6 +374,10 @@ public class ObjectRepository {
 				public static String modalFundTransferPopUpCloseBtn = "//button[@test-id='btnModalButton2']";
 				public static String applyButtonToScroll = "//button[text()='Apply']";
 				
+				//cPFM locators, Added by Sravya
+				public static String lnkacnt_sctn="//span[text()='Link Account']";
+				public static String lnkacnt_clckhere="//small[contains(text(),'You can pull in information from your other bank')]/a[text()='Click here to get started.']";
+				
 		//Retrun shadow root element
 				
 				public static WebElement expandRootElement(WebDriver driver,WebElement element) {
