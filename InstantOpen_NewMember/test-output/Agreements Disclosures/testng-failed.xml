@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Agreements Disclosures]">
+  <test thread-count="5" name="C24298_VerifySelectOneResidentOption(failed)">
+    <classes>
+      <class name="AgreementsDisclosures.C24298_VerifySelectOneResidentOption">
+        <methods>
+          <include name="C24298_VerifySelectOneResidentOption"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- AgreementsDisclosures.C24298_VerifySelectOneResidentOption -->
+    </classes>
+  </test> <!-- C24298_VerifySelectOneResidentOption(failed) -->
+</suite> <!-- Failed suite [Agreements Disclosures] -->

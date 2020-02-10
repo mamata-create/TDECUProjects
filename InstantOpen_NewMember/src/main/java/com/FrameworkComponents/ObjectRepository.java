@@ -607,4 +607,9 @@ public class ObjectRepository {
 		public static String svprgrs_info="//p[contains(text(),'You can save your application to finish later')]";
 		public static String cancel_btn="//span[@id='btnCancel']/input";
 		
+		//instantOpen New Scenarios
+		
+		public static String progressBarOptions = "//span[@id='progBar']//span";
+		
+		
 	}
