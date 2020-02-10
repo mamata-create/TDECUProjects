@@ -53,7 +53,7 @@ public class ObjectRepository {
 	
 	public static String crrnttdecu_opt="//*[@id='rbFamily']/div";
 			//"//input[@id='rbFamily_RadioButton']";
-	public static String cnfrmacnt_ttl="//strong[text()='Confirm Account Selections']";
+	public static String cnfrmacnt_ttl="//*[text()='Confirm Selected Products and Services']";
 	public static String cnfrm_btn="//input[@id='btnNext_SubmitButton']";
 	public static String tnc_chkbx="//span[@id='cbDisclosures']/div[@class='icheckbox_square-grey']";
 	//Agreement and Signature
@@ -154,5 +154,7 @@ public class ObjectRepository {
 	public static String stppaymnt_mltchk="//div[@test-id='lblMultiChk']";
 	public static String stppaymnt_notetxt="//div[@test-id='tbxDesc']/input";
 	public static String stppaymnt_setbtn="//div[@test-id='btnSet']";
-	
+
+	//Add Promocode
+	public static String add_promocode_field = "//input[@name='tbPromoCode_TextBox']";
 }
