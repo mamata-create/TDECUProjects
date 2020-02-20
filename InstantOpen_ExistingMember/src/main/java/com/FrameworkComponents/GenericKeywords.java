@@ -679,6 +679,16 @@ public class GenericKeywords extends BaseClass{
 		test.addScreenCaptureFromPath(dest);
 	}
 	
+	public static List<WebElement> returnElements(String locator){
+		List<WebElement> elements = null;
+		try{
+			elements = driver.findElements(By.xpath(locator));
+			  
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return elements;
+	}
 }
 	
 

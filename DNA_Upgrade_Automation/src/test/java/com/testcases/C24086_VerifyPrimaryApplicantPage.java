@@ -79,6 +79,7 @@ public class C24086_VerifyPrimaryApplicantPage extends GenericKeywords {
 					String phonetyp=excl.getCellData(sheetName, 17, startIter);
 					String primary_email=excl.getCellData(sheetName, 18, startIter);
 					String hear_opt=excl.getCellData(sheetName, 19, startIter);
+					String promo_code = excl.getCellData(sheetName, 23, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -174,14 +175,18 @@ public class C24086_VerifyPrimaryApplicantPage extends GenericKeywords {
 					getElement(ObjectRepository.continue_btn).click();
 					test.log(Status.INFO, "Continue button clicked");
 					Thread.sleep(3000);
-					
+				
 				//Confirm account selection page
 					verifyElementPresent(ObjectRepository.cnfrmacnt_ttl);
-					test.log(Status.INFO, "Confirm Account selections page opened");
+					test.log(Status.INFO, "Confirm Selected Products and Services");
 					
+				//Enter Promo Code
+					
+					getElement(ObjectRepository.add_promocode_field).sendKeys(promo_code);
 					getElement(ObjectRepository.cnfrm_btn).click();
 					test.log(Status.INFO, "Confirm button clicked");
 					Thread.sleep(3000);
+					
 					
 			// Terms and conditions page	
 					scrollToElement(ObjectRepository.tnc_chkbx);

@@ -522,4 +522,6 @@ public class ObjectRepository {
 	public static String errorMsg3 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[3]";
 	public static String errorMsg4 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[4]";
 	
+	public static String progressBarOptions = "//span[@id='progBar']//span";
+	
 }
