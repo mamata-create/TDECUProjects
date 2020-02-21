@@ -54,7 +54,7 @@ public class C24119_RegisterThroughMembersOption extends GenericKeywords {
 					String mmbrnumber=excl.getCellData(sheetName, 20, startIter);
 					String ssn=excl.getCellData(sheetName, 7, startIter);
 					String dob=excl.getCellData(sheetName, 8, startIter);
-					
+					String promo_code = "";
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
 					
@@ -120,6 +120,12 @@ public class C24119_RegisterThroughMembersOption extends GenericKeywords {
 					test.log(Status.INFO, "Confirm button clicked");
 					Thread.sleep(3000);
 					
+			//Enter Promo Code
+					
+					getElement(ObjectRepository.add_promocode_field).sendKeys(promo_code);
+					getElement(ObjectRepository.cnfrm_btn).click();
+					test.log(Status.INFO, "Confirm button clicked");
+					Thread.sleep(3000);		
 			// Terms and conditions page	
 					scrollToElement(ObjectRepository.tnc_chkbx);
 					
