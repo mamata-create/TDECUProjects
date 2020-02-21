@@ -375,8 +375,72 @@ public class ObjectRepository {
 				public static String applyButtonToScroll = "//button[text()='Apply']";
 				
 				//cPFM locators, Added by Sravya
-				public static String lnkacnt_sctn="//span[text()='Link Account']";
-				public static String lnkacnt_clckhere="//small[contains(text(),'You can pull in information from your other bank')]/a[text()='Click here to get started.']";
+				public static String lnkacnt_sctn="//div[@test-id='btnLinkAcct']//span[text()='Link Account']";
+				public static String lnkacnt_clckhere="//div[@test-id='btnLinkAcct']//a[text()='Click here to get started.']";
+				public static String cntn_btn="//*[text()='Continue']";
+				public static String tnc_chkbx="//div[@class='input-checkbox']//rect";
+				public static String getstrtd_btn="//*[text()='Get Started']";
+				public static String lnkacnt_ttl="//h3[text()='Link Account']";
+				public static String spndng_tab="//button[@test-id='tabSpending']";
+				public static String budget_tab="//button[@test-id='tabBudget']";
+				public static String trends_tab="//button[@test-id='tabTrends']";
+				public static String cashflow_tab="//button[@test-id='tabCash_Flow']";
+				public static String netwrth_tab="//button[@test-id='tabNet_Worth']";
+				public static String debts_tab="//button[@test-id='tabDebts']";
+				
+				
+				public static String extrnlacnt_lnk="//button[@test-id='tabaddExternalAccount']";
+				
+				public static String Finacc_txt="//h2[text()='Financial Tools']";
+				
+				public static String lnksrch_txt="//div[@role='search']//input[@test-id='fldSearch']";
+				public static String lnksrch_clr="//button[@test-id='btnClearSearch']//span";
+				public static String trnsctn_optmenu="//ul[@id='historyItems']/li[1]//span[contains(@class,'ui-dropdown-icon')]";
+				public static String dtls_opt="//a[@test-id='txnDropDownViewDetails']";
+				public static String print_opt="//a[@test-id='txnDropDownPrint']";
+				public static String ctgrz_opt="//a[@test-id='txnDropDownCategorize']";
+				public static String splt_opt="//a[@test-id='txnDropDownSplit']";
+				public static String askqstn_opt="//a[@test-id='txnDropDownInquire']";
+				public static String splt_inpt="//q2-input[@aria-label='Split amount']";
+				public static String sv_chk="//q2-icon[@type='checkmark']";
+				public static String notsclctd_ctgry="//section[@id='sidepanel-accordion']/ul/div/li[not(@class)]";
+				public static String fltr_icon="//span[contains(@class,'icon-filter')]";
+				public static String ctgry_drop="//q2-select[@label='Category']";
+				public static String fltr_btn="//q2-btn[@test-id='btnApplyFilter']";
+				public static String vwasst_lnk="//button[text()='View Assets & Liabilities']";
+				public static String asst_frame="//iframe[@id='overpanelIFrame']";
+				public static String trnsctn_row="//ul[@id='historyItems']/li[1]";
+				public static String ctgry_edt="//div[@test-id='lblPfmCategory']//span[contains(@class,'icon-edit')]";
+				public static String netwrth_ftr="//button[@aria-label='Filter Accounts']";
+				public static String netwrth_appyfltr="//button[@aria-label='Apply selected filters to accounts']";
+				
+				public static String netwrth_6m="//button[@aria-label='Display six month history']";
+				public static String netwrth_9m="//button[@aria-label='Display nine month history']";
+				public static String netwrth_1y="//button[@aria-label='Display one year history']";
+				
+				public static String debtacntdtls_tab="//button[@aria-label='DETAILS tab']";
+				public static String debtamnt_txt="//input[@name='monthly_payment']";
+				public static String Acc_row="//ul[@id='Account']/li[1]";
+				
+				public static String debtacnt_back="//button[@aria-label='Close Account Details Drawer']";
+				
+				public static String debtintrate_txt="//input[@name='interest_rate']";
+				
+				public static String Trends_3m="//button[@aria-label='Trends for the past 3 months']";
+				public static String Trends_6m="//button[@aria-label='Trends for the past 6 months']";
+				public static String Trends_9m="//button[@aria-label='Trends for the past 9 months']";
+				public static String Trends_1y="//button[@aria-label='Trends for the past year']";
+				public static String acntactn_menu="//button[contains(@aria-label,'Account Actions Menu')]";
+				public static String hideacnt_btn="//button[@data-ui-test='Hide from Debts']";
+				public static String showacnt_btn="//button[@data-ui-test='Show in Debts']";
+				public static String trndstablevw_btn="//button[contains(@aria-label,'Displays detailed transaction trends by category')]";
+				public static String trndctgry_row="//div[contains(@aria-label,'Select to view Income transactions for this period')]";
+				public static String trndtrnsctn_row="//button[contains(@aria-label,'Transaction, Date:')]";
+				public static String payee_dtls="//label[text()='Payee']";
+				public static String date_dtls="//label[text()='Date']";
+				public static String ctgry_dtls="//label[text()='Category']";
+				public static String tags_dtls="//label[text()='Tags']";
+				public static String memo_dtls="//label[text()='Memo']";
 				
 		//Retrun shadow root element
 				

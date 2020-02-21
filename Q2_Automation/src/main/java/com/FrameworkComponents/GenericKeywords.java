@@ -157,10 +157,22 @@ public class GenericKeywords extends BaseClass{
 
 	}
 	
+	public static void scroll(){
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("window.scrollBy(0,250)");
+	}
+	
 	public static void jsClick(String locator){
 		WebElement element=getElement(locator);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].click();",element);
+
+	}
+	
+	public static void jsSetValue(String locator){
+		WebElement element=getElement(locator);
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].setAttribute('value','20');",element);
 
 	}
 
