@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="ApplicantInfo.C28337_VerifyInformationProgressBarHighlightedOnExistingApplicantPage">
+      <class name="MemberVerification.C28338_UpdateTheDesignOfTheMemberVerificationScreen">
         <methods>
-          <include name="tearDown"/>
-          <include name="C28337_VerifyInformationProgressBarHighlightedOnExistingApplicantPage"/>
+          <include name="C28338_UpdateTheDesignOfTheMemberVerificationScreen"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- ApplicantInfo.C28337_VerifyInformationProgressBarHighlightedOnExistingApplicantPage -->
+      </class> <!-- MemberVerification.C28338_UpdateTheDesignOfTheMemberVerificationScreen -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
