@@ -441,6 +441,9 @@ public class ObjectRepository {
 				public static String ctgry_dtls="//label[text()='Category']";
 				public static String tags_dtls="//label[text()='Tags']";
 				public static String memo_dtls="//label[text()='Memo']";
+				public static String slctctgry_btn="//button[contains(@aria-label,'Select Category')]";
+				public static String trndacnt_back="//button[@aria-label='Close Transaction Details Drawer']";
+				public static String thistime="//div[text()='This Time Only']";
 				
 		//Retrun shadow root element
 				

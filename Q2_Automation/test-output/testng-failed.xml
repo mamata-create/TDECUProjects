@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Make_A_Payment.C23527_VerifyCommercialLoanGreaterThanAmountPayment">
+      <class name="cPFM.C25198_VerifyExcludingDebtAccount">
         <methods>
-          <include name="C23527_VerifyCommercialLoanGreaterThanAmountPayment"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
           <include name="tearDown"/>
+          <include name="C25198_VerifyExcludingDebtAccount"/>
         </methods>
-      </class> <!-- Make_A_Payment.C23527_VerifyCommercialLoanGreaterThanAmountPayment -->
+      </class> <!-- cPFM.C25198_VerifyExcludingDebtAccount -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
