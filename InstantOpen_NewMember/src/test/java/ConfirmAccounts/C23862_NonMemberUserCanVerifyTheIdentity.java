@@ -183,7 +183,8 @@ public class C23862_NonMemberUserCanVerifyTheIdentity extends GenericKeywords  {
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
 					getElement(ObjectRepository.membership_page_option(1)).click();
 					getElement(ObjectRepository.productPageNext).click();
-					verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
+					enterPromocode();
+				//	verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
 					getElement(ObjectRepository.confirmBtn).click();
 					getElement(ObjectRepository.tnc_chkbx).click();
 					getElement(ObjectRepository.taxpayerIdentificationNumber).click();

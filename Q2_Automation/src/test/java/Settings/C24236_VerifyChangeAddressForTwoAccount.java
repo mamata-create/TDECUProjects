@@ -131,11 +131,16 @@ public class C24236_VerifyChangeAddressForTwoAccount extends GenericKeywords {
 						Assert.assertTrue(false);
 					}
 					
-					String addressFieldLocator = "//input[@placeholder='"+fieldName+"']";
-					getElement(addressFieldLocator).click();
-					getElement(addressFieldLocator).clear();
-					getElement(addressFieldLocator).sendKeys(modifiedValue);
-					test.log(Status.INFO, "New Vakue entered in the filed");
+					String WorkPhoneLocator = "//input[@placeholder='"+fieldName.split(";")[0]+"']";
+					getElement(WorkPhoneLocator).click();
+					getElement(WorkPhoneLocator).clear();
+					getElement(WorkPhoneLocator).sendKeys(modifiedValue);
+					test.log(Status.INFO, "New Value entered in the filed");
+					
+					String HomePhoneLocator = "//input[@placeholder='"+fieldName.split(";")[1]+"']";
+					getElement(HomePhoneLocator).click();
+					getElement(HomePhoneLocator).clear();
+					getElement(HomePhoneLocator).sendKeys(modifiedValue);
 					
 					if(getElement(ObjectRepository.addressChangeSubmit).isEnabled()){
 					getElement(ObjectRepository.addressChangeSubmit).click();
@@ -187,11 +192,16 @@ public class C24236_VerifyChangeAddressForTwoAccount extends GenericKeywords {
 						Assert.assertTrue(false);
 					}
 					
-					addressFieldLocator = "//input[@placeholder='"+fieldName+"']";
-					getElement(addressFieldLocator).click();
-					getElement(addressFieldLocator).clear();
-					getElement(addressFieldLocator).sendKeys(modifiedValue);
-					test.log(Status.INFO, "New Vakue entered in the filed");
+				//	String WorkPhoneLocator = "//input[@placeholder='"+fieldName.split(";")[0]+"']";
+					getElement(WorkPhoneLocator).click();
+					getElement(WorkPhoneLocator).clear();
+					getElement(WorkPhoneLocator).sendKeys(modifiedValue);
+					test.log(Status.INFO, "New Value entered in the filed");
+					
+				//	String HomePhoneLocator = "//input[@placeholder='"+fieldName.split(";")[1]+"']";
+					getElement(HomePhoneLocator).click();
+					getElement(HomePhoneLocator).clear();
+					getElement(HomePhoneLocator).sendKeys(modifiedValue);
 					
 					if(getElement(ObjectRepository.addressChangeSubmit).isEnabled()){
 					getElement(ObjectRepository.addressChangeSubmit).click();

@@ -81,6 +81,7 @@ public class C24265_VerifyAgreementsandDisclosures extends GenericKeywords{
 					String errorMsg5=excl.getCellData(sheetName, 28, startIter);
 					String agreeTxt=excl.getCellData(sheetName, 29, startIter);
 					String acceptText=excl.getCellData(sheetName, 30, startIter);
+					String promoCode = excl.getCellData(sheetName, 31, startIter);
 					
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
@@ -114,8 +115,16 @@ public class C24265_VerifyAgreementsandDisclosures extends GenericKeywords{
 					getElement(ObjectRepository.membership_page_option(3)).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Membership eligibility selected");
+					getElement(ObjectRepository.add_promocode_field).sendKeys(promoCode);
+					getElement(ObjectRepository.cnfrm_btn).click();
+					test.log(Status.INFO, "Confirm button clicked");
+					
 					getElement(ObjectRepository.cnfrm_btn).click();
 					test.log(Status.INFO, "Account selections confirmed");
+					
+					
+					Thread.sleep(3000);
+					
 					//Agreements and disclosures
 					verifyElementPresent(ObjectRepository.agreementTtl);
 					getElement(ObjectRepository.cnfrm_btn).click();
@@ -153,7 +162,9 @@ public class C24265_VerifyAgreementsandDisclosures extends GenericKeywords{
 					getElement(ObjectRepository.backButtonFurther).click();					
 					test.log(Status.INFO, "Back button clicked");
 					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmTtl);
+					getElement(ObjectRepository.cnfrm_btn).click();
+					
+				
 					test.log(Status.INFO, "Continue button clicked");
 					getElement(ObjectRepository.confirmBtn).click();					
 					test.log(Status.INFO, "Confirm button clicked");

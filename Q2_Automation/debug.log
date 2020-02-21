@@ -165,3 +165,4 @@
 [0220/133356.327:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports
 [0220/133841.983:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports
 [0220/145350.550:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports
+[0221/141351.430:ERROR:prune_crash_reports.cc(35)] PruneCrashReportDatabase: Failed to get pending reports

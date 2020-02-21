@@ -69,6 +69,7 @@ public class C24297_VerifySelectOneTaxOption extends GenericKeywords{
 					String phonetyp=excl.getCellData(sheetName, 16, startIter);
 					String primary_email=excl.getCellData(sheetName, 17, startIter);
 					String errorMsg=excl.getCellData(sheetName, 18, startIter);
+					String promoCode = excl.getCellData(sheetName, 31, startIter);
 					
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
@@ -102,6 +103,7 @@ public class C24297_VerifySelectOneTaxOption extends GenericKeywords{
 					getElement(ObjectRepository.membership_page_option(1)).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Membership eligibility selected");
+					getElement(ObjectRepository.add_promocode_field).sendKeys(promoCode);
 					getElement(ObjectRepository.cnfrm_btn).click();
 					test.log(Status.INFO, "Confirm button clicked");
 					//Agreements and disclosures

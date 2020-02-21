@@ -14,6 +14,7 @@ import com.FrameworkComponents.BaseClass;
 import com.FrameworkComponents.ExtentManager;
 import com.FrameworkComponents.GenericKeywords;
 import com.FrameworkComponents.ObjectRepository;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -29,6 +30,7 @@ public class C24298_VerifySelectOneResidentOption extends GenericKeywords{
 		extent = ExtentManager.GetExtent();
 		test = extent.createTest(this.getClass().getSimpleName());
 		BaseClass iDriver = new BaseClass();
+		
 		iDriver.myTestCaseName = this.getClass().getSimpleName();
 		executeDriverScript();
 		test.log(Status.INFO, "Application url navigated");
@@ -69,6 +71,7 @@ public class C24298_VerifySelectOneResidentOption extends GenericKeywords{
 					String phonetyp=excl.getCellData(sheetName, 16, startIter);
 					String primary_email=excl.getCellData(sheetName, 17, startIter);
 					String errorMsg=excl.getCellData(sheetName, 18, startIter);
+					String promoCode = excl.getCellData(sheetName, 31, startIter);
 					
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
@@ -102,7 +105,7 @@ public class C24298_VerifySelectOneResidentOption extends GenericKeywords{
 					getElement(ObjectRepository.membership_page_option(4)).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Membership eligibility selected");
-					getElement(ObjectRepository.cnfrm_btn).click();
+					enterPromocode();
 					test.log(Status.INFO, "Confirm button clicked");
 					//Agreements and disclosures
 					getElement(ObjectRepository.discCheckBox).click();

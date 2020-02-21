@@ -46,7 +46,7 @@ public class C28339_VerifyInformationProgressTabHighLightedOnJointOwnerPage exte
 	}	
 	
 	@Test
-	public void C23942_NonMemberUserCanAddOneJointOwnerToTheApplicationForm() throws InterruptedException, MessagingException, IOException
+	public void C28339_VerifyInformationProgressTabHighLightedOnJointOwnerPage() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)

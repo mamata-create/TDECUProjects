@@ -524,4 +524,15 @@ public class ObjectRepository {
 	
 	public static String progressBarOptions = "//span[@id='progBar']//span";
 	
+	
+	//Member Verification Page new components
+	
+	public static String member_verification_page_header = "//div[@class='col-sm']//h3";
+	
+	public static String below_header_info(int index){
+		return "(//div[@class='col-sm']//p)["+index+"]";
+	}
+	
+	//OTP
+	public static String otp_page_header = "//span/h1";
 }

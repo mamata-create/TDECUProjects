@@ -124,11 +124,16 @@ public class C24235_VerifyChangeAddressForOneAccount extends GenericKeywords {
 						Assert.assertTrue(false);
 					}
 					
-					String addressFieldLocator = "//input[@placeholder='"+fieldName+"']";
+					String addressFieldLocator = "//input[@placeholder='"+fieldName.split(";")[0]+"']";
 					getElement(addressFieldLocator).click();
 					getElement(addressFieldLocator).clear();
 					getElement(addressFieldLocator).sendKeys(modifiedValue);
-					test.log(Status.INFO, "New Vakue entered in the filed");
+					test.log(Status.INFO, "New Value entered in the filed");
+					
+					String HomeLocator = "//input[@placeholder='"+fieldName.split(";")[1]+"']";
+					getElement(HomeLocator).click();
+					getElement(HomeLocator).clear();
+					getElement(HomeLocator).sendKeys(modifiedValue);
 					
 					if(getElement(ObjectRepository.addressChangeSubmit).isEnabled()){
 					getElement(ObjectRepository.addressChangeSubmit).click();
@@ -174,11 +179,16 @@ public class C24235_VerifyChangeAddressForOneAccount extends GenericKeywords {
 						Assert.assertTrue(false);
 					}
 					
-					String addressFieldLocator1 = "//input[@placeholder='"+fieldName+"']";
-					getElement(addressFieldLocator1).click();
-					getElement(addressFieldLocator1).clear();
-					getElement(addressFieldLocator1).sendKeys(modifiedValue);
-					test.log(Status.INFO, "New Vakue entered in the filed");
+					String WorkPhoneLocator = "//input[@placeholder='"+fieldName.split(";")[0]+"']";
+					getElement(WorkPhoneLocator).click();
+					getElement(WorkPhoneLocator).clear();
+					getElement(WorkPhoneLocator).sendKeys(modifiedValue);
+					test.log(Status.INFO, "New Value entered in the filed");
+					
+					String HomePhoneLocator = "//input[@placeholder='"+fieldName.split(";")[1]+"']";
+					getElement(HomePhoneLocator).click();
+					getElement(HomePhoneLocator).clear();
+					getElement(HomePhoneLocator).sendKeys(modifiedValue);
 					
 					if(getElement(ObjectRepository.addressChangeSubmit).isEnabled()){
 					getElement(ObjectRepository.addressChangeSubmit).click();

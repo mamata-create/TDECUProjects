@@ -123,7 +123,7 @@ public class C24086_VerifyPrimaryApplicantPage extends GenericKeywords {
 					getElement(ObjectRepository.ssn_txt).sendKeys(ssn);
 					test.log(Status.INFO, "SSN entered");
 					
-					//dt
+					
 					getElement(ObjectRepository.dob_cal).sendKeys(dob);
 					test.log(Status.INFO, "Date of Birth entered");
 					

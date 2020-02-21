@@ -68,6 +68,7 @@ public class C24266_VerifyDeclineAgreements extends GenericKeywords{
 					String phonenmbr=excl.getCellData(sheetName, 15, startIter);
 					String phonetyp=excl.getCellData(sheetName, 16, startIter);
 					String primary_email=excl.getCellData(sheetName, 17, startIter);
+					String promoCode = excl.getCellData(sheetName, 31, startIter);
 					
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
@@ -101,6 +102,7 @@ public class C24266_VerifyDeclineAgreements extends GenericKeywords{
 					getElement(ObjectRepository.membership_page_option(3)).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Membership eligibility selected");
+					getElement(ObjectRepository.add_promocode_field).sendKeys(promoCode);
 					getElement(ObjectRepository.cnfrm_btn).click();
 					test.log(Status.INFO, "Confirm button clicked");
 					//Agreements and disclosures

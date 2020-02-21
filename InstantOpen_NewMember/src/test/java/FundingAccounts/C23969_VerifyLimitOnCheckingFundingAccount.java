@@ -176,12 +176,12 @@ public class C23969_VerifyLimitOnCheckingFundingAccount  extends GenericKeywords
 			
 			        getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked from membership eligibility page");
-						
-					verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
-					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
-			
-					getElement(ObjectRepository.svcontinue_btn).click();
-					test.log(Status.INFO, "Confirm button clicked from confirm account selection page");
+					enterPromocode();	
+//					verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
+//					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
+//			
+//					getElement(ObjectRepository.svcontinue_btn).click();
+//					test.log(Status.INFO, "Confirm button clicked from confirm account selection page");
 					
 				//Agreement and disclosure 
 					verifyElementPresent(ObjectRepository.acntagrmnt_ttl);
@@ -189,12 +189,10 @@ public class C23969_VerifyLimitOnCheckingFundingAccount  extends GenericKeywords
 			
 					
 					//selecting disclosure check box
-					getElement(ObjectRepository.dsclsr_chkbx).click();
+					getElement(ObjectRepository.discCheckBox).click();
 					test.log(Status.INFO, "Disclosure check box selected");
-					
 				
-						
-					getElement(ObjectRepository.tin_chkbx).click();
+					getElement(ObjectRepository.TINchkbx).click();
 					test.log(Status.INFO, "TIN Check box selected");
 					
 				
@@ -205,7 +203,7 @@ public class C23969_VerifyLimitOnCheckingFundingAccount  extends GenericKeywords
 					verifyElementPresent(ObjectRepository.exmpt_opt);
 					test.log(Status.INFO, "Exempt option appearing correctly");
 			
-					getElement(ObjectRepository.backupwithold_chkbx).click();
+					getElement(ObjectRepository.withHldngChkbx).click();
 					test.log(Status.INFO, "backup withholding Check box selected");
 					
 				//Citizen options
@@ -215,14 +213,14 @@ public class C23969_VerifyLimitOnCheckingFundingAccount  extends GenericKeywords
 					verifyElementPresent(ObjectRepository.aliens_opt);
 					test.log(Status.INFO, "Aliens option appearing correctly");
 			
-					getElement(ObjectRepository.uscitizen_chkbx).click();
+					getElement(ObjectRepository.citizenChkbx).click();
 					test.log(Status.INFO, "US Citizen Check box selected");
 						
 				// Agreement option
-					getElement(ObjectRepository.aggrmnt_chkbx).click();
+					getElement(ObjectRepository.agreeChkbx).click();
 					test.log(Status.INFO, "Agreement Check box selected");
 					
-					getElement(ObjectRepository.svcontinue_btn).click();
+					getElement(ObjectRepository.confirmBtn).click();
 					test.log(Status.INFO, "Accept button clicked from agreement and disclosure page");
 					
 				// Identity Verification

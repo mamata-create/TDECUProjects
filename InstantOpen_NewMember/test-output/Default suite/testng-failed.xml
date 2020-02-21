@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="StatusCenter.IO_365_VerifyProductsProgressBarSelectedOnceStartAsNewMember">
+      <class name="FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount">
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="IO_365_VerifyProductsProgressBarSelectedOnceStartAsNewMember"/>
+          <include name="C24270_VerifyCerticateOfDepositDefaultFundingAmount"/>
         </methods>
-      </class> <!-- StatusCenter.IO_365_VerifyProductsProgressBarSelectedOnceStartAsNewMember -->
+      </class> <!-- FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
