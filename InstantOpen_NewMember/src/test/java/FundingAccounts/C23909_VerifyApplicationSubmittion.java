@@ -178,6 +178,7 @@ public class C23909_VerifyApplicationSubmittion   extends GenericKeywords{
 					
 			        getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked from membership eligibility page");
+					enterPromocode();
 						
 					verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
 					test.log(Status.INFO, "Confirm account selection page title appearing correctly");

@@ -182,7 +182,8 @@ public class C24263_NonMemberUserCanOnlySeeEDocumentLinkIfSelected extends Gener
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
 					getElement(ObjectRepository.membership_page_option(1)).click();
 					getElement(ObjectRepository.productPageNext).click();
-					verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
+					enterPromocode();
+					//verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
 					getElement(ObjectRepository.confirmBtn).click();
 					verifyText(ObjectRepository.eDocumentLink,"eDocument Consent");
 					String eDocLinkFromPage = getElement(ObjectRepository.eDocumentLink).getAttribute("href");

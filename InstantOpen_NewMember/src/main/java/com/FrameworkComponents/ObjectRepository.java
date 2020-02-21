@@ -72,7 +72,7 @@ public class ObjectRepository {
 	
 	public static String crrnttdecu_opt="//*[@id='rbFamily']/div";
 			//"//input[@id='rbFamily_RadioButton']";
-	public static String cnfrmacnt_ttl="//strong[text()='Confirm Account Selections']";
+	public static String cnfrmacnt_ttl="//*[text()='Confirm Selected Products and Services']";
 	public static String cnfrm_btn="//input[@id='btnNext_SubmitButton']";
 	public static String tnc_chkbx="//span[@id='cbDisclosures']/div[@class='icheckbox_square-grey']";
 	//Agreement and Signature
@@ -227,7 +227,7 @@ public class ObjectRepository {
 	
 	public static String getTermCertificateLocator(String term){
 	//	String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+" Month Share Certificate')]";
-		String termLocator = "//div[contains(@style,'display: block')]/label[contains(text(),'"+term+"')]";
+		String termLocator = "//div[contains(@style,'display: block')]//label[contains(text(),'"+term+"')]";
 		return termLocator;
 	}
 	public static String creditCardProduct ="(//label[contains(@for,'CreditCard_ProductCheckbox')])[1]";
@@ -455,6 +455,7 @@ public class ObjectRepository {
 		public static String addBeneficiaries_CheckBox = "//span[@id='cbAddBene']";
 		public static String footerString = "//span[@id='cbAddJointOwners']/following::p"; 
 		public static String applicantInformation_allfields = "//div[@class='SectionHeaders']/following::span[not(contains(@style,'hidden'))]";
+		public static String add_existing_member_link="//span[@id='pnlExistingMember']//a";
 		
 		public static String checkBoxProp(String locator){
 			String property = null;
@@ -611,5 +612,56 @@ public class ObjectRepository {
 		
 		public static String progressBarOptions = "//span[@id='progBar']//span";
 		
+		//PromoCode field
+		public static String add_promocode_field = "//input[@name='tbPromoCode_TextBox']";
+		public static String promo_code_disclaimer = "//div[@class='col-sm disclaimer']//p";
+		public static String promo_code_page_header = "//div[@class='col-sm']//h3";
+		public static String promo_code_sub_header = "//div[@class='col-sm']//p";
 		
+		//Pending Application Section
+		
+		public static String check_status_button = "//div[@class='text-center']//input[@value='Check Status']";
+		public static String page_header = "//h1[@class='text-center']";
+		public static String email_address_textBox = "//input[@name='tbEmail1_RadTextBox']";
+		public static String password_textBox = "//input[@name='tbASCPassword_TextBox']";
+		public static String ssn_textBox = "//input[@name='tbSSNLastFour_TextBox']";
+		public static String forget_password_button = "//a[@role='button' and text()='Forgot Password?']";
+		public static String reset_password_page_header = "//h2[text()='Reset Account Password']";
+		public static String forget_email_address_textBox = "//input[@name='EmailTextBox_RadTextBox']";
+		public static String submit_button_reset_password = "//span[@id='btnReset']/input";
+		public static String note_message_header = "//div[@class='noteMessage']//h4";
+		public static String note_paragraph = "//div[@class='noteMessage']//p";
+		public static String return_to_login_button = "//a[@role='button' and text()='Return to Login']";
+		
+		//New FAQ section
+		
+		public static String faq_based_on_number(String position){
+			return "(//div[@id='accordion']//h4)["+position+"]";
+		}
+		
+		public static String faq_text(String pos){
+			return "(//div[@id='accordion']//p)["+pos+"]";
+		}
+		
+		//Thank You page components
+		
+		public static String text_on_thank_you_page(String pos){
+			return "(//div[@class='container']//p)["+pos+"]";
+		}
+		
+		//Data Table
+		public static String dataTable(String index){
+			return "(//div[@class='container']//table)["+index+"]//td";
+		}
+		
+		//HomePage components
+		
+		public static String page_header_locator = "//h1[@class='text-center']";
+		public static String thumbnail_text = "//div[@class='thumbnail']//h3";
+		
+		public static String pageDisclaimer = "//div[contains(@class,'disclaimer')]//h4";
+		
+		public static String sub_disclaimer_text(String index){
+			return "(//div[contains(@class,'disclaimer')]//p)["+index+"]";
+		}
 	}

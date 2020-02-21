@@ -77,6 +77,7 @@ public class C24290_VerifyCourtesyPayAgreements extends GenericKeywords{
 					String FAQtwo= excl.getCellData(sheetName, 24, startIter);
 					String FAQtwoInfo= excl.getCellData(sheetName, 25, startIter);
 					String note= excl.getCellData(sheetName, 26, startIter);
+					String promoCode = excl.getCellData(sheetName, 31, startIter);
 					
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
@@ -111,6 +112,7 @@ public class C24290_VerifyCourtesyPayAgreements extends GenericKeywords{
 					getElement(ObjectRepository.membership_page_option(3)).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Membership eligibility selected");
+					getElement(ObjectRepository.add_promocode_field).sendKeys(promoCode);
 					getElement(ObjectRepository.cnfrm_btn).click();
 					test.log(Status.INFO, "Account selections confirmed");
 					//Agreements and disclosures

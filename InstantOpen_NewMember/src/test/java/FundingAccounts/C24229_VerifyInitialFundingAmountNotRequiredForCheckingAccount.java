@@ -179,12 +179,13 @@ public class C24229_VerifyInitialFundingAmountNotRequiredForCheckingAccount  ext
 			
 			        getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked from membership eligibility page");
+					enterPromocode();
 						
-					verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
-					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
-			
-					getElement(ObjectRepository.svcontinue_btn).click();
-					test.log(Status.INFO, "Confirm button clicked from confirm account selection page");
+//					verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
+//					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
+//			
+//					getElement(ObjectRepository.svcontinue_btn).click();
+//					test.log(Status.INFO, "Confirm button clicked from confirm account selection page");
 					
 				//Agreement and disclosure 
 					verifyElementPresent(ObjectRepository.acntagrmnt_ttl);

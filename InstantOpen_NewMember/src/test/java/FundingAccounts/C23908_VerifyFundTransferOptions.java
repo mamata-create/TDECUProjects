@@ -94,6 +94,7 @@ public class C23908_VerifyFundTransferOptions  extends GenericKeywords{
 					Thread.sleep(2000);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
+					enterPromocode();
 				
 					//Primary Applicant info page
 					verifyElementPresent(ObjectRepository.primaryApplicantInfoPageTitle);

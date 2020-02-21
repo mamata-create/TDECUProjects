@@ -185,7 +185,8 @@ public class C23858_NonMemberUserWouldAddAccountBeforeConfirming extends Generic
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
 					getElement(ObjectRepository.membership_page_option(1)).click();
 					getElement(ObjectRepository.productPageNext).click();
-					verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
+					enterPromocode();
+			//		verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
 					
 					try{
 						List<WebElement>accountSelections = retrunElements("//span[@id='ProductsAndServices']//following::li");

@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -544,6 +545,10 @@ public class GenericKeywords extends BaseClass{
 	public static void openWindow(){
 		((JavascriptExecutor) driver).executeScript("window.open();");
 	}
+	public static String getCurrentUrl(){
+		String currentUrl = driver.getCurrentUrl();
+		return currentUrl;
+	}
 	
 	public static void productOptions(String productOptions){
 		String productOptionLocator ="//*[contains(text(),'Credit Cards & Loans')]//following::*[contains(@class,'panel-title')]";
@@ -939,6 +944,25 @@ public class GenericKeywords extends BaseClass{
 			}
 		}
 				
+	}
+	
+	public static Properties getvalueFromPropFile(){
+		Properties prop = new Properties();
+		try{
+			String filePath = System.getProperty("user.dir")+"/Data/data.properties";
+			FileInputStream fin = new FileInputStream(filePath);
+			prop.load(fin);
+			
+		}catch(IOException e){
+			
+		}
+		return prop;
+		
+	}
+	public static void enterPromocode(){
+		getElement(ObjectRepository.add_promocode_field).sendKeys(getvalueFromPropFile().get("promocode").toString()); 
+		getElement(ObjectRepository.cnfrm_btn).click();
+		
 	}
 
 }
