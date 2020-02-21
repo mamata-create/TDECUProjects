@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -108,8 +109,12 @@ public class C23465_VerifyMyAccountsVisibility extends GenericKeywords {
 					test.log(Status.INFO, "Account number row clicked");
 					Thread.sleep(3000);
 					
-					getElement(ObjectRepository.hidden_lnk).click();
-					test.log(Status.INFO, "Hidden account link clicked");
+					WebElement toggelRoot = driver.findElement(By.cssSelector("q2-checkbox[type='toggle']"));
+					WebElement shadowRoot = ObjectRepository.expandRootElement(driver, toggelRoot);
+					WebElement toggleIcon = shadowRoot.findElement(By.cssSelector("div[class='toggle-svg']"));
+					
+					toggleIcon.click();
+					test.log(Status.INFO, "Hidden toggel icon clicked");
 					Thread.sleep(3000);
 					
 					getElement(ObjectRepository.hide_btn).click();
@@ -133,10 +138,14 @@ public class C23465_VerifyMyAccountsVisibility extends GenericKeywords {
 					test.log(Status.INFO, "Account preferences page opened");
 					
 					scrollToElement("//span[@test-id='lblAccountPreferencesAccountNumber' and contains(text(),'"+acnt+"')]");
-					getElement("//span[@test-id='lblAccountPreferencesAccountNumber' and contains(text(),'"+acnt+"')]").click();
+					Thread.sleep(600);
+					jsClick("//span[@test-id='lblAccountPreferencesAccountNumber' and contains(text(),'"+acnt+"')]");
 					test.log(Status.INFO, "Account number row clicked");
-					
-					getElement(ObjectRepository.hidden_lnk).click();
+					Thread.sleep(3000);
+					WebElement toggelRoot2 = driver.findElement(By.cssSelector("q2-checkbox[type='toggle']"));
+					WebElement shadowRoot2 = ObjectRepository.expandRootElement(driver, toggelRoot2);
+					WebElement toggleIcon2 = shadowRoot2.findElement(By.cssSelector("div[class='toggle-svg']"));
+					toggleIcon2.click();
 					test.log(Status.INFO, "Hidden account link clicked");
 					scrollToElement(ObjectRepository.home_menu);
 					

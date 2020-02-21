@@ -112,42 +112,62 @@ public class C23470_VerifyAccountNicknameUpdation extends GenericKeywords {
 					
 //					getElement(ObjectRepository.nickname_btn).click();
 //					test.log(Status.INFO, "Nickname field clicked");
+					WebElement Root1 = driver.findElement(By.cssSelector("q2-editable-field[test-id='inputEditNickname']"));
+					WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, Root1);
+					WebElement nicknameEditIcon = shadowRoot1.findElement(By.cssSelector("q2-icon[type='edit']"));
+					nicknameEditIcon.click();
 					
-					getElement(ObjectRepository.nickname_edt).click();
+					
+					//getElement(ObjectRepository.nickname_edt).click();
 					test.log(Status.INFO, "Nickname edit icon clicked");
-					
-					getElement(ObjectRepository.nickname_txt).sendKeys("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
+					WebElement nicknameLabel = shadowRoot1.findElement(By.cssSelector("q2-input[label='Online Display Name']"));
+					WebElement shadowRoot2 =  ObjectRepository.expandRootElement(driver, nicknameLabel);
+					WebElement nicknameTxt = shadowRoot2.findElement(By.cssSelector("input[test-id='inputField']"));
+					//nicknameTxt.click();
+					nicknameTxt.clear();
+					nicknameTxt.sendKeys("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
 					test.log(Status.INFO, "Nickname 52 chracters entered");
 					
-					getElement(ObjectRepository.nickname_txt).sendKeys(Keys.TAB);
-					System.out.println("Length is - "+getElement(ObjectRepository.nickname_txt).getAttribute("value").length());
-					Assert.assertTrue(getElement(ObjectRepository.nickname_txt).getAttribute("value").length()==50);
+					nicknameTxt.sendKeys(Keys.TAB);
+					
+					Assert.assertTrue(nicknameLabel.getAttribute("value").length()==50);
+					
+					
+					//getElement(ObjectRepository.nickname_txt).sendKeys(Keys.TAB);
+					//System.out.println("Length is - "+getElement(ObjectRepository.nickname_txt).getAttribute("value").length());
+					//Assert.assertTrue(getElement(ObjectRepository.nickname_txt).getAttribute("value").length()==50);
 					test.log(Status.INFO, "Nickname max 50 characters allowed");
 					
-					getElement(ObjectRepository.nickname_cnclbtn).click();
+					WebElement nickname_cancelIcon = shadowRoot1.findElement(By.cssSelector("q2-btn[class='cancel-edit']"));
+					nickname_cancelIcon.click();
+					
+					//getElement(ObjectRepository.nickname_cnclbtn).click();
 					test.log(Status.INFO, "Nickname cancel button clicked");
 					
-					getElement(ObjectRepository.nickname_edt).click();
+					nicknameEditIcon.click();
 					test.log(Status.INFO, "Nickname edit icon clicked");
 					Thread.sleep(3000);
-					getElement(ObjectRepository.nickname_txt).clear();
+					nicknameTxt.clear();
 					
-					getElement(ObjectRepository.nickname_txt).sendKeys(newnick);
+					nicknameTxt.sendKeys(newnick);
 					test.log(Status.INFO, "New Nickname entered");
 					
-					getElement(ObjectRepository.nickname_svbtn).click();
+					
+					WebElement nickname_saveIcon = shadowRoot1.findElement(By.cssSelector("q2-btn[class='save-edit']"));
+					nickname_saveIcon.click();
 					test.log(Status.INFO, "Nickname Save button clicked");
 					Thread.sleep(3000);
 					
 			//Verify updated nickname on homepage		
 					Thread.sleep(3000);
-					getElement(ObjectRepository.home_menu).click();
+					jsClick(ObjectRepository.home_menu);
+				//	getElement(ObjectRepository.home_menu).click();
 					test.log(Status.INFO, "Home menu item clicked");
 					Thread.sleep(3000);
 					String acntfivedigit=acnt.substring(acnt.length()-5);
 					
-					WebElement ele=getElement("//span[@class='account-nbr' and contains(text(),'"+acntfivedigit+"')]/parent::*");
-					String updatedNick=ele.findElement(By.xpath("//span[@class='account-label']")).getText();
+					WebElement ele=getElement("//span[@class='account-nbr' and contains(text(),'"+acntfivedigit+"')]/preceding::span[2]");
+					String updatedNick=ele.getText();
 					
 					Assert.assertTrue(updatedNick.equals(newnick));
 					test.log(Status.INFO, "Updated Nickname appearing correctly");
@@ -166,16 +186,23 @@ public class C23470_VerifyAccountNicknameUpdation extends GenericKeywords {
 					getElement("//span[@test-id='lblAccountPreferencesAccountNumber' and contains(text(),'"+acnt+"')]").click();
 					test.log(Status.INFO, "Account number row clicked");
 					
-					getElement(ObjectRepository.nickname_edt).click();
+					WebElement Root2 = driver.findElement(By.cssSelector("q2-editable-field[test-id='inputEditNickname']"));
+					WebElement shadowRoot3 = ObjectRepository.expandRootElement(driver, Root2);
+					WebElement nicknameEditIcon1 = shadowRoot3.findElement(By.cssSelector("q2-icon[type='edit']"));
+					nicknameEditIcon1.click();
 					test.log(Status.INFO, "Nickname edit icon clicked");
 					Thread.sleep(3000);
 					
-					getElement(ObjectRepository.nickname_txt).clear();
+					WebElement nicknameLabel1 = shadowRoot3.findElement(By.cssSelector("q2-input[label='Online Display Name']"));
+					WebElement shadowRoot4 =  ObjectRepository.expandRootElement(driver, nicknameLabel1);
+					WebElement nicknameTxt1 = shadowRoot4.findElement(By.cssSelector("input[test-id='inputField']"));
+					nicknameTxt1.clear();
 					
-					getElement(ObjectRepository.nickname_txt).sendKeys(oldnick);
+					nicknameTxt1.sendKeys(oldnick);
 					test.log(Status.INFO, "New Nickname entered");
 					
-					getElement(ObjectRepository.nickname_svbtn).click();
+					WebElement nickname_saveIcon_1 = shadowRoot3.findElement(By.cssSelector("q2-btn[class='save-edit']"));
+					nickname_saveIcon_1.click();
 					test.log(Status.INFO, "Nickname Save button clicked");
 					
 				 }

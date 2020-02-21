@@ -6,49 +6,64 @@
 			<class name="Make_A_Payment.C23498_VerifyMakeConsumerLoanPayment" />
 		</classes>
 	</test>
-	<test name="C23445_VerifyAccountDetailTransactionSearch">
+	<test name="C23500_VerifyMakeMortageLoanPayment">
 		<classes>
-			<class name="Home.C23445_VerifyAccountDetailTransactionSearch" />
+			<class name="Make_A_Payment.C23500_VerifyMakeMortageLoanPayment" />
 		</classes>
 	</test>
-	<test name="C23446_VerifyAccountDetailTransactionSearchByTime">
+	<test name="C23501_VerifyMakeRecurringMortageLoanPayment">
 		<classes>
-			<class name="Home.C23446_VerifyAccountDetailTransactionSearchByTime" />
+			<class name="Make_A_Payment.C23501_VerifyMakeRecurringMortageLoanPayment" />
 		</classes>
 	</test>
-	<test name="C23450_VerifyWelcomePageOnHomePage">
+	<test name="C23508_VerifyMakeRecurringCommercialLoanPayment">
 		<classes>
-			<class name="Home.C23450_VerifyWelcomePageOnHomePage" />
+			<class name="Make_A_Payment.C23508_VerifyMakeRecurringCommercialLoanPayment" />
 		</classes>
 	</test>
-	<test name="C23451_VerifyAccountDetailTransactionSearchByTransactionType">
+	<test name="C23510_VerifyMakeRecurringConsumerLoanPayment">
 		<classes>
-			<class name="Home.C23451_VerifyAccountDetailTransactionSearchByTransactionType" />
+			<class name="Make_A_Payment.C23510_VerifyMakeRecurringConsumerLoanPayment" />
 		</classes>
 	</test>
-	<test name="C23452_VerifyAccountDetailTransactionSearchByAmountRange">
+	<test name="C23511_VerifyConsumerLoanPayOffPayment">
 		<classes>
-			<class name="Home.C23452_VerifyAccountDetailTransactionSearchByAmountRange" />
+			<class name="Make_A_Payment.C23511_VerifyConsumerLoanPayOffPayment" />
 		</classes>
 	</test>
-	<test name="C23453_VerifyAccountDetailTransactionSearchByCheckNumber">
+	<test name="C23512_VerifyCommercialLoanPayOffPayment">
 		<classes>
-			<class name="Home.C23453_VerifyAccountDetailTransactionSearchByCheckNumber" />
+			<class name="Make_A_Payment.C23512_VerifyCommercialLoanPayOffPaymentr" />
 		</classes>
 	</test>
-	<test name="C23454_VerifyAccountDetailTransactionSearchByMultipleCriteria">
+	<test name="C23513_VerifyMortageLoanPayOffPayment">
 		<classes>
-			<class name="Home.C23454_VerifyAccountDetailTransactionSearchByMultipleCriteria" />
+			<class name="Make_A_Payment.C23513_VerifyMortageLoanPayOffPayment" />
 		</classes>
 	</test>
-	<test name="C23509_VerifyMoreInfoAboutCompany">
+	<test name="C23526_VerifyConsumerLoanGreaterThanAmountPayment">
 		<classes>
-			<class name="Home.C23509_VerifyMoreInfoAboutCompany" />
+			<class name="Make_A_Payment.C23526_VerifyConsumerLoanGreaterThanAmountPayment" />
 		</classes>
 	</test>
-	<test name="VerifyTransferMoneyNowOptionOnHomepagee">
+	<test name="C23527_VerifyCommercialLoanGreaterThanAmountPayment">
 		<classes>
-			<class name="Home.VerifyTransferMoneyNowOptionOnHomepage" />
+			<class name="Make_A_Payment.C23527_VerifyCommercialLoanGreaterThanAmountPayment" />
+		</classes>
+	</test>
+	<test name="C23528_VerifyMortageLoanGreaterThanAmountPayment">
+		<classes>
+			<class name="Make_A_Payment.C23528_VerifyMortageLoanGreaterThanAmountPayment" />
+		</classes>
+	</test>
+	<test name="C23529_VerifyMortageLoanPaidOffPayment">
+		<classes>
+			<class name="Make_A_Payment.C23529_VerifyMortageLoanPaidOffPayment" />
+		</classes>
+	</test>
+	<test name="C23530_VerifyConsumerLoanPaidOffPayment">
+		<classes>
+			<class name="Make_A_Payment.C23530_VerifyConsumerLoanPaidOffPayment" />
 		</classes>
 	</test>
 </suite>		
