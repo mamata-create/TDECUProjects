@@ -85,7 +85,7 @@ public class C24228_NonMemberUserCanGetMobileDepositLinkIfOptionSelected extends
 					String primary_email=excl.getCellData(sheetName, 18, startIter);
 					String hear_opt=excl.getCellData(sheetName, 19, startIter);
 					
-					
+					String promocode = excl.getCellData(sheetName, 30, startIter);
 					
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
@@ -183,7 +183,7 @@ public class C24228_NonMemberUserCanGetMobileDepositLinkIfOptionSelected extends
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
 					getElement(ObjectRepository.membership_page_option(1)).click();
 					getElement(ObjectRepository.productPageNext).click();
-					enterPromocode();
+					enterPromocode(promocode);
 					//verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
 					getElement(ObjectRepository.confirmBtn).click();
 					verifyElementNotPresent(ObjectRepository.mobileRemoteDepositCaptureLink);

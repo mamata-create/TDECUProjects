@@ -1,84 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="135773" started-at="2020-02-20T19:37:54Z" finished-at="2020-02-20T19:40:10Z">
+  <suite name="Default suite" duration-ms="91702" started-at="2020-02-23T15:37:33Z" finished-at="2020-02-23T15:39:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="135773" started-at="2020-02-20T19:37:54Z" finished-at="2020-02-20T19:40:10Z">
-      <class name="FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount@16aec5c]" name="setUp" is-config="true" duration-ms="41083" started-at="2020-02-20T19:37:54Z" finished-at="2020-02-20T19:38:36Z">
+    <test name="Default test" duration-ms="91702" started-at="2020-02-23T15:37:33Z" finished-at="2020-02-23T15:39:05Z">
+      <class name="SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb]" name="setUp" is-config="true" duration-ms="13747" started-at="2020-02-23T15:37:33Z" finished-at="2020-02-23T15:37:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="C24270_VerifyCerticateOfDepositDefaultFundingAmount()[pri:0, instance:FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount@16aec5c]" name="C24270_VerifyCerticateOfDepositDefaultFundingAmount" duration-ms="92217" started-at="2020-02-20T19:38:36Z" finished-at="2020-02-20T19:40:08Z">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //input[@id='Authroization_CheckBox'] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
-System info: host: 'LAPTOP-1F0JMU93', ip: '192.168.1.158', os.name: 'Windows 10', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\Divya\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:52437}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.130, webStorageEnabled: true}
-Session ID: 00794a941a91d2b8b24cd2dfb2b78932]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@id='Authroization_CheckBox'] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
-System info: host: 'LAPTOP-1F0JMU93', ip: '192.168.1.158', os.name: 'Windows 10', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\Divya\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:52437}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.130, webStorageEnabled: true}
-Session ID: 00794a941a91d2b8b24cd2dfb2b78932
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:113)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
-at com.FrameworkComponents.GenericKeywords.getElement(GenericKeywords.java:55)
-at FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount.C24270_VerifyCerticateOfDepositDefaultFundingAmount(C24270_VerifyCerticateOfDepositDefaultFundingAmount.java:239)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        <test-method status="PASS" signature="C23721_VerifyVehicleLoansAndRefinanceOptions()[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb]" name="C23721_VerifyVehicleLoansAndRefinanceOptions" duration-ms="75864" started-at="2020-02-23T15:37:47Z" finished-at="2020-02-23T15:39:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24270_VerifyCerticateOfDepositDefaultFundingAmount -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount@16aec5c]" name="afterMethod" is-config="true" duration-ms="479" started-at="2020-02-20T19:40:08Z" finished-at="2020-02-20T19:40:08Z">
+        </test-method> <!-- C23721_VerifyVehicleLoansAndRefinanceOptions -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb]" name="afterMethod" is-config="true" duration-ms="4" started-at="2020-02-23T15:39:03Z" finished-at="2020-02-23T15:39:03Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C24270_VerifyCerticateOfDepositDefaultFundingAmount status=FAILURE method=C24270_VerifyCerticateOfDepositDefaultFundingAmount.C24270_VerifyCerticateOfDepositDefaultFundingAmount()[pri:0, instance:FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount@16aec5c] output={null}]]]>
+                <![CDATA[[TestResult name=C23721_VerifyVehicleLoansAndRefinanceOptions status=SUCCESS method=C23721_VerifyVehicleLoansAndRefinanceOptions.C23721_VerifyVehicleLoansAndRefinanceOptions()[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount@16aec5c]" name="tearDown" is-config="true" duration-ms="1949" started-at="2020-02-20T19:40:08Z" finished-at="2020-02-20T19:40:10Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb]" name="tearDown" is-config="true" duration-ms="2040" started-at="2020-02-23T15:39:03Z" finished-at="2020-02-23T15:39:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount -->
+      </class> <!-- SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -205,9 +205,9 @@ public class C23832_VerifyMembershipEligibilityLiveWorkOptionSelection extends G
 				        getElement(ObjectRepository.productPageNext).click();
 						test.log(Status.INFO, "Continue button clicked from membership eligibility page");
 						
-						 verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
-							test.log(Status.INFO, "Confirm account selection page title appearing correctly");
-						
+//						 verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
+//							test.log(Status.INFO, "Confirm account selection page title appearing correctly");
+//						
 					
 				 }
 			}

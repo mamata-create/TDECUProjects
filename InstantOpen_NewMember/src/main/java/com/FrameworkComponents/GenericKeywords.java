@@ -959,8 +959,9 @@ public class GenericKeywords extends BaseClass{
 		return prop;
 		
 	}
-	public static void enterPromocode(){
-		getElement(ObjectRepository.add_promocode_field).sendKeys(getvalueFromPropFile().get("promocode").toString()); 
+	public static void enterPromocode(String promocode){
+		verifyText(ObjectRepository.cnfrmacnt_ttl,"Confirm Selected Products and Services");
+		getElement(ObjectRepository.add_promocode_field).sendKeys(promocode); 
 		getElement(ObjectRepository.cnfrm_btn).click();
 		
 	}

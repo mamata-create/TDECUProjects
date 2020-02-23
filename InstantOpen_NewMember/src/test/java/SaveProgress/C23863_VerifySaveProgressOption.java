@@ -74,7 +74,7 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 					String informationHeader=excl.getCellData(sheetName, 23, startIter);
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
-					
+					String promocode = excl.getCellData(sheetName, 30, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -188,9 +188,9 @@ public class C23863_VerifySaveProgressOption  extends GenericKeywords{
 			
 			        getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked from membership eligibility page");
-						
-					 verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
-					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
+					enterPromocode(promocode);		
+					 verifyElementPresent(ObjectRepository.acntagrmnt_ttl);
+					test.log(Status.INFO, "Account Agreement and Disclouser page displayed");
 			
 					getElement(ObjectRepository.svfinish_btn).click();
 					test.log(Status.INFO, "Save and finish button clicked from confirm account selection page");

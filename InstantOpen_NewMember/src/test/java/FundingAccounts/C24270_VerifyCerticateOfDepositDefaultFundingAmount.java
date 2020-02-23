@@ -72,7 +72,7 @@ public class C24270_VerifyCerticateOfDepositDefaultFundingAmount   extends Gener
 					String informationHeader=excl.getCellData(sheetName, 23, startIter);
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
-					
+					String promocode = excl.getCellData(sheetName, 30, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -195,7 +195,7 @@ public class C24270_VerifyCerticateOfDepositDefaultFundingAmount   extends Gener
 			
 			        getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked from membership eligibility page");
-					enterPromocode();	
+					enterPromocode(promocode);	
 //					verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
 //					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
 //			

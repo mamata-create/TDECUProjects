@@ -105,7 +105,7 @@ public class C24298_VerifySelectOneResidentOption extends GenericKeywords{
 					getElement(ObjectRepository.membership_page_option(4)).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Membership eligibility selected");
-					enterPromocode();
+					enterPromocode(promoCode);
 					test.log(Status.INFO, "Confirm button clicked");
 					//Agreements and disclosures
 					getElement(ObjectRepository.discCheckBox).click();

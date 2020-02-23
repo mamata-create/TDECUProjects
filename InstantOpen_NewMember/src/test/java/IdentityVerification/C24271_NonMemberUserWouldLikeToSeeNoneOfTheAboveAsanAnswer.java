@@ -84,8 +84,7 @@ public class C24271_NonMemberUserWouldLikeToSeeNoneOfTheAboveAsanAnswer extends 
 					String phonetyp=excl.getCellData(sheetName, 17, startIter);
 					String primary_email=excl.getCellData(sheetName, 18, startIter);
 					String hear_opt=excl.getCellData(sheetName, 19, startIter);
-					
-					
+					String promocode = excl.getCellData(sheetName, 30, startIter);
 					
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
@@ -113,17 +112,7 @@ public class C24271_NonMemberUserWouldLikeToSeeNoneOfTheAboveAsanAnswer extends 
 //					getElement(ObjectRepository.getTermCertificateLocator(("6"))).click();
 					getElement(ObjectRepository.continue_btn).click();
 					
-					
-					
-//					productOptions(productOptionsForAllOptions);
-//					expandProductsAndValidateEachOptions("Credit Cards","CreditCard");
-//					creditCardCheckedUncheckedValidator("Classic",false);
-//					getElement(ObjectRepository.continue_btn).click();
-//					verifyText(ObjectRepository.creditCardInfoPage,"Credit Card Info");
-//					verifyElementPresent(ObjectRepository.cardType_dropdown);
-//					verifyElementPresent(ObjectRepository.creditcardLimitTxt);
-//					getElement(ObjectRepository.creditcardLimitTxt).sendKeys("1000");
-//					getElement(ObjectRepository.edt_btn).click();
+
 					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
 					
 					//Enter all required Field''s Value in Applicant Info and Proceed
@@ -183,6 +172,7 @@ public class C24271_NonMemberUserWouldLikeToSeeNoneOfTheAboveAsanAnswer extends 
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
 					getElement(ObjectRepository.membership_page_option(1)).click();
 					getElement(ObjectRepository.productPageNext).click();
+					enterPromocode(promocode);	
 					verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
 					getElement(ObjectRepository.confirmBtn).click();
 					getElement(ObjectRepository.tnc_chkbx).click();

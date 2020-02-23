@@ -70,7 +70,7 @@ public class C23904_VerifyMarketMoneyDepositDefaultedAmount  extends GenericKeyw
 					String informationHeader=excl.getCellData(sheetName, 23, startIter);
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
-					
+					String promocode = excl.getCellData(sheetName, 30, startIter);
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
@@ -184,13 +184,14 @@ public class C23904_VerifyMarketMoneyDepositDefaultedAmount  extends GenericKeyw
 			
 			        getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked from membership eligibility page");
-						
-					verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
-					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
-			
-					getElement(ObjectRepository.svcontinue_btn).click();
-					test.log(Status.INFO, "Confirm button clicked from confirm account selection page");
 					
+					enterPromocode(promocode);	
+//					verifyElementPresent(ObjectRepository.cnfrmacntslctn_ttl);
+//					test.log(Status.INFO, "Confirm account selection page title appearing correctly");
+//			
+//					getElement(ObjectRepository.svcontinue_btn).click();
+//					test.log(Status.INFO, "Confirm button clicked from confirm account selection page");
+//					
 				//Agreement and disclosure 
 					verifyElementPresent(ObjectRepository.acntagrmnt_ttl);
 					test.log(Status.INFO, "Account Agreement page title appearing correctly");

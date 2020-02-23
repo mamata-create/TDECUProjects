@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount">
+      <class name="MembershipEligibility.C23830_VerifyMembershipEligibilityEmployeeOptionSelection">
         <methods>
           <include name="tearDown"/>
+          <include name="C23830_VerifyMembershipEligibilityEmployeeOptionSelection"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="C24270_VerifyCerticateOfDepositDefaultFundingAmount"/>
         </methods>
-      </class> <!-- FundingAccounts.C24270_VerifyCerticateOfDepositDefaultFundingAmount -->
+      </class> <!-- MembershipEligibility.C23830_VerifyMembershipEligibilityEmployeeOptionSelection -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
