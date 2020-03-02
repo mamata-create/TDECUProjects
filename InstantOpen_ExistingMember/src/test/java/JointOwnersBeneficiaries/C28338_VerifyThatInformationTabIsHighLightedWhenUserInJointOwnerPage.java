@@ -1,4 +1,4 @@
-package ApplicantInfo;
+package JointOwnersBeneficiaries;
 
 import java.io.IOException;
 
@@ -24,12 +24,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C28337_VerifyInformationProgressBarHighlightedOnExistingApplicantPage extends GenericKeywords {
+public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPage extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * As an applicant, I expect the Information step to be highlighted when I am on the Existing Applicant page.
+	 * As an existing member, I expect the Information step to be highlighted when I am on the Joint Owners page.
 	 */
 
 	@BeforeTest
@@ -45,7 +45,7 @@ public class C28337_VerifyInformationProgressBarHighlightedOnExistingApplicantPa
 	}	
 	
 	@Test
-	public void C28337_VerifyInformationProgressBarHighlightedOnExistingApplicantPage() throws InterruptedException, MessagingException, IOException
+	public void C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPage() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -56,6 +56,16 @@ public class C28337_VerifyInformationProgressBarHighlightedOnExistingApplicantPa
 			 {	
 				if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter))){
 					
+					String idType= excl.getCellData(sheetName, 16, startIter);
+					String idNum= excl.getCellData(sheetName, 17, startIter);
+					String issueDt= excl.getCellData(sheetName, 18, startIter);
+					String expDt= excl.getCellData(sheetName, 19, startIter);
+					String housePymt= excl.getCellData(sheetName, 20, startIter);
+					String addrYears= excl.getCellData(sheetName, 21, startIter);
+					String addrMonths= excl.getCellData(sheetName, 22, startIter);
+					String currentEmp= excl.getCellData(sheetName, 23, startIter);
+					String curIncome= excl.getCellData(sheetName, 24, startIter);
+					String empYears= excl.getCellData(sheetName, 25, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
 					//Start as a Member
@@ -86,6 +96,27 @@ public class C28337_VerifyInformationProgressBarHighlightedOnExistingApplicantPa
 					test.log(Status.INFO, "user on Delivery Method page");
 					
 					enter_otp_to_the_field_and_procced();
+					
+					//Applicant Info
+					selectDropdownOpt(ObjectRepository.idType,idType);
+					getElement(ObjectRepository.idNum).sendKeys(idNum);
+					getElement(ObjectRepository.issueDate).sendKeys(issueDt);
+					getElement(ObjectRepository.expDate).sendKeys(expDt);
+					getElement(ObjectRepository.housePymt).sendKeys(housePymt);
+					getElement(ObjectRepository.addrYears).sendKeys(addrYears);
+					getElement(ObjectRepository.addrMonths).sendKeys(addrMonths);
+					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
+					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
+					getElement(ObjectRepository.empYears).sendKeys(empYears);
+					
+					test.log(Status.INFO, "Applicant Information entered");
+					
+					getElement(ObjectRepository.jtOwnerCheckBox).click();
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Joint Owner checkbox selected");
+					//Joint Owner
+					verifyElementPresent(ObjectRepository.addOwnerTtl);
+					
 					//Return all elements on progressbar
 					
 					int index=1;

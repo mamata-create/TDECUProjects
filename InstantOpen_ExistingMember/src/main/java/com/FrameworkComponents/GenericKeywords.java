@@ -7,7 +7,20 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
+
+import javax.mail.BodyPart;
+import javax.mail.Flags;
+import javax.mail.Folder;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Store;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.search.FlagTerm;
+
 import org.apache.commons.io.FileUtils;
+import org.jsoup.Jsoup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -688,6 +701,111 @@ public class GenericKeywords extends BaseClass{
 			e.printStackTrace();
 		}
 		return elements;
+	}
+	
+	public static String fetchOutlookOTP() throws MessagingException, IOException{
+		String hostName = "outlook.office365.com";
+		String username = "divya.vagalaboina@eaglecrk.com";
+		String password = "Saibaba@1234";
+		int messageCount;
+		int unreadMsgCount;
+		String emailSubject;
+		Message emailMessage;
+		String ActOTP=null;
+
+		Properties sysProps = System.getProperties();
+		sysProps.setProperty("mail.store.protocol", "imaps");
+		Session session = Session.getInstance(sysProps, null);
+		Store store = session.getStore();
+		store.connect(hostName, username, password);
+		Folder emailInbox = store.getFolder("Inbox");
+		emailInbox.open(Folder.READ_WRITE);
+		messageCount = emailInbox.getMessageCount();
+		System.out.println("Total Message Count: " + messageCount);
+
+		unreadMsgCount = emailInbox.getNewMessageCount();
+		System.out.println("Unread Emails count:" + unreadMsgCount);
+		emailMessage = emailInbox.getMessage(messageCount);
+		emailSubject = emailMessage.getSubject();
+		
+		 Message[] messages = emailInbox.search(new FlagTerm(new Flags(
+                 Flags.Flag.SEEN), false));
+	      System.out.println("messages.length---" + messages.length);
+	     
+	      for (int i = 0; i < messages.length; i++) {
+	         Message message = messages[i];
+	         System.out.println("---------------------------------");
+	         System.out.println("Email Number " + (i + 1));
+	         System.out.println("Subject: " + message.getSubject());
+	         System.out.println("From: " + message.getFrom()[0]);
+	         System.out.println("Text: " + message.getContent().toString());
+	         try{
+	        	 if(  message.getContent() instanceof MimeMultipart ){
+		        	 System.out.println("From: " + message.getFrom()[0]);
+		        	 MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
+		        	 BodyPart  bp=mimeMultipart.getBodyPart(i);
+		        	 System.out.println("BP content type is -"+bp.getContentType());
+		        	 
+		        	 if(bp.getContent().toString().contains("Your verification code")){
+		        	 String htmlpart=(String)bp.getContent(); 
+						String otp=Jsoup.parse(htmlpart).text();
+						System.out.println("OTP messages are - "+otp);
+		        	 }
+		         }else{
+		        	 System.out.println(message.getContent().toString());
+		        	 if(message.getSubject().equalsIgnoreCase("One Time Passcode") && message.getContent().toString().contains("Your verification code")){
+		        		 String val = Jsoup.parse(message.getContent().toString()).text();
+		        		// System.out.println((val.substring(26, 32)));
+		        		 ActOTP = val.substring(26, 32);
+		        	 }
+		        	 
+		         }
+	         }catch(Exception e){
+	        	e.printStackTrace();
+	         }
+	      
+	      }
+
+	      //close the store and folder objects
+	      emailMessage.setFlag(Flags.Flag.SEEN, true);
+	      emailInbox.close(false);
+	      store.close();
+		return ActOTP;	
+	}
+	
+	public static boolean enter_otp_to_the_field_and_procced(){
+		boolean flag = false;
+		try {
+		getElement(ObjectRepository.delivery_method_email_option("Email")).click();
+		getElement(ObjectRepository.send_otp_button).click();
+		Thread.sleep(20000);
+		getElement(ObjectRepository.security_code_textbox).sendKeys(fetchOutlookOTP());
+		getElement(ObjectRepository.btn_verify_code).click();
+		
+		if(getElement(ObjectRepository.your_information_page).getText().contains("Your Information")){
+			return flag=true;
+		}
+		
+		}
+		 catch (MessagingException e) {
+			
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+	public static void enterPromocode(String promocode){
+		verifyText(ObjectRepository.cnfrmacnt_ttl,"Confirm Selected Products and Services");
+		getElement(ObjectRepository.add_promocode_field).sendKeys(promocode); 
+		getElement(ObjectRepository.cnfrm_btn).click();
+		
 	}
 }
 	

@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="30726" started-at="2020-02-18T19:15:56Z" finished-at="2020-02-18T19:16:27Z">
+  <suite name="Default suite" duration-ms="86391" started-at="2020-03-02T19:31:42Z" finished-at="2020-03-02T19:33:09Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="30726" started-at="2020-02-18T19:15:56Z" finished-at="2020-02-18T19:16:27Z">
-      <class name="MemberVerification.C28371_ValidateDeliveryMethodForOneTimePassWord">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:MemberVerification.C28371_ValidateDeliveryMethodForOneTimePassWord@a3ffec]" name="setUp" is-config="true" duration-ms="9810" started-at="2020-02-18T14:15:56Z" finished-at="2020-02-18T14:16:06Z">
+    <test name="Default test" duration-ms="86391" started-at="2020-03-02T19:31:42Z" finished-at="2020-03-02T19:33:09Z">
+      <class name="JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be]" name="setUp" is-config="true" duration-ms="11201" started-at="2020-03-02T14:31:42Z" finished-at="2020-03-02T14:31:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C28371_ValidateDeliveryMethodForOneTimePassWord()[pri:0, instance:MemberVerification.C28371_ValidateDeliveryMethodForOneTimePassWord@a3ffec]" name="C28371_ValidateDeliveryMethodForOneTimePassWord" duration-ms="19193" started-at="2020-02-18T14:16:06Z" finished-at="2020-02-18T14:16:25Z">
+        <test-method status="PASS" signature="C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage()[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be]" name="C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage" duration-ms="73837" started-at="2020-03-02T14:31:54Z" finished-at="2020-03-02T14:33:07Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C28371_ValidateDeliveryMethodForOneTimePassWord -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:MemberVerification.C28371_ValidateDeliveryMethodForOneTimePassWord@a3ffec]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-02-18T14:16:25Z" finished-at="2020-02-18T14:16:25Z">
+        </test-method> <!-- C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-03-02T14:33:07Z" finished-at="2020-03-02T14:33:07Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C28371_ValidateDeliveryMethodForOneTimePassWord status=SUCCESS method=C28371_ValidateDeliveryMethodForOneTimePassWord.C28371_ValidateDeliveryMethodForOneTimePassWord()[pri:0, instance:MemberVerification.C28371_ValidateDeliveryMethodForOneTimePassWord@a3ffec] output={null}]]]>
+                <![CDATA[[TestResult name=C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage status=SUCCESS method=C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage()[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:MemberVerification.C28371_ValidateDeliveryMethodForOneTimePassWord@a3ffec]" name="tearDown" is-config="true" duration-ms="1572" started-at="2020-02-18T14:16:25Z" finished-at="2020-02-18T14:16:27Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be]" name="tearDown" is-config="true" duration-ms="1328" started-at="2020-03-02T14:33:07Z" finished-at="2020-03-02T14:33:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- MemberVerification.C28371_ValidateDeliveryMethodForOneTimePassWord -->
+      </class> <!-- JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
