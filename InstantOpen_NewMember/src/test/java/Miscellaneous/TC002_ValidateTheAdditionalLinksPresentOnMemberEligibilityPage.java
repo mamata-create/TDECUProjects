@@ -1,18 +1,17 @@
-package ConfirmAccounts;
+package Miscellaneous;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Set;
 
 import javax.mail.MessagingException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.FrameworkComponents.BaseClass;
 import com.FrameworkComponents.ExtentManager;
@@ -23,44 +22,30 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends GenericKeywords  {
+public class TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
-	/*
-	 * Verify Non member user can view selected account info
-	 */
-	@BeforeTest
-	public void setUp() throws InterruptedException, MessagingException, IOException {
-		
-		extent = ExtentManager.GetExtent();
-		test = extent.createTest(this.getClass().getSimpleName());
-		BaseClass iDriver = new BaseClass();
-		iDriver.myTestCaseName = this.getClass().getSimpleName();
-		executeDriverScript();
-		test.log(Status.INFO, "Application url navigated");
-		
-	}
 	
-	@Test
-	public void C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo() throws InterruptedException, MessagingException, IOException
-	{
-		
-		if(continuetestcase==true)
-		{
-			sheetName = "Data";
+  @BeforeTest
+  public void setUp() throws InterruptedException, MessagingException, IOException {
+	  extent = ExtentManager.GetExtent();
+	  test = extent.createTest(this.getClass().getSimpleName());
+      BaseClass iDriver = new BaseClass();
+      iDriver.myTestCaseName = this.getClass().getSimpleName();
+	  executeDriverScript();
+	  test.log(Status.INFO, "Application url navigated");
+  }
+	
+  @Test
+  public void TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage() throws InterruptedException, MessagingException, IOException {
+	  if(continuetestcase==true)
+	  {
+			sheetName = "Miscellaneous";
 			int totalRowCount = excl.getRowCount(sheetName);
 			for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
-			 {	
+			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter)))
 				 {
-					
-					String informationHeader=excl.getCellData(sheetName, 23, startIter);
-					String informationContent = excl.getCellData(sheetName, 24, startIter);
-					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
-					String accountselections = excl.getCellData(sheetName, 29, startIter);
-					String productOptionsForAllOptions =  "Credit Cards; Vehicle Loans and Refinance Options (Auto, Boat, Motorcycle, RV/Camper); Personal Loans;Certificates of Deposit (CDs);Money Market Accounts;Savings Account;Additional Services and Features";
-					String bottomMsg = excl.getCellData(sheetName, 26, startIter);
-					String serviceOption = " Debit Card, Mobile Check Deposit, Overdraft Protection Plan, Opt into Courtesy Pay";
 					Faker fk=new Faker();
 					String num=getRandom();
 					String fname=fk.name().firstName();
@@ -84,49 +69,47 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 					String phonetyp=excl.getCellData(sheetName, 17, startIter);
 					String primary_email=excl.getCellData(sheetName, 18, startIter);
 					String hear_opt=excl.getCellData(sheetName, 19, startIter);
-					String promocode = excl.getCellData(sheetName, 30, startIter);
-					
-					
+					String bottomMsg = excl.getCellData(sheetName, 26, startIter);
+					String informationHeader=excl.getCellData(sheetName, 23, startIter);
+					String informationContent = excl.getCellData(sheetName, 24, startIter);
+					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
+					SoftAssert softassert = new SoftAssert();
 					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
 					
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
-					test.log(Status.INFO, "Non Member Start here button clicked");
+					test.log(Status.INFO, "Non Members Start Here button clicked");
+					Thread.sleep(4000);
 					
-					Thread.sleep(3000);
+				//Dont want to open a checking account option selected	
+					scrollToElement(ObjectRepository.dontWantCheckingOption);
+					getElement(ObjectRepository.dontWantCheckingOption).click();
+					test.log(Status.INFO, "Dont want to open a checking account option selected");
+				
+					Thread.sleep(4000);
 					
-					verifyText(ObjectRepository.inforMsgHeader,informationHeader);
-					verifyText(ObjectRepository.inforMsgContent,informationContent);
-					verifyText(ObjectRepository.checkingAccountOptionHeader,checkingAccountOptionHeader);
-
+					getElement(ObjectRepository.loancnfrm_no).click();
+					test.log(Status.INFO, "No option selected");
 					
-					//Check the account and select
-					verifyElementPresent(ObjectRepository.Highyieldchking_opt);
-					getElement(ObjectRepository.Highyieldchking_opt).click();
-					getElement(ObjectRepository.locatorAdditionalOption("Overdraft Protection Plan")).click();;
-					getElement(ObjectRepository.selectRadioOption("Yes")).click();
-					getElement(ObjectRepository.subproductName("Certificates of Deposit (CDs)")).click();
-					getElement(ObjectRepository.CD_amount_field).sendKeys("1000");
-					selectDropdownOpt(ObjectRepository.CD_term_field,"6");
-					getElement(ObjectRepository.getTermCertificateLocator(("6"))).click();
-					getElement(ObjectRepository.continue_btn).click();
-
-					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
+					Thread.sleep(2000);
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Continue button clicked");
+				
+					//Primary Applicant info page
+					verifyElementPresent(ObjectRepository.primaryApplicantInfoPageTitle);
+					verifyElementPresent(ObjectRepository.aplcntinfo_ttl);
+					verifyElementPresent(ObjectRepository.idntfctninfo_ttl);
+					//verifyElementPresent(ObjectRepository.loaninfo_ttl);
+					test.log(Status.INFO, "Primary Applicant Information page appeared with all sections");
 					
-					//Enter all required Field''s Value in Applicant Info and Proceed
+				//Enter applicant information
 					getElement(ObjectRepository.fname_txt).sendKeys(fname);
 					test.log(Status.INFO, "First name entered");
 					
-//					getElement(ObjectRepository.mname_txt).sendKeys("");
-//					test.log(Status.INFO, "Middle name entered");
-//					
 					getElement(ObjectRepository.lname_txt).sendKeys(lname);
 					test.log(Status.INFO, "Last name entered");
-					
-//					getElement(ObjectRepository.namesfx_txt).sendKeys("");
-//					test.log(Status.INFO, "Name suffix entered");
 					
 					getElement(ObjectRepository.strtaddrs_txt).sendKeys(strtaddress);
 					test.log(Status.INFO, "Street Address entered");
@@ -137,7 +120,7 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 					getElement(ObjectRepository.ssn_txt).sendKeys(ssn);
 					test.log(Status.INFO, "SSN entered");
 					
-					//dt
+					
 					getElement(ObjectRepository.dob_cal).sendKeys(dob);
 					test.log(Status.INFO, "Date of Birth entered");
 					
@@ -164,54 +147,69 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 					
 					getElement(ObjectRepository.occptn_txt).sendKeys(occupation);
 					test.log(Status.INFO, "Occupation name entered");
+					
 					getElement(ObjectRepository.phonenmbr_txt).sendKeys(phonenmbr);
+					test.log(Status.INFO, "Phone number entered");
+					
 					selectDropdownOptContain(ObjectRepository.phonetyp_drop, phonetyp);
+					test.log(Status.INFO, "Phone type selected");
+					
 					getElement(ObjectRepository.primaryemail_txt).sendKeys(primary_email);
-					getElement(ObjectRepository.continue_btn).click();
+					test.log(Status.INFO, "Primary email address entered");
+					
+					getElement(ObjectRepository.continue_further).click();
+					Thread.sleep(5000);
+					test.log(Status.INFO, "Continue button clicked from primary applicant page");
+					
 					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
-					getElement(ObjectRepository.membership_page_option(1)).click();
-					getElement(ObjectRepository.productPageNext).click();
-					enterPromocode(promocode);
-					//verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
-					
-					try{
-						List<WebElement>accountSelections = retrunElements("//span[@id='ProductsAndServices']//following::li");
-						for(int count=1;count<=accountSelections.size();count++){
-							
-							String actualSelection = accountselections.split("::")[count-1].trim();
-							String eachSelection = getElement("(//span[@id='ProductsAndServices']//following::li)["+count+"]").getText();
-							if(eachSelection.contains(actualSelection)){
-								Assert.assertTrue(true, "Value matched");
-							}
-						}
-					}catch(ArrayIndexOutOfBoundsException e){
-						System.out.println("In catch....exit execution");
-					}
 					
 					
+					verifyElementPresent(ObjectRepository.mmbrtdecu_opt);
+					verifyElementPresent(ObjectRepository.mmbremploy_opt);
+					verifyElementPresent(ObjectRepository.mmbrship_opt);
+					verifyElementPresent(ObjectRepository.livework_opt);
+					test.log(Status.INFO, "All four options appear on Membership eligibility page");
+					
+					getElement(ObjectRepository.mmbrship_opt).click();
+					test.log(Status.INFO, "Membership eligibility- Member option selected");
+					
+					verifyElementPresent(ObjectRepository.orglist_lnk);
+					test.log(Status.INFO, "View List of Membership organizations link appearing under Member option");
+					
+					for(WebElement element : retrunElements(ObjectRepository.links_on_memberShipPage)){
 						
+						element.click();
+						handleMultipleWindow(1,element.getAttribute("href"));
+						if(driver.getTitle().equals("Field of Membership by Company and Organization | TDECU")){
+							softassert.assertNotEquals(driver.getTitle(), "Field of Membership by Company and Organization | TDECU");
+						}else if(driver.getTitle().equals("Membership | TDECU")){
+							softassert.assertNotEquals(driver.getTitle(), "Membership | TDECU");
+						}
+						
+						handleMultipleWindow(0,"");
 					}
+										
+							
 				 }
-			 }
-		
-				
-	}
-	@AfterMethod
-	public void afterMethod(ITestResult result) throws Throwable {
-		if (result.getStatus() == ITestResult.FAILURE) {
+			}
+	  }
+  }
+  @AfterMethod
+  public void afterMethod(ITestResult result) throws Throwable {
+	  if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, "Test Failed-" + result.getThrowable());
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, " Verify Non member user can view selected account info");
+			test.log(Status.PASS, "Verify Membership elgibility - Member option selection for TDECU account");
 		}
 	}
 
-	@AfterTest
-	public void tearDown() {
-		extent.flush();
-		driver.quit();
-	}
+  @AfterTest
+  public void tearDown() {
+	 extent.flush();
+	 driver.quit();
+  }
 
 }

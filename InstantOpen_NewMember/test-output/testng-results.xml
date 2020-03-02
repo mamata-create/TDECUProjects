@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="91702" started-at="2020-02-23T15:37:33Z" finished-at="2020-02-23T15:39:05Z">
+  <suite name="Default suite" duration-ms="70219" started-at="2020-02-27T19:51:30Z" finished-at="2020-02-27T19:52:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="91702" started-at="2020-02-23T15:37:33Z" finished-at="2020-02-23T15:39:05Z">
-      <class name="SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb]" name="setUp" is-config="true" duration-ms="13747" started-at="2020-02-23T15:37:33Z" finished-at="2020-02-23T15:37:47Z">
+    <test name="Default test" duration-ms="70219" started-at="2020-02-27T19:51:30Z" finished-at="2020-02-27T19:52:40Z">
+      <class name="Miscellaneous.TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:Miscellaneous.TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage@13ad2d6]" name="setUp" is-config="true" duration-ms="12122" started-at="2020-02-27T19:51:30Z" finished-at="2020-02-27T19:51:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C23721_VerifyVehicleLoansAndRefinanceOptions()[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb]" name="C23721_VerifyVehicleLoansAndRefinanceOptions" duration-ms="75864" started-at="2020-02-23T15:37:47Z" finished-at="2020-02-23T15:39:03Z">
+        <test-method status="PASS" signature="TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage()[pri:0, instance:Miscellaneous.TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage@13ad2d6]" name="TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage" duration-ms="56109" started-at="2020-02-27T19:51:42Z" finished-at="2020-02-27T19:52:38Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C23721_VerifyVehicleLoansAndRefinanceOptions -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb]" name="afterMethod" is-config="true" duration-ms="4" started-at="2020-02-23T15:39:03Z" finished-at="2020-02-23T15:39:03Z">
+        </test-method> <!-- TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Miscellaneous.TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage@13ad2d6]" name="afterMethod" is-config="true" duration-ms="3" started-at="2020-02-27T19:52:38Z" finished-at="2020-02-27T19:52:38Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C23721_VerifyVehicleLoansAndRefinanceOptions status=SUCCESS method=C23721_VerifyVehicleLoansAndRefinanceOptions.C23721_VerifyVehicleLoansAndRefinanceOptions()[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb] output={null}]]]>
+                <![CDATA[[TestResult name=TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage status=SUCCESS method=TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage.TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage()[pri:0, instance:Miscellaneous.TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage@13ad2d6] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions@9838eb]" name="tearDown" is-config="true" duration-ms="2040" started-at="2020-02-23T15:39:03Z" finished-at="2020-02-23T15:39:05Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Miscellaneous.TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage@13ad2d6]" name="tearDown" is-config="true" duration-ms="1951" started-at="2020-02-27T19:52:38Z" finished-at="2020-02-27T19:52:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- SelectAccounts.C23721_VerifyVehicleLoansAndRefinanceOptions -->
+      </class> <!-- Miscellaneous.TC002_ValidateTheAdditionalLinksPresentOnMemberEligibilityPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

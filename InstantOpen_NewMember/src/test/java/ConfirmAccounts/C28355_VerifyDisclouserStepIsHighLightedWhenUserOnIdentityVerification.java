@@ -23,11 +23,11 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends GenericKeywords  {
+public class C28355_VerifyDisclouserStepIsHighLightedWhenUserOnIdentityVerification extends GenericKeywords  {
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * Verify Non member user can view selected account info
+	 * As an applicant, I expect the Disclosures step to be highlighted when I am on the Identity Verification page
 	 */
 	@BeforeTest
 	public void setUp() throws InterruptedException, MessagingException, IOException {
@@ -42,7 +42,7 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 	}
 	
 	@Test
-	public void C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo() throws InterruptedException, MessagingException, IOException
+	public void C28355_VerifyDisclouserStepIsHighLightedWhenUserOnIdentityVerification() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -86,8 +86,6 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 					String hear_opt=excl.getCellData(sheetName, 19, startIter);
 					String promocode = excl.getCellData(sheetName, 30, startIter);
 					
-					
-					
 					verifyElementPresent(ObjectRepository.app_ttl);
 					test.log(Status.INFO, "Instant Open Title appearing");
 					
@@ -112,7 +110,7 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 					selectDropdownOpt(ObjectRepository.CD_term_field,"6");
 					getElement(ObjectRepository.getTermCertificateLocator(("6"))).click();
 					getElement(ObjectRepository.continue_btn).click();
-
+			
 					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
 					
 					//Enter all required Field''s Value in Applicant Info and Proceed
@@ -172,23 +170,39 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
 					getElement(ObjectRepository.membership_page_option(1)).click();
 					getElement(ObjectRepository.productPageNext).click();
+					
+					//Product Services header
+					
+					verifyText(ObjectRepository.promo_code_page_header,"Confirm Selected Products and Services");
+					verifyText(ObjectRepository.promo_code_sub_header,"Please confirm your product and service selections:");
+					
+					//Enter PromoCode
 					enterPromocode(promocode);
-					//verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
 					
-					try{
-						List<WebElement>accountSelections = retrunElements("//span[@id='ProductsAndServices']//following::li");
-						for(int count=1;count<=accountSelections.size();count++){
-							
-							String actualSelection = accountselections.split("::")[count-1].trim();
-							String eachSelection = getElement("(//span[@id='ProductsAndServices']//following::li)["+count+"]").getText();
-							if(eachSelection.contains(actualSelection)){
-								Assert.assertTrue(true, "Value matched");
-							}
+					getElement(ObjectRepository.discCheckBox).click();
+					getElement(ObjectRepository.TINchkbx).click();
+					getElement(ObjectRepository.withHldngChkbx).click();
+					
+					getElement(ObjectRepository.citizenChkbx).click();
+					getElement(ObjectRepository.agreeChkbx).click();
+					test.log(Status.INFO, "Agreement and Disclosure options selected");
+					getElement(ObjectRepository.confirmBtn).click();
+					test.log(Status.INFO, "Accept button clicked");
+					
+				//Validate Disclouser tab is highlighted
+					int index=1;
+					for(WebElement eachOption :retrunElements(ObjectRepository.progressBarOptions)){
+						
+						String text_from_option = eachOption.getText();
+						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//span/..)["+index+"]")).getAttribute("class");
+						if(text_from_option.equalsIgnoreCase("Disclosures") && class_prop.equals("JourneyBarCurrent")){
+							Assert.assertTrue(true, "Disclosures icon is not highlighted in Bule");
+							return;
+						}else if(text_from_option.equalsIgnoreCase("Verification") && class_prop.equals("JourneyBarPrevious")){
+							Assert.assertTrue(true, "Verification icon is not highlighted as Blue");
 						}
-					}catch(ArrayIndexOutOfBoundsException e){
-						System.out.println("In catch....exit execution");
+						index++;
 					}
-					
 					
 						
 					}
@@ -204,7 +218,7 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, " Verify Non member user can view selected account info");
+			test.log(Status.PASS, "As an applicant, I expect the Disclosures step to be highlighted when I am on the Identity Verification page");
 		}
 	}
 

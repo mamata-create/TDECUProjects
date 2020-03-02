@@ -25,6 +25,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.search.FlagTerm;
 
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
@@ -295,7 +296,7 @@ public class GenericKeywords extends BaseClass{
 	public static String fetchOutlookOTP() throws MessagingException, IOException{
 		String hostName = "outlook.office365.com";
 		String username = "divya.vagalaboina@eaglecrk.com";
-		String password = "Srinivas@2";
+		String password = "Saibaba@1234";
 		int messageCount;
 		int unreadMsgCount;
 		String emailSubject;
@@ -316,49 +317,52 @@ public class GenericKeywords extends BaseClass{
 		System.out.println("Unread Emails count:" + unreadMsgCount);
 		emailMessage = emailInbox.getMessage(messageCount);
 		emailSubject = emailMessage.getSubject();
+		
+		 Message[] messages = emailInbox.search(new FlagTerm(new Flags(
+                 Flags.Flag.SEEN), false));
+	      System.out.println("messages.length---" + messages.length);
+	     
+	      for (int i = 0; i < messages.length; i++) {
+	         Message message = messages[i];
+	         System.out.println("---------------------------------");
+	         System.out.println("Email Number " + (i + 1));
+	         System.out.println("Subject: " + message.getSubject());
+	         System.out.println("From: " + message.getFrom()[0]);
+	         System.out.println("Text: " + message.getContent().toString());
+	         try{
+	        	 if(  message.getContent() instanceof MimeMultipart ){
+		        	 System.out.println("From: " + message.getFrom()[0]);
+		        	 MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
+		        	 BodyPart  bp=mimeMultipart.getBodyPart(i);
+		        	 System.out.println("BP content type is -"+bp.getContentType());
+		        	 
+		        	 if(bp.getContent().toString().contains("Your verification code")){
+		        	 String htmlpart=(String)bp.getContent(); 
+						String otp=Jsoup.parse(htmlpart).text();
+						System.out.println("OTP messages are - "+otp);
+		        	 }
+		         }else{
+		        	 System.out.println(message.getContent().toString());
+		        	 if(message.getContent().toString().contains("Your verification code")){
+		        		 String val = Jsoup.parse(message.getContent().toString()).text();
+		        		// System.out.println((val.substring(26, 32)));
+		        		 ActOTP = val.substring(26, 32);
+		        	 }
+		        	 
+		         }
+	         }catch(Exception e){
+	        	 
+	         }
+	         
+	         
 
-		MimeMultipart mp=(MimeMultipart )emailMessage.getContent(); 
-		int count=mp.getCount();
+	      }
 
-		for(int i=0;i<1;i++){
-			BodyPart  bp=mp.getBodyPart(i);
-			System.out.println("BP content type is -"+bp.getContentType());
-			// System.out.println("BP despos type is -"+bp.getDisposition());
-
-			if(bp.getContent().toString().contains("secure access code")){
-				//System.out.println("OTP messages are- "+bp.getContent());
-				String htmlpart=(String)bp.getContent(); 
-				String otp=Jsoup.parse(htmlpart).text();
-				System.out.println("OTP messages are - "+otp);
-				//otp.substring(otp.lastIndexOf("access code is") + 1, otp.indexOf("This mail has been"));
-				ActOTP=otp.substring(35, 41);
-				System.out.println("Actual OTP messages are - "+ActOTP);
-
-
-			}
-			//System.out.println("Inbox messages are- "+bp.getContent());
-		}
-		//System.out.println("Inbox messages are- "+emailMessage.getContent().toString());
-
-
-		// Pattern linkPattern = Pattern.compile("href=\"(.*)\"Q2e"); // here you need to define regex as per you need
-		//        Matcher pageMatcher =
-		//                linkPattern.matcher(emailMessage.getContent().toString());
-		//
-		//        while (pageMatcher.find()) {
-		//            System.out.println("Found OTP " + pageMatcher.group(1));
-		//        }
-		//        
-		//        Message[] messages=emailInbox.search(new SubjectTerm("Secure Banking: Requested information"), emailInbox.getMessages());
-		//        
-		//        for(Message msg:messages){
-		//        	System.out.println("Messages are - "+msg.getDescription());
-		//        }
-
-		emailMessage.setFlag(Flags.Flag.SEEN, true);
-		emailInbox.close(true);
-		store.close();
-		return ActOTP;
+	      //close the store and folder objects
+	      emailMessage.setFlag(Flags.Flag.SEEN, true);
+	      emailInbox.close(false);
+	      store.close();
+		return ActOTP;	
 	}
 
 	public static void selectCheckboxBasedonTerm(String selectedTerm){

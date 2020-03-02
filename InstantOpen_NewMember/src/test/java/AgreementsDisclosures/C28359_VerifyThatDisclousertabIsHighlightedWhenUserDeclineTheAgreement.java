@@ -1,7 +1,6 @@
-package ConfirmAccounts;
+package AgreementsDisclosures;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.mail.MessagingException;
 
@@ -23,12 +22,10 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends GenericKeywords  {
+public class C28359_VerifyThatDisclousertabIsHighlightedWhenUserDeclineTheAgreement extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
-	/*
-	 * Verify Non member user can view selected account info
-	 */
+	
 	@BeforeTest
 	public void setUp() throws InterruptedException, MessagingException, IOException {
 		
@@ -42,7 +39,7 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 	}
 	
 	@Test
-	public void C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo() throws InterruptedException, MessagingException, IOException
+	public void C28359_VerifyThatDisclousertabIsHighlightedWhenUserDeclineTheAgreement() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -52,8 +49,7 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 			for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
 			 {	
 				if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter)))
-				 {
-					
+				{
 					String informationHeader=excl.getCellData(sheetName, 23, startIter);
 					String informationContent = excl.getCellData(sheetName, 24, startIter);
 					String checkingAccountOptionHeader =  excl.getCellData(sheetName, 25, startIter);
@@ -86,116 +82,71 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 					String hear_opt=excl.getCellData(sheetName, 19, startIter);
 					String promocode = excl.getCellData(sheetName, 30, startIter);
 					
-					
-					
-					verifyElementPresent(ObjectRepository.app_ttl);
-					test.log(Status.INFO, "Instant Open Title appearing");
-					
 					scrollToElement(ObjectRepository.nonmmbrstrt_btn);
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
 					test.log(Status.INFO, "Non Member Start here button clicked");
-					
-					Thread.sleep(3000);
-					
-					verifyText(ObjectRepository.inforMsgHeader,informationHeader);
-					verifyText(ObjectRepository.inforMsgContent,informationContent);
-					verifyText(ObjectRepository.checkingAccountOptionHeader,checkingAccountOptionHeader);
-
-					
-					//Check the account and select
-					verifyElementPresent(ObjectRepository.Highyieldchking_opt);
-					getElement(ObjectRepository.Highyieldchking_opt).click();
-					getElement(ObjectRepository.locatorAdditionalOption("Overdraft Protection Plan")).click();;
-					getElement(ObjectRepository.selectRadioOption("Yes")).click();
-					getElement(ObjectRepository.subproductName("Certificates of Deposit (CDs)")).click();
-					getElement(ObjectRepository.CD_amount_field).sendKeys("1000");
-					selectDropdownOpt(ObjectRepository.CD_term_field,"6");
-					getElement(ObjectRepository.getTermCertificateLocator(("6"))).click();
+					//Select Products
+					getElement(ObjectRepository.classicCheck).click();
+					getElement(ObjectRepository.othrprdctno_rdbtn).click();
 					getElement(ObjectRepository.continue_btn).click();
-
-					verifyText(ObjectRepository.primaryApplicantInfoPageTitle,"Primary Applicant Information");
-					
-					//Enter all required Field''s Value in Applicant Info and Proceed
-					getElement(ObjectRepository.fname_txt).sendKeys(fname);
-					test.log(Status.INFO, "First name entered");
-					
-//					getElement(ObjectRepository.mname_txt).sendKeys("");
-//					test.log(Status.INFO, "Middle name entered");
-//					
+					test.log(Status.INFO, "Classic Checking with courtesy pay selected");
+					//Applicant Info
+					getElement(ObjectRepository.fname_txt).sendKeys(fname);//					
 					getElement(ObjectRepository.lname_txt).sendKeys(lname);
-					test.log(Status.INFO, "Last name entered");
-					
-//					getElement(ObjectRepository.namesfx_txt).sendKeys("");
-//					test.log(Status.INFO, "Name suffix entered");
-					
 					getElement(ObjectRepository.strtaddrs_txt).sendKeys(strtaddress);
-					test.log(Status.INFO, "Street Address entered");
-					
 					getElement(ObjectRepository.zip_txt).sendKeys(zipcode);
-					test.log(Status.INFO, "Zip code entered");
-					
 					getElement(ObjectRepository.ssn_txt).sendKeys(ssn);
-					test.log(Status.INFO, "SSN entered");
-					
-					//dt
 					getElement(ObjectRepository.dob_cal).sendKeys(dob);
-					test.log(Status.INFO, "Date of Birth entered");
-					
-					selectDropdownOptContain(ObjectRepository.idtyp_drop, idtyp);
-					test.log(Status.INFO, "ID type selected");
-					
+					selectDropdownOpt(ObjectRepository.idtyp_drop, idtyp);
 					getElement(ObjectRepository.idnmbr_txt).sendKeys(idnumber);
-					test.log(Status.INFO, "ID number entered");
-					
 					getElement(ObjectRepository.issuedt_cal).sendKeys(issue_dt);
-					test.log(Status.INFO, "Issue date entered");
-					
 					getElement(ObjectRepository.expdt_cal).sendKeys(expr_dt);
-					test.log(Status.INFO, "Expiry date entered");
-					
-					selectDropdownOptContain(ObjectRepository.hrabttdecu_drop, hear_opt);
-					test.log(Status.INFO, "How did you hear about TDECU option selected");
-					
+					selectDropdownOpt(ObjectRepository.hrabttdecu_drop, hear_opt);
 					getElement(ObjectRepository.mothername_txt).sendKeys(mothername);
-					test.log(Status.INFO, "Mother name entered");
-					
 					getElement(ObjectRepository.crrntemplyr_txt).sendKeys(crrnt_emplyr);
-					test.log(Status.INFO, "Current Employer name entered");
-					
 					getElement(ObjectRepository.occptn_txt).sendKeys(occupation);
-					test.log(Status.INFO, "Occupation name entered");
 					getElement(ObjectRepository.phonenmbr_txt).sendKeys(phonenmbr);
-					selectDropdownOptContain(ObjectRepository.phonetyp_drop, phonetyp);
+					selectDropdownOpt(ObjectRepository.phonetyp_drop, phonetyp);
 					getElement(ObjectRepository.primaryemail_txt).sendKeys(primary_email);
 					getElement(ObjectRepository.continue_btn).click();
-					verifyElementPresent(ObjectRepository.memberShipEligibilityPage);
-					test.log(Status.INFO, "Navigated to Member Eligibility Page successfully");
-					getElement(ObjectRepository.membership_page_option(1)).click();
+					test.log(Status.INFO, "Applicant Information entered");
+					//Membership Eligibility
+					getElement(ObjectRepository.membership_page_option(3)).click();
 					getElement(ObjectRepository.productPageNext).click();
-					enterPromocode(promocode);
-					//verifyText(ObjectRepository.confirm_account_selections_page,"Confirm Account Selections");
+					test.log(Status.INFO, "Membership eligibility selected");
+					getElement(ObjectRepository.add_promocode_field).sendKeys(promocode);
+					getElement(ObjectRepository.cnfrm_btn).click();
+					test.log(Status.INFO, "Confirm button clicked");
+					//Agreements and disclosures
+					getElement(ObjectRepository.discCheckBox).click();
+					getElement(ObjectRepository.TINchkbx).click();
+					getElement(ObjectRepository.withHldngChkbx).click();
+					getElement(ObjectRepository.citizenChkbx).click();
+					getElement(ObjectRepository.agreeChkbx).click();
+					test.log(Status.INFO, "Agreements and Disclosures selected");
+					getElement(ObjectRepository.declineBtn).click();
+					verifyElementPresent(ObjectRepository.declineTxt);
+					test.log(Status.INFO, "Decline button clicked");
+					//getElement(ObjectRepository.backButtonFurther).click();
+					//verifyElementPresent(ObjectRepository.agreementTtl);
 					
-					try{
-						List<WebElement>accountSelections = retrunElements("//span[@id='ProductsAndServices']//following::li");
-						for(int count=1;count<=accountSelections.size();count++){
-							
-							String actualSelection = accountselections.split("::")[count-1].trim();
-							String eachSelection = getElement("(//span[@id='ProductsAndServices']//following::li)["+count+"]").getText();
-							if(eachSelection.contains(actualSelection)){
-								Assert.assertTrue(true, "Value matched");
-							}
-						}
-					}catch(ArrayIndexOutOfBoundsException e){
-						System.out.println("In catch....exit execution");
-					}
-					
-					
+					//Validate Disclouser tab is highlighted
+					int index=1;
+					for(WebElement eachOption :retrunElements(ObjectRepository.progressBarOptions)){
 						
+						String text_from_option = eachOption.getText();
+						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//span/..)["+index+"]")).getAttribute("class");
+						if(text_from_option.equalsIgnoreCase("Disclosures") && class_prop.equals("JourneyBarCurrent")){
+							Assert.assertTrue(true, "Disclosures icon is not highlighted in Bule");
+							return;
+						}else if(text_from_option.equalsIgnoreCase("Verification") && class_prop.equals("JourneyBarPrevious")){
+							Assert.assertTrue(true, "Verification icon is not highlighted as Blue");
+						}
+						index++;
 					}
-				 }
+				}
 			 }
-		
-				
+		}
 	}
 	@AfterMethod
 	public void afterMethod(ITestResult result) throws Throwable {
@@ -204,7 +155,7 @@ public class C23857_NonMemberUserWouldLikeToViewSelectedAccountInfo extends Gene
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, " Verify Non member user can view selected account info");
+			test.log(Status.PASS, "Verify decline Agreements and Disclosures for Non member");
 		}
 	}
 
