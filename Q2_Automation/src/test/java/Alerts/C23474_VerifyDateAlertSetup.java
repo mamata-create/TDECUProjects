@@ -6,6 +6,7 @@ import javax.mail.MessagingException;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -114,7 +115,7 @@ public class C23474_VerifyDateAlertSetup extends GenericKeywords {
 					scrollToElement(ObjectRepository.alrtopts_drop);
 					
 					try{
-					selectDropdownOptContain(ObjectRepository.alrtopts_drop, alrtopts);
+						selectValue(ObjectRepository.alrtopts_drop,ObjectRepository.alrtTypes, alrtopts);
 					test.log(Status.INFO, "Alerts type selected");
 					Thread.sleep(2000);
 					}catch(Exception e){
@@ -127,17 +128,17 @@ public class C23474_VerifyDateAlertSetup extends GenericKeywords {
 					verifyElementPresent(ObjectRepository.alrt_dlvrymthd);
 					test.log(Status.INFO, "Alert selected info appearing in the left");
 					
-					String svbtn_class=getElement(ObjectRepository.alrt_svbtn).getAttribute("class");
-					Assert.assertTrue(svbtn_class.contains("disabled"));
-					test.log(Status.INFO, "Save button is disabled by default");
+//					String svbtn_class=getElement(ObjectRepository.alrt_svbtn).getAttribute("class");
+//					Assert.assertTrue(svbtn_class.contains("disabled"));
+//					test.log(Status.INFO, "Save button is disabled by default");
 					
-					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+alrt_typ+"')]").click();
-					test.log(Status.INFO, "Type selected");
+//					getElement("//label[@test-id='lblListItemDesc' and contains(text(),'"+alrt_typ+"')]").click();
+//					test.log(Status.INFO, "Type selected");
 					
 					verifyElementPresent(ObjectRepository.alrt_rccryr);
 					test.log(Status.INFO, "Recurr every year checkbox available");
 					
-					selectFutureDate(2);
+					selectDateofShadowRootElement(2,"Select a date");
 					test.log(Status.INFO, "Date selected");
 					
 					getElement(ObjectRepository.alrt_msg).sendKeys(msg);
@@ -148,7 +149,15 @@ public class C23474_VerifyDateAlertSetup extends GenericKeywords {
 					
 					Thread.sleep(3000);
 					
-					selectDropdownOptContain(ObjectRepository.alrt_dlvrymthd, dlvry_mthd);
+					for(WebElement element : returnElements(ObjectRepository.all_delevery_methods)){
+						
+						String delivery_method = element.getText();
+						
+						if(delivery_method.equalsIgnoreCase(dlvry_mthd)){
+							element.click();
+						}
+					}
+				//	selectDropdownOptContain(ObjectRepository.alrt_dlvrymthd, dlvry_mthd);
 					test.log(Status.INFO, "Alerts delivery method selected");
 					Thread.sleep(2000);
 					getElement(ObjectRepository.alrt_email).sendKeys(email);

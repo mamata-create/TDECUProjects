@@ -23,7 +23,7 @@ public class ObjectRepository {
 	public static String locpg_ttl="//h1[@test-id='txtBranchesTitle' and contains(text(),'Locations and ATMs')]";
 	public static String prvcyntc_ttl="//h1[contains(text(),'Privacy Notice')]";
 	
-	public static String loginerr_msg="//div[@class='alert-message_inner']/p[contains(text(),'Authentication has failed. Please re-enter your login')]";
+	public static String loginerr_msg="//div[@class='alert-message_inner']/following::p[1]";
 	public static String logout_msg="//h1[contains(text(),'Successfully Logged Out')]";
 	
 	//transactions page
@@ -236,7 +236,8 @@ public class ObjectRepository {
 		public static String alrt_rccryr="//div[@test-id='cbxAnnualAlert']";
 		public static String alrt_msg="//q2-input[@test-id='fldAlertMessage']";
 		public static String alrt_setbtn="//div[@test-id='btnSet']";
-		public static String alrt_dlvrymthd="//select[@test-id='selAlertDelivery']";
+		public static String alrt_dlvrymthd="//div[@class='fieldset-content']";
+		public static String all_delevery_methods ="//div[@class='fieldset-content']//div[@test-id='radioDelivery']//div";
 		public static String alrt_cntry="//q2-select[@test-id='selAlertTextCountry']";
 		public static String countryList= "//q2-select[@label='Country']//q2-option";
 		public static String alrtcall_cntry="//select[@test-id='selAlertCallCountry']";

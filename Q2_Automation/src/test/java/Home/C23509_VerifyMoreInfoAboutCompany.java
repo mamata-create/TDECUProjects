@@ -87,8 +87,7 @@ public class C23509_VerifyMoreInfoAboutCompany extends GenericKeywords {
 		Thread.sleep(3000);
 		closeWindow();
 		handleMultipleWindow(0,"");
-		verifyElementPresent(ObjectRepository.cntctus_h1);
-		test.log(Status.INFO, "Contact us page first label verified");
+		
 		
 		
 	    scrollToElement(ObjectRepository.crprt_lnk);

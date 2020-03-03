@@ -53,28 +53,28 @@ public class C23522_VerifyLogoutPageAfterApplicationLogout extends GenericKeywor
            test.log(Status.INFO, "Login button clicked");
 
           
-           getElement(ObjectRepository.otpemail_btn).click();
-           test.log(Status.INFO, "Send OTP to email button clicked");
-           Thread.sleep(15000);          
-
-           getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-           test.log(Status.INFO, "Secure Access code entered");          
-
-           getElement(ObjectRepository.submit_btn).click();
-           test.log(Status.INFO, "Submit button clicked after entering secure access code");
-           Thread.sleep(7000);
-
-           try{
-				if(getElement(ObjectRepository.register_btn).isDisplayed()){
-					getElement(ObjectRepository.register_btn).click();
-					test.log(Status.INFO, "Register device button clicked");
-					Thread.sleep(7000);
-				}
-				}catch(Exception e){
-					test.log(Status.INFO, "Register device button not available to be clicked");
-				}
-
-           Thread.sleep(7000);
+//           getElement(ObjectRepository.otpemail_btn).click();
+//           test.log(Status.INFO, "Send OTP to email button clicked");
+//           Thread.sleep(15000);          
+//
+//           getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
+//           test.log(Status.INFO, "Secure Access code entered");          
+//
+//           getElement(ObjectRepository.submit_btn).click();
+//           test.log(Status.INFO, "Submit button clicked after entering secure access code");
+//           Thread.sleep(7000);
+//
+//           try{
+//				if(getElement(ObjectRepository.register_btn).isDisplayed()){
+//					getElement(ObjectRepository.register_btn).click();
+//					test.log(Status.INFO, "Register device button clicked");
+//					Thread.sleep(7000);
+//				}
+//				}catch(Exception e){
+//					test.log(Status.INFO, "Register device button not available to be clicked");
+//				}
+//
+//           Thread.sleep(7000);
            //Verify log off link available after login
            verifyElementPresent(ObjectRepository.logoff_lnk);
            test.log(Status.INFO, "User successfully logged in as Logoff link available");

@@ -53,22 +53,22 @@ public class C23523_VerifyRegisterMyDeviceOption extends GenericKeywords {
 		test.log(Status.INFO, "Login button clicked");
 		
 		//click login button
-		getElement(ObjectRepository.otpemail_btn).click();
-		test.log(Status.INFO, "Send OTP to email button clicked");
-		Thread.sleep(15000);
-		
-		getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-		test.log(Status.INFO, "Login ID entered");
-		
-		
-		getElement(ObjectRepository.submit_btn).click();
-		test.log(Status.INFO, "Send OTP to email button clicked");
-		Thread.sleep(7000);
-		
-		getElement(ObjectRepository.donotregister_btn).click();
-		test.log(Status.INFO, "Do not register button clicked");
-		Thread.sleep(7000);
-		
+//		getElement(ObjectRepository.otpemail_btn).click();
+//		test.log(Status.INFO, "Send OTP to email button clicked");
+//		Thread.sleep(15000);
+//		
+//		getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
+//		test.log(Status.INFO, "Login ID entered");
+//		
+//		
+//		getElement(ObjectRepository.submit_btn).click();
+//		test.log(Status.INFO, "Send OTP to email button clicked");
+//		Thread.sleep(7000);
+//		
+//		getElement(ObjectRepository.donotregister_btn).click();
+//		test.log(Status.INFO, "Do not register button clicked");
+//		Thread.sleep(7000);
+//		
 		//Verify log off link available after login
 		verifyElementPresent(ObjectRepository.logoff_lnk);
 		test.log(Status.INFO, "User successfully logged in as Logoff link available");
@@ -90,18 +90,18 @@ public class C23523_VerifyRegisterMyDeviceOption extends GenericKeywords {
 				test.log(Status.INFO, "Login button clicked");
 				
 				//click login button
-				getElement(ObjectRepository.otpemail_btn).click();
-				test.log(Status.INFO, "Send OTP to email button clicked");
-				Thread.sleep(15000);
-				
-				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
-				test.log(Status.INFO, "Login ID entered");
-				
-				
-				getElement(ObjectRepository.submit_btn).click();
-				test.log(Status.INFO, "Send OTP to email button clicked");
-				Thread.sleep(7000);
-				
+//				getElement(ObjectRepository.otpemail_btn).click();
+//				test.log(Status.INFO, "Send OTP to email button clicked");
+//				Thread.sleep(15000);
+//				
+//				getElement(ObjectRepository.otp_txt).sendKeys(fetchOutlookOTP());
+//				test.log(Status.INFO, "Login ID entered");
+//				
+//				
+//				getElement(ObjectRepository.submit_btn).click();
+//				test.log(Status.INFO, "Send OTP to email button clicked");
+//				Thread.sleep(7000);
+//				
 				try{
 					if(getElement(ObjectRepository.register_btn).isDisplayed()){
 						getElement(ObjectRepository.register_btn).click();

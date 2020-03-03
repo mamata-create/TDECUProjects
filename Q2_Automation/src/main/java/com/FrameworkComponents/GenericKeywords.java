@@ -248,7 +248,7 @@ public class GenericKeywords extends BaseClass{
 			year=dateArray[2];
 			System.out.println(date+month+year);
 			
-			WebElement root1 = driver.findElement(By.cssSelector("q2-calendar[calendar-label='"+dateType+"']"));
+			WebElement root1 = driver.findElement(By.cssSelector("q2-calendar[label='"+dateType+"']"));
 			WebElement shadowRoot1 = ObjectRepository.expandRootElement(driver, root1);
 			WebElement calendarDropdown = shadowRoot1.findElement(By.cssSelector("div[class='q2-element-dropdown']"));
 
@@ -256,6 +256,8 @@ public class GenericKeywords extends BaseClass{
 			String calmnth= calendarDropdown.findElement(By.cssSelector("span[class='cal-month-text']")).getText();
 			WebElement nxtmnth=calendarDropdown.findElement(By.cssSelector("q2-btn[aria-label='Next month']"));
 			WebElement nxtyr=calendarDropdown.findElement(By.cssSelector("q2-btn[aria-label='Next year']"));
+			WebElement select_date_inputBox = shadowRoot1.findElement(By.cssSelector("q2-input[@class='select-field']"));
+			select_date_inputBox.click();
 			while(!calYear.contains(year)){
 				nxtyr.click();
 			}
@@ -774,6 +776,17 @@ public class GenericKeywords extends BaseClass{
 			System.out.println("No url provided");
 		}
 		
+	}
+	
+	public static List<WebElement> returnElements(String locator){
+		List<WebElement> elements = null;
+		try{
+			elements = driver.findElements(By.xpath(locator));
+			  
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return elements;
 	}
 	
 }
