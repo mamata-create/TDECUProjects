@@ -370,6 +370,7 @@ public class ObjectRepository {
 	public static String jtOwnerLbl= "//label[@for='cbAddJoint_CheckBox']";
 	public static String addBeneCheckBox= "//span[@id='cbAddBene']/div";
 	public static String addBeneLbl= "//label[@for='cbAddBene_CheckBox']";
+	public static String add_an_existing_member_link = "//span[@id='pnlExistingMember']//a";
 	
 	//Additional Owners
 	public static String addOwnerTtl = "//strong[text()='Additional Account Owners']";
@@ -535,4 +536,25 @@ public class ObjectRepository {
 	
 	//OTP
 	public static String otp_page_header = "//span/h1";
+	
+	//Delevery Method Page
+	
+	public static String delivery_method_page_header = "//*[contains(text(),'Select a Delivery Method')]";
+	public static String delivery_method_email_option(String option){
+		return "//label[contains(@for,'OneTimePasscode')]/../label[contains(text(),'"+option+"')]";
+	}
+	
+	
+	
+	public static String send_otp_button = "//span[@id='btnOTPSendCode']";
+	public static String security_code_textbox = "//input[@id='OneTimePasscode_tbOTPCode_TextBox']";
+	public static String btn_verify_code = "//span[@id='btnOTPVerifyCode']//input";
+	public static String your_information_page = "//*[contains(text(),'Your Information')]";
+	
+	//Promo Code
+	public static String cnfrmacnt_ttl="//*[text()='Confirm Selected Products and Services']";
+	public static String add_promocode_field = "//input[@name='tbPromoCode_TextBox']";
+	public static String cnfrm_btn="//input[@id='btnNext_SubmitButton']";
+	public static String promocode_disclaimer = "//div[@class='col-sm disclaimer']/p";
+	public static String invalid_promocode_error = "//span[@id='ErrorSummary1']//li";
 }

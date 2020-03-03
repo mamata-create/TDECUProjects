@@ -597,6 +597,8 @@ public class ObjectRepository {
 		public static String emplyr_txt="//input[@id='Employer_TextBox']";
 		public static String orglist_lnk="//a[text()='View list of membership organizations we support']";
 		
+		public static String links_on_memberShipPage = "//td//a";
+		
 		public static String communitiespage_ttl="//h1[text()='Membership']";
 		
 		public static String svprgrs_emltxt="//input[@id='EmailTextBox_RadTextBox']";
@@ -608,6 +610,11 @@ public class ObjectRepository {
 		public static String svprgrs_info="//p[contains(text(),'You can save your application to finish later')]";
 		public static String cancel_btn="//span[@id='btnCancel']/input";
 		
+		
+		public static String showAll_checkBox  = "//label[text()=' Show All']/preceding::div[1]";
+		public static String all_month_options = "//div[contains(@id,'CDWizard_ProductPanel')]";
+		public static String feeSchedule_link = "//div[@class='CDfeeSchedule']//a";
+		public static String rate_link = "//ul[@class='fa-ul']//a[text()='rates']";
 		//instantOpen New Scenarios
 		
 		public static String progressBarOptions = "//span[@id='progBar']//span";
