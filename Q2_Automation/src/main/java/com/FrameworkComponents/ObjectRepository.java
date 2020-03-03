@@ -445,6 +445,44 @@ public class ObjectRepository {
 				public static String trndacnt_back="//button[@aria-label='Close Transaction Details Drawer']";
 				public static String thistime="//div[text()='This Time Only']";
 				
+				//Transactions locators added by Sravya
+				public static String trnsctn_tab="//a[text()='Transactions']";
+				public static String dbt_trnsctn="//span[@test-id='lblAmount' and contains(@class,'amount debit')]";
+				public static String menu_btn="//button[@test-id='btnMenu']";
+				public static String sttng_menu="//div[@class='menu-text' and text()='Settings']";
+				public static String addrschange_menu="//div[@class='menu-text' and text()='Address Change']";
+				public static String addrschange_ttl="//h1[text()='Address Change']";
+				public static String workphone_txt="//input[@test-id='fldACWorkPhone']";
+				public static String cellphone_txt="//input[@test-id='fldACCellPhone']";
+				public static String addrssubmit_btn="//button[@test-id='btnSubmitAddressChange']";
+				public static String addrschange_sccs="//h1[text()='Change of Address Successful']";
+				public static String viewwactvtycntr_btn="//button[text()='View In Activity Center']";
+				public static String actvtyrow="//table[@test-id='txtAccountsTable']/tbody/tr[1]/td[@test-id='lnkActivityID']";
+				
+				public static String acntgroup="//q2-section[contains(@class,'account-group')]";
+				public static String quicktrnsfr_menu="//li[contains(text(),'Quick Transfer')]";
+				public static String quicktrnsfr_ttl="//h1[text()='Quick Transfer']";
+				
+				public static String edtscrtyPrfrnc_lnk="//a[text()='Edit Delivery Preferences']";
+				public static String edtscrtyPrfrnc_ttl="//h1[text()='Delivery Preferences']";
+				public static String emailadrs_txt="//q2-input[@test-id='emailAddress']";
+				public static String cancl_btn="//button[@test-id='btnCancel']";
+				public static String email_sctn="//h2[text()='Email Address']";
+				public static String phone_sctn="//h2[text()='Phone Number']";
+				public static String sms_sctn="//h2[text()='SMS Text Number']";
+				public static String alrt_error="//q2-message[@test-id='msgSecurityAlertsDelivery']";
+				public static String sccs_msg="//h1[text()='Your changes have been saved successfully.']";
+				
+				public static String phonecntry_drop="q2-select[test-id='selPhoneCountry'] q2-input.q2-select-input";
+				public static String phonearea_code="q2-input[test-id='fldPhoneAreaCode'] input.input-field";
+				public static String phonenumber="q2-input[test-id='fldPhoneNumber'] input.input-field";
+				public static String phone_errmsg="//li[text()='Phone Number']";
+				public static String amnt_errmsg="//li[text()='Amount']";
+				public static String frmacnt_drop="q2-input[label='From Account']";
+				public static String insfcnt_fndmsg="//p[text()='You have insufficient funds to perform this transaction.']";
+				public static String fndamnt_txt="q2-input[test-id='fldAmount'] input.input-field";
+				
+				
 		//Retrun shadow root element
 				
 				public static WebElement expandRootElement(WebDriver driver,WebElement element) {

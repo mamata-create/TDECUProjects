@@ -39,6 +39,8 @@ import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentTest;
 
+import io.github.sukgu.Shadow;
+
 public class GenericKeywords extends BaseClass{
 
 	public static WebElement getElement(String locator){
@@ -572,6 +574,8 @@ public class GenericKeywords extends BaseClass{
 		return pageValues;
 	}
 	
+
+	
 	public static WebElement selectOptionShadowRoot(WebElement shadowelement,String optionToClick) throws Exception{
 		WebElement elementToReturn = null;
 		try{
@@ -752,6 +756,11 @@ public class GenericKeywords extends BaseClass{
 		executor.executeScript("window.close();");
 	}
 	
+	public static WebElement getShadowElement(String cssLocator){
+		Shadow shadow=new Shadow(driver);
+		WebElement ele=shadow.findElement(cssLocator);
+		return ele;
+	}
 	public static void handleMultipleWindow(int index,String url){
 		Set<String>allWindow = driver.getWindowHandles();
 		System.out.println("Total window present: "+allWindow);
