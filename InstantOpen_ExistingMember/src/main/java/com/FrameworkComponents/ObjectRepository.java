@@ -523,7 +523,7 @@ public class ObjectRepository {
 	public static String errorMsg3 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[3]";
 	public static String errorMsg4 ="//span[@id='ErrorSummary1']//div[@style='color:Red;']//li[4]";
 	
-	public static String progressBarOptions = "//span[@id='progBar']//span";
+	public static String progressBarOptions = "//span[@id='progBar']//td";
 	
 	
 	//Member Verification Page new components
@@ -557,4 +557,8 @@ public class ObjectRepository {
 	public static String cnfrm_btn="//input[@id='btnNext_SubmitButton']";
 	public static String promocode_disclaimer = "//div[@class='col-sm disclaimer']/p";
 	public static String invalid_promocode_error = "//span[@id='ErrorSummary1']//li";
+	
+	//Joint Owner and Beneficiary
+	
+	public static String preferred_method_for_communication = "//select[@id='ContactMethod_DropDownList']";
 }

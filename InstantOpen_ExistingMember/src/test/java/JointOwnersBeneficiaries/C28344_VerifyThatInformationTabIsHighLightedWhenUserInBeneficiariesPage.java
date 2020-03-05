@@ -56,6 +56,9 @@ public class C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiaries
 			 {	
 				if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter))){
 					
+					String loanAmt= excl.getCellData(sheetName, 6, startIter);
+					String purchPrice= excl.getCellData(sheetName, 7, startIter);
+					String VIN= excl.getCellData(sheetName, 8, startIter);
 					String idType= excl.getCellData(sheetName, 16, startIter);
 					String idNum= excl.getCellData(sheetName, 17, startIter);
 					String issueDt= excl.getCellData(sheetName, 18, startIter);
@@ -75,15 +78,11 @@ public class C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiaries
 					
 					
 					//select Classic Credit Card option
-					getElement(ObjectRepository.creditCardExpand).click();
-					getElement(ObjectRepository.platinumCheckBox).click();
-					test.log(Status.INFO, "Platinum credit card selected");
+					//Select Products
+					getElement(ObjectRepository.checkingExpand).click();
+					getElement(ObjectRepository.mnyMrktCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Continue button clicked");
-					
-					getElement(ObjectRepository.prodLimitTextbox).sendKeys("100000");
-					getElement(ObjectRepository.prodInfoNextButton).click();
-					test.log(Status.INFO, "Credit card amount entered");
+					test.log(Status.INFO, "Money Market account selected");
 					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
@@ -98,16 +97,12 @@ public class C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiaries
 					enter_otp_to_the_field_and_procced();
 					
 					//Applicant Info
-					selectDropdownOpt(ObjectRepository.idType,idType);
-					getElement(ObjectRepository.idNum).sendKeys(idNum);
-					getElement(ObjectRepository.issueDate).sendKeys(issueDt);
-					getElement(ObjectRepository.expDate).sendKeys(expDt);
-					getElement(ObjectRepository.housePymt).sendKeys(housePymt);
-					getElement(ObjectRepository.addrYears).sendKeys(addrYears);
-					getElement(ObjectRepository.addrMonths).sendKeys(addrMonths);
-					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
-					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
-					getElement(ObjectRepository.empYears).sendKeys(empYears);
+					verifyElementPresent(ObjectRepository.fname);
+					verifyElementPresent(ObjectRepository.lname);
+					verifyElementPresent(ObjectRepository.stAddr);
+					verifyElementPresent(ObjectRepository.cityStZip);
+					selectDropdownOpt(ObjectRepository.commDdown,"Email");
+//				
 					
 					test.log(Status.INFO, "Applicant Information entered");
 					
@@ -123,7 +118,7 @@ public class C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiaries
 					for(WebElement eachOption :returnElements(ObjectRepository.progressBarOptions)){
 						
 						String text_from_option = eachOption.getText();
-						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//span/..)["+index+"]")).getAttribute("class");
+						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//td)["+index+"]")).getAttribute("class");
 						if(text_from_option.equalsIgnoreCase("Information") && class_prop.equals("JourneyBarCurrent")){
 							Assert.assertTrue(true, "Information icon is currently selected and highlighted on the page");
 							return;

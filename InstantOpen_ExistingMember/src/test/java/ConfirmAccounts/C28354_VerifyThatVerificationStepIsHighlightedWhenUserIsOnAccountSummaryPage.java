@@ -1,12 +1,10 @@
-package JointOwnersBeneficiaries;
+package ConfirmAccounts;
 
 import java.io.IOException;
 
 import javax.mail.MessagingException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -22,40 +20,37 @@ import com.FrameworkComponents.ObjectRepository;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.github.javafaker.Faker;
 
-public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPage extends GenericKeywords {
-
+public class C28354_VerifyThatVerificationStepIsHighlightedWhenUserIsOnAccountSummaryPage extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
-	/*
-	 * As an existing member, I expect the Information step to be highlighted when I am on the Joint Owners page.
-	 */
-
-	@BeforeTest
-	public void setUp() throws InterruptedException, MessagingException, IOException {
-		
-		extent = ExtentManager.GetExtent();
-		test = extent.createTest(this.getClass().getSimpleName());
-		BaseClass iDriver = new BaseClass();
-		iDriver.myTestCaseName = this.getClass().getSimpleName();
-		executeDriverScript();
-		test.log(Status.INFO, "Application url navigated");
-		
-	}	
 	
-	@Test
-	public void C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPage() throws InterruptedException, MessagingException, IOException
-	{
-		
-		if(continuetestcase==true)
-		{
+  @BeforeTest
+  public void setUp() throws InterruptedException, MessagingException, IOException {
+	  extent = ExtentManager.GetExtent();
+	  test = extent.createTest(this.getClass().getSimpleName());
+      BaseClass iDriver = new BaseClass();
+      iDriver.myTestCaseName = this.getClass().getSimpleName();
+	  executeDriverScript();
+	  test.log(Status.INFO, "Application url navigated");
+  }
+	
+  @Test
+  public void C28354_VerifyThatVerificationStepIsHighlightedWhenUserIsOnAccountSummaryPage() throws InterruptedException, MessagingException, IOException {
+	  if(continuetestcase==true)
+	  {
 			sheetName = "ProdData";
 			int totalRowCount = excl.getRowCount(sheetName);
 			for(startIter=1;startIter<=totalRowCount;startIter++) //It is mandatory to have this for loop in every test case
-			 {	
-				if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter))){
-					
+			{	
+				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
+				{
+					String loanAmt= excl.getCellData(sheetName, 6, startIter);
+					String purchPrice= excl.getCellData(sheetName, 7, startIter);
+					String VIN= excl.getCellData(sheetName, 8, startIter);
+					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					String SSN= excl.getCellData(sheetName, 28, startIter);
+					String DOB= excl.getCellData(sheetName, 29, startIter);
 					String idType= excl.getCellData(sheetName, 16, startIter);
 					String idNum= excl.getCellData(sheetName, 17, startIter);
 					String issueDt= excl.getCellData(sheetName, 18, startIter);
@@ -66,28 +61,29 @@ public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPag
 					String currentEmp= excl.getCellData(sheetName, 23, startIter);
 					String curIncome= excl.getCellData(sheetName, 24, startIter);
 					String empYears= excl.getCellData(sheetName, 25, startIter);
-					String SSN= excl.getCellData(sheetName, 28, startIter);
-					String DOB= excl.getCellData(sheetName, 29, startIter);
-					//Start as a Member
+					String confirmProd1= excl.getCellData(sheetName, 1, startIter);
+					String promocode = excl.getCellData(sheetName, 44, startIter);
+					String invalid_promocode = "Bank0.5";
+					String disclaimer_msg = "Only one promo code per Member. Terms and conditions apply to all TDECU promotions. Please contact us for additional details.";
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
-					
-					
-					//select Classic Credit Card option
-					getElement(ObjectRepository.creditCardExpand).click();
-					getElement(ObjectRepository.platinumCheckBox).click();
-					test.log(Status.INFO, "Platinum credit card selected");
+					//Select Products
+					getElement(ObjectRepository.carLoanExpand).click();
+					getElement(ObjectRepository.camperRefinCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Continue button clicked");
-					
-					getElement(ObjectRepository.prodLimitTextbox).sendKeys("100000");
+					test.log(Status.INFO, "Vehicle loan selected");
+					//Loan info
+					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmt);
+					getElement(ObjectRepository.carPurchPrice).sendKeys(purchPrice);
+					getElement(ObjectRepository.carVIN).sendKeys(VIN);
 					getElement(ObjectRepository.prodInfoNextButton).click();
-					test.log(Status.INFO, "Credit card amount entered");
+					test.log(Status.INFO, "Loan info entered");	
+					//Member Verification
 					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
-					getElement(ObjectRepository.mmbrVerifyNext).click();
+					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
 					
 					//Delivery Method page
@@ -96,7 +92,6 @@ public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPag
 					test.log(Status.INFO, "user on Delivery Method page");
 					
 					enter_otp_to_the_field_and_procced();
-					
 					//Applicant Info
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);
@@ -108,53 +103,50 @@ public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPag
 					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
 					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
 					getElement(ObjectRepository.empYears).sendKeys(empYears);
-					
+					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Applicant Information entered");
 					
-					getElement(ObjectRepository.jtOwnerCheckBox).click();
-					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Joint Owner checkbox selected");
-					//Joint Owner
-					verifyElementPresent(ObjectRepository.addOwnerTtl);
+					//Promo Code
 					
-					//Return all elements on progressbar
-					
+					verifyText(ObjectRepository.promocode_disclaimer,disclaimer_msg);
+										
 					int index=1;
 					for(WebElement eachOption :returnElements(ObjectRepository.progressBarOptions)){
 						
 						String text_from_option = eachOption.getText();
 						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//td)["+index+"]")).getAttribute("class");
-						if(text_from_option.equalsIgnoreCase("Information") && class_prop.equals("JourneyBarCurrent")){
-							Assert.assertTrue(true, "Information icon is currently selected and highlighted on the page");
+						if(text_from_option.equalsIgnoreCase("Verification") && class_prop.equals("JourneyBarCurrent")){
+							Assert.assertTrue(true, "Verification icon is currently selected and highlighted on the page");
 							return;
 						}else if(text_from_option.equalsIgnoreCase("Products") && class_prop.equals("JourneyBarPrevious")){
 							Assert.assertTrue(true, "Products icon is currently selected and highlighted in different blue color");
+						}else if(text_from_option.equalsIgnoreCase("Start") && class_prop.equals("JourneyBarPrevious")){
+							Assert.assertTrue(true, "Start icon is currently selected and highlighted in different blue color");
+						}else if(text_from_option.equalsIgnoreCase("Information") && class_prop.equals("JourneyBarPrevious")){
+							Assert.assertTrue(true, "Information icon is currently selected and highlighted in different blue color");
 						}
+						
 						index++;
 					}
-				}
-				
-
-			 }
-		}
-				
-	}
-
-	@AfterMethod
-	public void afterMethod(ITestResult result) throws Throwable {
-		if (result.getStatus() == ITestResult.FAILURE) {
+			}
+			}
+	  }
+  }
+  @AfterMethod
+  public void afterMethod(ITestResult result) throws Throwable {
+	  if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, "Test Failed-" + result.getThrowable());
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "As an applicant, I expect the Information step to be highlighted when I am on the Existing Applicant page.");
+			test.log(Status.PASS, "Validate thate user can add Promocode to the Confirm Account page");
 		}
 	}
 
-	@AfterTest
-	public void tearDown() {
-		extent.flush();
-		driver.quit();
-	}
+  @AfterTest
+  public void tearDown() {
+	 extent.flush();
+	 driver.quit();
+  }
 
 }

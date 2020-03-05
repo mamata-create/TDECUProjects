@@ -24,12 +24,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPage extends GenericKeywords {
+public class C28351_VerifyThatInformationTabIsHighLightedWhenUserInConfirmAccountRolesPage extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * As an existing member, I expect the Information step to be highlighted when I am on the Joint Owners page.
+	 * As an existing member, I expect the Verification step to be highlighted when I am on the Confirm Account Roles page.
 	 */
 
 	@BeforeTest
@@ -45,7 +45,7 @@ public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPag
 	}	
 	
 	@Test
-	public void C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPage() throws InterruptedException, MessagingException, IOException
+	public void C28351_VerifyThatInformationTabIsHighLightedWhenUserInConfirmAccountRolesPage() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -68,6 +68,17 @@ public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPag
 					String empYears= excl.getCellData(sheetName, 25, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
+					
+					String joFname= excl.getCellData(sheetName, 30, startIter);
+					String joLname= excl.getCellData(sheetName, 31, startIter);
+					String joDOB= excl.getCellData(sheetName, 32, startIter);
+					String joSSN= excl.getCellData(sheetName, 33, startIter);
+					String joIdNum= excl.getCellData(sheetName, 34, startIter);
+					String joOccupation= excl.getCellData(sheetName, 35, startIter);
+					String joPhone= excl.getCellData(sheetName, 36, startIter);
+					String joPhoneType= excl.getCellData(sheetName, 37, startIter);
+					String joEmail= excl.getCellData(sheetName, 38, startIter);
+					String howLong2= excl.getCellData(sheetName, 39, startIter);
 					//Start as a Member
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -117,6 +128,29 @@ public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPag
 					//Joint Owner
 					verifyElementPresent(ObjectRepository.addOwnerTtl);
 					
+					//Joint Owner
+					getElement(ObjectRepository.addFname).sendKeys(joFname);
+					getElement(ObjectRepository.addLname).sendKeys(joLname);
+					getElement(ObjectRepository.sameAddrCbox).click();
+					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(joDOB);
+					getElement(ObjectRepository.addSSN).sendKeys(joSSN);
+					selectDropdownOpt(ObjectRepository.idType,idType);
+					getElement(ObjectRepository.idNum).sendKeys(joIdNum);
+					getElement(ObjectRepository.issueDate).sendKeys(issueDt);
+					getElement(ObjectRepository.expDate).sendKeys(expDt);
+					getElement(ObjectRepository.addMaiden).sendKeys(joLname);
+					getElement(ObjectRepository.addOccupation).sendKeys(joOccupation);
+					getElement(ObjectRepository.addPhone).sendKeys(joPhone);
+					selectDropdownOpt(ObjectRepository.addPhoneType,joPhoneType);
+					getElement(ObjectRepository.addEmail).sendKeys(joEmail);
+					getElement(ObjectRepository.housePymt).sendKeys(housePymt);
+					getElement(ObjectRepository.addrMonths).sendKeys(howLong2);
+					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
+					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
+					getElement(ObjectRepository.empYears).sendKeys(howLong2);
+					test.log(Status.INFO, "Joint Owner information entered");
+					getElement(ObjectRepository.productPageNext).click();
+					
 					//Return all elements on progressbar
 					
 					int index=1;
@@ -124,12 +158,17 @@ public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPag
 						
 						String text_from_option = eachOption.getText();
 						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//td)["+index+"]")).getAttribute("class");
-						if(text_from_option.equalsIgnoreCase("Information") && class_prop.equals("JourneyBarCurrent")){
-							Assert.assertTrue(true, "Information icon is currently selected and highlighted on the page");
+						if(text_from_option.equalsIgnoreCase("Verification") && class_prop.equals("JourneyBarCurrent")){
+							Assert.assertTrue(true, "Verification icon is currently selected and highlighted on the page");
 							return;
 						}else if(text_from_option.equalsIgnoreCase("Products") && class_prop.equals("JourneyBarPrevious")){
 							Assert.assertTrue(true, "Products icon is currently selected and highlighted in different blue color");
+						}else if(text_from_option.equalsIgnoreCase("Start") && class_prop.equals("JourneyBarPrevious")){
+							Assert.assertTrue(true, "Start icon is currently selected and highlighted in different blue color");
+						}else if(text_from_option.equalsIgnoreCase("Information") && class_prop.equals("JourneyBarPrevious")){
+							Assert.assertTrue(true, "Information icon is currently selected and highlighted in different blue color");
 						}
+						
 						index++;
 					}
 				}

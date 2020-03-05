@@ -129,7 +129,7 @@ public class C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLoo
 					for(WebElement eachOption :returnElements(ObjectRepository.progressBarOptions)){
 						
 						String text_from_option = eachOption.getText();
-						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//span/..)["+index+"]")).getAttribute("class");
+						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//td)["+index+"]")).getAttribute("class");
 						if(text_from_option.equalsIgnoreCase("Information") && class_prop.equals("JourneyBarCurrent")){
 							Assert.assertTrue(true, "Information icon is currently selected and highlighted on the page");
 							return;

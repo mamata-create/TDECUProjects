@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="86391" started-at="2020-03-02T19:31:42Z" finished-at="2020-03-02T19:33:09Z">
+  <suite name="Default suite" duration-ms="98484" started-at="2020-03-05T18:43:34Z" finished-at="2020-03-05T18:45:13Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="86391" started-at="2020-03-02T19:31:42Z" finished-at="2020-03-02T19:33:09Z">
-      <class name="JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be]" name="setUp" is-config="true" duration-ms="11201" started-at="2020-03-02T14:31:42Z" finished-at="2020-03-02T14:31:54Z">
+    <test name="Default test" duration-ms="98484" started-at="2020-03-05T18:43:34Z" finished-at="2020-03-05T18:45:13Z">
+      <class name="JointOwnersBeneficiaries.C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:JointOwnersBeneficiaries.C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage@f0e0ba]" name="setUp" is-config="true" duration-ms="15652" started-at="2020-03-05T13:43:34Z" finished-at="2020-03-05T13:43:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage()[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be]" name="C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage" duration-ms="73837" started-at="2020-03-02T14:31:54Z" finished-at="2020-03-02T14:33:07Z">
+        <test-method status="PASS" signature="C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage()[pri:0, instance:JointOwnersBeneficiaries.C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage@f0e0ba]" name="C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage" duration-ms="81077" started-at="2020-03-05T13:43:50Z" finished-at="2020-03-05T13:45:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-03-02T14:33:07Z" finished-at="2020-03-02T14:33:07Z">
+        </test-method> <!-- C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:JointOwnersBeneficiaries.C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage@f0e0ba]" name="afterMethod" is-config="true" duration-ms="4" started-at="2020-03-05T13:45:11Z" finished-at="2020-03-05T13:45:11Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage status=SUCCESS method=C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage()[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be] output={null}]]]>
+                <![CDATA[[TestResult name=C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage status=SUCCESS method=C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage.C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage()[pri:0, instance:JointOwnersBeneficiaries.C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage@f0e0ba] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage@10d63be]" name="tearDown" is-config="true" duration-ms="1328" started-at="2020-03-02T14:33:07Z" finished-at="2020-03-02T14:33:09Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:JointOwnersBeneficiaries.C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage@f0e0ba]" name="tearDown" is-config="true" duration-ms="1728" started-at="2020-03-05T13:45:11Z" finished-at="2020-03-05T13:45:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- JointOwnersBeneficiaries.C28341_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerLookupPage -->
+      </class> <!-- JointOwnersBeneficiaries.C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
