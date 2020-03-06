@@ -24,12 +24,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage extends GenericKeywords {
+public class C28345_VerifyThatInformationTabIsHighLightedWhenUserOnLookupBeneficiariesPage extends GenericKeywords {
 
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * As an existing member, I expect the Information step to be highlighted when I am on the Beneficiaries page.
+	 *  As an existing member, I expect the Information step to be highlighted when I am on the Lookup Beneficiaries page.
 	 */
 
 	@BeforeTest
@@ -45,7 +45,7 @@ public class C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiaries
 	}	
 	
 	@Test
-	public void C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiariesPage() throws InterruptedException, MessagingException, IOException
+	public void C28345_VerifyThatInformationTabIsHighLightedWhenUserOnLookupBeneficiariesPage() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -99,6 +99,11 @@ public class C28344_VerifyThatInformationTabIsHighLightedWhenUserInBeneficiaries
 					test.log(Status.INFO, "Beneficiary checkbox selected");
 					//Joint Owner
 					verifyElementPresent(ObjectRepository.addBeneTtl);
+					
+					//Existing member Lookup
+					verifyElementPresent(ObjectRepository.add_existing_member_lookup_link);
+					getElement(ObjectRepository.add_existing_member_lookup_link).click();
+					verifyText(ObjectRepository.additional_account_beneficiary_header,"Additional Account Beneficiaries");
 					
 					//Return all elements on progressbar
 					

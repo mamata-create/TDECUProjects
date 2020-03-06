@@ -561,4 +561,6 @@ public class ObjectRepository {
 	//Joint Owner and Beneficiary
 	
 	public static String preferred_method_for_communication = "//select[@id='ContactMethod_DropDownList']";
+	public static String add_existing_member_lookup_link = "//span[@id='pnlExistingMember']//a";
+	public static String additional_account_beneficiary_header = "//div[@class='ContentTable']//h3";
 }
