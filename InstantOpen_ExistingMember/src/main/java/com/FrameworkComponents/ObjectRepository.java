@@ -474,7 +474,7 @@ public class ObjectRepository {
 	public static String qstnThreeOptnThree= "(//span[contains(text(),'city')]//following::div[@class='iradio_square-grey'])[3]";
 	public static String questionFour = "(//span[@id='IDAuthenticationQuestions']//table//tr[5])[3]";
 	public static String qstnFourOptnFour= "(//span[contains(text(),'addresses')]//following::div[@class='iradio_square-grey'])[4]";
-	public static String errorMsg ="//span[@id='ErrorSummary1']//div[contains(@style,'color: red;')]//li[1]";
+	public static String errorMsg ="//span[@id='ErrorSummary1']//div[contains(@style,'color:Red;')]//li[1]";
 	
 	//Save Your Progress
 	public static String saveTitle= "//strong[text()='Save Your Progress']";
@@ -550,9 +550,11 @@ public class ObjectRepository {
 	public static String security_code_textbox = "//input[@id='OneTimePasscode_tbOTPCode_TextBox']";
 	public static String btn_verify_code = "//span[@id='btnOTPVerifyCode']//input";
 	public static String your_information_page = "//*[contains(text(),'Your Information')]";
+	public static String resend_otp = "//span[@id='btnResendCode']//input";
 	
 	//Promo Code
 	public static String cnfrmacnt_ttl="//*[text()='Confirm Selected Products and Services']";
+	public static String sub_text = "//*[text()='Confirm Selected Products and Services']/following::p[1]";
 	public static String add_promocode_field = "//input[@name='tbPromoCode_TextBox']";
 	public static String cnfrm_btn="//input[@id='btnNext_SubmitButton']";
 	public static String promocode_disclaimer = "//div[@class='col-sm disclaimer']/p";
@@ -563,4 +565,14 @@ public class ObjectRepository {
 	public static String preferred_method_for_communication = "//select[@id='ContactMethod_DropDownList']";
 	public static String add_existing_member_lookup_link = "//span[@id='pnlExistingMember']//a";
 	public static String additional_account_beneficiary_header = "//div[@class='ContentTable']//h3";
+	
+	public static String shareamnt_txt="//input[contains(@id,'ProductFunding_FormProductID')]";
+	public static String elctrnc_opt="//label[text()='Electronic Check']";
+	public static String rtngnmbr_txt="//input[@id='ACHFundingAccountVerification_tbRoutingNumber_NumericTextBox']";
+	public static String acntnmbr_txt="//input[@id='ACHFundingAccountVerification_tbAccountNumber_TextBox']";
+	public static String vrfyacnt_btn="//button[@id='DeferredInputSubmit']";
+	public static String thnku_ttl="//h1[text()='Thank You for Your Application!']";
+	
+	public static String sub_text_under_header = "//*[text()='Thank You for Your Application!']/following::p[1]";
+	public static String sub_text_under_uploadDocument = "//*[text()='Thank You for Your Application!']/following::p[2]";
 }

@@ -1,4 +1,4 @@
-package AccountFunding;
+package ConfirmAccounts;
 
 import java.io.IOException;
 
@@ -6,7 +6,6 @@ import javax.mail.MessagingException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -22,7 +21,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage extends GenericKeywords{
+public class C28365_VerifyLanguageOnAconfirmAccountSelectionPage extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -37,7 +36,7 @@ public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage
   }
 	
   @Test
-  public void C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage() throws InterruptedException, MessagingException, IOException {
+  public void C28365_VerifyLanguageOnAconfirmAccountSelectionPage() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -47,6 +46,8 @@ public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
 					String loanAmt= excl.getCellData(sheetName, 6, startIter);
+					String purchPrice= excl.getCellData(sheetName, 7, startIter);
+					String VIN= excl.getCellData(sheetName, 8, startIter);
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
@@ -60,22 +61,26 @@ public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage
 					String currentEmp= excl.getCellData(sheetName, 23, startIter);
 					String curIncome= excl.getCellData(sheetName, 24, startIter);
 					String empYears= excl.getCellData(sheetName, 25, startIter);
-					String empMonths= excl.getCellData(sheetName, 26, startIter);
 					String confirmProd1= excl.getCellData(sheetName, 1, startIter);
 					String promocode = excl.getCellData(sheetName, 44, startIter);
+					String invalid_promocode = "Bank0.5";
+					String disclaimer_msg = "Only one promo code per Member. Terms and conditions apply to all TDECU promotions. Please contact us for additional details.";
+				///	String promocode = excl.getCellData(sheetName, 44, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
 					//Select Products
-					getElement(ObjectRepository.personalLoanExpand).click();
-					getElement(ObjectRepository.personalCheckBox).click();
+					getElement(ObjectRepository.carLoanExpand).click();
+					getElement(ObjectRepository.camperRefinCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Personal loan selected");
+					test.log(Status.INFO, "Vehicle loan selected");
 					//Loan info
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmt);
+					getElement(ObjectRepository.carPurchPrice).sendKeys(purchPrice);
+					getElement(ObjectRepository.carVIN).sendKeys(VIN);
 					getElement(ObjectRepository.prodInfoNextButton).click();
-					test.log(Status.INFO, "Loan amount entered");	
+					test.log(Status.INFO, "Loan info entered");	
 					//Member Verification
 					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
@@ -87,9 +92,8 @@ public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage
 					
 					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
 					test.log(Status.INFO, "user on Delivery Method page");
-					//Enter OTP from Email
-					enter_otp_to_the_field_and_procced();
 					
+					enter_otp_to_the_field_and_procced();
 					//Applicant Info
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);
@@ -101,58 +105,16 @@ public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage
 					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
 					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
 					getElement(ObjectRepository.empYears).sendKeys(empYears);
-					getElement(ObjectRepository.empMonths).sendKeys(empMonths);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Applicant Information entered");
 					
-					//Enter PromoCode
-					enterPromocode(promocode);
-					//Confirm Accounts
+					//Promo Code
+					verifyText(ObjectRepository.cnfrmacnt_ttl,"Confirm Selected Products and Services");
+					verifyText(ObjectRepository.sub_text,"Please confirm your product and service selections");
+					verifyText(ObjectRepository.promocode_disclaimer,disclaimer_msg);
+										
 					
-					getElement(ObjectRepository.discCheckBox).click();
-					getElement(ObjectRepository.agreeCheckBox).click();
-					getElement(ObjectRepository.confirmBtn).click();
-					
-					test.log(Status.INFO, "Accept button clicked");
-					verifyElementPresent(ObjectRepository.IdentityTtl);
-					
-					test.log(Status.INFO, "Identity verification page opened");
-					
-					String[]options = new String[]{"Loudon, MD","Foo Bar, Inc","Roanoke","123 W 14th Street"};
-					for(String eachOption : options){
-						
-						
-						String locator = "//label[text()='"+eachOption+"']";
-						scrollToElement(locator);
-						getElement(locator).click();
-						test.log(Status.INFO, eachOption+" verification question answered");
-					}
-					
-
-					getElement(ObjectRepository.cnfrm_btn).click();
-					test.log(Status.INFO, "Confirm button clicked");
-					int index=1;
-					for(WebElement eachOption :returnElements(ObjectRepository.progressBarOptions)){
-						
-						String text_from_option = eachOption.getText();
-						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//td)["+index+"]")).getAttribute("class");
-						if(text_from_option.equalsIgnoreCase("Funding") && class_prop.equals("JourneyBarCurrent")){
-							Assert.assertTrue(true, "Funding icon is currently selected and highlighted on the page");
-							return;
-						}else if(text_from_option.equalsIgnoreCase("Start") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Start icon is currently selected and highlighted in different blue color");
-						}else if(text_from_option.equalsIgnoreCase("Products") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Products icon is currently selected and highlighted in different blue color");
-						}else if(text_from_option.equalsIgnoreCase("Information") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Information icon is currently selected and highlighted in different blue color");
-						}else if(text_from_option.equalsIgnoreCase("Verification") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Verification icon is currently selected and highlighted in different blue color");
-						}else if(text_from_option.equalsIgnoreCase("Disclosures") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Disclosures icon is currently selected and highlighted in different blue color");
-						}
-						index++;
-					}
-				}
+			}
 			}
 	  }
   }
@@ -163,7 +125,7 @@ public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify credit card funding method for existing member");
+			test.log(Status.PASS, "Validate thate user can add Promocode to the Confirm Account page");
 		}
 	}
 

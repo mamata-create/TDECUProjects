@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="JointOwnersBeneficiaries.C28351_VerifyThatInformationTabIsHighLightedWhenUserInConfirmAccountRolesPage">
+      <class name="MemberVerification.C28376_UserwouldLikeToReRequestOTP">
         <methods>
+          <include name="C28376_UserwouldLikeToReRequestOTP"/>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="C28351_VerifyThatInformationTabIsHighLightedWhenUserInConfirmAccountRolesPage"/>
         </methods>
-      </class> <!-- JointOwnersBeneficiaries.C28351_VerifyThatInformationTabIsHighLightedWhenUserInConfirmAccountRolesPage -->
+      </class> <!-- MemberVerification.C28376_UserwouldLikeToReRequestOTP -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

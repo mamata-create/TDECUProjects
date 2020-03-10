@@ -22,7 +22,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage extends GenericKeywords{
+public class C28367_VerifyThankYouPageProvidingClearInstructions extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -37,7 +37,7 @@ public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage
   }
 	
   @Test
-  public void C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage() throws InterruptedException, MessagingException, IOException {
+  public void C28367_VerifyThankYouPageProvidingClearInstructions() throws InterruptedException, MessagingException, IOException {
 	  if(continuetestcase==true)
 	  {
 			sheetName = "ProdData";
@@ -63,7 +63,8 @@ public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage
 					String empMonths= excl.getCellData(sheetName, 26, startIter);
 					String confirmProd1= excl.getCellData(sheetName, 1, startIter);
 					String promocode = excl.getCellData(sheetName, 44, startIter);
-					
+					String sub_header_text = excl.getCellData(sheetName, 45, startIter);
+					String sub_header_underDocument = excl.getCellData(sheetName, 46, startIter);
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -131,27 +132,31 @@ public class C28362_VerifyThatFundingStepIsHighlightedWhenUserOnFundAccountsPage
 
 					getElement(ObjectRepository.cnfrm_btn).click();
 					test.log(Status.INFO, "Confirm button clicked");
-					int index=1;
-					for(WebElement eachOption :returnElements(ObjectRepository.progressBarOptions)){
-						
-						String text_from_option = eachOption.getText();
-						String class_prop = eachOption.findElement(By.xpath("(//span[@id='progBar']//td)["+index+"]")).getAttribute("class");
-						if(text_from_option.equalsIgnoreCase("Funding") && class_prop.equals("JourneyBarCurrent")){
-							Assert.assertTrue(true, "Funding icon is currently selected and highlighted on the page");
-							return;
-						}else if(text_from_option.equalsIgnoreCase("Start") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Start icon is currently selected and highlighted in different blue color");
-						}else if(text_from_option.equalsIgnoreCase("Products") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Products icon is currently selected and highlighted in different blue color");
-						}else if(text_from_option.equalsIgnoreCase("Information") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Information icon is currently selected and highlighted in different blue color");
-						}else if(text_from_option.equalsIgnoreCase("Verification") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Verification icon is currently selected and highlighted in different blue color");
-						}else if(text_from_option.equalsIgnoreCase("Disclosures") && class_prop.equals("JourneyBarPrevious")){
-							Assert.assertTrue(true, "Disclosures icon is currently selected and highlighted in different blue color");
-						}
-						index++;
-					}
+					
+					getElement(ObjectRepository.cnfrm_btn).click();
+					test.log(Status.INFO, "Submit Application button clicked");
+					
+//					getElement(ObjectRepository.shareamnt_txt).sendKeys("5");
+//					test.log(Status.INFO, "Amount entered");
+//					
+//					getElement(ObjectRepository.elctrnc_opt).click();
+//					test.log(Status.INFO, "Electronic option selected");
+//					
+//					getElement(ObjectRepository.rtngnmbr_txt).sendKeys("234567876");
+//					test.log(Status.INFO, "Routing number entered");
+//					
+//					getElement(ObjectRepository.acntnmbr_txt).sendKeys("2345678987");
+//					test.log(Status.INFO, "Account number entered");
+//					
+//					getElement(ObjectRepository.vrfyacnt_btn).click();
+//					test.log(Status.INFO, "verify account button clicked");
+					
+					verifyElementPresent(ObjectRepository.thnku_ttl);
+					test.log(Status.INFO, "Thanku page opened");
+					
+					verifyText(ObjectRepository.sub_text_under_header,sub_header_text);
+					verifyText(ObjectRepository.sub_text_under_uploadDocument,sub_header_underDocument);
+					
 				}
 			}
 	  }
