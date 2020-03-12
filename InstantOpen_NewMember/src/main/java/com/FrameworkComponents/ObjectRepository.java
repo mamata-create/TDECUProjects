@@ -671,4 +671,10 @@ public class ObjectRepository {
 		public static String sub_disclaimer_text(String index){
 			return "(//div[contains(@class,'disclaimer')]//p)["+index+"]";
 		}
+		
+		// --- Aditi ----
+		public static String loanCreditCard_sectn_locator = "//h4[text()='For loans and credit cards']";
+		public static String lcc_criteria(int criteria_no){
+			return "//div[@class='col-sm-6 col-xm docSection']/div[@class='sectionIcon']/h4[text()='For loans and credit cards']/following::ul[1]/li["+criteria_no+"]";
+		}
 	}
