@@ -138,6 +138,17 @@ public class GenericKeywords extends BaseClass{
 
 	}
 	
+	public static void scrollDownPage()
+	{
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("window.scrollTo(0, 1000)");
+	}
+	public static void scrollUpPage()
+	{
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("window.scrollTo(0,-1000)");
+	}
+	
 	public static void mouseHoverOver(WebElement targetElement){
 		try{
 			Thread.sleep(500);

@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ConfirmAccounts.C28328_VerifyThatPromotionalCodeFieldIsAvailableonConfirmAccountSelectionPage">
+      <class name="HomePage.C26856_Verify_HelpModal_HomePage">
         <methods>
-          <include name="tearDown"/>
+          <include name="C26856_Verify_HelpModal_HomePage"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="C28328_VerifyThatPromotionalCodeFieldIsAvailableonConfirmAccountSelectionPage"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- ConfirmAccounts.C28328_VerifyThatPromotionalCodeFieldIsAvailableonConfirmAccountSelectionPage -->
+      </class> <!-- HomePage.C26856_Verify_HelpModal_HomePage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

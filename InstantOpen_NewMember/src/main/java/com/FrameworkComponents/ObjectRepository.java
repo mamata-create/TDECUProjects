@@ -18,6 +18,33 @@ public class ObjectRepository {
 	public static String expirationdate_alert = "//div[@id='expirationDateDiv']//following::div[@role='alert']";
 	public static String phoneNumber_alert = "//span[@id='tbPhone1']//following::div[@role='alert']";
 	
+	//Homepage_CheckingSavingsAndCds Elements_Ashish
+	public static String  for_CheckingSavings_Cds = "//div[@class='sectionIcon'][1]/h4";	
+	public static String ssn_CheckingSavings_Cds = "//ul[@class='fa-ul'][1]/li[1]";
+	public static String govt_issued_identificaiton_CheckingSavings_Cds = "//ul[@class='fa-ul'][1]/li[2]";
+	public static String credit_debit_checkingSavings_Cds = "//ul[@class='fa-ul'][1]/li[3]";
+	
+	public static String govt_issued_identificaiton_CheckingSavings_QuestionMark="//div[@class='col-sm-6 col-xm docSection']/div[@class='sectionIcon']/h4[text()='For checking, savings and CDs']/following::ul[1]/li[2]/button";
+	public static String govt_issued_identificaiton_CheckingSavings_QuestionMark_Modal="/html//h4[@id='modalGovIdLabel']";
+	public static String govt_issued_identificaiton_CheckingSavings_QuestionMark_Modal_CloseButton="//div[@class='modal-header']/button";
+	public static String thumbnail_Set(int index)
+	{
+		String thumbnail = "//div[@class='col-sm-4 col-xm']["+index+"]/div/div/h3";
+		return thumbnail;
+	}
+	
+	public static String progressBar = "//span[@id='progBar']";
+	
+	public static String sub_Header = "//h3[contains(text(),'Apply for your account in minutes')]";
+	
+	public static String  for_LoansandCreditCards = "/html//form[@id='fiVISIONWebForm']/span/table//div[@class='MainBorder']/div[@class='ShadowWrap']/div[@class='ContentTable']/div/span/div[@class='container']/div/div[@class='row']/div/div[@class='sectionIcon']/h4[.='For loans and credit cards']";	
+	
+	public static String frequentlyAskedQuestions_Section = "//div[@class='row'][3]/div/h3[text()='Frequently Asked Questions']";
+	
+	public static String importantAccountOpenningInformation = "//div[@class='col-sm disclaimer']/h4/strong[text()='IMPORTANT ACCOUNT OPENING INFORMATION:']";
+	
+	
+	//End of locators defined by Ashish
 	public static String membership_page_option(int option){
 		String pageOption = "//*[contains(text(),'Membership Eligibility')]/following::div[@class='iradio_square-grey']["+option+"]";
 		return pageOption;
