@@ -75,7 +75,7 @@ public class C24267_VerifyAgreementsandDisclosures extends GenericKeywords{
 					String note= excl.getCellData(sheetName, 34, startIter);
 					String agreementInfo= excl.getCellData(sheetName, 35, startIter);
 					String agreeAndSignNote= excl.getCellData(sheetName, 36, startIter);
-
+					String promocode = excl.getCellData(sheetName, 36, startIter);
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -94,23 +94,31 @@ public class C24267_VerifyAgreementsandDisclosures extends GenericKeywords{
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Loan data entered");					
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					//Enter OTP from Email
+					enter_otp_to_the_field_and_procced();
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Applicant Information entered");
+					//Enter PromoCode
+					enterPromocode(promocode);
 					//Applicant Info
-					selectDropdownOpt(ObjectRepository.idType,idType);
-					getElement(ObjectRepository.idNum).sendKeys(idNum);
-					getElement(ObjectRepository.issueDate).sendKeys(issueDt);
-					getElement(ObjectRepository.expDate).sendKeys(expDt);
-					getElement(ObjectRepository.housePymt).sendKeys(housePymt);
-					getElement(ObjectRepository.addrYears).sendKeys(addrYears);
-					getElement(ObjectRepository.addrMonths).sendKeys(addrMonths);
-					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
-					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
-					getElement(ObjectRepository.empYears).sendKeys(empYears);
-					getElement(ObjectRepository.empMonths).sendKeys(empMonths);
+//					selectDropdownOpt(ObjectRepository.idType,idType);
+//					getElement(ObjectRepository.idNum).sendKeys(idNum);
+//					getElement(ObjectRepository.issueDate).sendKeys(issueDt);
+//					getElement(ObjectRepository.expDate).sendKeys(expDt);
+//					getElement(ObjectRepository.housePymt).sendKeys(housePymt);
+//					getElement(ObjectRepository.addrYears).sendKeys(addrYears);
+//					getElement(ObjectRepository.addrMonths).sendKeys(addrMonths);
+//					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
+//					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
+//					getElement(ObjectRepository.empYears).sendKeys(empYears);
+//					getElement(ObjectRepository.empMonths).sendKeys(empMonths);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Applicant Information entered");
 					//Confirm Accounts
