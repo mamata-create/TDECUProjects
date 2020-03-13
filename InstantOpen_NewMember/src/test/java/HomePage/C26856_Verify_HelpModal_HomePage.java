@@ -93,18 +93,29 @@ public class C26856_Verify_HelpModal_HomePage extends GenericKeywords  {
 					scrollUpPage();
 					
 			
-					getElement(ObjectRepository.govt_issued_identificaiton_CheckingSavings_QuestionMark).click();
-					String modalHeading_CheckingSavings="What Qualifies as a Government ID?";
+					for(int questionMark=1;questionMark<3;questionMark++)
+					{
+						click_using_Js(ObjectRepository.questionMark_modal(questionMark));
+						String modalHeading="What Qualifies as a Government ID?";
+						String modalText="A government issued ID includes driver’s license, passport, military ID or state ID.";
+						verifyText(ObjectRepository.questionMark_Modal_heading, modalHeading);
+						test.log(Status.INFO, "What Qualifies as a Government ID? Modal Displayed");
+						getElement(ObjectRepository.questionMark_Modal_xButton).click();
+						verifyElementNotPresent(ObjectRepository.questionMark_Modal_heading);
+						test.log(Status.INFO, "Modal Closed Successfully");
+						
+						
 					
-					verifyText(ObjectRepository.govt_issued_identificaiton_CheckingSavings_QuestionMark_Modal, modalHeading_CheckingSavings);
-					test.log(Status.INFO, "What Qualifies as a Government ID? Modal Displayed");
-					
-					getElement(ObjectRepository.govt_issued_identificaiton_CheckingSavings_QuestionMark_Modal_CloseButton).click();
-					
-					verifyElementNotPresent(ObjectRepository.govt_issued_identificaiton_CheckingSavings_QuestionMark_Modal);
-					test.log(Status.INFO, "Modal Closed Successfully");
-					
-					
+						
+						click_using_Js(ObjectRepository.govt_issued_identificaiton_CheckingSavings_QuestionMark);
+						verifyText(ObjectRepository.questionMark_Modal_text, modalText);
+						test.log(Status.INFO, "A government issued ID includes driver’s license, passport, military ID or state ID. Displayed");
+						click_using_Js(ObjectRepository.questionMark_Modal_closeButton);
+						verifyElementNotPresent(ObjectRepository.questionMark_Modal_heading);
+						test.log(Status.INFO, "Modal Closed Successfully");
+						
+						
+					}
 					
 					
 					

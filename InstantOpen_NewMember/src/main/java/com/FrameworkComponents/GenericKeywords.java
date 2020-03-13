@@ -66,6 +66,14 @@ public class GenericKeywords extends BaseClass{
 			Assert.assertTrue(false);
 		}
 	}
+	
+	public static void click_using_Js(String locator)
+	{
+		WebElement  element=driver.findElement(By.xpath(locator));  
+		JavascriptExecutor ex=(JavascriptExecutor)driver;
+		ex.executeScript("arguments[0].click()", element);
+		
+	}
 
 	public static void verifyElementNotPresent(String locator){
 		try{

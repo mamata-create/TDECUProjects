@@ -24,9 +24,19 @@ public class ObjectRepository {
 	public static String govt_issued_identificaiton_CheckingSavings_Cds = "//ul[@class='fa-ul'][1]/li[2]";
 	public static String credit_debit_checkingSavings_Cds = "//ul[@class='fa-ul'][1]/li[3]";
 	
+	public static String questionMark_modal(int index)
+	{
+		String questionMark_modal = "//div[@class='col-sm-6 col-xm docSection']/div[@class='sectionIcon']/h4[text()='For checking, savings and CDs']/following::ul["+index+"]/li[2]/button";
+		return questionMark_modal;
+	}
+	
 	public static String govt_issued_identificaiton_CheckingSavings_QuestionMark="//div[@class='col-sm-6 col-xm docSection']/div[@class='sectionIcon']/h4[text()='For checking, savings and CDs']/following::ul[1]/li[2]/button";
-	public static String govt_issued_identificaiton_CheckingSavings_QuestionMark_Modal="/html//h4[@id='modalGovIdLabel']";
-	public static String govt_issued_identificaiton_CheckingSavings_QuestionMark_Modal_CloseButton="//div[@class='modal-header']/button";
+	public static String questionMark_Modal_heading="/html//h4[@id='modalGovIdLabel']";
+	public static String questionMark_Modal_text="//div[@class='modal-body']/p";
+	public static String questionMark_Modal_xButton="//div[@class='modal-header']/button";
+	public static String questionMark_Modal_closeButton= "//div[@class='modal-footer']/button";
+	
+	public static String govt_issued_identificaiton_loans_and_Credit_Cards_QuestionMark="//div[@class='col-sm-6 col-xm docSection']/div[@class='sectionIcon']/h4[text()='For checking, savings and CDs']/following::ul[2]/li[2]/button";
 	public static String thumbnail_Set(int index)
 	{
 		String thumbnail = "//div[@class='col-sm-4 col-xm']["+index+"]/div/div/h3";
