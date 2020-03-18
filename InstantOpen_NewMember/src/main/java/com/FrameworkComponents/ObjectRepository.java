@@ -19,6 +19,14 @@ public class ObjectRepository {
 	public static String phoneNumber_alert = "//span[@id='tbPhone1']//following::div[@role='alert']";
 	
 	//Homepage_CheckingSavingsAndCds Elements_Ashish
+	
+	public static String progressBar = "//span[@id='progBar']";
+	public static String progressBarText(int index)
+	{
+		String progressBarText = "//span[@id='progBar']//tbody/tr/td["+index+"]/span";
+		return progressBarText;
+	}
+	
 	public static String  for_CheckingSavings_Cds = "//div[@class='sectionIcon'][1]/h4";	
 	public static String ssn_CheckingSavings_Cds = "//ul[@class='fa-ul'][1]/li[1]";
 	public static String govt_issued_identificaiton_CheckingSavings_Cds = "//ul[@class='fa-ul'][1]/li[2]";
@@ -37,24 +45,62 @@ public class ObjectRepository {
 	public static String questionMark_Modal_closeButton= "//div[@class='modal-footer']/button";
 	
 	public static String govt_issued_identificaiton_loans_and_Credit_Cards_QuestionMark="//div[@class='col-sm-6 col-xm docSection']/div[@class='sectionIcon']/h4[text()='For checking, savings and CDs']/following::ul[2]/li[2]/button";
+	
+	
 	public static String thumbnail_Set(int index)
 	{
 		String thumbnail = "//div[@class='col-sm-4 col-xm']["+index+"]/div/div/h3";
 		return thumbnail;
 	}
 	
-	public static String progressBar = "//span[@id='progBar']";
+	
+	public static String header_ExisitngMemberandNonMember_Subpages="//div[@class='container']/span[2]/div/div/h3";
+	public static String header_MembershipEligibility="//h3/strong";
+	public static String header_PendingApplication_Subpage="//div[@class='container']//div/div/h1";
+	public static String newToTDECU_StartHere="//input[@name='btnNonMember$btnNonMember']";
+	public static String alreadyMember_StartHere="//input[@name='btnMember$btnMember']";
+	public static String pendingApplication_StartHere="//input[@id='btnTDECUContinueApp']";
+	
+	
+	
+	
+	
 	
 	public static String sub_Header = "//h3[contains(text(),'Apply for your account in minutes')]";
-	
 	public static String  for_LoansandCreditCards = "/html//form[@id='fiVISIONWebForm']/span/table//div[@class='MainBorder']/div[@class='ShadowWrap']/div[@class='ContentTable']/div/span/div[@class='container']/div/div[@class='row']/div/div[@class='sectionIcon']/h4[.='For loans and credit cards']";	
-	
 	public static String frequentlyAskedQuestions_Section = "//div[@class='row'][3]/div/h3[text()='Frequently Asked Questions']";
-	
 	public static String importantAccountOpenningInformation = "//div[@class='col-sm disclaimer']/h4/strong[text()='IMPORTANT ACCOUNT OPENING INFORMATION:']";
 	
 	
+	public static String disclaimer_section="//footer[@class='footerForm']/preceding::div[1]";
+	public static String disclaimer_section_header="//footer[@class='footerForm']/preceding::div[1]/h4";
+	public static String disclaimer_section_content="//footer[@class='footerForm']/preceding::div[1]/p[1]";
+	public static String disclaimer_section_content2="//footer[@class='footerForm']/preceding::div[1]/p[2]";
+	
+	
+	// Products page locators by Ashish
+	public static String radioButton_dont_want_to_Open_CheckingAccount="//label[@for='rbNoChecking_RadioButton']";
+	public static String radioButton_No_Loans_Creditscards="//label[@for='rbOtherProdNo_RadioButton']";
+	public static String button_Continue=	"//input[@name='NextButton$NextButton_SubmitButton']";
+	public static String button_Back="//input[@id='BackButton_SubmitButton']";
+	public static String errors="//div[@class='errors']";
+	
+	public static String header_PrimaryApplicantInfo="//h3/strong";
+	public static String header_Section(int index)
+	{
+		String section="//div[@class='form-inline']/div[@class='SectionHeaders']["+index+"]";
+		return section;
+	}
+	
+	
+	public static String validationPopup="//span[@id='tbFirstName']/div[@role='tooltip']/div[@role='alert']";
+	
+	
+	
+	
 	//End of locators defined by Ashish
+	
+	
 	public static String membership_page_option(int option){
 		String pageOption = "//*[contains(text(),'Membership Eligibility')]/following::div[@class='iradio_square-grey']["+option+"]";
 		return pageOption;
@@ -72,6 +118,9 @@ public class ObjectRepository {
 	public static String ssn_txt="//input[@id='SSNTextBox_TextBox']";
 	public static String dob_cal="//input[@id='tbBirthDate_RadDatePicker']";
 	public static String idtyp_drop="//select[@id='IDType_IDType']";
+	public static String state_drop="//select[@id='IDType_StateComboBox']";
+	public static String country_drop="//select[@id='IDType_CountryComboBox']";
+	
 	public static String idnmbr_txt="//input[@id='IDType_IDNumber']";
 	public static String issuedt_cal="//input[@id='IDType_IssueDate']";
 	public static String expdt_cal="//input[@id='IDType_ExpirationDate']";
@@ -233,6 +282,20 @@ public class ObjectRepository {
 	public static String errorSummary = "//span[contains(@id,'ErrorSummary')]//li";
 	public static String backButtonFurther = "//span[@id='btnBack']//input";
 	public static String specificErrorSummary = "//span[contains(@id,'ErrorSummary')]//li[1]";
+	public static String errorSummary2="//span[contains(@id,'ErrorSummary')]//li[2]";
+	
+	public static String estric_ssn="//span[@id='SSNTextBox_TextBox_cvTextBox']";
+	public static String estric_dob="//span[@id='tbBirthDate_CustomValidator']";
+	public static String estric_idType="//span[@id='ctl38']";
+	public static String estric_state="//span[@id='ctl40']";
+	public static String estric_country="//span[@id='ctl42']";
+	public static String estric_idNumber="//span[@id='ctl44']";
+	public static String estric_issuedate="//span[@id='ctl46']";
+	public static String estric_expirydate="//span[@id='ctl48']";
+	public static String estric_hearAbout_opt="//span[@id='HowDidYouHear_CustomValidator']";
+	public static String estric_mothersmaiden="//span[@id='MothersMaidenName_TextBox_cvTextBox']";
+	public static String estric_currentEmployer="//span[@id='CurrentEmployer2_TextBox_cvTextBox']";
+	public static String estric_occupation="//span[@id='Occupation_TextBox_cvTextBox']";
 	
 	public static String subproductName(String productName){
 		String locator = "//*[contains(text(),'"+productName+"')]/i";

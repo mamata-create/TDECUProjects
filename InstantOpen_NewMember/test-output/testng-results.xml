@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="70110" started-at="2020-03-13T07:58:51Z" finished-at="2020-03-13T08:00:01Z">
+  <suite name="Default suite" duration-ms="34922" started-at="2020-03-18T10:26:22Z" finished-at="2020-03-18T10:26:57Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="70110" started-at="2020-03-13T07:58:51Z" finished-at="2020-03-13T08:00:01Z">
-      <class name="HomePage.C26856_Verify_HelpModal_HomePage">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:HomePage.C26856_Verify_HelpModal_HomePage@59ec2012]" name="setUp" is-config="true" duration-ms="45829" started-at="2020-03-13T07:58:51Z" finished-at="2020-03-13T07:59:36Z">
+    <test name="Default test" duration-ms="34922" started-at="2020-03-18T10:26:22Z" finished-at="2020-03-18T10:26:57Z">
+      <class name="AgreementsDisclosures.C24291_VerifyCourtesyPayOption">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:AgreementsDisclosures.C24291_VerifyCourtesyPayOption@59ec2012]" name="setUp" is-config="true" duration-ms="17110" started-at="2020-03-18T10:26:22Z" finished-at="2020-03-18T10:26:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C26856_Verify_HelpModal_HomePage()[pri:0, instance:HomePage.C26856_Verify_HelpModal_HomePage@59ec2012]" name="C26856_Verify_HelpModal_HomePage" duration-ms="23127" started-at="2020-03-13T07:59:36Z" finished-at="2020-03-13T08:00:00Z">
+        <test-method status="PASS" signature="C24291_VerifyCourtesyPayOption()[pri:0, instance:AgreementsDisclosures.C24291_VerifyCourtesyPayOption@59ec2012]" name="C24291_VerifyCourtesyPayOption" duration-ms="17522" started-at="2020-03-18T10:26:39Z" finished-at="2020-03-18T10:26:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C26856_Verify_HelpModal_HomePage -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:HomePage.C26856_Verify_HelpModal_HomePage@59ec2012]" name="afterMethod" is-config="true" duration-ms="3" started-at="2020-03-13T08:00:00Z" finished-at="2020-03-13T08:00:00Z">
+        </test-method> <!-- C24291_VerifyCourtesyPayOption -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:AgreementsDisclosures.C24291_VerifyCourtesyPayOption@59ec2012]" name="afterMethod" is-config="true" duration-ms="1" started-at="2020-03-18T10:26:57Z" finished-at="2020-03-18T10:26:57Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C26856_Verify_HelpModal_HomePage status=SUCCESS method=C26856_Verify_HelpModal_HomePage.C26856_Verify_HelpModal_HomePage()[pri:0, instance:HomePage.C26856_Verify_HelpModal_HomePage@59ec2012] output={null}]]]>
+                <![CDATA[[TestResult name=C24291_VerifyCourtesyPayOption status=SUCCESS method=C24291_VerifyCourtesyPayOption.C24291_VerifyCourtesyPayOption()[pri:0, instance:AgreementsDisclosures.C24291_VerifyCourtesyPayOption@59ec2012] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:HomePage.C26856_Verify_HelpModal_HomePage@59ec2012]" name="tearDown" is-config="true" duration-ms="1133" started-at="2020-03-13T08:00:00Z" finished-at="2020-03-13T08:00:01Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:AgreementsDisclosures.C24291_VerifyCourtesyPayOption@59ec2012]" name="tearDown" is-config="true" duration-ms="270" started-at="2020-03-18T10:26:57Z" finished-at="2020-03-18T10:26:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- HomePage.C26856_Verify_HelpModal_HomePage -->
+      </class> <!-- AgreementsDisclosures.C24291_VerifyCourtesyPayOption -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

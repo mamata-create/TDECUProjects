@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="HomePage.C26856_Verify_HelpModal_HomePage">
+      <class name="ApplicantInfo.C23961_Verify_NonMember_RegistrationFormValidation">
         <methods>
-          <include name="C26856_Verify_HelpModal_HomePage"/>
+          <include name="tearDown"/>
+          <include name="C23961_Verify_NonMember_RegistrationFormValidation"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="tearDown"/>
         </methods>
-      </class> <!-- HomePage.C26856_Verify_HelpModal_HomePage -->
+      </class> <!-- ApplicantInfo.C23961_Verify_NonMember_RegistrationFormValidation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
