@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ApplicantInfo.C23961_Verify_NonMember_RegistrationFormValidation">
+      <class name="AgreementsDisclosures.C24291_VerifyCourtesyPayOption">
         <methods>
           <include name="tearDown"/>
-          <include name="C23961_Verify_NonMember_RegistrationFormValidation"/>
+          <include name="C24291_VerifyCourtesyPayOption"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
         </methods>
-      </class> <!-- ApplicantInfo.C23961_Verify_NonMember_RegistrationFormValidation -->
+      </class> <!-- AgreementsDisclosures.C24291_VerifyCourtesyPayOption -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

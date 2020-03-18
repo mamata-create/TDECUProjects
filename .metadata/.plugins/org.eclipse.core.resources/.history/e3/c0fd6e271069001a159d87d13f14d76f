@@ -126,13 +126,21 @@ public class C24291_VerifyCourtesyPayOption extends GenericKeywords{
 					getElement(ObjectRepository.cnfrm_btn).click();
 					test.log(Status.INFO, "Account selections confirmed");
 					
-					verifyElementPresent(ObjectRepository.agreementTtl);
-					test.log(Status.PASS, "The 'Accounts Agreements and Disclosures' page is displayed.");
-					
-					verifyElementNotPresent(ObjectRepository.courtesyPayTtl);
-					test.log(Status.PASS, "Courtesty Pay info not displayed");
 					
 					
+					
+				
+					//Membership Eligibility
+					//Agreements and disclosures
+					//Courtesy Pay
+					verifyElementPresent(ObjectRepository.courtesyPayTtl);
+					verifyText(ObjectRepository.crtsyPayDescOne,cPayDes);
+					verifyText(ObjectRepository.crtsyPayInfoOne,overdraft1);
+					verifyText(ObjectRepository.crtsyPayInfoTwo,overdraft2);
+					verifyText(ObjectRepository.crtsyPayInfoThree,overdraft3);
+					verifyText(ObjectRepository.crtsyPayDescTwo,cPayInfo);
+					test.log(Status.INFO, "Courtesty Pay info displayed");
+					//FAQ
 					
 					
 					

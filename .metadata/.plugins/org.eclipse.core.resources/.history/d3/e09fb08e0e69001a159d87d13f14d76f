@@ -19,7 +19,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C24291_VerifyCourtesyPayOption extends GenericKeywords{
+public class C24290_VerifyCourtesyPayAgreements extends GenericKeywords{
 	ExtentReports extent;
 	ExtentTest test;
 	
@@ -36,7 +36,7 @@ public class C24291_VerifyCourtesyPayOption extends GenericKeywords{
 	}
 	
 	@Test
-	public void C24291_VerifyCourtesyPayOption() throws InterruptedException, MessagingException, IOException
+	public void C24290_VerifyCourtesyPayAgreements() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
@@ -83,15 +83,11 @@ public class C24291_VerifyCourtesyPayOption extends GenericKeywords{
 					getElement(ObjectRepository.nonmmbrstrt_btn).click();
 					test.log(Status.INFO, "Non Member Start here button clicked");
 					//Select Products
-					
-					
-					
 					getElement(ObjectRepository.classicCheck).click();
-					
-					//getElement(ObjectRepository.optInCrtsyPay).click();
+					getElement(ObjectRepository.optInCrtsyPay).click();
 					getElement(ObjectRepository.othrprdctno_rdbtn).click();
 					getElement(ObjectRepository.continue_btn).click();
-					test.log(Status.INFO, "Classic Checking with courtesy pay not selected");
+					test.log(Status.INFO, "Classic Checking with courtesy pay selected");
 					//Applicant Info
 					getElement(ObjectRepository.fname_txt).sendKeys(fname);//					
 					getElement(ObjectRepository.lname_txt).sendKeys(lname);
@@ -112,31 +108,37 @@ public class C24291_VerifyCourtesyPayOption extends GenericKeywords{
 					getElement(ObjectRepository.primaryemail_txt).sendKeys(primary_email);
 					getElement(ObjectRepository.continue_btn).click();
 					test.log(Status.INFO, "Applicant Information entered");
-					
-					
-					
-					
-					
-					
-					
+					//Membership Eligibility
 					getElement(ObjectRepository.membership_page_option(3)).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Membership eligibility selected");
 					getElement(ObjectRepository.add_promocode_field).sendKeys(promoCode);
 					getElement(ObjectRepository.cnfrm_btn).click();
 					test.log(Status.INFO, "Account selections confirmed");
-					
-					verifyElementPresent(ObjectRepository.agreementTtl);
-					test.log(Status.PASS, "The 'Accounts Agreements and Disclosures' page is displayed.");
-					
-					verifyElementNotPresent(ObjectRepository.courtesyPayTtl);
-					test.log(Status.PASS, "Courtesty Pay info not displayed");
-					
-					
-					
-					
-					
-					
+					//Agreements and disclosures
+					//Courtesy Pay
+					verifyElementPresent(ObjectRepository.courtesyPayTtl);
+					verifyText(ObjectRepository.crtsyPayDescOne,cPayDes);
+					verifyText(ObjectRepository.crtsyPayInfoOne,overdraft1);
+					verifyText(ObjectRepository.crtsyPayInfoTwo,overdraft2);
+					verifyText(ObjectRepository.crtsyPayInfoThree,overdraft3);
+					verifyText(ObjectRepository.crtsyPayDescTwo,cPayInfo);
+					test.log(Status.INFO, "Courtesty Pay info displayed");
+					//FAQ
+					verifyElementPresent(ObjectRepository.FAQtitle);
+					verifyElementPresent(ObjectRepository.belowFAQ);
+					scrollToElement(ObjectRepository.FAQone);
+					verifyText(ObjectRepository.FAQone,FAQone);
+					getElement(ObjectRepository.FAQone).click();
+					verifyFAQanswer();
+					verifyText(ObjectRepository.FAQtwo,FAQtwo);
+					getElement(ObjectRepository.FAQtwo).click();
+					verifyElementPresent(ObjectRepository.FAQoneClose);
+					verifyText(ObjectRepository.FAQtwoInfo,FAQtwoInfo);
+					getElement(ObjectRepository.FAQtwo).click();
+					verifyElementPresent(ObjectRepository.FAQtwoClose);
+					verifyText(ObjectRepository.crtsyPayNote,note);
+					test.log(Status.INFO, "Courtesty Pay FAQs displayed");
 				}
 			 }
 		}
@@ -155,7 +157,7 @@ public class C24291_VerifyCourtesyPayOption extends GenericKeywords{
 	@AfterTest
 	public void tearDown() {
 		extent.flush();
-		//driver.quit();
+		driver.quit();
 	}
 
 }
