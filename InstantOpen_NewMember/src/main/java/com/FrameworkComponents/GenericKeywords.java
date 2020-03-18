@@ -539,10 +539,8 @@ public class GenericKeywords extends BaseClass{
 			System.out.println("Window title: "+title);
 		}else{
 			System.out.println("No url provided");
-		}
-		
+		}		
 	}
-	
 	public static void closeWindow(){
 		((JavascriptExecutor) driver).executeScript("window.close();");
 	}
@@ -969,5 +967,73 @@ public class GenericKeywords extends BaseClass{
 		getElement(ObjectRepository.cnfrm_btn).click();
 		
 	}
+	
+	//Aditi
+	public static void validateHyperlink(int index, String url, String title){
+		String currentUrl, currentTitle = "";
+		switchToWindow(index);
+		currentUrl = getCurrentUrl();
+		currentTitle = getTitle();
+		
+		System.out.println("currentUrl:"+currentUrl);
+		System.out.println("Passed Url:"+url);
+		if (currentUrl.contains(url)){
+			if (currentTitle.equals(title)){
+				Assert.assertTrue(true, "Working ::"+url);
+			}	
+			else{
+				System.out.println("Title didn't matched");
+			}
+		} 
+		else{
+			Assert.assertTrue(false, "Expected url not found");
+		}
+		closeWindow();
+	}
+	public static void switchToWindow(int index){
+		Set<String>allWindow = driver.getWindowHandles();
+		System.out.println("Total window present: "+allWindow);
+		ArrayList<String>tab = new ArrayList<String>(allWindow);
+		driver.switchTo().window(tab.get(index));
+	}	
+	public static String getTitle(){
+		String title = driver.getTitle();
+		System.out.println("Window title: "+title);
+		return title;
+	}
+	public static void getUrl(String url){
+		if(!url.isEmpty()){
+			driver.get(url);
+			String title = driver.getTitle();
+			System.out.println("Window title: "+title);
+		}else{
+			System.out.println("No url provided");
+		}		
+	}
 
+	public static void scrollDownPage()
+    {
+           JavascriptExecutor js = ((JavascriptExecutor) driver);
+           js.executeScript("window.scrollTo(0, 1000)");
+    }
+    
+    public static void scrollUpPage()
+    {
+           JavascriptExecutor js = ((JavascriptExecutor) driver);
+           js.executeScript("window.scrollTo(0,-1000)");
+    }
+    public static String getAttribute(String xpath, String attribute){
+    	WebElement element=getElement(xpath);
+		String actText=element.getAttribute(attribute);
+    	return actText;
+    }
+    public static ArrayList<String> splitString(String input, String separator){
+    	ArrayList<String> arrli = new ArrayList<String>();
+    	if (input!=null && separator!=null){
+    		for (String p : input.split(separator)) {
+   			 arrli.add(p.trim());
+   		 }
+    	}
+		return arrli;
+    }
 }
