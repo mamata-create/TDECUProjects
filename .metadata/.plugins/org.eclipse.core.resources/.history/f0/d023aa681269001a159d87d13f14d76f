@@ -155,7 +155,7 @@ public class C24291_VerifyCourtesyPayOption extends GenericKeywords{
 	@AfterTest
 	public void tearDown() {
 		extent.flush();
-		driver.quit();
+		//driver.quit();
 	}
 
 }
