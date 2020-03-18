@@ -1,10 +1,8 @@
-package HomePage;
+package ConfirmAccounts;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.mail.MessagingException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -23,13 +21,13 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 
-public class C26855_VerifyLoanCreditCardCriteriaDetails extends GenericKeywords  {
+public class C23861_NonMemberWouldLikeToConfirmAccountSelection extends GenericKeywords  {
 	ExtentReports extent;
 	ExtentTest test;
 	/*
-	 * IO: As an applicant, I would like to know what information I need to have available to apply for a loan or credit card.
+	 * IO: As a non-member applicant, I would like to Confirm my account selections.
 	 * @author: apandey
-	 * @created: 12March2020
+	 * @created: 18March2020
 	 */
 	@BeforeTest
 	public void setUp() throws InterruptedException, MessagingException, IOException {
@@ -44,33 +42,14 @@ public class C26855_VerifyLoanCreditCardCriteriaDetails extends GenericKeywords 
 	}
 	
 	@Test
-	public void C26855_VerifyLoanCreditCardCriteriaDetails() throws InterruptedException, MessagingException, IOException
+	public void C23861_NonMemberWouldLikeToConfirmAccountSelection() throws InterruptedException, MessagingException, IOException
 	{
 		
 		if(continuetestcase==true)
 		{
-			String page_header= "Are You Ready to Experience the TDECU Difference?";
-			String [] criteria = {"Social Security Number","Government issued identification","Employment information","Income details"};
 			
-			// VERIFY IF PAGE IS LOADED PROPERLY
-			verifyElementPresent(ObjectRepository.app_ttl);
-			test.log(Status.INFO, "Instant Open Title appearing");
-			
-			verifyText(ObjectRepository.page_header_locator,page_header);
-			
-			// VERIFY IF LOAN, CREDIT CARD SECTION AS WELL ITS CRITERIA IS VISIBLE
-			verifyElementPresent(ObjectRepository.loanCreditCard_sectn_locator);
-			test.log(Status.INFO, "For loans and credit cards section is visible");
-			
-			for(int criteriaIndex=0; criteriaIndex<4; criteriaIndex++){
-				verifyText(ObjectRepository.lcc_criteria(criteriaIndex+1), criteria[criteriaIndex]);
-				test.log(Status.INFO, criteria[criteriaIndex]+ " visible");
-				}
-			}	
-			
-		}
-				
-	
+		}			
+	}
 	@AfterMethod
 	public void afterMethod(ITestResult result) throws Throwable {
 		if (result.getStatus() == ITestResult.FAILURE) {
@@ -78,7 +57,7 @@ public class C26855_VerifyLoanCreditCardCriteriaDetails extends GenericKeywords 
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "IO: As an applicant, I would like to know what information I need to have available to apply for a loan or credit card.");
+			test.log(Status.PASS, "IO: As a non-member applicant, I would like to Confirm my account selections.");
 		}
 	}
 

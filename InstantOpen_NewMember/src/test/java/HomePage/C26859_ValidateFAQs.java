@@ -31,6 +31,8 @@ public class C26859_ValidateFAQs extends GenericKeywords  {
 	public static String q4_hyperlink1_url;
 	/*
 	 * IO: As an applicant, I would like to have access to Frequently Asked Questions on the Instant Open landing page
+	 * @author: apandey
+	 * @created: 13March2020
 	 */
 	@BeforeTest
 	public void setUp() throws InterruptedException, MessagingException, IOException {
@@ -52,13 +54,16 @@ public class C26859_ValidateFAQs extends GenericKeywords  {
 			String afterClickPropValue = "panelArrow fa fa-lg fa-caret-down";
 			String collasedQuesAfterClickPValue = "panelArrow fa fa-lg fa-caret-right";
 			
+			// READS DATA FROM EXCEL SHEET
 			pullExcelData();
-				
+			
+			// VERIFY IF PAGE IS LOADED PROPERLY
 			verifyElementPresent(ObjectRepository.app_ttl);
 			test.log(Status.INFO, "Instant Open Title appearing");
 			
 			homePageVerification();
-		
+			
+			// VALIDATE FAQ SECTION AND ITS CONTENT BY ITERATING OVER THEM
 			verifyElementPresent(ObjectRepository.faqSectionTitle);
 			test.log(Status.PASS, "'Frequently Asked Questions' title is visible");
 			
@@ -69,6 +74,7 @@ public class C26859_ValidateFAQs extends GenericKeywords  {
 					verifyElementPresent(ObjectRepository.faq_questns(faq.get(index)));
 					test.log(Status.PASS, "'"+faq.get(index) + "' is visible");
 					
+					// VERIFY IF QUESTION EXPANDS COLLAPSES PROPERLY
 					scrollToElement(ObjectRepository.faq_collapse(index+1));
 					String beforeclick= getAttribute(ObjectRepository.faq_collapse(index+1), "class");
 					if (beforeclick.equals(beforeClickPropValue)){
@@ -87,6 +93,7 @@ public class C26859_ValidateFAQs extends GenericKeywords  {
 						test.log(Status.FAIL, "Unexpected question property value after click:"+afterclick);
 					}
 					
+					// VALIDATE ANSWER OF CURRENT QUESTN
 					validateFAQanswers(faq.get(index), index);	
 					
 					getElement(ObjectRepository.faq_questns(faq.get(index))).click();
@@ -110,6 +117,7 @@ public class C26859_ValidateFAQs extends GenericKeywords  {
 	public void pullExcelData(){
 		sheetName = "HomePage";
 		int totalRowCount = excl.getRowCount(sheetName);
+		// READS DATA FROM EXCEL
 		for(startIter=1;startIter<=totalRowCount;startIter++) {
 			if(this.getClass().getSimpleName().equals(excl.getCellData(sheetName, 0, startIter))){
 				String t_faq = excl.getCellData(sheetName, 4 , startIter);
@@ -145,6 +153,7 @@ public class C26859_ValidateFAQs extends GenericKeywords  {
 	
 		String ans_element = getElement(ObjectRepository.faq_answers(index+1)).getText();
 		
+		// VALIDATE ANSWER
 		if(ans_element.equals(faqAnswers.get(index))){
 			Assert.assertTrue(true);
 			test.log(Status.PASS, "Answer matched for '"+faq+"'");
@@ -154,6 +163,7 @@ public class C26859_ValidateFAQs extends GenericKeywords  {
 			test.log(Status.FAIL, "Answer didn't matched for '"+faq);
 		}
 		
+		//VALIDATE BULLETS AND HYPERLINKS IF IT HAS ANY
 		if (index==0){
 			for(int count=1;count<=4;count++){	
 				String bullet = driver.findElement(By.xpath(ObjectRepository.bulletForAns1(count))).getText();
@@ -195,6 +205,7 @@ public class C26859_ValidateFAQs extends GenericKeywords  {
 	}
 	
 	public void homePageVerification(){
+		// HOME PAGE VALIDATION TO CHECK IF ITS LOADING PROPERLY
 		verifyElementPresent(ObjectRepository.progressBar);
         test.log(Status.INFO, "Progressbar Status");
         for(int progressbarindex=0;progressbarindex<6;progressbarindex++)
