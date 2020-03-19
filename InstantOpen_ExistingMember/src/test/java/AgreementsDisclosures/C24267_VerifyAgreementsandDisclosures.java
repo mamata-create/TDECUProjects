@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.mail.MessagingException;
 
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -75,7 +76,8 @@ public class C24267_VerifyAgreementsandDisclosures extends GenericKeywords{
 					String note= excl.getCellData(sheetName, 34, startIter);
 					String agreementInfo= excl.getCellData(sheetName, 35, startIter);
 					String agreeAndSignNote= excl.getCellData(sheetName, 36, startIter);
-					String promocode = excl.getCellData(sheetName, 36, startIter);
+					String promocode = excl.getCellData(sheetName, 44, startIter);
+					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -169,6 +171,8 @@ public class C24267_VerifyAgreementsandDisclosures extends GenericKeywords{
 					getElement(ObjectRepository.confirmBtn).click();
 					test.log(Status.INFO, "Continue button clicked");
 					verifyElementPresent(ObjectRepository.IdentityTtl);
+					
+					
 				}
 			}
 	  }

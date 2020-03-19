@@ -2,35 +2,35 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="132317" started-at="2020-03-13T18:55:58Z" finished-at="2020-03-13T18:58:11Z">
+  <suite name="Default suite" duration-ms="201454" started-at="2020-03-19T19:47:00Z" finished-at="2020-03-19T19:50:22Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="132317" started-at="2020-03-13T18:55:58Z" finished-at="2020-03-13T18:58:11Z">
-      <class name="AccountFunding.C24057_VerifyClubFunding">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:AccountFunding.C24057_VerifyClubFunding@f0e0ba]" name="setUp" is-config="true" duration-ms="13508" started-at="2020-03-13T14:55:58Z" finished-at="2020-03-13T14:56:12Z">
+    <test name="Default test" duration-ms="201454" started-at="2020-03-19T19:47:00Z" finished-at="2020-03-19T19:50:22Z">
+      <class name="JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba]" name="setUp" is-config="true" duration-ms="13552" started-at="2020-03-19T15:47:00Z" finished-at="2020-03-19T15:47:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24057_VerifyClubFunding()[pri:0, instance:AccountFunding.C24057_VerifyClubFunding@f0e0ba]" name="C24057_VerifyClubFunding" duration-ms="117211" started-at="2020-03-13T14:56:12Z" finished-at="2020-03-13T14:58:09Z">
+        <test-method status="PASS" signature="C24295_VerifyMultipleJointOwners()[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba]" name="C24295_VerifyMultipleJointOwners" duration-ms="185642" started-at="2020-03-19T15:47:14Z" finished-at="2020-03-19T15:50:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24057_VerifyClubFunding -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:AccountFunding.C24057_VerifyClubFunding@f0e0ba]" name="afterMethod" is-config="true" duration-ms="2" started-at="2020-03-13T14:58:09Z" finished-at="2020-03-13T14:58:09Z">
+        </test-method> <!-- C24295_VerifyMultipleJointOwners -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba]" name="afterMethod" is-config="true" duration-ms="4" started-at="2020-03-19T15:50:20Z" finished-at="2020-03-19T15:50:20Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C24057_VerifyClubFunding status=SUCCESS method=C24057_VerifyClubFunding.C24057_VerifyClubFunding()[pri:0, instance:AccountFunding.C24057_VerifyClubFunding@f0e0ba] output={null}]]]>
+                <![CDATA[[TestResult name=C24295_VerifyMultipleJointOwners status=SUCCESS method=C24295_VerifyMultipleJointOwners.C24295_VerifyMultipleJointOwners()[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:AccountFunding.C24057_VerifyClubFunding@f0e0ba]" name="tearDown" is-config="true" duration-ms="1575" started-at="2020-03-13T14:58:09Z" finished-at="2020-03-13T14:58:11Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba]" name="tearDown" is-config="true" duration-ms="2234" started-at="2020-03-19T15:50:20Z" finished-at="2020-03-19T15:50:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- AccountFunding.C24057_VerifyClubFunding -->
+      </class> <!-- JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

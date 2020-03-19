@@ -575,4 +575,6 @@ public class ObjectRepository {
 	
 	public static String sub_text_under_header = "//*[text()='Thank You for Your Application!']/following::p[1]";
 	public static String sub_text_under_uploadDocument = "//*[text()='Thank You for Your Application!']/following::p[2]";
+	public static String join_owner_name = "//table[contains(@id,'_GridView')]//tr[2]//td[1]";
+
 }

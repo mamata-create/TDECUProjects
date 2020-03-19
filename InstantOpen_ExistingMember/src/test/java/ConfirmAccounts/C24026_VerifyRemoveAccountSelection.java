@@ -50,6 +50,7 @@ public class C24026_VerifyRemoveAccountSelection extends GenericKeywords{
 					String SSNformat= excl.getCellData(sheetName, 30, startIter);
 					String DOBformat= excl.getCellData(sheetName, 31, startIter);
 					String confirmProd3= excl.getCellData(sheetName, 3, startIter);
+					String promocode = excl.getCellData(sheetName, 44, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -62,13 +63,21 @@ public class C24026_VerifyRemoveAccountSelection extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Products selected");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+				//	getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					//Enter OTP from Email
+					enter_otp_to_the_field_and_procced();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Continue button clicked");
+					test.log(Status.INFO, "Applicant Information entered");
+					//Enter PromoCode
+					enterPromocode(promocode);
+//					getElement(ObjectRepository.productPageNext).click();
+//					test.log(Status.INFO, "Continue button clicked");
 					//Confirm Accounts
 					verifyText(ObjectRepository.prodOne,confirmProd1);
 					verifyText(ObjectRepository.prodWOptionsTwo,confirmProd2);

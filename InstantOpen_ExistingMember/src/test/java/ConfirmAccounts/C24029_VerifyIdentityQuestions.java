@@ -51,6 +51,7 @@ public class C24029_VerifyIdentityQuestions extends GenericKeywords{
 					String errorMsg2= excl.getCellData(sheetName, 7, startIter);
 					String errorMsg3= excl.getCellData(sheetName, 8, startIter);
 					String errorMsg4= excl.getCellData(sheetName, 9, startIter);
+					String promocode = excl.getCellData(sheetName, 44, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -62,12 +63,23 @@ public class C24029_VerifyIdentityQuestions extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "36 Month CD selected");
 					//Member Verification/Applicant Info
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
-					getElement(ObjectRepository.productPageNext).click();
+					
 					test.log(Status.INFO, "Member and Applicant Info Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					//Enter OTP from Email
+					enter_otp_to_the_field_and_procced();
+					
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Applicant Information entered");
+					
+					//Enter PromoCode
+					enterPromocode(promocode);
 					//Confirm Accounts
 					String maturity = cdMaturityDate(36);					
 					String concatProd = confirmProd+" "+maturity+")";

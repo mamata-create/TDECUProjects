@@ -91,11 +91,15 @@ public class C24295_VerifyMultipleJointOwners extends GenericKeywords{
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Loan info entered");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					enter_otp_to_the_field_and_procced();
 					//Applicant Info
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);
@@ -106,10 +110,10 @@ public class C24295_VerifyMultipleJointOwners extends GenericKeywords{
 					getElement(ObjectRepository.currentEmp).sendKeys(currentEmp);
 					getElement(ObjectRepository.monIncome).sendKeys(curIncome);
 					getElement(ObjectRepository.empMonths).sendKeys(howLong);
-					test.log(Status.INFO, "Applicant Information entered");
+					test.log(Status.PASS, "Applicant Information entered");
 					getElement(ObjectRepository.jtOwnerCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Joint Owner checkbox selected");
+					test.log(Status.PASS, "Joint Owner checkbox selected");
 					//Joint Owner
 					getElement(ObjectRepository.addFname).sendKeys(joFname);
 					getElement(ObjectRepository.addLname).sendKeys(joLname);
@@ -166,7 +170,7 @@ public class C24295_VerifyMultipleJointOwners extends GenericKeywords{
 					getElement(ObjectRepository.prevMonths).sendKeys(howLong2);
 					test.log(Status.INFO, "Loan Information entered for second Joint Owner");
 					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmTtl);
+					verifyElementPresent(ObjectRepository.cnfrmacnt_ttl);
 				}
 			}
 	  }

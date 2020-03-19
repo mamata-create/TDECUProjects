@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="AccountFunding.C24054_VerifyCDFunding">
+      <class name="JointOwnersBeneficiaries.C24211_VerifyOneJointOwner">
         <methods>
+          <include name="C24211_VerifyOneJointOwner"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
           <include name="tearDown"/>
-          <include name="C24054_VerifyCDFunding"/>
         </methods>
-      </class> <!-- AccountFunding.C24054_VerifyCDFunding -->
+      </class> <!-- JointOwnersBeneficiaries.C24211_VerifyOneJointOwner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

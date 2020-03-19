@@ -85,6 +85,7 @@ public class C24211_VerifyOneJointOwner extends GenericKeywords{
 					String joPrevIncome= excl.getCellData(sheetName, 41, startIter);
 					String joPrevYrs= excl.getCellData(sheetName, 42, startIter);
 					String joPrevMonths= excl.getCellData(sheetName, 43, startIter);
+					String promocode = excl.getCellData(sheetName, 44, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -99,11 +100,15 @@ public class C24211_VerifyOneJointOwner extends GenericKeywords{
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Loan amount entered");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					enter_otp_to_the_field_and_procced();
 					//Applicant Info
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);
@@ -127,7 +132,7 @@ public class C24211_VerifyOneJointOwner extends GenericKeywords{
 					getElement(ObjectRepository.addLname).sendKeys(joLname);
 					getElement(ObjectRepository.addStreet).sendKeys(joStreet);
 					getElement(ObjectRepository.addZip).sendKeys(joZip);
-					test.log(Status.INFO, "Applicant Information entered for Joint Owner");
+					test.log(Status.PASS, "Applicant Information entered for Joint Owner");
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(joDOB);
 					getElement(ObjectRepository.addSSN).sendKeys(joSSN);
 					selectDropdownOpt(ObjectRepository.idType,idType);
@@ -136,11 +141,11 @@ public class C24211_VerifyOneJointOwner extends GenericKeywords{
 					getElement(ObjectRepository.expDate).sendKeys(joExpDt);
 					getElement(ObjectRepository.addMaiden).sendKeys(joMaiden);
 					getElement(ObjectRepository.addOccupation).sendKeys(joOccupation);
-					test.log(Status.INFO, "Identification Information entered for Joint Owner");
+					test.log(Status.PASS, "Identification Information entered for Joint Owner");
 					getElement(ObjectRepository.addPhone).sendKeys(joPhone);
 					selectDropdownOpt(ObjectRepository.addPhoneType,joPhoneType);
 					getElement(ObjectRepository.addEmail).sendKeys(joEmail);
-					test.log(Status.INFO, "Contact Information entered for Joint Owner");
+					test.log(Status.PASS, "Contact Information entered for Joint Owner");
 					selectDropdownOpt(ObjectRepository.houseType,joHouseType);
 					getElement(ObjectRepository.housePymt).sendKeys(joHousePymt);
 					getElement(ObjectRepository.addrYears).sendKeys(joHouseYrs);
@@ -154,26 +159,32 @@ public class C24211_VerifyOneJointOwner extends GenericKeywords{
 					getElement(ObjectRepository.prevIncome).sendKeys(joPrevIncome);
 					getElement(ObjectRepository.prevYears).sendKeys(joPrevYrs);
 					getElement(ObjectRepository.prevMonths).sendKeys(joPrevMonths);
-					test.log(Status.INFO, "Loan Information entered for Joint Owner");
+					test.log(Status.PASS, "Loan Information entered for Joint Owner");
 					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmTtl);
-					//Confirm Accounts
-					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Account selection confirmed");
+					verifyElementPresent(ObjectRepository.cnfrmacnt_ttl);
+					test.log(Status.INFO, "User into Promo Code page");
+					enterPromocode(promocode);
+					
 					//Agreements and Disclosures
 					getElement(ObjectRepository.discCheckBox).click();
 					getElement(ObjectRepository.agreeCheckBox).click();
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Agreements and Disclosures accepted");
+					test.log(Status.PASS, "Agreements and Disclosures accepted");
 					//Identity Questions
-					getElement(ObjectRepository.qstnOneOptnOne).click();
-					getElement(ObjectRepository.qstnTwoOptnTwo).click();
-					getElement(ObjectRepository.qstnThreeOptnThree).click();
-					getElement(ObjectRepository.qstnFourOptnFour).click();
+					String arrayOfOptions[] = new String[]{"Fairfax, VA","None of the above","None of the above","None of the above"};
+					idenficationOptions(arrayOfOptions);
+					
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Identity questions answered for primary applicant");
-					String joName = joFname+" "+joMname+" "+joLname;
-					verifyText(ObjectRepository.IdentityName,joName);
+					
+					idenficationOptions(arrayOfOptions);
+					
+					getElement(ObjectRepository.confirmBtn).click();
+					test.log(Status.PASS, "Identity questions answered for primary applicant");
+					getElement(ObjectRepository.confirmBtn).click();
+					test.log(Status.PASS, "Application is Submitted");
+					String joName = joFname+""+joLname;
+					System.out.println("Joint Owner name: "+joName);
+					verifyText(ObjectRepository.join_owner_name,joName);
 				}
 			}
 	  }

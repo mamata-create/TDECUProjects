@@ -807,6 +807,19 @@ public class GenericKeywords extends BaseClass{
 		getElement(ObjectRepository.cnfrm_btn).click();
 		
 	}
+	
+	public static void idenficationOptions(String[]option){
+		List<WebElement>allOptions = returnElements("//span[@id='IDAuthenticationQuestions']//following::label");
+		for(WebElement element : allOptions){
+			String optionValue = element.getText();
+			
+			for(int index=0;index<option.length;index++){
+				if(option[index].contains(optionValue)){
+					element.click();
+				}
+			}
+		}
+	}
 }
 	
 

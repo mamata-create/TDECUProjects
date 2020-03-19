@@ -73,11 +73,16 @@ public class C24299_VerifyJointOwnerAndBeneficiary extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Classic Checking account selected");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					enter_otp_to_the_field_and_procced();
+					
 					String fname = getElement(ObjectRepository.fname).getAttribute("value");
 					String lname = getElement(ObjectRepository.lname).getAttribute("value");
 					getElement(ObjectRepository.jtOwnerCheckBox).click();
@@ -125,21 +130,23 @@ public class C24299_VerifyJointOwnerAndBeneficiary extends GenericKeywords{
 					//Identity Questions
 					String primaryName = fname+" "+lname;
 					verifyText(ObjectRepository.IdentityName,primaryName);
-					getElement(ObjectRepository.qstnOneOptnOne).click();
-					getElement(ObjectRepository.qstnTwoOptnTwo).click();
-					getElement(ObjectRepository.qstnThreeOptnThree).click();
-					getElement(ObjectRepository.qstnFourOptnFour).click();
+					String arrayOfOptions[] = new String[]{"Fairfax, VA","None of the above","None of the above","None of the above"};
+					idenficationOptions(arrayOfOptions);
+					
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Identity questions answered for primary applicant");
+					test.log(Status.PASS, "Identity questions answered for primary applicant");
+					
 					String joName = joFname+" "+joLname;
 					verifyText(ObjectRepository.IdentityName,joName);
-					getElement(ObjectRepository.qstnOneOptnOne).click();
-					getElement(ObjectRepository.qstnTwoOptnTwo).click();
-					getElement(ObjectRepository.qstnThreeOptnThree).click();
-					getElement(ObjectRepository.qstnFourOptnFour).click();
+					idenficationOptions(arrayOfOptions);
+					
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Identity questions answered for joint owner");
-					verifyElementPresent(ObjectRepository.acctFundTitle);
+					test.log(Status.PASS, "Identity questions answered for joint owner");
+					
+					getElement(ObjectRepository.confirmBtn).click();
+					
+					
+					//verifyElementPresent(ObjectRepository.acctFundTitle);
 				}
 			}
 	  }

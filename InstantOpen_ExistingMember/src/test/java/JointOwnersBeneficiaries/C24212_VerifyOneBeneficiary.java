@@ -69,11 +69,15 @@ public class C24212_VerifyOneBeneficiary extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Money Market account selected");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					enter_otp_to_the_field_and_procced();
 					getElement(ObjectRepository.addBeneCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Add Beneficiaries checkbox selected");
@@ -84,20 +88,20 @@ public class C24212_VerifyOneBeneficiary extends GenericKeywords{
 					getElement(ObjectRepository.addLname).sendKeys(beneLname);
 					getElement(ObjectRepository.addStreet).sendKeys(beneStreet);
 					getElement(ObjectRepository.addZip).sendKeys(beneZip);
-					test.log(Status.INFO, "Applicant Information entered for Beneficiary");
+					test.log(Status.PASS, "Applicant Information entered for Beneficiary");
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(beneDOB);
 					getElement(ObjectRepository.addSSN).sendKeys(beneSSN);
 					selectDropdownOpt(ObjectRepository.idType,beneIdType);
 					getElement(ObjectRepository.idNum).sendKeys(beneIdNum);
 					getElement(ObjectRepository.issueDate).sendKeys(beneIssueDt);
 					getElement(ObjectRepository.expDate).sendKeys(beneExpDt);
-					test.log(Status.INFO, "Identification Information entered for Beneficiary");
+					test.log(Status.PASS, "Identification Information entered for Beneficiary");
 					getElement(ObjectRepository.addPhone).sendKeys(benePhone);
 					selectDropdownOpt(ObjectRepository.addPhoneType,benePhoneType);
 					getElement(ObjectRepository.addEmail).sendKeys(beneEmail);
 					test.log(Status.INFO, "Contact Information entered for Beneficiary");
 					getElement(ObjectRepository.productPageNext).click();
-					verifyElementPresent(ObjectRepository.confirmTtl);
+					verifyElementPresent(ObjectRepository.cnfrmacnt_ttl);
 				}
 			}
 	  }

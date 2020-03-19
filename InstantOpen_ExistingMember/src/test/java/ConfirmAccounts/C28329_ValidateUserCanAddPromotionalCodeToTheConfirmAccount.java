@@ -62,6 +62,7 @@ public class C28329_ValidateUserCanAddPromotionalCodeToTheConfirmAccount extends
 					String promocode = excl.getCellData(sheetName, 44, startIter);
 					String invalid_promocode = "Bank0.5";
 					String disclaimer_msg = "Only one promo code per Member. Terms and conditions apply to all TDECU promotions. Please contact us for additional details.";
+					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");

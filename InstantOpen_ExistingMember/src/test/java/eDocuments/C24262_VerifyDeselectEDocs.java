@@ -45,6 +45,7 @@ public class C24262_VerifyDeselectEDocs extends GenericKeywords{
 					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
+					String promocode = excl.getCellData(sheetName, 44, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -57,14 +58,25 @@ public class C24262_VerifyDeselectEDocs extends GenericKeywords{
 					test.log(Status.INFO, "High Yield checking selected and e-Docs deselected");
 					getElement(ObjectRepository.productPageNext).click();
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					test.log(Status.INFO, "Member Verified");
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					//Enter OTP from Email
+					enter_otp_to_the_field_and_procced();
+					
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Continue button clicked");
-					getElement(ObjectRepository.confirmBtn).click();
+					test.log(Status.INFO, "Applicant Information entered");
+					
+					//Enter PromoCode
+					enterPromocode(promocode);
+					
+					//getElement(ObjectRepository.productPageNext).click();
+					//test.log(Status.INFO, "Continue button clicked");
+					//getElement(ObjectRepository.confirmBtn).click();
 					test.log(Status.INFO, "Account selections confirmed");
 					verifyElementNotPresent(ObjectRepository.eDocsLink);
 				}
