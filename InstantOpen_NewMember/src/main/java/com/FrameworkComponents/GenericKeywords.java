@@ -26,7 +26,7 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.search.FlagTerm;
-
+import org.openqa.selenium.Dimension;
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.openqa.selenium.By;
@@ -1036,4 +1036,22 @@ public class GenericKeywords extends BaseClass{
     	}
 		return arrli;
     }
+    public static void click_using_Js(String locator) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		JavascriptExecutor ex = (JavascriptExecutor) driver;
+		ex.executeScript("arguments[0].click()", element);
+
+	}
+
+	// ashish
+	public static void setDimension() {
+		Dimension dimension = new Dimension(375, 667);
+		driver.manage().window().setSize(dimension);
+	}
+
+	// ashish
+	public static void navigateBack() {
+		driver.navigate().back();
+	}
+
 }

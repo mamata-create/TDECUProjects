@@ -142,6 +142,8 @@ public class C26859_ValidateFAQs extends GenericKeywords  {
 				System.out.println(q1_hyperlink2_url);
 				System.out.println(q4_hyperlink1_url);
 				System.out.println(countryListArr);
+				
+				break;
 			}
 		}
 	}

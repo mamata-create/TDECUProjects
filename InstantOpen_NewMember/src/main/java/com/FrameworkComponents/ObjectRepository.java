@@ -711,4 +711,19 @@ public class ObjectRepository {
        public static String  for_LoansandCreditCards = "/html//form[@id='fiVISIONWebForm']/span/table//div[@class='MainBorder']/div[@class='ShadowWrap']/div[@class='ContentTable']/div/span/div[@class='container']/div/div[@class='row']/div/div[@class='sectionIcon']/h4[.='For loans and credit cards']";
        public static String frequentlyAskedQuestions_Section = "//div[@class='row'][3]/div/h3[text()='Frequently Asked Questions']";
        public static String importantAccountOpenningInformation = "//div[@class='col-sm disclaimer']/h4/strong[text()='IMPORTANT ACCOUNT OPENING INFORMATION:']";
-	}
+       public static String header_ExisitngMemberandNonMember_Subpages="//div[@class='container']/span[2]/div/div/h3";
+       
+       //Form fill locators
+       public static String header_Section(int index)
+   	{
+   		String section="//div[@class='form-inline']/div[@class='SectionHeaders']["+index+"]";
+   		return section;
+   	}
+       public static String button_Continue=	"//input[@name='NextButton$NextButton_SubmitButton']";
+       public static String header_MembershipEligibility="//h3/strong";
+       public static String button_Back="//input[@id='BackButton_SubmitButton']";
+       public static String courtesy_pay = "//span[@id='cbCourtPayOptIn']/div[1]";
+       public static String membership_eligiblty_continue_btn = "//*[@id='NextButton_SubmitButton']";
+       public static String confirm_prodt_servc_btn ="//*[@id='btnNext_SubmitButton']";
+       public static String back_frm_agreemnt_page = "//*[@id='btnBack_SubmitButton']";
+}
