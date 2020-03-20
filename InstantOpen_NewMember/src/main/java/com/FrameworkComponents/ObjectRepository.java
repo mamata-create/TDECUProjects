@@ -573,6 +573,45 @@ public class ObjectRepository {
 		public static String addedUser_removeLink = "//span[contains(@id,'IndividualHyperlinkList')]//a[2]";
 		//Confirm Account Role
 		public static String confirmAccountRole_title="//strong[text()='Confirm Account Roles']";
+		public static String confirmAccountRole_content(String content)
+		{
+			String content1="//*[text()='"+content+"']";
+			return content1;
+		}
+		
+		public static String confirmAccountRoleF_Name(int index)
+		{
+		String confirmAccountRoleF_Name="//table[@id='ProductRelationships_table']/tbody/tr[1]/td["+index+"]";
+		return confirmAccountRoleF_Name;
+		}
+		
+		public static String confirmAccountProduct_Name(int index)
+		{
+		String confirmAccountRoleF_Name="//table[@id='ProductRelationships_table']/tbody/tr["+index+"]/td[1]";
+		return confirmAccountRoleF_Name;
+		}
+		public static String productcheckedStatusmember(int index)
+		{
+			
+			String confirmAccountRoleF_Name="//table[@id='ProductRelationships_table']/tbody/tr["+index+"]/td[2]/div/span/div";
+			return confirmAccountRoleF_Name;
+		}
+		
+		public static String productuncheckedStatuBefsmember(int index)
+		{
+			
+			String confirmAAccountRoleF_Name="//table[@id='ProductRelationships_table']/tbody/tr["+index+"]/td[3]/div/span/div";
+			return confirmAAccountRoleF_Name;
+		}
+		public static String productcheckedstatusBefsmember(int index)
+		{
+			
+			String confirmAccountRoleF_Name="//table[@id='ProductRelationships_table']/tbody/tr["+index+"]/td[3]/div/div";
+			return confirmAccountRoleF_Name;
+		}
+		
+		
+		
 		
 		//Product Selection
 		public static String classicCheck = "//span[@id='rbClassicChecking']";

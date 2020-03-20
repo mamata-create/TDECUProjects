@@ -32,8 +32,9 @@ public class C24321_NonMemberUserCanSeeTheAssignedRoleToTheBeneficiary extends G
 
 	/*
 	   As a non member applicant, I would like to see the roles assigned to the
-	   products selected for a Beneficiary added to my application. Created
-	   Date: 03-19-2020 Created By : Ashish
+	   products selected for a Beneficiary added to my application. 
+	   Created  Date: 03-19-2020 Created By : Ashish
+	   
 	 */ 
 
 	@BeforeTest
@@ -193,7 +194,9 @@ public class C24321_NonMemberUserCanSeeTheAssignedRoleToTheBeneficiary extends G
 					test.log(Status.PASS, "Your Beneficiary Information page displayed");
 
 					//code to add beneficiary detail
-					  getElement(ObjectRepository.fname_txt).sendKeys(fname);
+					
+					String beneficiary_fname = fk.name().firstName();
+					  getElement(ObjectRepository.fname_txt).sendKeys(beneficiary_fname);
 					 
 					  
 					   getElement(ObjectRepository.lname_txt).sendKeys(lname);
@@ -229,76 +232,96 @@ public class C24321_NonMemberUserCanSeeTheAssignedRoleToTheBeneficiary extends G
 					   
 					   verifyElementPresent(ObjectRepository.confirmAccountRole_title);
 					   test.log(Status.PASS,"Confirm Account Roles Page Displayed");
+					   System.out.println(excl.getCellData(sheetName, 31, startIter));
+					   driver.getPageSource().contains(excl.getCellData(sheetName, 31, startIter));
+					   test.log(Status.INFO,"Confirm Account Roles Page, Content is Displayed");
 					   
+					   //Verification of Beneficiary table
 					   
-					   
-					   
-					   
-					/*
-					   
-					   verifyText(ObjectRepository.confirmAccountRole_title,
-					   "Confirm Account Roles");
-					   
-					   // Validating first column data String expectedProducts[]
-					   = new String[] { "Classic MasterCard ®",
-					   "High Yield Checking", "Share" }; List<WebElement>
-					   allSelectedProducts = retrunElements(
-					   "//table[@id='ProductRelationships_table']//td[contains(@id,'_Name')]"
-					   ); int index = 0; for (WebElement eachProduct :
-					   allSelectedProducts) { String productFromPage =
-					   eachProduct.getText(); boolean prod_flag =
-					   productFromPage.contains(expectedProducts[index].toString
-					   ()); Assert.assertEquals(prod_flag, true); index = index
-					   + 1;
-					   
-					   }
-					   
-					   // Validating second column data
-					   
-					   List<WebElement> allSelectedCheckBoxes = retrunElements(
-					   "//table[@id='ProductRelationships_table']//span[@disabled='disabled']/div"
-					   ); for (WebElement eachCheckBox : allSelectedCheckBoxes)
-					   { String checkBoxPropertyFlagFromPage =
-					   eachCheckBox.getAttribute("class"); boolean
-					   disabledAndCheckedFlag =
-					   checkBoxPropertyFlagFromPage.contains("checked disabled"
-					   ); if (disabledAndCheckedFlag) { Assert.assertTrue(true);
-					   }
-					   
-					   }
-					   
-					   // Validating third column data
-					   
-					   List<WebElement> allEditableCheckBoxes = retrunElements(
-					   "//table[@id='ProductRelationships_table']//div[@class='icheckbox_square-grey checked']"
-					   ); for (WebElement eachCheckBox : allEditableCheckBoxes)
-					   { String checkBoxPropertyFlagFromPage =
-					   eachCheckBox.getAttribute("class"); boolean
-					   disabledAndCheckedFlag =
-					   checkBoxPropertyFlagFromPage.contains("checked"); if
-					   (disabledAndCheckedFlag) { Assert.assertTrue(true);
-					   
-					   }
-					   
-					   }
-					   
-					   // Validate Un-Check and Check getElement(
-					   "(//table[@id='ProductRelationships_table']//div[@class='icheckbox_square-grey checked'])[1]"
-					   ) .click(); getElement(
-					   "(//table[@id='ProductRelationships_table']//div[@class='icheckbox_square-grey checked'])[1]"
-					   ) .click();
-					   
-					   getElement(ObjectRepository.continue_btn).click(); //
-					   Member Eligibility Page
-					   verifyElementPresent(ObjectRepository.
-					   memberShipEligibilityPage); test.log(Status.INFO,
-					   "Navigated to Member Eligibility Page successfully");
-					 */
-
+					  
+						   
+							   verifyText(ObjectRepository.confirmAccountRoleF_Name(2), fname);							   
+							   verifyText(ObjectRepository.confirmAccountRoleF_Name(3), beneficiary_fname);
+							   System.out.println("First Name and Beneficiary name matched");
+							   test.log(Status.INFO,"Beneficiary name matched");
+							   
+							   boolean status=verifyProductSelectionConfirmAccountRole();
+							   if(status==true)
+							   {
+								   test.log(Status.PASS,"Product selection verification is passed");   
+							   }
+							   else
+							   {
+								   test.log(Status.FAIL,"Product selection verification is passed");
+							   }
+							   
+					  
 				}
 			}
 		}
 
+	}
+
+	public boolean verifyProductSelectionConfirmAccountRole() throws InterruptedException {
+		// TODO Auto-generated method stub
+		boolean status = true;
+		 for (int index=2;index<=8;index++)
+		   {
+			   String expectedProducts[] = new String[] { "","","Classic MasterCard ®","Auto Loan (New or Used)","My Way Loan: $4,000","Money Market","Club Account","High Yield Checking", "Share" };
+			   
+			   verifyText(ObjectRepository.confirmAccountProduct_Name(index),expectedProducts[index]);
+			   test.log(Status.INFO,"Product name matched");
+			   
+			   String productcheckedStatusmember=getAttribute(ObjectRepository.productcheckedStatusmember(index),"class");
+			   if(productcheckedStatusmember.contains("checked") && productcheckedStatusmember.contains("disabled") )
+			   {
+				  
+				   System.out.println("Member Product Check status:"+expectedProducts[index]+ " Prod Status : Disabled");
+				   test.log(Status.PASS,"Product selection Status Matched for Member");
+			   }
+			   else
+			   {
+				   status=false;
+				   System.out.println("Member Product Check status:"+expectedProducts[index]+ " Prod Status : Disabled");
+				   test.log(Status.FAIL,"Product selection Status not Matched for Member");
+			   }
+			   
+			   
+			   if(index>4)
+			   {
+				   String productcheckedstatusBefsmember=getAttribute(ObjectRepository.productcheckedstatusBefsmember(index),"class");
+				   
+				   if(productcheckedstatusBefsmember.contains("checked"))
+				   {
+					  
+					   System.out.println("Beneficiary Product Check status:"+expectedProducts[index]+ " Prod Status: Checked");
+					  
+				   }
+				   else
+				   {
+					   status=false;
+					   System.out.println("Failed Beneficiary Prodcut Name: " + expectedProducts[index] + "Product Status: Disbaled");
+				   }
+			   }else
+			   {
+				   String productuncheckedStatusBef=getAttribute(ObjectRepository.productuncheckedStatuBefsmember(index),"class");
+				   
+				   if(productuncheckedStatusBef.contains("disabled") )
+				   {
+					  
+					   System.out.println("Beneficiary Product Name: "+expectedProducts[index]+ " Prod Status: Disabled");
+					   
+				   }
+				   else
+				   {
+					   status=false;
+					   System.out.println("Failed Beneficiary Prodcut Name: " + expectedProducts[index] + "Product Status: Checked ");
+				   }
+				   
+			   }
+		   }
+		 
+		 return status;
 	}
 
 	@AfterMethod
@@ -308,7 +331,7 @@ public class C24321_NonMemberUserCanSeeTheAssignedRoleToTheBeneficiary extends G
 
 			takescreenshot(this.getClass().getSimpleName(), test);
 		} else {
-			test.log(Status.PASS, "Verify that Non member user can see the assigned role of the Joint Owner");
+			test.log(Status.PASS, "As a non member applicant, I would like to see the roles assigned to the products selected for a Beneficiary added to my application.");
 		}
 	}
 

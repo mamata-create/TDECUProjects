@@ -91,7 +91,7 @@ public class GenericKeywords extends BaseClass {
 
 	public static String getAttribute(String locator, String Attribute) throws InterruptedException {
 
-		System.out.println("1");
+		
 		WebElement element = driver.findElement(By.xpath(locator));
 		String attribute_value = element.getAttribute(Attribute);
 		return attribute_value;
@@ -924,6 +924,13 @@ public class GenericKeywords extends BaseClass {
 		}
 	}
 
+	public static void getText(String locator)
+	{
+		WebElement element = getElement(locator);
+		String actText = element.getText();
+		System.out.println("Text is :"+actText);
+	}
+	
 	public static void verifyContainsValue(String locator, String text) {
 		WebElement element = getElement(locator);
 		String actText = element.getAttribute("value");
