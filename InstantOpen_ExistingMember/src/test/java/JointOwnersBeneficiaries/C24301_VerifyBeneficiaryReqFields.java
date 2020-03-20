@@ -42,7 +42,7 @@ public class C24301_VerifyBeneficiaryReqFields extends GenericKeywords{
 			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
-					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
 					String beneFname= excl.getCellData(sheetName, 23, startIter);
@@ -57,18 +57,22 @@ public class C24301_VerifyBeneficiaryReqFields extends GenericKeywords{
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
-					test.log(Status.INFO, "Members Start Here button clicked");
+					test.log(Status.PASS, "Members Start Here button clicked");
 					//Select Products
 					getElement(ObjectRepository.savingsExpand).click();
 					getElement(ObjectRepository.clubCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Club account selected");
+					test.log(Status.PASS, "Club account selected");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
-					test.log(Status.INFO, "Member Verified");
+					test.log(Status.PASS, "Member Verified");
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					enter_otp_to_the_field_and_procced();
+					
 					getElement(ObjectRepository.addBeneCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Add Beneficiaries checkbox selected");
@@ -77,19 +81,19 @@ public class C24301_VerifyBeneficiaryReqFields extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					verifyText(ObjectRepository.errorMsg1,textError);
 					verifyText(ObjectRepository.errorMsg2,addrError);
-					test.log(Status.INFO, "Error messages displayed for Applicant info required fields");
+					test.log(Status.PASS, "Error messages displayed for Applicant info required fields");
 					getElement(ObjectRepository.addLname).sendKeys(beneLname);
 					getElement(ObjectRepository.sameAddrCbox).click();
 					getElement(ObjectRepository.productPageNext).click();
 					verifyText(ObjectRepository.errorMsg1,dobError);
 					verifyText(ObjectRepository.errorMsg2,textError);
-					test.log(Status.INFO, "Error messages displayed for Identification info required fields");
+					test.log(Status.PASS, "Error messages displayed for Identification info required fields");
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(beneDOB);
 					getElement(ObjectRepository.addSSN).sendKeys(beneSSN);
 					getElement(ObjectRepository.addButton).click();
 					verifyText(ObjectRepository.errorMsg1,phoneError);
 					verifyText(ObjectRepository.errorMsg2,emailError);
-					test.log(Status.INFO, "Error messages displayed for Contact info required fields");
+					test.log(Status.PASS, "Error messages displayed for Contact info required fields");
 					
 				}
 			}

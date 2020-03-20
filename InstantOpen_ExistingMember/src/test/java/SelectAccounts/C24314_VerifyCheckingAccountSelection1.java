@@ -49,7 +49,7 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
 					String DOB= excl.getCellData(sheetName, 29, startIter);
 					String errorMsg1= excl.getCellData(sheetName, 30, startIter);
 					String errorMsg2= excl.getCellData(sheetName, 31, startIter);
-					
+					String promocode = excl.getCellData(sheetName, 44, startIter);
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -61,15 +61,24 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					enter_otp_to_the_field_and_procced();
+					
 					//Your Information
 					verifyElementPresent(ObjectRepository.yourInfoTtl);
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
+					
+					verifyElementPresent(ObjectRepository.cnfrmacnt_ttl);
+					test.log(Status.INFO, "User into Promo Code page");
+					enterPromocode(promocode);
 					//Confirm Accounts
 					verifyText(ObjectRepository.prodOne,prodName1);
 					verifyText(ObjectRepository.prodWOptionsTwo,prodName2);
@@ -81,12 +90,15 @@ public class C24314_VerifyCheckingAccountSelection1 extends GenericKeywords{
 					getElement(ObjectRepository.confirmBtn).click();
 					test.log(Status.INFO, "Terms and conditions accepted");
 					//Identity Verification
-					getElement(ObjectRepository.questionOne).click();
-					getElement(ObjectRepository.questionTwo).click();
-					getElement(ObjectRepository.questionThree).click();
-					getElement(ObjectRepository.questionFour).click();
+					String arrayOfOptions[] = new String[]{"Fairfax, VA","None of the above","None of the above","None of the above"};
+					idenficationOptions(arrayOfOptions);
+					
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Identity Verification questions answered");
+					
+					idenficationOptions(arrayOfOptions);
+					
+					getElement(ObjectRepository.confirmBtn).click();
+					test.log(Status.PASS, "Identity questions answered for primary applicant");
 					//Account Funding
 					verifyElementPresent(ObjectRepository.acctFundTitle);
 					getElement(ObjectRepository.submitBtn).click();

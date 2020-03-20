@@ -73,19 +73,18 @@ public class C24071_VerifyInvalidMemberInput extends GenericKeywords{
 					verifyText(ObjectRepository.errorMsg2,errorMsg2);
 					verifyText(ObjectRepository.errorMsg3,errorMsg3);
 					verifyText(ObjectRepository.errorMsg4,errorMsg4);
-					test.log(Status.INFO, "Correct error messages displayed");
+					test.log(Status.PASS, "Correct error messages displayed");
 					//Invalid DOB
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					verifyText(ObjectRepository.errorMsg1,errorMsg3);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(invalidDOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					verifyText(ObjectRepository.errorMsg1,errorMsg4);
-					test.log(Status.INFO, "Error message displayed for incorrect DOB");
+					test.log(Status.PASS, "Error message displayed for incorrect DOB");
 					//Invalid SSN
-					getElement(ObjectRepository.mmbrVerifyNum).clear();
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifyDOB).clear();
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifySSN).clear();
@@ -94,29 +93,28 @@ public class C24071_VerifyInvalidMemberInput extends GenericKeywords{
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(invalidSSN);		
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					verifyText(ObjectRepository.errorMsg1,errorMsg4);
-					test.log(Status.INFO, "Error message displayed for incorrect SSN");
+					test.log(Status.PASS, "Error message displayed for incorrect SSN");
 					//Invalid member number
-					getElement(ObjectRepository.mmbrVerifySSN).clear();
-					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
-					getElement(ObjectRepository.mmbrVerifyDOB).clear();
-					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
-					getElement(ObjectRepository.mmbrVerifyNum).clear();
-					getElement(ObjectRepository.mmbrVerifyNext).click();
-					verifyText(ObjectRepository.errorMsg1,errorMsg1);
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(invalidMmbrNum);
-					getElement(ObjectRepository.mmbrVerifyNext).click();
-					verifyText(ObjectRepository.errorMsg1,errorMsg4);
-					test.log(Status.INFO, "Error message displayed for incorrect member number");
+//					getElement(ObjectRepository.mmbrVerifySSN).clear();
+//					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
+//					getElement(ObjectRepository.mmbrVerifyDOB).clear();
+//					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
+//					getElement(ObjectRepository.mmbrVerifyNum).clear();
+//					getElement(ObjectRepository.mmbrVerifyNext).click();
+//					verifyText(ObjectRepository.errorMsg1,errorMsg1);
+//					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(invalidMmbrNum);
+//					getElement(ObjectRepository.mmbrVerifyNext).click();
+//					verifyText(ObjectRepository.errorMsg1,errorMsg4);
+//					test.log(Status.INFO, "Error message displayed for incorrect member number");
 					//Different member's SSN
-					getElement(ObjectRepository.mmbrVerifyNum).clear();
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).clear();
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(otherSSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).clear();
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					verifyText(ObjectRepository.errorMsg1,errorMsg4);
-					test.log(Status.INFO, "Error message displayed for other member's SSN");
+					test.log(Status.PASS, "Error message displayed for other member's SSN");
 				}
 			}
 	  }

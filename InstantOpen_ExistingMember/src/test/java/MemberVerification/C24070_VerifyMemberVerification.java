@@ -43,7 +43,7 @@ public class C24070_VerifyMemberVerification extends GenericKeywords{
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
 					String ccAmount= excl.getCellData(sheetName, 6, startIter);
-					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
 					String SSNformat= excl.getCellData(sheetName, 30, startIter);
@@ -61,11 +61,7 @@ public class C24070_VerifyMemberVerification extends GenericKeywords{
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(ccAmount);
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Credit card amount entered");
-					//Member Verification fields
-					verifyElementPresent(ObjectRepository.mmbrNumLabel);
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
-					verifyTxtFieldValue(ObjectRepository.mmbrVerifyNum,mmbrNum);
-					test.log(Status.INFO, "Member number entered");
+	
 					verifyElementPresent(ObjectRepository.mmbrSSNlabel);
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					verifyTxtFieldValue(ObjectRepository.mmbrVerifySSN,SSNformat);
@@ -75,7 +71,8 @@ public class C24070_VerifyMemberVerification extends GenericKeywords{
 					verifyTxtFieldValue(ObjectRepository.mmbrVerifyDOB,DOBformat);
 					test.log(Status.INFO, "DOB entered");
 					getElement(ObjectRepository.mmbrVerifyNext).click();
-					verifyElementPresent(ObjectRepository.yourInfoTtl);					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");					
 				}
 			}
 	  }

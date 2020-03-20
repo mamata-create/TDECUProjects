@@ -43,7 +43,7 @@ public class C24031_VerifyValidLoginToSave extends GenericKeywords{
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
 					String cdSelection= excl.getCellData(sheetName, 1, startIter);
-					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
 					String email1= excl.getCellData(sheetName, 6, startIter);
@@ -70,15 +70,20 @@ public class C24031_VerifyValidLoginToSave extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Share Certificate selected");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP Verified Successfully");
+					
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
-					getElement(ObjectRepository.saveBtn).click();
-					test.log(Status.INFO, "Save and Finish Later clicked");
+//					getElement(ObjectRepository.saveBtn).click();
+//					test.log(Status.INFO, "Save and Finish Later clicked");
 					//Email validation
 					getElement(ObjectRepository.emailAddr).clear();
 					getElement(ObjectRepository.emailAddr).sendKeys(email1);

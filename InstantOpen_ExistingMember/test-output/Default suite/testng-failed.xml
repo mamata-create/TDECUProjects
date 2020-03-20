@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="JointOwnersBeneficiaries.C24211_VerifyOneJointOwner">
+      <class name="SelectAccounts.C24309_VerifyMoneyMarketSelection">
         <methods>
-          <include name="C24211_VerifyOneJointOwner"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
-          <include name="tearDown"/>
+          <include name="C24309_VerifyMoneyMarketSelection"/>
         </methods>
-      </class> <!-- JointOwnersBeneficiaries.C24211_VerifyOneJointOwner -->
+      </class> <!-- SelectAccounts.C24309_VerifyMoneyMarketSelection -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

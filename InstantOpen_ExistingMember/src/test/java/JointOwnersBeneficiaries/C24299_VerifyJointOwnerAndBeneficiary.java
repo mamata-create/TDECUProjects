@@ -42,7 +42,7 @@ public class C24299_VerifyJointOwnerAndBeneficiary extends GenericKeywords{
 			{	
 				if(this.getClass().getSimpleName().equals(excl.getCellData("ProdData", 0, startIter)))
 				{
-					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
 					String joFname= excl.getCellData(sheetName, 6, startIter);

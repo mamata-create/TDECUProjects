@@ -53,7 +53,7 @@ public class C24320_VerifyJOLoanRoles extends GenericKeywords{
 					String boatAmt= excl.getCellData(sheetName, 5, startIter);
 					String boatPrice= excl.getCellData(sheetName, 6, startIter);
 					String loanAmt= excl.getCellData(sheetName, 7, startIter);
-					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
 					String idType= excl.getCellData(sheetName, 8, startIter);
@@ -101,11 +101,16 @@ public class C24320_VerifyJOLoanRoles extends GenericKeywords{
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Personal loan amount entered");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					enter_otp_to_the_field_and_procced();
+					
 					//Applicant Info
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);

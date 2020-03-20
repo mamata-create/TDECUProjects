@@ -79,6 +79,11 @@ public class C24030_VerifySaveProgressOption extends GenericKeywords{
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP Verified Successfully");
+					
 					//Applicant Info
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);

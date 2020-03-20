@@ -75,11 +75,16 @@ public class C24288_VerifyIdentificationInfo extends GenericKeywords{
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmt);
 					test.log(Status.INFO, "Loan amount entered");
 					getElement(ObjectRepository.prodInfoNextButton).click();
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					test.log(Status.INFO, "Member verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP Verified Successfully");
+					
 					//Verify Identification Information fields
 					getElement(ObjectRepository.productPageNext).click();
 					verifyText(ObjectRepository.errorMsg1,errorMsg1);

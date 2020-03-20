@@ -1,36 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="201454" started-at="2020-03-19T19:47:00Z" finished-at="2020-03-19T19:50:22Z">
+  <suite name="Default suite" duration-ms="139241" started-at="2020-03-20T18:59:55Z" finished-at="2020-03-20T19:02:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="201454" started-at="2020-03-19T19:47:00Z" finished-at="2020-03-19T19:50:22Z">
-      <class name="JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba]" name="setUp" is-config="true" duration-ms="13552" started-at="2020-03-19T15:47:00Z" finished-at="2020-03-19T15:47:14Z">
+    <test name="Default test" duration-ms="139241" started-at="2020-03-20T18:59:55Z" finished-at="2020-03-20T19:02:15Z">
+      <class name="SelectAccounts.C24309_VerifyMoneyMarketSelection">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:SelectAccounts.C24309_VerifyMoneyMarketSelection@f0e0ba]" name="setUp" is-config="true" duration-ms="45318" started-at="2020-03-20T14:59:55Z" finished-at="2020-03-20T15:00:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="C24295_VerifyMultipleJointOwners()[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba]" name="C24295_VerifyMultipleJointOwners" duration-ms="185642" started-at="2020-03-19T15:47:14Z" finished-at="2020-03-19T15:50:20Z">
+        <test-method status="FAIL" signature="C24309_VerifyMoneyMarketSelection()[pri:0, instance:SelectAccounts.C24309_VerifyMoneyMarketSelection@f0e0ba]" name="C24309_VerifyMoneyMarketSelection" duration-ms="91462" started-at="2020-03-20T15:00:41Z" finished-at="2020-03-20T15:02:12Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.FrameworkComponents.GenericKeywords.verifyText(GenericKeywords.java:82)
+	at SelectAccounts.C24309_VerifyMoneyMarketSelection.C24309_VerifyMoneyMarketSelection(C24309_VerifyMoneyMarketSelection.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- C24295_VerifyMultipleJointOwners -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba]" name="afterMethod" is-config="true" duration-ms="4" started-at="2020-03-19T15:50:20Z" finished-at="2020-03-19T15:50:20Z">
+        </test-method> <!-- C24309_VerifyMoneyMarketSelection -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:SelectAccounts.C24309_VerifyMoneyMarketSelection@f0e0ba]" name="afterMethod" is-config="true" duration-ms="606" started-at="2020-03-20T15:02:12Z" finished-at="2020-03-20T15:02:13Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=C24295_VerifyMultipleJointOwners status=SUCCESS method=C24295_VerifyMultipleJointOwners.C24295_VerifyMultipleJointOwners()[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba] output={null}]]]>
+                <![CDATA[[TestResult name=C24309_VerifyMoneyMarketSelection status=FAILURE method=C24309_VerifyMoneyMarketSelection.C24309_VerifyMoneyMarketSelection()[pri:0, instance:SelectAccounts.C24309_VerifyMoneyMarketSelection@f0e0ba] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners@f0e0ba]" name="tearDown" is-config="true" duration-ms="2234" started-at="2020-03-19T15:50:20Z" finished-at="2020-03-19T15:50:22Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:SelectAccounts.C24309_VerifyMoneyMarketSelection@f0e0ba]" name="tearDown" is-config="true" duration-ms="1827" started-at="2020-03-20T15:02:13Z" finished-at="2020-03-20T15:02:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners -->
+      </class> <!-- SelectAccounts.C24309_VerifyMoneyMarketSelection -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

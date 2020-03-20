@@ -84,6 +84,7 @@ public class C28345_VerifyThatInformationTabIsHighLightedWhenUserOnLookupBenefic
 					
 					enter_otp_to_the_field_and_procced();
 					
+					test.log(Status.PASS, "OTP verified successfully");
 					//Applicant Info
 					verifyElementPresent(ObjectRepository.fname);
 					verifyElementPresent(ObjectRepository.lname);

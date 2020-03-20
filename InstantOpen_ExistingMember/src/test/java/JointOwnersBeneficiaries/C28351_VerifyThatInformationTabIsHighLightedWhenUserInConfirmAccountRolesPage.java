@@ -108,6 +108,7 @@ public class C28351_VerifyThatInformationTabIsHighLightedWhenUserInConfirmAccoun
 					
 					enter_otp_to_the_field_and_procced();
 					
+					test.log(Status.PASS, "OTP verified successfully");
 					//Applicant Info
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);

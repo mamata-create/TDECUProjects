@@ -73,11 +73,16 @@ public class C24207_VerifyPreviousEmployerField extends GenericKeywords{
 					test.log(Status.INFO, "Loan amount entered");
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					//Enter member info
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+				
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					test.log(Status.INFO, "Member verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP Verified Successfully");
+					
 					//Enter identification information
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);

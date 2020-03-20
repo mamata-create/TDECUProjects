@@ -63,11 +63,16 @@ public class C24193_VerifyEmpStatusField extends GenericKeywords{
 					test.log(Status.INFO, "Loan amount entered");
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					//Enter member info
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					test.log(Status.INFO, "Member verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP Verified Successfully");
+					
 					//verify Employment Status field
 					verifyDropdownSelection(ObjectRepository.empStatus,fullTime);
 					selectDropdownOptContain(ObjectRepository.empStatus,nullSelect);

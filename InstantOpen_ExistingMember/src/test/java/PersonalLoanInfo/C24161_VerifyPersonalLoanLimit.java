@@ -50,22 +50,22 @@ public class C24161_VerifyPersonalLoanLimit extends GenericKeywords{
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
-					test.log(Status.INFO, "Members Start Here button clicked");
+					test.log(Status.PASS, "Members Start Here button clicked");
 					//select loan
 					getElement(ObjectRepository.personalLoanExpand).click();
 					getElement(ObjectRepository.myWay7000CheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
-					test.log(Status.INFO, "Personal loan selected");
+					test.log(Status.PASS, "Personal loan selected");
 					//select different loan
 					selectDropdownOpt(ObjectRepository.prodTypeDropdown,cdLoan);
 					verifyDropdownSelection(ObjectRepository.prodTypeDropdown,cdLoan);
 					verifyPlaceholder(ObjectRepository.prodLimitTextbox,cdLoanMin);
-					test.log(Status.INFO, "Different loan selected");
+					test.log(Status.PASS, "Different loan selected");
 					//verify amount format
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(loanAmount);
 					getElement(ObjectRepository.prodLimitTextbox).sendKeys(Keys.TAB);
 					verifyTxtFieldValue(ObjectRepository.prodLimitTextbox,amountFormat);
-					test.log(Status.INFO, "Loan amount in correct format");
+					test.log(Status.PASS, "Loan amount in correct format");
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					verifyElementPresent(ObjectRepository.mmbrVerifyTile);
 				 }

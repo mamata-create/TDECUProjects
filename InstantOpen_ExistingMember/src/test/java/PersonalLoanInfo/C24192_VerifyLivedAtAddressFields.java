@@ -68,11 +68,16 @@ public class C24192_VerifyLivedAtAddressFields extends GenericKeywords{
 					test.log(Status.INFO, "Loan amount entered");
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					//Enter member info
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					test.log(Status.INFO, "Member verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP Verified Successfully");
+					
 					scrollToElement(ObjectRepository.loanHdr);
 					//verify how long have you lived at this address fields
 					getElement(ObjectRepository.addrYears).sendKeys(yearsMax);

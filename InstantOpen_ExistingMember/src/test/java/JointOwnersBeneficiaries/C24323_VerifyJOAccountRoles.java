@@ -52,7 +52,7 @@ public class C24323_VerifyJOAccountRoles extends GenericKeywords{
 					String checkingTitle= excl.getCellData(sheetName, 4, startIter);
 					String moneyMarketTitle= excl.getCellData(sheetName, 5, startIter);
 					String savingsTitle= excl.getCellData(sheetName, 6, startIter);
-					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
 					String joFname= excl.getCellData(sheetName, 11, startIter);
@@ -85,11 +85,17 @@ public class C24323_VerifyJOAccountRoles extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "CD, checking account and savings account selected");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP verified successfully");
+					
 					getElement(ObjectRepository.jtOwnerCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Joint Owner checkbox selected");

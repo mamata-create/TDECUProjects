@@ -87,6 +87,7 @@ public class C28372_UserwouldLikeToRecieveOTPViaEmail extends GenericKeywords{
 					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
 					
 					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP Verified Successfully");
 					//Applicant Info
 				
 				}

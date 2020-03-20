@@ -44,7 +44,7 @@ public class C24338_VerifyCarLoanBeneficiaryNA extends GenericKeywords{
 				{
 					String loanAmt= excl.getCellData(sheetName, 6, startIter);
 					String priceAmt= excl.getCellData(sheetName, 7, startIter);
-					String mmbrNum= excl.getCellData(sheetName, 27, startIter);
+					
 					String SSN= excl.getCellData(sheetName, 28, startIter);
 					String DOB= excl.getCellData(sheetName, 29, startIter);
 					
@@ -62,11 +62,17 @@ public class C24338_VerifyCarLoanBeneficiaryNA extends GenericKeywords{
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Loan info entered");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();					
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP verified successfully");
+					
 					scrollToElement(ObjectRepository.currentEmp);
 					verifyElementNotPresent(ObjectRepository.addBeneLbl);
 				}

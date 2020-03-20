@@ -60,7 +60,7 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					String confirmProd1= excl.getCellData(sheetName, 1, startIter);
 					String confirmProd2= excl.getCellData(sheetName, 2, startIter);
 					String errorMsg1= excl.getCellData(sheetName, 30, startIter);
-					
+					String promocode = excl.getCellData(sheetName, 44, startIter);
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
 					test.log(Status.INFO, "Members Start Here button clicked");
@@ -83,11 +83,16 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Loan amount entered");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP Verified Successfully");
+					
 					//Your Information
 					selectDropdownOpt(ObjectRepository.idType,idTypeDD);
 					getElement(ObjectRepository.idNum).sendKeys(idNumber);
@@ -103,6 +108,10 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					test.log(Status.INFO, "Applicant information entered");
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Continue button clicked");
+					
+					verifyElementPresent(ObjectRepository.cnfrmacnt_ttl);
+					test.log(Status.INFO, "User into Promo Code page");
+					enterPromocode(promocode);
 					//Confirm Accounts
 					verifyText(ObjectRepository.prodOne,confirmProd1);
 					verifyText(ObjectRepository.prodTwo,confirmProd2);
@@ -114,12 +123,15 @@ public class C24309_VerifyMoneyMarketSelection extends GenericKeywords{
 					getElement(ObjectRepository.confirmBtn).click();
 					test.log(Status.INFO, "Terms and conditions accepted");
 					//Identity Verification
-					getElement(ObjectRepository.questionOne).click();
-					getElement(ObjectRepository.questionTwo).click();
-					getElement(ObjectRepository.questionThree).click();
-					getElement(ObjectRepository.questionFour).click();
+					String arrayOfOptions[] = new String[]{"Fairfax, VA","None of the above","None of the above","None of the above"};
+					idenficationOptions(arrayOfOptions);
+					
 					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Identity Verification questions answered");
+					
+					idenficationOptions(arrayOfOptions);
+					
+					getElement(ObjectRepository.confirmBtn).click();
+					test.log(Status.PASS, "Identity questions answered for primary applicant");
 					//Account Funding
 					verifyElementPresent(ObjectRepository.acctFundTitle);
 					getElement(ObjectRepository.submitBtn).click();

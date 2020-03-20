@@ -97,6 +97,8 @@ public class C28338_VerifyThatInformationTabIsHighLightedWhenUserInJointOwnerPag
 					
 					enter_otp_to_the_field_and_procced();
 					
+					test.log(Status.PASS, "OTP verified successfully");
+					
 					//Applicant Info
 					selectDropdownOpt(ObjectRepository.idType,idType);
 					getElement(ObjectRepository.idNum).sendKeys(idNum);

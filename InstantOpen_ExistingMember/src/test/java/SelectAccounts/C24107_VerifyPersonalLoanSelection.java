@@ -262,11 +262,16 @@ public class C24107_VerifyPersonalLoanSelection extends GenericKeywords {
 					getElement(ObjectRepository.prodInfoNextButton).click();
 					test.log(Status.INFO, "Loan amount entered");
 					//Member Verification
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
 					test.log(Status.INFO, "Member Verified");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					enter_otp_to_the_field_and_procced();
+					test.log(Status.PASS, "OTP Verified Successfully");
+					
 					//Your Information
 					selectDropdownOpt(ObjectRepository.idType,idTypeDD);
 					getElement(ObjectRepository.idNum).sendKeys(idNumber);

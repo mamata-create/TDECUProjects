@@ -31,14 +31,24 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">201.5 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">139.2 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr><th colspan="4">Default test &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="1">JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners</td><td><a href="#m1"><b>C24295_VerifyMultipleJointOwners</b>  </a></td><td class="numi">1</td><td>1584647234492</td><td class="numi">185642</td></tr>
+<tr><th colspan="4">Default test &#8212; failed</th></tr>
+<tr class="failedodd"><td rowspan="1">SelectAccounts.C24309_VerifyMoneyMarketSelection</td><td><a href="#m1"><b>C24309_VerifyMoneyMarketSelection</b>  </a></td><td class="numi">1</td><td>1584730841144</td><td class="numi">91462</td></tr>
 </table>
 <h1>Default test</h1>
-<h2 id="m1">JointOwnersBeneficiaries.C24295_VerifyMultipleJointOwners:C24295_VerifyMultipleJointOwners</h2>
+<h2 id="m1">SelectAccounts.C24309_VerifyMoneyMarketSelection:C24309_VerifyMoneyMarketSelection</h2>
+<div style="padding-left:3em">
+<p>expected [true] but found [false]</p>
+org.testng.Assert.fail(Assert.java:94)
+<br/>at org.testng.Assert.failNotEquals(Assert.java:494)
+<br/>at org.testng.Assert.assertTrue(Assert.java:42)
+<br/>at org.testng.Assert.assertTrue(Assert.java:52)
+<br/>at com.FrameworkComponents.GenericKeywords.verifyText(GenericKeywords.java:82)
+<br/>at SelectAccounts.C24309_VerifyMoneyMarketSelection.C24309_VerifyMoneyMarketSelection(C24309_VerifyMoneyMarketSelection.java:112)
+<br/>25 lines not shown
+</div>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>
