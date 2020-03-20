@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="AgreementsDisclosures.C24291_VerifyCourtesyPayOption">
+      <class name="JointOwser_Beneficiaries.C24321_NonMemberUserCanSeeTheAssignedRoleToTheBeneficiary">
         <methods>
-          <include name="tearDown"/>
-          <include name="C24291_VerifyCourtesyPayOption"/>
+          <include name="C24321_NonMemberUserCanSeeTheAssignedRoleToTheBeneficiary"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- AgreementsDisclosures.C24291_VerifyCourtesyPayOption -->
+      </class> <!-- JointOwser_Beneficiaries.C24321_NonMemberUserCanSeeTheAssignedRoleToTheBeneficiary -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

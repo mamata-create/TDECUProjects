@@ -680,8 +680,10 @@ public class ObjectRepository {
 		public static String crtfctdpst_opt="//h4[contains(text(),'Certificates of Deposit')]";
 		public static String crtfctdpst_amnttxt="//input[@id='tbFilterLoanAmount_CDWizard']";
 		public static String crtfctdpst_trmopt3="//label[contains(text(),'3 Month Share Certificate')]";
+		public static String crtfctdpst_term="//select[@id='ddlFilterTerm_CDWizard']";
 		public static String mrktmnydpst_opt="//h4[contains(text(),'Money Market Accounts')]";
 		public static String mrktmnydpst_chk="//label[text()=' Money Market']";
+		public static String moneyMarket_chk="//label[contains(text(),'Money Market')]";
 		
 		public static String needloan_yes="//label[@for='rbOtherProdYes_RadioButton']";
 		public static String needloan_no="//label[@for='rbOtherProdNo_RadioButton']";
