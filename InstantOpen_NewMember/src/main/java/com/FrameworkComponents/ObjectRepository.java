@@ -773,4 +773,59 @@ public class ObjectRepository {
 		public static String sub_disclaimer_text(String index){
 			return "(//div[contains(@class,'disclaimer')]//p)["+index+"]";
 		}
-	}
+		
+		// --- Aditi ----
+		public static String loanCreditCard_sectn_locator = "//h4[text()='For loans and credit cards']";
+		public static String lcc_criteria(int criteria_no){
+			return "//div[@class='col-sm-6 col-xm docSection']/div[@class='sectionIcon']/h4[text()='For loans and credit cards']/following::ul[1]/li["+criteria_no+"]";
+		}
+		public static String faqSectionTitle = "//h3[text()='Frequently Asked Questions']";
+		public static String faq_collapse(int index){
+			return "//div[@class='panel panel-default']["+index+"]/div/h4/i";
+		}
+		public static String faq_questns(String questn){
+			return "//text()[contains(.,'"+questn+"')]/ancestor::h4[1]";
+		}
+		public static String faq_answers (int index){
+			return "//*[@id='collapseQ"+index+"']/div/p";
+		}
+		public static String bulletForAns1(int index){
+			return "//*[@id='collapseQ1']/div/ul/li["+index+"]";
+		}
+		public static String q1_countryList = "//*[@id='collapseQ1']/div/div/table/tbody/tr/td";
+		public static String q1_hyperlink1 = "//*[@id='collapseQ1']/div/ul/li[2]/a";
+		public static String q1_hyperlink2 = "//*[@id='collapseQ1']/div/ul/li[3]/a";
+		public static String q4_hyperlink1 = "//*[@id='collapseQ4']/div/p/a";		
+		
+		public static String progressBar = "//span[@id='progBar']";
+		public static String progressBarText(int index)
+	       {
+	              String progressBarText = "//span[@id='progBar']//tbody/tr/td["+index+"]/span";
+	              return progressBarText;
+	       }
+       public static String thumbnail_Set(int index)
+       {
+              String thumbnail = "//div[@class='col-sm-4 col-xm']["+index+"]/div/div/h3";
+              return thumbnail;
+       }
+       public static String sub_Header = "//h3[contains(text(),'Apply for your account in minutes')]";
+       public static String  for_CheckingSavings_Cds = "//div[@class='sectionIcon'][1]/h4"; 
+       public static String  for_LoansandCreditCards = "/html//form[@id='fiVISIONWebForm']/span/table//div[@class='MainBorder']/div[@class='ShadowWrap']/div[@class='ContentTable']/div/span/div[@class='container']/div/div[@class='row']/div/div[@class='sectionIcon']/h4[.='For loans and credit cards']";
+       public static String frequentlyAskedQuestions_Section = "//div[@class='row'][3]/div/h3[text()='Frequently Asked Questions']";
+       public static String importantAccountOpenningInformation = "//div[@class='col-sm disclaimer']/h4/strong[text()='IMPORTANT ACCOUNT OPENING INFORMATION:']";
+       public static String header_ExisitngMemberandNonMember_Subpages="//div[@class='container']/span[2]/div/div/h3";
+       
+       //Form fill locators
+       public static String header_Section(int index)
+   	{
+   		String section="//div[@class='form-inline']/div[@class='SectionHeaders']["+index+"]";
+   		return section;
+   	}
+       public static String button_Continue=	"//input[@name='NextButton$NextButton_SubmitButton']";
+       public static String header_MembershipEligibility="//h3/strong";
+       public static String button_Back="//input[@id='BackButton_SubmitButton']";
+       public static String courtesy_pay = "//span[@id='cbCourtPayOptIn']/div[1]";
+       public static String membership_eligiblty_continue_btn = "//*[@id='NextButton_SubmitButton']";
+       public static String confirm_prodt_servc_btn ="//*[@id='btnNext_SubmitButton']";
+       public static String back_frm_agreemnt_page = "//*[@id='btnBack_SubmitButton']";
+}
