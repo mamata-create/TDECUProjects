@@ -243,16 +243,16 @@ public class C24321_NonMemberUserCanSeeTheAssignedRoleToTheBeneficiary extends G
 							   verifyText(ObjectRepository.confirmAccountRoleF_Name(2), fname);							   
 							   verifyText(ObjectRepository.confirmAccountRoleF_Name(3), beneficiary_fname);
 							   System.out.println("First Name and Beneficiary name matched");
-							   test.log(Status.INFO,"Beneficiary name matched");
+							   test.log(Status.INFO,"Beneficiary Name Matched");
 							   
 							   boolean status=verifyProductSelectionConfirmAccountRole();
 							   if(status==true)
 							   {
-								   test.log(Status.PASS,"Product selection verification is passed");   
+								   test.log(Status.PASS,"Product selection verification Passed");   
 							   }
 							   else
 							   {
-								   test.log(Status.FAIL,"Product selection verification is passed");
+								   test.log(Status.FAIL,"Product selection verification Failed");
 							   }
 							   
 					  
@@ -270,20 +270,20 @@ public class C24321_NonMemberUserCanSeeTheAssignedRoleToTheBeneficiary extends G
 			   String expectedProducts[] = new String[] { "","","Classic MasterCard ®","Auto Loan (New or Used)","My Way Loan: $4,000","Money Market","Club Account","High Yield Checking", "Share" };
 			   
 			   verifyText(ObjectRepository.confirmAccountProduct_Name(index),expectedProducts[index]);
-			   test.log(Status.INFO,"Product name matched");
+			   test.log(Status.INFO,"Product name "+ expectedProducts[index] + " Matched");
 			   
 			   String productcheckedStatusmember=getAttribute(ObjectRepository.productcheckedStatusmember(index),"class");
 			   if(productcheckedStatusmember.contains("checked") && productcheckedStatusmember.contains("disabled") )
 			   {
 				  
 				   System.out.println("Member Product Check status:"+expectedProducts[index]+ " Prod Status : Disabled");
-				   test.log(Status.PASS,"Product selection Status Matched for Member");
+				  
 			   }
 			   else
 			   {
 				   status=false;
 				   System.out.println("Member Product Check status:"+expectedProducts[index]+ " Prod Status : Disabled");
-				   test.log(Status.FAIL,"Product selection Status not Matched for Member");
+				  
 			   }
 			   
 			   
