@@ -27,7 +27,7 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.search.FlagTerm;
-
+import org.openqa.selenium.Dimension;
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.openqa.selenium.By;
@@ -1147,6 +1147,7 @@ public class GenericKeywords extends BaseClass {
 		//System.out.println("Error messages not displayed for field");
 	}
 	
+
 	
 	public static void validate_dropdown_Field(String locator, String fieldValue,String estric,String errorMessage) throws InterruptedException {
 		
@@ -1226,7 +1227,5 @@ public static void validate_dropdown_dependent_Field(String locator, String fiel
 		//System.out.println("Error messages not displayed for field");
 
 	}
-	
-	
 
 }
