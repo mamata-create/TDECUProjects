@@ -77,7 +77,7 @@ public class C24060_VerifyCreditCardFunding extends GenericKeywords{
 					getElement(ObjectRepository.classicCheckCheckBox).click();
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Classic Checking account selected");
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();

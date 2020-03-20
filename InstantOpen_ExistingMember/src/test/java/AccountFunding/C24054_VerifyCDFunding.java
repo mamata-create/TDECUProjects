@@ -53,6 +53,7 @@ public class C24054_VerifyCDFunding extends GenericKeywords{
 					String belowAmt= excl.getCellData(sheetName, 11, startIter);
 					String aboveAmt= excl.getCellData(sheetName, 12, startIter);
 					String validAmt= excl.getCellData(sheetName, 13, startIter);
+					String promocode = excl.getCellData(sheetName, 44, startIter);
 					
 					scrollToElement(ObjectRepository.mmbrstrt_btn);
 					getElement(ObjectRepository.mmbrstrt_btn).click();
@@ -64,29 +65,47 @@ public class C24054_VerifyCDFunding extends GenericKeywords{
 					getElement(ObjectRepository.productPageNext).click();
 					test.log(Status.INFO, "Share Certificate selected");
 					//Member info
-					getElement(ObjectRepository.mmbrVerifyNum).sendKeys(mmbrNum);
+					
 					getElement(ObjectRepository.mmbrVerifySSN).sendKeys(SSN);
 					getElement(ObjectRepository.mmbrVerifyDOB).sendKeys(DOB);
 					getElement(ObjectRepository.mmbrVerifyNext).click();
-					getElement(ObjectRepository.productPageNext).click();
+					
 					test.log(Status.INFO, "Member and Applicant Info Verified");
-					//Confirm Accounts
-					String maturity = cdMaturityDate(18);					
-					String concatProd = confirmProd+" "+maturity+")";
-					verifyText(ObjectRepository.prodOne,concatProd);
-					getElement(ObjectRepository.confirmBtn).click();
-					test.log(Status.INFO, "Account selection confirmed");
+					
+					verifyText(ObjectRepository.delivery_method_page_header,"Select a Delivery Method");
+					test.log(Status.INFO, "user on Delivery Method page");
+					//Enter OTP from Email
+					enter_otp_to_the_field_and_procced();
+					
+					getElement(ObjectRepository.productPageNext).click();
+					test.log(Status.INFO, "Applicant Information entered");
+					
+					//Enter PromoCode
+					enterPromocode(promocode);
+//					//Confirm Accounts
+//					String maturity = cdMaturityDate(18);					
+//					String concatProd = confirmProd+" "+maturity+")";
+//					verifyText(ObjectRepository.prodOne,concatProd);
+//					getElement(ObjectRepository.confirmBtn).click();
+//					test.log(Status.INFO, "Account selection confirmed");
 					//Agreements and Disclosures
 					getElement(ObjectRepository.discCheckBox).click();
 					getElement(ObjectRepository.agreeCheckBox).click();
 					getElement(ObjectRepository.confirmBtn).click();
 					test.log(Status.INFO, "Agreements and Disclosures accepted");
 					//Identity Questions
-					getElement(ObjectRepository.qstnOneOptnOne).click();
-					getElement(ObjectRepository.qstnTwoOptnTwo).click();
-					getElement(ObjectRepository.qstnThreeOptnThree).click();
-					getElement(ObjectRepository.qstnFourOptnFour).click();
-					getElement(ObjectRepository.confirmBtn).click();
+					String[]options = new String[]{"Loudon, MD","Foo Bar, Inc","Roanoke","123 W 14th Street"};
+					for(String eachOption : options){
+						
+						
+						String locator = "//label[text()='"+eachOption+"']";
+						scrollToElement(locator);
+						getElement(locator).click();
+						test.log(Status.INFO, eachOption+" verification question answered");
+					}
+					
+
+					getElement(ObjectRepository.cnfrm_btn).click();
 					test.log(Status.INFO, "Identity questions answered");
 					//Account Funding
 					getElement(ObjectRepository.submitBtn).click();

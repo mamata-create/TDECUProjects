@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="MemberVerification.C28376_UserwouldLikeToReRequestOTP">
+      <class name="AccountFunding.C24054_VerifyCDFunding">
         <methods>
-          <include name="C28376_UserwouldLikeToReRequestOTP"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
           <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="C24054_VerifyCDFunding"/>
         </methods>
-      </class> <!-- MemberVerification.C28376_UserwouldLikeToReRequestOTP -->
+      </class> <!-- AccountFunding.C24054_VerifyCDFunding -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
