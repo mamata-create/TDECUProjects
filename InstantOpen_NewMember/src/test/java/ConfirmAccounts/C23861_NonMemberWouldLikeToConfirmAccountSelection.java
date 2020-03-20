@@ -96,7 +96,7 @@ public class C23861_NonMemberWouldLikeToConfirmAccountSelection extends GenericK
 			getElement(ObjectRepository.confirm_prodt_servc_btn).click();
 			verifyText(ObjectRepository.agreementTtl,  "Account Agreements and Disclosures");
 			test.log(Status.INFO,  "Got back to 'Account Agreements and Disclosures' page");
-			"//*[@id="DisclosuresList01"]/a[1]"
+//			"//*[@id="DisclosuresList01"]/a[1]"
 			
 //			getElement(ObjectRepository.tnc_chkbx).click();
 //			getElement(ObjectRepository.taxpayerIdentificationNumber).click();

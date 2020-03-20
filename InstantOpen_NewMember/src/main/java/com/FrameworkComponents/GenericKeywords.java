@@ -1227,5 +1227,50 @@ public static void validate_dropdown_dependent_Field(String locator, String fiel
 		//System.out.println("Error messages not displayed for field");
 
 	}
+	
+	public static ArrayList<String> splitString(String input, String separator){
+		ArrayList<String> arrli = new ArrayList<String>();
+		if (input!=null && separator!=null){
+			for (String p : input.split(separator)) {
+				 arrli.add(p.trim());
+			 }
+		}
+		return arrli;
+	} 
+	
+	public static void switchToWindow(int index){
+		Set<String>allWindow = driver.getWindowHandles();
+		System.out.println("Total window present: "+allWindow);
+		ArrayList<String>tab = new ArrayList<String>(allWindow);
+		driver.switchTo().window(tab.get(index));
+	}	
+	
+	public static String getTitle(){
+		String title = driver.getTitle();
+		System.out.println("Window title: "+title);
+		return title;
+	}
+	
+	public static void validateHyperlink(int index, String url, String title){
+		String currentUrl, currentTitle = "";
+		switchToWindow(index);
+		currentUrl = getCurrentUrl();
+		currentTitle = getTitle();
+		
+		System.out.println("currentUrl:"+currentUrl);
+		System.out.println("Passed Url:"+url);
+		if (currentUrl.contains(url)){
+			if (currentTitle.equals(title)){
+				Assert.assertTrue(true, "Working ::"+url);
+			}	
+			else{
+				System.out.println("Title didn't matched");
+			}
+		} 
+		else{
+			Assert.assertTrue(false, "Expected url not found");
+		}
+		closeWindow();
+	}
 
 }
